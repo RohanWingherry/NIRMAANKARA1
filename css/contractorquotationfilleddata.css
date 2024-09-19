@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.quotation-main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+.quotation-main .quotation-heading{
+    font-size: 18px;
+    font-weight: bold;
+    color: #008994;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quotation-main .export>span{
+    font-size: 14px;
+    background-color: #2E6C9A;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 400;
+}
+.quotation-main .from-to{
+    display: flex;
+    flex-direction: column;
+}
+.quotation-main .from-to>span{
+    font-size: 14px;
+}
+.quotation-main .house-model{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+.quotation-main .house-modle>div{
+    font-size: 14px;
+}
+.house-model table{
+    text-align: center;
+    font-size: 15px;
+    border-spacing: 0 10px;
+}
+.house-model table th{
+    border: none;
+    border: 1px solid rgb(104, 104, 104);
+    background-color: #c0c0c0;
+    padding: 5px 80px;
+    border-right: none;
+}
+.house-model table .amount-heading{
+    border-right: 1px solid rgb(104, 104, 104);
+}
+.house-model table td{
+    border: none;
+    border-right: 1px solid rgb(196, 196, 196);
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+}
+.house-model table .amount{
+    border-right: none;
+}
+.house-model .table-main{
+    width: 100%;
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:768px) {
+    .house-model table th{
+        padding: 5px 20px;
+    }
+}
+

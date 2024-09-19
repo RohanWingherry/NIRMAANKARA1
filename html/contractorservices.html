@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmaankara</title>
+    <link rel="stylesheet" href="../css/sidenavbar.css">
+    <link rel="stylesheet" href="../css/contractorservices.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../assets/nirmankara-logo.png">
+</head>
+<body>
+    <div class="navigation-bar">
+        <div class="mob-hamberger">
+            <div class="mobile-btn-main">
+                <i class="fa-solid fa-bars" id="mobile-btn"></i>
+            </div>
+        </div>
+        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
+            <img src="../assets/nirmankara-logo.png" alt="">
+            <div>NIRMAANKARA</div>
+        </div>
+        <div class="notify">
+            <i class="fa-regular fa-bell" id="bell"></i>
+            <div>
+                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
+            </div>
+        </div>
+    </div>
+    <div class="main-profileview">
+        <div class="profile-view">
+            <div class="profile">
+                <span><img src="../assets/profile-pic.png" alt=""></span>
+            </div>
+            <div class="manage">
+                <span>Manage Your Profile</span>
+            </div>
+            <span class="line"></span>
+            <div class="logout">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-notification">
+        <div class="notification">
+            <div class="notify-heading">
+                <span>Notifications</span>
+            </div>
+            <div class="single-block" id="agreement-notification">
+                <div class="icon-block">
+                    <span class="red-dot"></span>
+                    <span class="material-symbols-outlined">handshake</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Agreement</span>
+                        <div>
+                            <span>Today</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Agreement is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">price_change</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Quotation</span>
+                        <div>
+                            <span>1 day ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Quotation is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">timer</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Follow up</span>
+                        <div>
+                            <span>2 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your follow up has been scheduled! Thank You.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Leads</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>7:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>We have a new lead only for you! Hurry Up.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Campaign</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your ads has been published, Thank you!.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Profile</span>
+                        <div>
+                            <span>8 days ago</span>
+                            <span>9:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Congrulations, your profile has been updated successfully.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="sidebar">
+        <div class="top">
+            <i class="fa-solid fa-bars" id="btn"></i>
+        </div>
+        <ul>
+            <li>
+                <a href="../html/contractorshomepage.html">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorallleads.html">
+                    <span class="material-symbols-outlined">groups</span>
+                    <span class="nav-item">Leads</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorcampaignmainpage.html">
+                    <span class="material-symbols-outlined">campaign</span>
+                    <span class="nav-item">Campaign</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorfollowupmainpage.html">
+                    <span class="material-symbols-outlined">timer</span>
+                    <span class="nav-item">Follow Up</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorquotation.html">
+                    <span class="material-symbols-outlined">price_change</span>
+                    <span class="nav-item">Quotation</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractoragreementcontractor.html">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <span class="nav-item">Agreement</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorprocurement.html">
+                    <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                    <span class="nav-item">Procurement</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorpurchaseorderhistory.html">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="nav-item">Purchasing</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorworkstatus.html">
+                    <span class="material-symbols-outlined">work_history</span>
+                    <span class="nav-item">Work Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorinvoice.html">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="nav-item">Invoice</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorreceipt.html">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="nav-item">Receipt</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorrefer.html">
+                    <span class="material-symbols-outlined">diversity_2</span>
+                    <span class="nav-item">Referral</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractoroffer.html">
+                    <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
+                    <span class="nav-item">Offers</span>
+                </a>
+            </li>
+            <li id="present-active-page">
+                <a href="../html/contractorprofile.html">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="nav-item">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="main-agreement">
+            <div id="overview-headings">
+                <span onclick="window.location.href='../html/contractorcontractorDetails.html'">CONTRACTOR DETAILS</span>
+                <span onclick="window.location.href='../html/contractorOrganisationDetails.html'">ORGANISATION DETAILS</span>
+                <span class="active">SERVICES</span>
+                <span id="project">PROJECTS</span>
+                <span>PAYMENT</span>
+            </div>
+            <p class="construction-heading">Construction Related Services</p>
+            <div id="services">
+                <section>
+                    <span class="material-symbols-rounded">handyman</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="remodulation" class="check">
+                        <label for="remodulation">Building Re-Modulation</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">villa</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="house" class="check">
+                        <label for="house">Independent House/Villa</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">apartment</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="res-app" class="check">
+                        <label for="res-app">Residential Appartment</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">source_environment</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="ser-app" class="check">
+                        <label for="ser-app">Serviced Apartment</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">factory</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="industries" class="check">
+                        <label for="industries">Industries</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">cottage</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="complex" class="check">
+                        <label for="complex">Complex</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">local_convenience_store</span>
+                        <div class="checkoxes">
+                        <input type="checkbox" id="commercial" class="check">
+                        <label for="commercial">Commercial</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">family_home</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="farm-house" class="check">
+                        <label for="farm-house">Farm House</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">nature_people</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="venture" class="check">
+                        <label for="venture">Venture Development</label>
+                    </div>
+                </section>
+            </div>
+    
+            <p class="other-heading">Other Services</p>
+            <div id="services" class="services">
+                <section>
+                    <span class="material-symbols-rounded">shower</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="plumbing" class="check">
+                        <label for="plumbing">Plumbing</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">electrical_services</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="electrical" class="check">
+                        <label for="electrical">Electrical</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">room_preferences</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="interiors" class="check">
+                        <label for="interiors">Interiors</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">chair</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="furnitures" class="check">
+                        <label for="furnitures">Carpentary</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">imagesearch_roller</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="painting" class="check">
+                        <label for="painting">Painting</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">roofing</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="roofing" class="check">
+                        <label for="roofing">Roofing</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">domain_disabled</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="demolition" class="check">
+                        <label for="demolition">Demolition</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">engineering</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="excavation" class="check">
+                        <label for="excavation">Excavation</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">psychiatry</span>
+                    <div class="checkoxes">
+                        <input type="checkbox" id="garden" class="check">
+                        <label for="garden">Roof top gardening</label>
+                    </div>
+                </section>
+                <section>
+                    <span class="material-symbols-rounded">settings</span>
+                    <div class="checkoxes">
+                        <label for="others" class="add-others">Add Others</label>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- modal -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add Label for Others</h2>
+                    <input type="text" id="modal-label" placeholder="Enter label">
+                    <input type="submit" id="save-label"></input>
+                </div>
+            </div>
+    
+            <!-- submit block -->
+            <div class="next-block">
+                <input type="submit" id="save" value="Save"></input>
+                <span id="next">Next <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </div>
+    
+        <div id="notification"></div>
+        <div class="main-footer-box">
+            <footer>
+                <section>
+                    <section class="social">
+                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+                    <div>
+                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                        <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                        <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+                    </div>
+                </section>
+                </section>
+                <section class="quick-links">
+                    <span>QUICK LINKS</span>
+                    <div>
+                        <a href="../html/contractorshomepage.html">List your Business</a>
+                        <a href="../html/customerprofile.html">Develop your Land</a>
+                        <a href="">List your Land</a>
+                        <a href="">Post a Free Ad</a>
+                        <a href="">Buyer</a>
+      
+                    </div>
+                </section>
+                <section class="contact-info">
+                    <span>CONTACT INFO</span>
+                    <div>
+                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                        <span><b>Phone:</b> +91 9985752406</span>
+                        <span><b>Email:</b> nirmaankara@gmail.com</span>
+                    </div>
+                </section>
+                <section class="subscribe">
+                    <span>SUBSCRIBE TO OUR PORTAL</span>
+                    <div>
+                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                        <form>
+                            <input type="email" placeholder="Your Email" >
+                            <button type="submit" class="fotbtn">&#8594;</button>
+                        </form>
+                    </div>
+                </section>
+            </footer>
+            <div class="copyright">
+                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+                <div>
+                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                    <div></div>
+                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+                </div>
+            </div>
+         </div>
+    </div>
+    <script src="../javascript/sidenavbar.js"></script>
+    <script src="../javascript/contractorservices.js"></script>
+</body>
+</html>

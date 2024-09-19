@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.contentofpage{
+    margin:10px 0px;
+}
+.term-main{
+    margin: 10px;
+    padding: 10px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+  }
+  .term-main h1{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    /* padding: 5px 6px;
+    background-color: whitesmoke;
+    width: max-content;
+    margin: auto; */
+  }
+  hr{
+    margin: 15px 0;
+  }
+  .termhead{
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .termsubhead{
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .termpara{
+    padding:5px 10px;
+    font-size: 14px;
+  }
+  .textbox ul{
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  .textbox ol{
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+
+  .table-section{
+    display: flex;
+    justify-content: center;
+    
+  }
+  .policytable {
+    max-width: 500px;
+    width: 100%;
+    padding:0px 10px ;
+    border-collapse: collapse;
+    margin: 20px 0;
+    
+    }
+    .policytable, th, td {
+        border: 1px solid black;
+    }
+    .policytable th{
+        font-size: 14px;
+        font-weight:500;
+    }
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+    .policytable td{
+        font-size: 14px;
+        font-size: 400;
+    }
+
+    /* footer */
+.main-content {
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: calc(100% - 0px);
+}

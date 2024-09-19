@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.main-agreement{
+    padding: 20px;
+}
+.main-category{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.main-category .typeofcategory{
+    height: 100%;
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+.main-category .typeofcategory>section:first-child{
+    font-size: 16px;
+    font-weight: 500;
+    color: #008994;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    span:first-child,span:last-child{
+        border: 1px solid #008994;
+        width: 70px;
+    }
+}
+.main-contractordetails{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#overview-headings{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    gap: 20px;
+}
+#overview-headings>span{
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+#overview-headings .active{
+    color: #286DB3;
+    border-bottom: 3px solid #286DB3;
+}
+
+.construction-heading,.other-heading{
+    font-size: 16px;
+    font-weight: bold;
+    color: #008994;
+    padding: 5px 10px;
+}
+
+/* other services */
+#services{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+#services>section{
+    background-color: rgb(250, 250, 250);
+    height: 160px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    gap: 30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+}
+#services .checked{
+    background-color: #286DB3;
+}
+#services>section:hover{
+    transform: scale(1.05);
+}
+#services>section>i, #services>section>span{
+    background-color: #286DB3;
+    font-size: 25px;
+    padding: 7px;
+    color: white;
+    border-radius: 5px;
+}
+#services .checkoxes{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+#services .checkoxes>input[type=checkbox]{
+    appearance: none;
+    position: relative;
+    height: 18px;
+    width: 18px;
+    border-radius: 5px;
+    background-color: #c4c4c4;
+}
+#services .checkoxes>input[type=text]
+{
+    border-radius: 5px;
+    border: 1px solid rgb(201, 201, 201);
+    height: 25px;
+    outline: none;
+    padding: 0px 10px;
+}
+#services .checkoxes>input[type=checkbox]:checked{
+    background-color: white;
+}
+#services .checkoxes>input[type=checkbox]::before{
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 3px;
+    height: 9px;
+    border: 3px solid transparent;
+    border-left: none;
+    border-top:none ;
+    transform: rotate(45deg) scale(1);
+}
+#services .checkoxes>input[type=checkbox]:checked:before{
+    border-color: #286DB3;
+}
+
+#services .checkoxes>label{
+    font-size: 14px;
+    font-weight: 600;
+    color: #286DB3;
+}
+#services .new-section{
+    background-color: #286DB3;
+}
+#services .new-section label{
+    color: white;
+}
+#services .new-section>span{
+    color: #286DB3;
+    background-color: white;
+}
+
+
+@media (max-width:768px) {
+    .main-category .typeofcategory{
+        width: 100%;
+    }
+    .main-category .description-main{
+        width: 100%;
+    }
+}
+.next-block{
+    display: flex;
+    align-items:center ;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    gap: 40px;
+}
+.next-block #save{
+    background-color: green;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.next-block #next{
+    cursor: not-allowed;
+    background-color: #547faa;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+}
+    
+    /* toastify */
+    
+    .wrapper{
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        overflow: hidden;
+    }
+    .success{
+        position: fixed;
+        top: 55px;
+        right: 20px;
+        width: 300px;
+        padding: 20px 0px;
+        display: flex;
+        border-radius: 7px;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        animation: show 1s ease 1 forwards;
+        border-left: 8px solid #3dbd32;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    .success>i{
+        color: #3dbd32;
+        font-size: 20px;
+    }
+    .failed{
+        position: fixed;
+        top: 55px;
+        right: 20px;
+        width: 300px;
+        padding: 20px 0px;
+        display: flex;
+        border-radius: 7px;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        animation: show 1s ease 1 forwards;
+        border-left: 8px solid #F7E910;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    .failed>i{
+        color: #F7E910;
+        font-size: 20px;
+        background-color: black;
+        padding: 5px;
+    }
+    .content{
+        font-size: 14px;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-evenly;
+    }
+    .content>p:first-child{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .content>p:last-child{
+        font-size: 12px;
+        color: #454545;
+    }
+    .toast .title{
+        font-size: 18px;
+    }
+    .toast>span{
+        font-size: 20px;
+        cursor: pointer;
+    }
+    @keyframes show{
+        0%{
+            transform: translateX(100%);
+        }
+        40%{
+            transform: translateX(-5%);
+        }
+        80%{
+            transform: translateX(0%);
+        }
+        100%{
+            transform: translateX(-10%);
+        }
+    }
+    .failed::before{
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        background-color: #F7E910;
+        box-shadow: 0 0 10px #F7E910;
+        animation: timeOut 5s linear 1 forwards;
+    }
+    .success::before{
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        background-color: #3dbd32;
+        box-shadow: 0 0 10px #3dbd32;
+        animation: timeOut 5s linear 1 forwards;
+    }
+    @keyframes timeOut {
+        to{
+            width:0;
+        }
+    }
+
+    /* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

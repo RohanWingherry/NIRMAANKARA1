@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+  .signcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .image-section {
+    /* flex: 1 1 300px; */
+    position: absolute;
+    display: flex;
+    justify-content:flex-end;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  
+  .image-section img {
+    width: 100%;
+    max-width: 100px;
+  }
+  
+  .form-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid rgb(231, 228, 237);
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  
+  .form-title {
+    text-align: center;
+    font-size: 18px;
+    color: #048799;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .form-description {
+    text-align: center;
+    font-size: 12px;
+    color: #646464;
+    margin-bottom: 25px;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .grp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  @media (max-width:760px) {
+    .grp{
+        display: flex;
+        flex-wrap: wrap;
+    }
+  }
+  .signup-form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #89848d;
+  }
+  .password-wrapper {
+    position: relative;
+    width: 100%;
+  }
+.toggle-confirm-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+    color: #646464;
+    user-select: none;
+  }
+  
+  .toggle-confirm-password:hover {
+    color: #028397;
+  }
+  .terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .terms input {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+  }
+  
+  .terms label {
+    font-size: 12px;
+    color: #000;
+    text-transform: uppercase;
+  }
+  
+  .terms span {
+    color: red;
+  }
+  .subbtn{
+    display: flex;
+    justify-content: center;
+  }
+  .submit-btn {
+    padding: 10px;
+    background-color: #028397;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: max-content;
+    text-align: center;
+  }
+  
+  .existing-account {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .login-link {
+    color: red;
+    cursor: pointer;
+  }
+  .input-field.error {
+    border: 2px solid red;
+  }
+  
+  /* .input-field.valid {
+    border: 2px solid rgb(0, 0, 0);
+  } */
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .toggle-password,
+  .toggle-confirm-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+
+  /* footer */
+.main-content {
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: calc(100% - 0px);
+}

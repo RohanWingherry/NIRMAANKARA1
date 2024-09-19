@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.main-refer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.main-refer .refer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.main-refer .refer-a-friend{
+    font-size: 18px;
+    color: #008894;
+    font-weight: bold;
+}
+.main-refer .refer-description{
+    font-size: 14px;
+    color: rgb(73, 73, 73);
+}
+.main-refer .section-3{
+   display: flex;
+   align-items: flex-start;
+}
+.main-refer .invite{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+}
+.section-3 .invite>div:first-child{
+    border: 2px solid rgb(4,135,153);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+.section-3 .invite>div:first-child>input,.section-4 .invite1>input{
+    padding: 0px 5px;
+    border: none;
+    outline: none;
+}
+.section-3 .invite>div:first-child>label,.section-4 .invite1>label{
+    font-size: 12px;
+    background-color: rgb(4,135,153);
+    color: white;
+    padding: 5px 30px;
+}
+.invite>div:last-child{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.invite>div:last-child>span:first-child{
+    font-size: 13px;
+    font-weight: bold;
+}
+.invite>div:last-child>span:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.invite>div:last-child>span:last-child>i{
+    color: rgb(4,135,153);
+}
+.main-refer .section-4{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+.main-refer .section-4>fieldset{
+    border: 2px dotted rgb(4,135,153);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main-refer .section-4>fieldset>legend{
+    text-align: center;
+}
+.section-4 .invite1{
+    border: 2px solid rgb(4,135,153);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+.section-4 .invite1 .copytext{
+    width: 100px;
+    text-align: center;
+}
+.section-4 .links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    cursor: pointer;
+}
+.section-4 .links>span:first-child{
+    font-size: 13px;
+    font-weight: bold;
+}
+.section-4 .links>span:last-child{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.section-4 .links>span:last-child>i{
+    font-size: 23px;
+    color: rgb(4,135,153);
+    
+}
+.main-refer>.image>img{
+    height: 600px;
+    width: 500px;
+}
+@media (max-width:768px) {
+    .main-refer .section-3{
+        align-items: center;
+        justify-content: center;
+    }
+    .main-refer .section-4{
+        align-items: center;
+        justify-content: center;
+    }
+    .main-refer>.image>img{
+        height: 100%;
+        width: 100%;
+    }
+}

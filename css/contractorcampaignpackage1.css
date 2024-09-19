@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+};
+.main-contentor{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+}
+#overview-headings{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px 40px;
+    gap: 20px;
+}
+#overview-headings>span{
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+#overview-headings .active{
+    color: #286DB3;
+    border-bottom: 3px solid #286DB3;
+}
+.box{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+    align-items: center;
+    gap:30px;
+    padding: 20px;
+    /* flex-direction: column; */
+}
+.main-content h1{
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px;
+    color: #088994;
+    text-align: center;
+}
+.boxes{
+    width:250px;
+    height:455px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 15px;
+    padding-bottom: 30px;
+    gap:30px;
+    margin-top: 25px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.side{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width:100%;
+}
+.boxes:hover{
+    scale:1.06;
+}
+.box2{
+    margin-left: 4%;
+    margin-right:4%;
+    display: flex;
+    align-items: center;
+    gap:15px;
+    width: 85%;
+    height: 100%;
+} 
+.line{
+    width: 80%;
+    border: 1px solid black;
+}
+.icons i{
+    font-size: 18px;
+}
+#boxes1 .icons i{
+    color:rgb(0, 137, 148);
+}
+#boxes2 .icons i{
+    color:rgb(250, 196, 0);
+}
+#boxes3 .icons i{
+    color:rgb(16, 87, 139)
+}
+#boxes4 .icons i{
+    color:rgb(122, 35, 80);
+}
+#boxes5 .icons i{
+    color:rgb(0, 154, 68);
+}
+#boxes6 .icons i{
+    color:rgb(16, 87, 139);
+}
+#boxes7 .icons i{
+    color:rgb(0, 137, 148);
+}
+.para{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-direction: column;
+    gap:15px;
+    font-size: 14px;
+}
+.icons{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:15px
+}
+.money i{
+    font-size: 20px;
+}
+.box3{
+    margin-left: 4%;
+    margin-right:4%;
+    border-top:2px solid black;
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px;
+}
+.money{
+    display: flex;
+    gap:8px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+#boxes1{
+    width:250px;
+    height:455px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 15px;
+    padding-bottom: 30px;
+
+}
+#boxes2{
+    width:250px;
+    height:455px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 15px;
+    padding-bottom: 30px;
+}
+.price{
+    color:black;
+    font-weight: 500;
+    font-size: 25px;
+}
+.money span{
+    color:rgb(188, 188, 188);
+    font-size: 16px;
+    font-weight: 500;
+}
+.box1{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.card{
+   height:50px;
+   width:100px;
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+   border-bottom-right-radius: 15px;
+   border-top-left-radius: 15px;
+   /* background-color: rgb(0, 137, 148); */
+   color:white;
+   text-transform: capitalize;
+   gap:2px;
+}
+.card>p{
+    margin-top: 8px;
+    margin-left: 20px;
+}
+#boxes1 .card{
+    background-color: rgb(0, 137, 148);
+}
+#boxes2 .card{
+    background-color: rgb(250, 196, 0);
+}
+#boxes3 .card{
+    background-color: rgb(16, 87, 139);
+}
+#boxes4 .card{
+    background-color: rgb(122, 35, 80);
+}
+#boxes5 .card{
+    background-color: rgb(0, 154, 68);
+}
+#boxes6 .card{
+    background-color: rgb(16, 87, 139);
+}
+#boxes7 .card{
+    background-color: rgb(0, 137, 148);
+}
+.basic{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.basic1{
+    font-size: 10px;
+    margin-left: 20px;
+}
+.box button{
+    width:100%;
+    padding: 8px;
+    background-color: white;
+    /* color:rgb(0, 137, 148); */
+    outline: none;
+    /* border: 2px solid rgb(0, 137, 148); */
+    border-radius: 20px;
+    cursor: pointer;
+}
+#boxes1 button{
+    border: 2px solid rgb(0, 137, 148);
+    color:rgb(0, 137, 148);
+}
+#boxes7 button{
+    border:2px solid rgb(0, 137, 148);
+    color:rgb(0, 137, 148);
+}
+#boxes2 button{
+    color: rgb(250, 196, 0);
+    border:2px solid rgb(250, 196, 0);
+}
+#boxes3 button{
+    color: rgb(16, 87, 139);
+    border:2px solid rgb(16, 87, 139);
+}
+#boxes6 button{
+    color: rgb(16, 87, 139);
+    border:2px solid rgb(16, 87, 139);
+}
+#boxes4 button{
+   color: rgb(122, 35, 80);
+    border:2px solid rgb(122, 35, 80);
+}
+#boxes5 button{
+    color: rgb(0, 154, 68);
+    border:2px solid rgb(0, 154, 68);
+}
+
+
+#boxes1 button:hover{
+    background-color: rgb(0, 137, 148);
+    color:white;
+}
+#boxes7 button:hover{
+    background-color: rgb(0, 137, 148);
+    color:white;
+}
+#boxes2 button:hover{
+    background-color: rgb(250, 196, 0);
+    color:white;
+}
+#boxes3 button:hover{
+    background-color: rgb(16, 87, 139);
+    color:white;
+}
+#boxes6 button:hover{
+    background-color: rgb(16, 87, 139);
+    color:white;
+}
+#boxes4 button:hover{
+    background-color: rgb(122, 35, 80);
+    color:white;
+}
+#boxes5 button:hover{
+    background-color: rgb(0, 154, 68);
+    color:white;
+}
+
+/* tab */
+.tab-data{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tab-data .tab1{
+    border: 1px solid #088994;
+    padding: 10px 0px;
+}
+.tab1 span{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tab1 .active{
+    color: white;
+    background-color: #48b6c0;
+}
+
+.social{
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.social span:last-child{
+    color: blue;
+    cursor: pointer;
+}

@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmaankara</title>
+    <link rel="icon" href="../assets/nirmankaralogo.png">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="../css/sidenavbar.css">
+  </head>
+<body>
+         <!-- nav bar -->
+         <nav class="upper-navbar">
+          <ul class="sidebar">
+              <li onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+              <li><a href="../html/contractorshomepage.html">List your business</a></li>
+              <li><a href="../html/customerprofile.html">Develop your Land</a></li>
+              <li><a href="../html/">List your Land</a></li>
+              <li><a href="../html/">Post a Free Ad</a></li>
+              <li><a href="../html/">Buyer</a></li>
+              <li><a href="../html/login.html" class="login"><div>Login</div></a></li>
+          </ul>
+          <ul>
+              <li class="nirmaankara"><a href="../html/nirmaankarahome.html"><img src="../assets/nirmankaralogo.png" alt=""> NIRMAANKARA</a></li>
+              <li class="hideOnMobile"><a href="../html/contractorshomepage.html">List your Business</a></li>
+              <li class="hideOnMobile"><a href="../html/customerprofile.html">Develop your Land</a></li>
+              <li class="hideOnMobile"><a href="../html/">List your Land</a></li>
+              <li class="hideOnMobile"><a href="../html/">Post a Free Ad</a></li>
+              <li class="hideOnMobile"><a href="../html/">Buyer</a></li>
+              <li class="hideOnMobile"><a href="../html/login.html" class="login"><div>Login</div></a></li>
+              <li class="menu-button" onclick="showSidebar()"><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+          </ul>
+        </nav>
+        
+          <script>
+            function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('active');
+            }
+
+            function hideSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                sidebar.classList.remove('active');
+            }
+
+          </script>
+           <!-- nav bar end -->
+
+
+    <!-- main -->
+    
+    <main>
+      <div class="main">
+        <!-- <img src="../img/india.png" alt=""> -->
+        <div class="side">
+          <div class="quotation">
+            <a href="#" id="getQuoteBtn">Get Quote</a>
+          </div>
+         </div>
+         <!-- pop up -->
+         <div id="popup" class="popup"  style="display: none;">
+          <div class="popup-content">
+              <span class="close">&times;</span>
+              <div class="contractor-pop">
+                  <!-- <img id="contractorImage" src="" alt="Contractor Image"> -->
+                  <p id="contractorNamee">Get Quote</p>
+              </div>
+              <div class="hr"><hr></div>
+              <div class="qoute">
+                <form id="constructionForm">
+                  <div class="form-group">
+                      <div class="input-box">
+                          <input type="text" id="fullName" placeholder="Full Name *" required>
+                          <span class="material-symbols-outlined">
+                              account_circle
+                          </span>
+                      </div>
+              
+                      <div class="input-box">
+                          <input type="text" id="phoneNumber" placeholder="Phone Number *" required>
+                          <span class="material-symbols-outlined">
+                              call
+                          </span>
+                      </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <div class="input-box sel-dif">
+                          <select id="nameType" class="name-type-select" required>
+                              <option value="select">Construction type *</option>
+                              <option value="building-remodulation">Building Remodulation</option>
+                              <option value="independent-house-villa">Independent House/Villa</option>
+                              <option value="residential-apartment">Residential Apartment</option>
+                              <option value="serviced-apartment">Serviced Apartment</option>
+                              <option value="industry-complex">Industry Complex</option>
+                              <option value="commercial">Commercial</option>
+                              <option value="farm-house">Farm House</option>
+                              <option value="venture-development">Venture Development</option>
+                              <option value="other">Other</option>
+                          </select>
+              
+                          <input type="text" id="otherNameType" placeholder="Enter custom" style="display: none;">
+                          <span class="material-symbols-outlined">
+                              check_circle
+                          </span>
+                      </div>
+              
+                      <div class="input-box">
+                          <input type="number" id="landSize" placeholder="Size of land in SFT *" required>
+                          <span class="material-symbols-outlined">
+                              aspect_ratio
+                          </span>
+                      </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <div class="input-box">
+                          <input type="text" id="landAddress" placeholder="Address of land *" required>
+                          <span class="material-symbols-outlined">
+                              location_on
+                          </span>
+                      </div>
+                      <div class="input-box">
+                          <input type="text" placeholder="Notes">
+                          <span class="material-symbols-outlined">
+                              chat
+                          </span>
+                      </div>
+                  </div>
+              
+                  <div class="form-group">
+                      <button class="submit" type="submit">Send Request</button>
+                  </div>
+
+                </form>
+              </div>
+
+          </div>
+         </div> 
+         <!--  -->
+            <div class="search-content">
+              
+                <div class="search">
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa-solid fa-location-dot"></i> Location <i class="fa-solid fa-caret-down"></i></button>
+                        <div class="dropdown-content">
+                          <a href="#">Hyderbad</a>
+                          <a href="#">Telengana</a>
+                        </div>
+                      </div>
+
+                      <div class="find">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Find Your Contractor">
+                    </div>
+                    <div class="expert">
+                        <a href="../html/customercontractorlist.html" >Get Expert</a>
+                    </div>
+
+                </div>
+                
+            </div>
+
+            
+    </div>
+
+    <div class="mid-section">
+      <!-- construction projects display -->
+
+
+      <!-- category -->
+      <div class="category-box">
+        <div class="category-main">
+          <div class="cat-box" onclick="contractorBlock(this)">
+            <img src="../assets/contractor.png" alt="">
+            <span class="cat-name" >Contractor</span>
+          </div>
+          <div class="cat-box"  onclick="builderBlock(this)">
+            <img src="../assets/builder.png" alt="">
+            <span class="cat-name">Builder</span>
+          </div>
+          <div class="cat-box"  onclick="sellPropertyBlock(this)">
+            <img src="../assets/sell.png" alt="">
+            <span class="cat-name">Sell Property</span>
+          </div>
+          <div class="cat-box" onclick="buyPropertyBlock(this)">
+            <img src="../assets/builder.png" alt="">
+            <span class="cat-name">Buy Property</span>
+          </div>
+          <div class="cat-box"  onclick="levingRentBlock(this)">
+            <img src="../assets/rentor.png" alt="">
+            <span class="cat-name">Rentor</span>
+          </div>
+          <div class="cat-box"onclick="leasingOutBlock(this)">
+            <img src="../assets/rental.png" alt="">
+            <span class="cat-name">Rental</span>
+          </div>
+        </div>
+        <!-- contractor Section -->
+        <div id="category-block">
+          <div class="cat-main-contractor" style="display: none;">
+            <div class="cat-contractor">
+              <section class="con-heading ">
+                <span onclick="dropdiv()" class="con-active con-select">General Contractor</span>
+                <span onclick="dropdiv2()" class="con-select2">Specialized Contractor</span>
+              </section>
+              <section class="con-sub-div ">
+                <div class="sub-division">
+                  <a href="#" onclick="window.location.href='../html/customercontractorlist.html'">Building Re-modulation</a>
+                <a href="#" onclick="window.location.href='../html/customercontractorlist.html'">Independent House/Villa</a>
+                <a href="#" onclick="window.location.href='../html/customercontractorlist.html'">Residential Apartment</a>
+                <a href="#" onclick="window.location.href='../html/customercontractorlist.html'">Serviced Apartment</a>
+                <a href="#" onclick="window.location.href='../html/customercontractorlist.html'">Industries</a>
+                <a href="#">Complex</a>
+                <a href="#">Commercial</a>
+                <a href="#">Farm House</a>
+                <a href="#">Venture Development</a>
+                </div>
+              </section>
+              <section class="con-sub-div2 " style="display: none;" >
+               <div class="sub-division">
+                <a href="#">Electrical</a>
+                <a href="#">Plumbing</a>
+                <a href="#">Painting</a>
+                <a href="#">Carpentry</a>
+                <a href="#">Roofing</a>
+                <a href="#">Interiors</a>
+                <a href="#">Roof Top Gardening</a>
+                <a href="#">Flooring</a>
+                <a href="#">Demolition</a>
+                <a href="#">Excavation</a>
+               </div>
+    
+              </section>
+            </div>
+          </div>
+           <!-- Builder Section -->
+          <div class="cat-main-builder" style="display: none;">
+            <div class="cat-builder">
+              <section class="builder-heading">
+                <span onclick="dropBuilderDiv1()" class="builder-select builder-active">Residential Builder</span>
+                <span onclick="dropBuilderDiv2()" class="builder-select2">Commercial Builder</span>
+              </section>
+              <section class="builder-sub-div">
+                <div class="sub-division">
+                  <a href="#">Custom home builder</a>
+                  <a href="#">Tract home builder</a>
+                  <a href="#">Renovation builder</a>
+                </div>
+              </section>
+              <section class="builder-sub-div2" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Retail development</a>
+                  <a href="#">Office development</a>
+                  <a href="#">Hospitality builder</a>
+                </div>
+              </section>
+            </div>
+          </div>
+  
+          <!-- Sell Property Section -->
+          <div class="cat-main-sell-property" style="display: none;">
+            <div class="cat-sell-property">
+              <section class="sell-property-heading">
+                <span onclick="dropSellDiv1()" class="sell-select sell-active">Residential Property</span>
+                <span onclick="dropSellDiv2()" class="sell-select2">Commercial Property</span>
+                <span onclick="dropSellDiv3()" class="sell-select3">Land for Sale</span>
+              </section>
+              <section class="sell-sub-div">
+                <div class="sub-division">
+                  <a href="#">Single family homes</a>
+                  <a href="#">Multifamily homes</a>
+                  <a href="#">Vacation homes</a>
+                </div>
+              </section>
+              <section class="sell-sub-div2" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Retail properties</a>
+                  <a href="#">Office spaces</a>
+                  <a href="#">Industrial properties</a>
+                </div>
+              </section>
+              <section class="sell-sub-div3" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Residential land</a>
+                  <a href="#">Commercial land</a>
+                  <a href="#">Agricultural land</a>
+                </div>
+              </section>
+            </div>
+          </div>
+  
+          <!-- Buy Property Section -->
+          <div class="cat-main-buy-property" style="display: none;">
+            <div class="cat-buy-property">
+              <section class="buy-property-heading">
+                <span onclick="dropBuyDiv1()" class="buy-select buy-active">Residential Property</span>
+                <span onclick="dropBuyDiv2()" class="buy-select2">Commercial Property</span>
+                <span onclick="dropBuyDiv3()" class="buy-select3">Land for Purchase</span>
+              </section>
+              <section class="buy-sub-div">
+                <div class="sub-division">
+                  <a href="#">New homes</a>
+                  <a href="#">Pre-owned homes</a>
+                  <a href="#">Investment properties</a>
+                </div>
+              </section>
+              <section class="buy-sub-div2" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Office buildings</a>
+                  <a href="#">Retail properties</a>
+                  <a href="#">Industrial sites</a>
+                </div>
+              </section>
+              <section class="buy-sub-div3" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Development land</a>
+                  <a href="#">Agricultural land</a>
+                  <a href="#">Commercial development land</a>
+                </div>
+              </section>
+            </div>
+          </div>
+  
+          <!-- Levying Rent Section -->
+          <div class="cat-main-levying-rent" style="display: none;">
+            <div class="cat-levying-rent">
+              <section class="levying-rent-heading">
+                <span onclick="dropLevyingDiv1()" class="levying-select leving-active">Residential Rental</span>
+                <span onclick="dropLevyingDiv2()" class="levying-select2">Commercial Rental</span>
+                <span onclick="dropLevyingDiv3()" class="levying-select3">Short-term Rental</span>
+              </section>
+              <section class="levying-sub-div">
+                <div class="sub-division">
+                  <a href="#">Houses for rent</a>
+                  <a href="#">Apartments for rent</a>
+                </div>
+              </section>
+              <section class="levying-sub-div2" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Retail spaces</a>
+                  <a href="#">Office spaces</a>
+                  <a href="#">Industrial facilities</a>
+                </div>
+              </section>
+              <section class="levying-sub-div3" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">PG’s</a>
+                  <a href="#">Vacation homes</a>
+                  <a href="#">Event venues</a>
+                  <a href="#">Temporary housing</a>
+                </div>
+              </section>
+            </div>
+          </div>
+  
+          <!-- Leasing Out Section -->
+          <div class="cat-main-leasing-out" style="display: none;">
+            <div class="cat-leasing-out">
+              <section class="leasing-out-heading">
+                <span onclick="dropLeasingDiv1()" class="leasing-select leasing-active">Residential Lease</span>
+                <span onclick="dropLeasingDiv2()" class="leasing-select2">Commercial Lease</span>
+              </section>
+              <section class="leasing-sub-div">
+                <div class="sub-division">
+                  <a href="#">Long term leasing</a>
+                  <a href="#">Short term leasing</a>
+                  <a href="#">Lease to own</a>
+                </div>
+              </section>
+              <section class="leasing-sub-div2" style="display: none;">
+                <div class="sub-division">
+                  <a href="#">Retail lease</a>
+                  <a href="#">Office lease</a>
+                  <a href="#">Industrial lease</a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- pop up of the individual contractor -->
+      <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <div class="contractor-pop">
+                <img id="contractorImage" src="" alt="Contractor Image">
+                <p id="contractorName">Contractor Name</p>
+            </div>
+            <div class="hr"><hr></div>
+            <div class="qoute">
+                <form action="">
+
+                    <div class="form-group">
+      
+                      <div class="input-box">
+                        <input type="text" placeholder="First Name">
+                        <span class="material-symbols-outlined">
+                          account_circle
+                        </span>
+                      </div>
+      
+                      <div class="input-box">
+                        <input type="text" placeholder="Last Name">
+                        <span class="material-symbols-outlined">
+                          account_circle
+                        </span>
+                      </div>
+      
+                    </div>
+      
+                    <div class="form-group">
+      
+                      <div class="input-box">
+                        <input type="text" placeholder="Email address">
+                        <span class="material-symbols-outlined">
+                          mail
+                        </span>
+                      </div>
+      
+                      <div class="input-box">
+                        <input type="text" placeholder="Phone Number">
+                        <span class="material-symbols-outlined">
+                          call
+                        </span>
+                      </div>
+      
+                    </div>
+      
+                    <div class="form-group">
+                      <div class="input-box">
+                        <input type="number" placeholder="Size of land in SFT">
+                        <span class="material-symbols-outlined">
+                            aspect_ratio
+                            </span>
+                      </div>
+
+                      <div class="input-box">
+                        <input type="text" placeholder="Address of land">
+                        <span class="material-symbols-outlined">
+                            location_on
+                            </span>
+                      </div>
+          
+                    </div>
+                    <div class="form-group">
+                      <div class="submit">Send Request</div>
+          
+                    </div>
+      
+                  </form>
+            </div>
+        </div>
+      </div>
+      <!-- end -->
+
+      <div class="deal">
+        <div class="head-text">Deals</div>
+      </div>
+      <div class="headings">
+        <div class="head-name">Our Best  Constructions </div>
+      </div>
+      <div class="para">
+        <div class="para-text">Real estate is "property consisting of land and the buildings on it, along with its natural resources such as crops, minerals or water, immovable property of this nature</div>
+      </div>
+      <div class="project-container">
+        <div class="left">
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/Aparna1.png" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/Aparna2.png" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/Aparna3.png" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/Aparna4.png" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/Aparna5.png" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/car.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">APARNA NEWLANDS</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
+                <h4 class="quote "  onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price"> Price:
+                  8249 per Sq. Ft *</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Tellapur, Hyderabad </div>
+              </div>
+              <div class="desp">
+                <div class="feature">2.5 & 3 BHK</div>
+                <div class="feature">1475 - 1990 Sq Ft</div>
+                <div class="feature">Swimming Pool</div>
+                <div class="feature">Utility Stores</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/AparnaSarovar2.png" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/AparnaSarovar3.png" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/AparnaSarovar4.png" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/AparnaSarovar5.png" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/car.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">
+                  APARNA SAROVAR TOWERS</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">Price:
+                  9999 per Sq. Ft *</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Puppalaguda, Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">3 & 4 BHK</div>
+                <div class="feature">1326 - 2257 Sq Ft</div>
+                <div class="feature">Clinic</div>
+                <div class="feature">Multipurpose Hall</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/green1.png" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/green2.png" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/green3.png" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/green4.png" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/green5.png" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">APARNA GREENSCAPES</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : </h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">Price: 3356 – 5100 sq.ft.</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Kompally, Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">3,4,5 BHK</div>
+                <div class="feature">13.9 Acres</div>
+                <div class="feature">Library</div>
+                <div class="feature">Tennis</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="mid">
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/marine1.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/marine2.jpg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/marine3.jpg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/marine1.jpg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/.jpeg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">MARINA SKIES</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">Price: 2860 SFT. TO 4070 SFT.</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">HITEC City, Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">2+1,3,4+1 BHK</div>
+                <div class="feature">3450 Sq. Ft *</div>
+                <div class="feature">Gymnasium</div>
+                <div class="feature">Pharmacy</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/Sattva1.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/Sattva2.jpg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/Sattva3.jpg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/Sattva4.jpg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/Sattva5.jpg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/Sattvavideo.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">SATTVA PARK CUBIX</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">Price : ₹ 43.36 - 98.72 L</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Devanahalli, Bangalore North</div>
+              </div>
+              <div class="desp">
+                <div class="feature">1,2,3 BHK</div>
+                <div class="feature">658 - 1498 Sq. Ft *</div>
+                <div class="feature">Salon </div>
+                <div class="feature">Reading Lounge</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/Trilight1.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/Trilight2.jpg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/Trilight3.jpg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/.jpeg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/.jpeg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">TRILIGHT</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">Price: 2,888 to 11,332 Sq. Ft *</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Kokapet,Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">3,4,5 BHK</div>
+                <div class="feature">Tennis Court</div>
+                <div class="feature">Swimming Pool</div>
+                <div class="feature">Car Parking</div>
+              </div>
+            </div>
+          </div>
+
+          
+
+        </div>
+
+
+        <div class="right">
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/vasavi1.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/vasavi2.jpg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/vasavi3.jpg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/vasavi4.jpg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/vasavi5.jpg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">VASAVI SAROVAR</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price"> Price: ₹ 97.5 Lac - ₹ 2.19 Cr</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Kukatpally, Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">2,3,4 BHK</div>
+                <div class="feature">21 Acre</div>
+                <div class="feature">Swimming Pool</div>
+                <div class="feature">Gymnasium</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/mk1.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/mk2.jpg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/mk3.jpg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/mk4.jpg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/mk5.jpg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">MK ONE YENDADA</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price"> Price: Rs24,600,000</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Visakhapatnam</div>
+              </div>
+              <div class="desp">
+                <div class="feature">3BHK</div>
+                <div class="feature">3,510 SqFt</div>
+                <div class="feature">Swimming Pool</div>
+                <div class="feature">Garden</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-box">
+            <!-- slider for image and video -->
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
+                  <div class="slide" data-views="100" data-likes="50">
+                      <span class="views">Views: 100</span>
+                      <span class="likes">Likes: 50</span>
+                      <img src="../assets/asbl.jpg" alt="Image 1">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="120" data-likes="60">
+                      <span class="views">Views: 120</span>
+                      <span class="likes">Likes: 60</span>
+                      <img src="../assets/.jpeg" alt="Image 2">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="80" data-likes="40">
+                      <span class="views">Views: 80</span>
+                      <span class="likes">Likes: 40</span>
+                      <img src="../assets/.jpeg" alt="Image 3">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="200" data-likes="100">
+                      <span class="views">Views: 200</span>
+                      <span class="likes">Likes: 100</span>
+                      <img src="../assets/.jpeg" alt="Image 4">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="150" data-likes="70">
+                      <span class="views">Views: 150</span>
+                      <span class="likes">Likes: 70</span>
+                      <img src="../assets/.jpeg" alt="Image 5">
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="300" data-likes="150">
+                      <span class="views">Views: 300</span>
+                      <span class="likes">Likes: 150</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="250" data-likes="120">
+                      <span class="views">Views: 250</span>
+                      <span class="likes">Likes: 120</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+                  <div class="slide" data-views="180" data-likes="90">
+                      <span class="views">Views: 180</span>
+                      <span class="likes">Likes: 90</span>
+                      <video src="../assets/.mp4" controls></video>
+                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+                  </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
+          </div>
+             <!-- end -->
+            <div class="pro-box-descrp">
+              <div class="project-name">
+                <h4 class="pro-name">ASBL Springs</h4>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
+                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+              </div>
+              <div class="project-price">
+                <div class="price"> Price: ₹90.0 Lac</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Pocharam, Hyderabad</div>
+              </div>
+              <div class="desp">
+                <div class="feature">3BHK</div>
+                <div class="feature">1475 - 6102 Sq. Ft *</div>
+                <div class="feature">Swimming Pool</div>
+                <div class="feature">Gymnasium</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <!--services  -->
+      <div class="deal ser">
+        <div class="head-text">Services</div>
+      </div>
+      <div class="headings">
+        <div class="head-name">Services for Maximum Efficiency</div>
+      </div>
+      <div class="para">
+        <div class="para-text"> We have developed a unique space where you can work and create. We thought of everything to the smallest detail. You will be able to conduct your business, conduct meetings, meetings</div>
+      </div>
+      <div class="services">
+
+        <div class="service-provided">
+          <div class="service-box">
+            <span class="material-symbols-outlined">home</span>          
+          </div>
+          <div class="service-text">
+            House
+          </div>
+        </div>
+
+        <div class="service-provided">
+          <div class="service-box">
+            <span class="material-symbols-outlined">domain</span>          
+            </div>
+          <div class="service-text">
+            Apartment
+          </div>
+        </div>
+
+        <div class="service-provided">
+          <div class="service-box">
+            <span class="material-symbols-outlined">work</span>          
+            </div>
+          <div class="service-text">
+            Office
+          </div>
+        </div>
+
+        <div class="service-provided">
+          <div class="service-box">
+            <span class="material-symbols-outlined">warehouse</span>          
+          </div>
+          <div class="service-text">
+            Warehouse
+          </div>
+        </div>
+        
+      </div>
+
+        <!--Story  -->
+        <div class="deal ser">
+          <div class="head-text">Our Story</div>
+        </div>
+        <div class="headings">
+          <div class="head-name">We Will Find the Best Option</div>
+        </div>
+        <div class="para">
+          <div class="para-text">Real estate is "property consisting of land and the buildings on it, along with its natural resources such as crops, minerals or water, immovable property of this nature; an interest vested in this (also) an item of real property, (more generally) buildings or housing in general.</div>
+        </div>
+        <div class="story">
+
+          <div class="story-box">
+            <div class="story-head">15 Years</div>
+            <div class="story-para">In Business</div>
+          </div>
+
+          <div class="story-box">
+            <div class="story-head">₹50 LAK</div>
+            <div class="story-para">Property Brokered</div>
+          </div>
+
+          <div class="story-box">
+            <div class="story-head">10,000</div>
+            <div class="story-para">Transactions</div>
+          </div>
+        </div>
+
+
+         <!--Customer  -->
+         <div class="deal ser">
+          <div class="head-text">Customer</div>
+        </div>
+        <div class="headings">
+          <div class="head-name">Listen to Our Сustomers @house</div>
+        </div>
+        <div class="para">
+          <div class="para-text">We have developed a unique space where you can work and create. We thought of everything to the smallest detail. You will be able to conduct your business, conduct meetings, meetings</div>
+        </div>
+        <div class="customer">
+
+          <div class="customer-box">
+            <div class="customer-review">Thank you very much for the house found. This is an ideal option for our family at the location and price. The company employs real professionals who will always</div>
+            <div class="customer-text">
+              <div class="customer-name">Vijay</div>
+              <div class="customer-location">Hyderbad</div>
+            </div>
+          </div>
+
+          <div class="customer-box">
+            <div class="customer-review">For many of us, our very first experience of learning about the celestial bodies begins when we saw our first full moon in the sky. It is truly a magnificent view even</div>
+            <div class="customer-text">
+              <div class="customer-name">Madhavi</div>
+              <div class="customer-location">Hyderbad</div>
+            </div>
+          </div>
+
+          <div class="customer-box">
+            <div class="customer-review">A gentleman from hyd discovered what he calls an “oversight” on the part of 99.9% of all marketers that allows him to get otherwise paid-for advertising at Google as well as all other search engines.</div>
+            <div class="customer-text">
+              <div class="customer-name">Sudheer</div>
+              <div class="customer-location">Hyderbad</div>
+            </div>
+          </div>
+
+          <!-- <div class="customer-image">
+            <div class="cust-img">
+              <img src="../assets/cust1.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust2.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust3.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust4.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust5.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust6.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust7.jpeg" alt="">
+            </div>
+            <div class="cust-img">
+              <img src="../assets/cust8.jpeg" alt="">
+            </div>
+          </div> -->
+
+        </div>
+
+
+        <!--Connect  -->
+        <!-- <div class="connect-us">
+          <div class="deal ser">
+            <div class="head-text">Contact</div>
+          </div>
+          <div class="headings">
+            <div class="head-name">Connect Us By Sending Request</div>
+          </div>
+          <div class="para">
+            <div class="para-text">"Connect with Nirmaankara to stay updated on our latest projects, news, and events."</div>
+          </div>
+          <div class="connect-box">
+            <form action="" class="connectform">
+
+              <div class="form-group">
+
+                <div class="input-box">
+                  <input type="text" placeholder="First Name">
+                  <span class="material-symbols-outlined">
+                    account_circle
+                  </span>
+                </div>
+
+                <div class="input-box">
+                  <input type="text" placeholder="Last Name">
+                  <span class="material-symbols-outlined">
+                    account_circle
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <div class="input-box">
+                  <input type="text" placeholder="Email address">
+                  <span class="material-symbols-outlined">
+                    mail
+                  </span>
+                </div>
+
+                <div class="input-box">
+                  <input type="text" placeholder="Phone Number">
+                  <span class="material-symbols-outlined">
+                    call
+                  </span>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <div class="input-box ex">
+                  <input type="text" placeholder="Yor Message">
+                  <span class="material-symbols-outlined">
+                    chat
+                  </span>
+                </div>
+    
+              </div>
+              <div class="form-group">
+                <div class="submit">Send Request</div>
+    
+              </div>
+
+            </form>
+          </div>
+        </div> -->
+    </div>
+    
+    </main>
+    <!-- footer -->
+    <div class="main-footer-box">
+      <footer>
+          <section>
+              <section class="social">
+              <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+              <div>
+                  <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                  <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                  <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                  <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+              </div>
+          </section>
+          </section>
+          <section class="quick-links">
+              <span>QUICK LINKS</span>
+              <div>
+                  <a href="../html/contractorshomepage.html">List your Business</a>
+                  <a href="../html/customerprofile.html">Develop your Land</a>
+                  <a href="">List your Land</a>
+                  <a href="">Post a Free Ad</a>
+                  <a href="">Buyer</a>
+
+              </div>
+          </section>
+          <section class="contact-info">
+              <span>CONTACT INFO</span>
+              <div>
+                  <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                  <span><b>Phone:</b> +91 9985752406</span>
+                  <span><b>Email:</b> nirmaankara@gmail.com</span>
+              </div>
+          </section>
+          <section class="subscribe">
+              <span>SUBSCRIBE TO OUR PORTAL</span>
+              <div>
+                  <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                  <form>
+                      <input type="email" placeholder="Your Email" >
+                      <button type="submit" class="fotbtn">&#8594;</button>
+                  </form>
+              </div>
+          </section>
+      </footer>
+      <div class="copyright">
+          <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+          <div>
+              <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+              <div></div>
+              <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+              <div></div>
+              <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+              <div></div>
+              <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+          </div>
+      </div>
+   </div>
+   <!-- footer --> 
+<script src="../javascript/slider.js"></script>
+</body>
+</html>
+

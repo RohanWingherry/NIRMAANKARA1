@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+#history-main{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#historyheading{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#historyheading>section{
+    color: #008994;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#selectDate{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    width: 500px;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+#selectDate>section{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#selectDate>a{
+    background-color: #008994;
+    color: white;
+    padding: 5px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+}
+#selectDate>section>label{
+    font-size: 13px;
+}
+#selectDate>section>input[type="date"]{
+    border: 1px solid #008994;
+    padding: 3px;
+    background-color: white;
+    outline: none;
+}
+#selectDate>section>input[type="date"]::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+    filter: invert(50%) sepia(20%) saturate(700%) hue-rotate(110deg);
+}
+#action{
+    display: flex;
+    gap: 5px;
+    border-right: none;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+}
+#action i:first-child{
+    font-size: 20px;
+    padding: 3px;
+    border: 3px solid rgb(177, 177, 177);
+    border-radius: 4px;
+    color: blue;
+    cursor: pointer;
+    background-color: white;
+}
+#action i:last-child{
+    font-size: 20px;
+    padding: 3px;
+    border: 3px solid rgb(177, 177, 177);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+}
+#action .fa-trash-can{
+    color: red;
+}
+#action .fa-pen-to-square,.fa-eye{
+    color: #008994;
+}
+.main-table{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.history-table{
+    max-width: 1200px;
+    width: 100%;
+    border-spacing: 0 10px;
+}
+.history-table thead>tr,th{
+    border: 1px solid rgb(133, 133, 133);
+    border-right: none;
+}
+.history-table,tr,td{
+    text-align: center;
+    font-size: 13px;
+}
+.history-table th{
+    padding: 15px 10px;
+    background-color: #e2e2e2;
+}
+.history-table #action-heading{
+    border-right: 1px solid rgb(133, 133, 133);
+}
+.history-table td{  
+    border: none;
+    border-right: 1px solid rgb(196, 196, 196);
+    background-color: #f1f1f1;
+    padding: 0px 10px;
+    
+}
+.history-table .bordered-row{
+    border: 2px solid red;
+
+}
+input[type="text"] {
+    box-sizing: border-box;
+}
+
+
+@media (max-width:768px) {
+    table .date-col{
+        padding: 10px 50px;
+    }
+    #selectDate{
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}
+@media (max-width:450px) {
+    .main-table{
+        display: flex;
+        align-items: start;
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+}

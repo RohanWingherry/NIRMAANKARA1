@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Quotation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="../css/customerreceipt.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../assets/nirmankara-logo.png">
+ 
+    <!-- navlinks -->
+      <link rel="stylesheet" href="../css/sidenavbar.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+<body>
+    <div class="navigation-bar">
+        <div class="mob-hamberger">
+            <div class="mobile-btn-main">
+                <i class="fa-solid fa-bars" id="mobile-btn"></i>
+            </div>
+        </div>
+        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
+            <img src="../assets/nirmankara-logo.png" alt="">
+            <div>NIRMAANKARA</div>
+        </div>
+        <div class="notify">
+            <i class="fa-regular fa-bell" id="bell"></i>
+            <div>
+                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
+            </div>
+        </div>
+    </div>
+    <div class="main-profileview">
+        <div class="profile-view">
+            <div class="profile">
+                <span><img src="../assets/profile-pic.png" alt=""></span>
+            </div>
+            <div class="manage">
+                <span>Manage Your Profile</span>
+            </div>
+            <span class="line"></span>
+            <div class="logout">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-notification">
+        <div class="notification">
+            <div class="notify-heading">
+                <span>Notifications</span>
+            </div>
+            <div class="single-block" id="agreement-notification">
+                <div class="icon-block">
+                    <span class="red-dot"></span>
+                    <span class="material-symbols-outlined">handshake</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Agreement</span>
+                        <div>
+                            <span>Today</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Agreement is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">price_change</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Quotation</span>
+                        <div>
+                            <span>1 day ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Quotation is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">timer</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Follow up</span>
+                        <div>
+                            <span>2 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your follow up has been scheduled! Thank You.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Leads</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>7:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>We have a new lead only for you! Hurry Up.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Campaign</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your ads has been published, Thank you!.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Profile</span>
+                        <div>
+                            <span>8 days ago</span>
+                            <span>9:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Congrulations, your profile has been updated successfully.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="sidebar">
+        <div class="top">
+            <i class="fa-solid fa-bars" id="btn"></i>
+        </div>
+        <ul>
+            <li >
+                <a href="../html/customercontractorlist.html">
+                    <span class="material-symbols-outlined">engineering</span>
+                    <span class="nav-item">Contractor</span>
+                </a>
+            </li>
+            <li >
+                <a href="#">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/customerlead.html">
+                    <span class="material-symbols-outlined">groups</span>
+                    <span class="nav-item">Lead Creation</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/customerfollowup.html">
+                    <span class="material-symbols-outlined">timer</span>
+                    <span class="nav-item">Follow Up</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerquotation.html">
+                    <span class="material-symbols-outlined">price_change</span>
+                    <span class="nav-item">Quotation</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customeragreement.html">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <span class="nav-item">Agreement</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/cust.html">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="nav-item">Purchasing</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerworkhistory.html">
+                    <span class="material-symbols-outlined">work_history</span>
+                    <span class="nav-item">Work Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerinvoicehistory.html">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="nav-item">Invoice</span>
+                </a>
+            </li>
+            <li id="present-active-page">
+                <a href="../html/customerreceipthistory.html">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="nav-item">Receipt</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerprofile.html">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="nav-item">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="contentofpage">
+            <div class="main">
+                <div class="box">
+                    <div class="first-block">
+                        <div class="main-heading">RECEIPT</div>
+                    <div class="export">
+                        <span>Export pdf<i class="fa-solid fa-upload"></i></span>
+                    </div>
+                    </div>
+                    <div class="initial">
+                        <div class="company">
+                            <img src="../assets/nirmankara-logo.png" alt="">
+                            <p class="company-name">Nirmaankara</p>
+                        </div>
+                        <div class="area">
+                            <p class="area-name">Hyderbad</p>
+                        </div>
+                        <div class="tax">
+                            <p class="tax-no">VAT Reg. TIN :<span class="required">*</span> <input type="text" placeholder="000-000-000-0000" required></p>
+                        </div>
+                        <div class="heading">Receipt</div>
+        
+                    </div>
+                    <div class="input-boxup">
+                        <form action="" class="form both">
+                            
+                            <div class="form-group">
+                                <p><label for="receipt">Receipt No <span class="required">*</span></label></p>
+                                <input type="text" id="receipt" name="receipt" placeholder="enter receipt no" required>
+                            </div>
+                            <div class="form-group">
+                                <p><label for="date">Date <span class="required">*</span></label></p>
+                                <input type="date" id="date" name="date" placeholder="enter date" required>
+                            </div>
+                            
+                            
+                            
+                        </form>
+                    </div>
+                    <div class="input-box">
+                        <div class="left">
+                            <div class="heading">Bill From</div>
+        
+                        <form action="" class="form">
+                            <div class="form-group">
+                                <label for="name">Contractor Name<span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="enter name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gst">GST<span class="required">*</span></label>
+                                <input type="text" id="gst" name="gst" placeholder="enter gst no" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address<span class="required">*</span></label>
+                                <input type="text" id="address" name="address" placeholder="enter address" required>
+                            </div>
+                            
+                            
+                        </form>
+                        </div>
+                        <div class="right">
+                            <div class="heading">Bill To</div>
+        
+                            <form action="" class="form">
+                            
+                                <div class="form-group">
+                                    <label for="name">Customer Name</label>
+                                    <input type="text" id="name" name="name" placeholder="enter name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Mobile No<span class="required">*</span></label>
+                                    <input type="tel" id="mobile" name="mobile" placeholder="enter mobile no" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address<span class="required">*</span></label>
+                                    <input type="text" id="address" name="address" placeholder="enter address" required>
+                                </div>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="description">
+                        <div class="table-container">
+                            <table id="descriptionTable">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fa-solid fa-building building"></i>ITEM</th>
+                                        <th><i class="fa-solid fa-bag-shopping bag"></i>₹Rs</th>
+                                        <th><i class="fa-solid fa-money-bill price"></i>Qty</th>
+                                        <th><i class="fa-solid fa-money-bill price"></i>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Initially empty -->
+                                    <tr>
+                                        <td><input type="text" placeholder="Enter item" value="Bricks"></td>
+                                        <td><input type="number" placeholder="Enter qty" min="0" value="20"></td>
+                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="10"></td>
+                                        <td><input type="text" placeholder="Total" readonly value="200"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" placeholder="Enter item" value="Iron Rod"></td>
+                                        <td><input type="number" placeholder="Enter qty" min="0" value="50"></td>
+                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="5"></td>
+                                        <td><input type="text" placeholder="Total" readonly value="250"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" placeholder="Enter item" value="Door"></td>
+                                        <td><input type="number" placeholder="Enter qty" min="0" value="1000"></td>
+                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="2"></td>
+                                        <td><input type="text" placeholder="Total" readonly value="2000"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <button onclick="addRow()">Add Row</button> -->
+        
+                            <div class="total-container">
+                                <div class="totals">
+                                    <div class="totals-row">
+                                        <div class="label" >SUBTOTAL</div>
+                                        <div class="value" id="subtotal">₹2450</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">DISCOUNT(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="discountPercent" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">SGST(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="sgst" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">SGST Amount</div>
+                                        <div class="value" id="sgstAmount">₹50</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">CGST(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="cgst" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">CGST Amount</div>
+                                        <div class="value" id="cgstAmount">₹50</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">TOTAL</div>
+                                        <div class="value" id="total">₹2200</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">DUE AMOUNT</div>
+                                        <div class="value" id="dueAmount">₹2200</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="pay">
+                            <div class="mod">
+                                <label>Mode of Payment : <span class="required">*</span></label>
+                                <label>
+                                    <input type="radio" name="paymentMode" value="Cash" disabled> Cash
+                                </label>
+                                <label>
+                                    <input type="radio" name="paymentMode" value="NEFT/RTGS" checked> NEFT/RTGS
+                                </label>
+                            </div>
+                        </div>
+                        <div class="note">
+                            <textarea name="note" id="note" rows="3" cols="50" placeholder="Note (Optional)"></textarea>
+                        </div>
+        
+                        
+                    <div class="Signature">
+                        <div class="subsign">
+                            <div class="form1">
+                                <label>Client Signature<span class="required">*</span></label>
+                                <input type="text" class="inputs" placeholder="Enter name" required>
+                            </div>
+                            <div class="form2">
+                                <label>Authorised Signature<span class="required">*</span></label>
+                                <input type="text" class="inputs" placeholder="Enter name" value="Vijay" required>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   
+                    
+                    <!-- <div class="savebtn">
+                        <div class="btnbox">
+                            <div class="save" id="submitBtn">Submit</div>
+                             <div class="reset" onclick="resetForm()">Reset</div> 
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <script>
+                function saveData() {
+                alert('Data saved');
+            }
+        
+            function cancelAction() {
+                if (confirm('Are you sure you want to cancel?')) {
+                    alert('Action cancelled');
+                }
+            }
+            </script>
+        </div>
+     <!-- footer -->
+     <div class="main-footer-box">
+        <footer>
+            <section>
+                <section class="social">
+                <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+                <div>
+                    <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                    <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                    <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                    <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+                </div>
+            </section>
+            </section>
+            <section class="quick-links">
+                <span>QUICK LINKS</span>
+                <div>
+                    <a href="../html/contractorshomepage.html">List your Business</a>
+                    <a href="../html/customerprofile.html">Develop your Land</a>
+                    <a href="">List your Land</a>
+                    <a href="">Post a Free Ad</a>
+                    <a href="">Buyer</a>
+  
+                </div>
+            </section>
+            <section class="contact-info">
+                <span>CONTACT INFO</span>
+                <div>
+                    <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                    <span><b>Phone:</b> +91 9985752406</span>
+                    <span><b>Email:</b> nirmaankara@gmail.com</span>
+                </div>
+            </section>
+            <section class="subscribe">
+                <span>SUBSCRIBE TO OUR PORTAL</span>
+                <div>
+                    <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                    <form>
+                        <input type="email" placeholder="Your Email" >
+                        <button type="submit" class="fotbtn">&#8594;</button>
+                    </form>
+                </div>
+            </section>
+        </footer>
+        <div class="copyright">
+            <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+            <div>
+                <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                <div></div>
+                <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                <div></div>
+                <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                <div></div>
+                <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+            </div>
+        </div>
+     </div>
+     <!-- footer --> 
+    
+</div>
+<script src="../javascript/sidenavbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.main-followup{
+    padding: 20px;
+}
+.followup-heading>span{
+    font-size: 18px;
+    font-weight: bold;
+    color: #008994;
+}
+.edit>span{
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#action>span{
+    background-color: rgb(224, 79, 79);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.main-table{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.follow-table{
+    border-spacing: 0 10px;
+}
+.follow-table thead>tr,th{
+    border: 1px solid rgb(133, 133, 133);
+    border-right: none;
+}
+.follow-table,tr,td{
+    text-align: center;
+    font-size: 13px;
+}
+.follow-table th{
+    padding: 15px 10px;
+    background-color: #e2e2e2;
+}
+.follow-table #action-heading{
+    border-right: 1px solid rgb(133, 133, 133);
+    padding: 15px 100px;
+}
+.follow-table td{  
+    border: none;
+    border-right: 1px solid rgb(196, 196, 196);
+    background-color: #f1f1f1;
+    padding: 10px 10px;
+}
+@media (max-width:768px) {
+    .main-table{
+        overflow-x: scroll;
+        display: flex;
+        justify-content: flex-start;
+    }
+}

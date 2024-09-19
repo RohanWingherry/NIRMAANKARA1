@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.main-lead-details{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-lead-details .lead-details-page{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: column;
+}
+.lead-details-page .lead-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 250px;
+}
+.lead-details-page .lead-details .lead-name{
+    font-size: 20px;
+    color: #286DB3;
+    font-weight: bold;
+}
+.lead-details-page .lead-details>div:last-child{
+    font-size: 12px;
+}
+.lead-details-page .tabs{
+    border-top: 2px solid rgb(241, 241, 241);
+    border-bottom: 2px solid rgb(241, 241, 241);
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+    margin: 10px 0px;
+}
+.lead-details-page .tabs>span{
+    font-size: 12px;
+    font-weight: 500;
+    color: grey;
+    padding: 2px;
+    cursor: pointer;
+}
+.lead-details-page .tabs .active{
+    border-bottom: 3px solid #286DB3;
+    color: #286DB3;
+    font-weight: 600;
+}
+.lead-details-page .basic-main{
+    display: flex;
+}
+.lead-details-page .basic-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    padding: 0px 10px;
+    height: 200px;
+}
+.lead-details-page .basic-info>div{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.lead-details-page .basic-info-detail{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(112, 112, 112);
+}
+.basic-info .lead-project, .basic-info .city, .basic-info .land-size, .basic-info .lead-status {
+    font-size: 14px;
+    font-weight: 500;
+}
+.notes-main, .history-main, .tags-main{
+    display: none;
+    height: 200px;
+}
+.lead-details-page .notes, .lead-details-page .history, .lead-details-page .tags{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: grey;
+    font-size: 13px;
+    height: 100%;
+    width: 100%;
+}
+@media (max-width:768px) {
+    .main-lead-details .lead-details-page{
+        width: 98%;
+    }
+    .lead-details-page .lead-details{
+        padding: 0;
+        padding: 10px 0px;
+    }
+}

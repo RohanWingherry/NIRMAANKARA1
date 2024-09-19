@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.first-block{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.export{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.export span{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: #2E6C9A;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    border-radius:4px;
+}
+.main-heading{
+    color: #088994;
+    font-size: 18px;
+    font-weight: bold;
+}
+.heading{
+    background-color: #008994;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: white;
+    width: max-content;
+}
+.inheading{
+    display: flex;
+    justify-content: space-between;
+}
+.recent{
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #2E6C9A;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+}
+.initial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+}
+.company{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.company img{
+    max-width: 40px;
+    width: 100%;
+    margin-right: 5px;
+}
+.company .company-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.area-name , .tax-no{
+    font-weight: 500;
+}
+.tax{
+    margin-bottom: 10px;
+}
+.tax p input{
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.input-boxup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-top: 8px;
+}
+.input-boxup .both{
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    width: 100%;
+
+}
+.both .form-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.form-group p{
+    text-align: left;
+    max-width: 150px;
+    width: 100%;
+}
+.both input{
+    max-width: 150px;
+    width: 100%;
+}
+.input-box{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    gap: 10px;
+}
+.left, .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 318px;
+    width: 100%;
+}
+.input-box .heading{
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+}
+.input-box .form{
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.form label{
+    font-size: 14px;
+}
+.form .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 8px;
+    /* flex: 1 1 200px; */
+    width: 100%;
+}
+
+.form-group input{
+    padding: 8px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    border: 1px solid gray;
+   font-size: 14px;
+}
+.form-group input:hover{
+    border: 1px solid rgb(17, 17, 17);
+}
+
+/* description table  */
+tbody input{
+    border: none;
+    outline: none;
+    max-width: max-content;
+    width: 100%;
+}
+.description{
+    margin-top: 20px;
+}
+.table-container {
+    
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    background-color: transparent;
+    padding:20px 10px;
+    border-radius: 8px;
+    /* border: 1px solid gray; */
+    
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table i{
+    margin-right: 4px;
+}
+.building{
+    color:rgb(85, 154, 234);
+}
+.bag{
+    color:rgb(249, 91, 201);
+}
+.price{
+    color:rgb(196, 170, 86);
+}
+th, td {
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 10px 2px;
+    border-bottom: 1px solid #828282;
+    text-align: left;
+    background-color: transparent;
+}
+td input{
+    background-color: transparent;
+}
+th{
+    max-width: 200px;
+    
+}
+thead {
+    background-color: transparent;
+    /* text-align: left; */
+    max-width: max-content;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.addbtn {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: #008994;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.addbtn:hover {
+    background-color: #036d7a;
+}
+.delete-row{
+    background-color: transparent;
+    padding: 0px;
+    width: 0px;
+    margin: 0px;
+    width: max-content;
+    border: none;
+    cursor: pointer;
+}
+.delete-row i {
+    
+    font-size: 16px;
+    color: #f44336;
+}
+.total-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+.totals {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #036d7a;
+    color: white;
+    border-radius: 8px;
+    width: max-content;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 250px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.label {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.totals-row input {
+    text-decoration: underline;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 2px 5px ;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 768px) {
+    /* th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .label, .value {
+        font-size: 12px;
+    }
+
+    .totals-row {
+        max-width: 160px;
+    }
+
+    button {
+        padding: 8px 16px;
+    } */
+     /* .descriptionTable{
+        display: flex;
+        flex-direction: column;
+     }
+     tr{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+     } */
+
+}
+
+@media screen and (max-width: 480px) {
+    /* th, td {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .label, .value {
+        font-size: 10px;
+    }
+
+    .totals-row {
+        max-width: 140px;
+    }
+
+    button {
+        padding: 6px 12px;
+    } */
+     .both{
+        flex-wrap: wrap;
+
+     }
+     .total-container{
+        display: flex;
+        justify-content: center;
+        padding-right: 0%;
+    }
+}
+
+
+/* payment mod */
+
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.mod {
+    display: flex;
+    gap: 10px;
+}
+.note{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.note textarea{
+    padding: 8px;
+}
+
+/* signature */ 
+.Signature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 50px;
+}
+.subsign{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.subsign label{
+    border-bottom: 1px solid black;
+}
+.form1, .form2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.form1 input, .form2 input{
+    border: none;
+    outline: none;
+    margin: 5px 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+
+
+
+
+
+.inputs{
+    text-align: center;
+    border-bottom: #e9e9e9;
+}
+
+/* btn */
+.savebtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.btnbox{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.save{
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    background-color: #008994;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+.save:hover{
+    background-color:#036d7a;
+
+}
+
+/* .reset{
+    font-size: 14px;
+
+    cursor: pointer;
+    color: white;
+    background-color: rgb(234, 0, 0);
+    border-radius: 4px;
+    padding: 4px 8px;
+    transition: all 0.2s ease-in-out;
+}
+.reset:hover{
+    transform: scale(1.01);
+    background-color: rgb(211, 1, 1);
+
+} */
+.required {
+    color: red;
+}
+.error-border {
+    border: 1px solid red;
+    border-color: red;
+}

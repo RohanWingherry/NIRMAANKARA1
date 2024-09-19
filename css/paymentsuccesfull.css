@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+/* body{
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.main-contentor{
+    height: 100vh;
+  width:100%;
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:20px
+  /* border:2px solid red; */
+}
+.box{
+    max-width: 700px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border:2px solid green; */
+    padding: 10px;
+    gap:20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 20px;
+}
+
+.box1{
+    width:100%;
+    display: flex;
+    align-items: center;
+    gap:30px;
+    margin-left: 4%;
+    margin-top: 20px;
+
+}
+.box2{
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    /* flex-direction: column; */
+    gap:80px;
+    padding-left: 8%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* border:2px solid brown */
+
+}
+.boxes{
+     /* width:100%; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center; 
+    flex-direction: column;
+    /* border:2px solid brown; */
+    gap:20px
+}
+.boxes p{
+    font-size: 14px;
+}
+.p1{
+    color:black;
+    font-weight: 500;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.icon i {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    color: green;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid transparent; 
+    transition: border-color 0.5s ease, border-width 0.5s ease; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 50px;
+    animation: border-animation 3s infinite ease-in-out;
+}
+
+/* Keyframes for border animation */
+@keyframes border-animation {
+    0% {
+        border-color: transparent;
+        border-width: 2px;
+    }
+    50% {
+        border-color: green;
+        border-width: 4px;  
+    }
+    100% {
+        border-color: transparent;
+        border-width: 2px; 
+    }
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+}
+.heading h1{
+    font-size: 18px;
+    color:green;
+}
+.heading p{
+    font-size: 16px;
+    color:rgb(125, 125, 125);
+}
+.button{
+    max-width: 900px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid green; */
+    padding: 10px;
+    gap:25px;
+}
+.button button{
+    padding: 10px;
+    border:none;
+    width:120px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    background-color:rgb(0, 137, 148); 
+    color:white;
+    cursor: pointer;
+}
+ @media(max-width:768px){
+    .box1{
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .heading{
+        align-items: center;
+    }
+    .heading p{
+        text-align: center;
+    }
+    .box2{
+        justify-content: center;
+        gap:40px
+    }
+    .boxes p{
+        font-size: 16px;
+    }
+ }

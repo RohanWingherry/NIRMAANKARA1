@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmaankara</title>
+    <link rel="shortcut icon" href="../assets/nirmankara-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/contractorprocurement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- navlinks -->
+    <link rel="stylesheet" href="../css/sidenavbar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="navigation-bar">
+        <div class="mob-hamberger">
+            <div class="mobile-btn-main">
+                <i class="fa-solid fa-bars" id="mobile-btn"></i>
+            </div>
+        </div>
+        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
+            <img src="../assets/nirmankara-logo.png" alt="">
+            <div>NIRMAANKARA</div>
+        </div>
+        <div class="notify">
+            <i class="fa-regular fa-bell" id="bell"></i>
+            <div>
+                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
+            </div>
+        </div>
+    </div>
+    <div class="main-profileview">
+        <div class="profile-view">
+            <div class="profile">
+                <span><img src="../assets/profile-pic.png" alt=""></span>
+            </div>
+            <div class="manage">
+                <span>Manage Your Profile</span>
+            </div>
+            <span class="line"></span>
+            <div class="logout">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-notification">
+        <div class="notification">
+            <div class="notify-heading">
+                <span>Notifications</span>
+            </div>
+            <div class="single-block" id="agreement-notification">
+                <div class="icon-block">
+                    <span class="red-dot"></span>
+                    <span class="material-symbols-outlined">handshake</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Agreement</span>
+                        <div>
+                            <span>Today</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Agreement is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">price_change</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Quotation</span>
+                        <div>
+                            <span>1 day ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Quotation is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">timer</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Follow up</span>
+                        <div>
+                            <span>2 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your follow up has been scheduled! Thank You.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Leads</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>7:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>We have a new lead only for you! Hurry Up.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Campaign</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your ads has been published, Thank you!.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Profile</span>
+                        <div>
+                            <span>8 days ago</span>
+                            <span>9:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Congrulations, your profile has been updated successfully.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="sidebar">
+        <div class="top">
+            <i class="fa-solid fa-bars" id="btn"></i>
+        </div>
+        <ul>
+            <li>
+                <a href="../html/contractorshomepage.html">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorallleads.html">
+                    <span class="material-symbols-outlined">groups</span>
+                    <span class="nav-item">Leads</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorcampaignmainpage.html">
+                    <span class="material-symbols-outlined">campaign</span>
+                    <span class="nav-item">Campaign</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorfollowupmainpage.html">
+                    <span class="material-symbols-outlined">timer</span>
+                    <span class="nav-item">Follow Up</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorquotation.html">
+                    <span class="material-symbols-outlined">price_change</span>
+                    <span class="nav-item">Quotation</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractoragreementcontractor.html">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <span class="nav-item">Agreement</span>
+                </a>
+            </li>
+            <li id="present-active-page">
+                <a href="../html/contractorprocurement.html">
+                    <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                    <span class="nav-item">Procurement</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorpurchaseorderhistory.html">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="nav-item">Purchasing</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorworkstatus.html">
+                    <span class="material-symbols-outlined">work_history</span>
+                    <span class="nav-item">Work Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorinvoice.html">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="nav-item">Invoice</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorreceipt.html">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="nav-item">Receipt</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorrefer.html">
+                    <span class="material-symbols-outlined">diversity_2</span>
+                    <span class="nav-item">Referral</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractoroffer.html">
+                    <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
+                    <span class="nav-item">Offers</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/contractorprofile.html">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="nav-item">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="contentofpage">
+            <div class="main-procurement">
+                <div class="first-line">
+                    <span class="heading">PROCUREMENT</span>
+                    <span class="recent" onclick="window.location.href='../html/contractorpurchaseorderhistory.html'">Recent Procurement</span>
+                </div>
+                 <!-- Site Details Section -->
+                 <div class="input-box">
+                    <div class="heading">Site details </div>
+                    <form action="" class="form" id="siteDetailsForm">
+                        <div class="form-group">
+                            <label for="client-name">Client Name <span class="required-fields">*</span></label>
+                            <input type="text" id="client-name" name="client-name" placeholder="Enter name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-address">Address <span class="required-fields">*</span></label>
+                            <input type="text" id="client-address" name="client-address" placeholder="Enter address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-city">City <span class="required-fields">*</span></label>
+                            <input type="text" id="client-city" name="client-city" placeholder="Enter city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-state">State <span class="required-fields">*</span></label>
+                            <select id="client-state" required>
+                                <option value="" hidden>Select your State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chattisgarh">Chattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Harayana">Harayana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkand">Jharkand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharastra">Maharastra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="client-pincode">Pincode <span class="required-fields">*</span></label>
+                            <input type="number" id="client-pincode" name="client-pincode" placeholder="Enter pincode" required>
+                        </div>
+                    </form>
+                </div>
+        
+                <!-- Organisation Details Section -->
+                <div class="input-box">
+                    <div class="heading">Enter Your Organisation details</div>
+                    <form action="" class="form" id="orgDetailsForm">
+                        <div class="form-group">
+                            <label for="org-name">Organisation Name <span class="required-fields">*</span></label>
+                            <input type="text" id="org-name" name="org-name" placeholder="Enter your organisation name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gst-reg-no">GST Registration Number <span class="required-fields">*</span></label>
+                            <input type="text" id="gst-reg-no" name="gst-reg-no" placeholder="Enter GST registration number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-number">Mobile Number <span class="required-fields">*</span></label>
+                            <input type="number" id="contact-number" name="contact-number" placeholder="Enter mobile number" required>
+                            <div id="error-message" style="color: red; display: none; font-size: 12px;">Enter the valid Mobile Number!</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="org-address">Address <span class="required-fields">*</span></label>
+                            <input type="text" id="org-address" name="org-address" placeholder="Enter address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="org-city">City <span class="required-fields">*</span></label>
+                            <input type="text" id="org-city" name="org-city" placeholder="Enter city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="org-state">State <span class="required-fields">*</span></label>
+                            <select id="org-state" required>
+                                <option value="" hidden>Select your State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chattisgarh">Chattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Harayana">Harayana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkand">Jharkand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharastra">Maharastra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="org-pincode">Pincode <span class="required-fields">*</span></label>
+                            <input type="number" id="org-pincode" name="org-pincode" placeholder="Enter pincode" required>
+                        </div>
+                    </form>
+                </div>
+                <!-- table -->
+                <div class="heading-procurement">Enter Procurement Items Lists</div>
+                <div class="maintable">
+                    <table id="itemTable">
+                        <thead>
+                            <tr>
+                                <th id="sno">SNO</th>
+                                <th>MATERIAL/ITEM NAME</th>
+                                <th id="desc">DESCRIPTION</th>
+                                <th>VENDOR/SUPPLIER</th>
+                                <th>QUANTITY</th>
+                                <th>UNIT OF MEASURE</th>
+                                <th>COST PER UNIT</th>
+                                <th>TOTAL COST</th>
+                                <th>NO. OF SEGMENTS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="adding-rows">
+                    <span id="addRowBtn">Add Row</span>
+                </div>
+                <div class="submittion">
+                    <div id="error-pincode" style="color: red; display: none; font-size: 12px;">Enter the valid Pin code</div>
+                    <button type="button" id="submitBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+          <!-- footer -->
+          <div class="main-footer-box">
+            <footer>
+                <section>
+                    <section class="social">
+                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+                    <div>
+                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                        <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                        <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+                    </div>
+                </section>
+                </section>
+                <section class="quick-links">
+                    <span>QUICK LINKS</span>
+                    <div>
+                        <a href="../html/contractorshomepage.html">List your Business</a>
+                        <a href="../html/customerprofile.html">Develop your Land</a>
+                        <a href="">List your Land</a>
+                        <a href="">Post a Free Ad</a>
+                        <a href="">Buyer</a>
+      
+                    </div>
+                </section>
+                <section class="contact-info">
+                    <span>CONTACT INFO</span>
+                    <div>
+                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                        <span><b>Phone:</b> +91 9985752406</span>
+                        <span><b>Email:</b> nirmaankara@gmail.com</span>
+                    </div>
+                </section>
+                <section class="subscribe">
+                    <span>SUBSCRIBE TO OUR PORTAL</span>
+                    <div>
+                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                        <form>
+                            <input type="email" placeholder="Your Email" >
+                            <button type="submit" class="fotbtn">&#8594;</button>
+                        </form>
+                    </div>
+                </section>
+            </footer>
+            <div class="copyright">
+                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+                <div>
+                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                    <div></div>
+                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+                </div>
+            </div>
+         </div>
+         <!-- footer --> 
+        
+   </div>
+    <script src="../javascript/sidenavbar.js"></script>
+    <script src="../javascript/contractorprocurement.js"></script>
+</body>
+</html>
