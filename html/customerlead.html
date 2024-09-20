@@ -243,60 +243,58 @@
                         <div class="form-group">
                             <label for="fullname">Full Name <span class="required-fields">*</span></label>
                             <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
-                          </div>
-                        
-                          <div class="form-group">
-                            <label for="mob">Phone Number <span class="required-fields">*</span></label>
-                            <input type="tel" id="mob" name="mob" placeholder="Enter phone number" required>
-                          </div>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="mob">Mobile Number <span class="required-fields">*</span></label>
+                            <input type="tel" id="mob" name="mob" placeholder="Enter phone number" required pattern="^\d{10}$" title="Please enter mobile number">
+                        </div>
                     </div>
-                  
+        
                     <div class="form-set">
                         <div class="form-group">
                             <label for="constructions">Construction Type <span class="required-fields">*</span></label>
                             <select id="constructions" name="constructions" required>
-                              <option value="">Select Construction Type</option>
-                              <option value="Building Remodulation">Building Remodulation</option>
-                              <option value="Independent House/Villa">Independent House/Villa</option>
-                              <option value="Residential Apartment">Residential Apartment</option>
-                              <option value="Serviced Apartment">Serviced Apartment</option>
-                              <option value="Industry Complex">Industry Complex</option>
-                              <option value="Commercial">Commercial</option>
-                              <option value="Farm House">Farm House</option>
-                              <option value="Venture Development">Venture Development</option>
-                              <option value="Other">Other</option>
+                                <option value="">Select Construction Type</option>
+                                <option value="Building Remodulation">Building Remodulation</option>
+                                <option value="Independent House/Villa">Independent House/Villa</option>
+                                <option value="Residential Apartment">Residential Apartment</option>
+                                <option value="Serviced Apartment">Serviced Apartment</option>
+                                <option value="Industry Complex">Industry Complex</option>
+                                <option value="Commercial">Commercial</option>
+                                <option value="Farm House">Farm House</option>
+                                <option value="Venture Development">Venture Development</option>
+                                <option value="Other">Other</option>
                             </select>
-                          </div>
-                        
-                          <div class="form-group" id="other-construction-type" style="display:none;">
+                        </div>
+        
+                        <div class="form-group" id="other-construction-type" style="display:none;">
                             <label for="other-construction">Please Specify <span class="required-fields">*</span></label>
                             <input type="text" id="other-construction" name="other-construction" placeholder="Enter custom construction type">
-                          </div>
-
-                          <div class="form-group">
+                        </div>
+        
+                        <div class="form-group">
                             <label for="size">Size of Land <span class="required-fields">*</span></label>
                             <input type="number" id="size" name="size" placeholder="Enter size of land in SFT" required>
-                          </div>
+                        </div>
                     </div>
-                  
+        
                     <div class="form-set">
-                        
-                        
-                          <div class="form-group">
+                        <div class="form-group">
                             <label for="address">Address of Land <span class="required-fields">*</span></label>
                             <input type="text" id="address" name="address" placeholder="Enter address" required>
-                          </div>
-    
+                        </div>
+        
                         <div class="form-group">
                             <label for="note">Note</label>
                             <input type="text" id="note" name="note" placeholder="Enter note">
-                          </div>
+                        </div>
                     </div>
-                  
+        
                     <div class="Btn">
                         <button type="submit" class="leadbtn">Submit</button>
                     </div>
-                  </form>
+                </form>
             </div>
         </div>
         <!-- footer -->
@@ -360,6 +358,6 @@
        
    </div>
    <script src="../javascript/sidenavbar.js"></script>
-   <script src="../javascript/lead.js"></script>
+   <script src="../javascript/customerlead.js"></script>
    </body>
    </html>
