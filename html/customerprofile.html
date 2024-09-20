@@ -289,14 +289,29 @@
                                         <option value="female">Female</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="section-header">
-                                <h4>Location</h4>
+                                <div class="input-field">
+                                        <label for="survey-number">Survey Number</label>
+                                        <input id="survey-number" type="text" placeholder="Enter Survey Number (optional)"  />
+                                </div>
                             </div>
                             <div class="input-group">
                                 <div class="input-field">
-                                    <label for="address">Address <i class="fa-solid fa-star-of-life required-icon"></i></label>
-                                    <input id="address" type="text" placeholder="Enter Your Address" required />
+                                    <label for="construction-permission">Construction Permission <i class="fa-solid fa-star-of-life required-icon"></i></label>
+                                    <select id="construction-permission" required>
+                                        <option value="" hidden>Select Permission Status</option>
+                                        <option value="allowed">Allowed</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="not-allowed">Not Allowed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="section-header">
+                                <h4>Site Location</h4>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-field">
+                                    <label for="address">Site Address <i class="fa-solid fa-star-of-life required-icon"></i></label>
+                                    <input id="address" type="text" placeholder="Enter Your Site Address" required />
                                 </div>
                                 <div class="input-field">
                                     <label for="city">City <i class="fa-solid fa-star-of-life required-icon"></i></label>

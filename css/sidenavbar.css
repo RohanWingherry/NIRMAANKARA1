@@ -67,17 +67,17 @@ body{
     height: max-content;
     width: 200px;
     position: fixed;
-    top: 52px;
-    right: 0px;
+    top: 55px;
+    right: 10px;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 20px;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     z-index: 20;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     margin: 5px;
 }
 .profile-view .profile{
@@ -152,8 +152,8 @@ body{
     overflow-y: auto;
     position: fixed;
     z-index: 20;
-    top: 52px;
-    right: 50px;
+    top: 55px;
+    right: 45px;
     background-color: white;
     margin: 5px;
     max-height: 400px;
@@ -166,18 +166,33 @@ body{
     align-items: center;
     justify-content: flex-start;
     gap: 2px;
-
+    border-radius: 10px;
 }
+.notification::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+  .notification::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);        /* color of the tracking area */
+  }
+  
+  .notification::-webkit-scrollbar-thumb {
+    background-color: #088994;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(112, 112, 112);  /* creates padding around scroll thumb */
+  }
 .notification .notify-heading{
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .notification .notify-heading>span{
     font-size: 18px;
     padding: 5px;
+    text-decoration: underline;
 }
 .notification .single-block{
     width: 100%;
@@ -248,6 +263,9 @@ body{
 @media (max-width:768px) {
     .mob-hamberger{
         display: block;
+    }
+    .notification{
+        right: 10px;
     }
 }
 
