@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirmaankara</title>
-    <link rel="stylesheet" href="../css/contractorhistory.css">
+    <title>Purchase Order</title>
+    <link rel="icon" href="../assets/nirmankaralogo.png">
+    <link rel="stylesheet" href="../css/contractorpurchaseorder.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="../assets/nirmankara-logo.png">
 
     <!-- navlinks -->
     <link rel="stylesheet" href="../css/sidenavbar.css">
@@ -234,9 +234,15 @@
         <div class="contentofpage">
             <div id="history-main">
                 <div id="historyheading">
-                    <section>AGREEMENT HISTORY</section>
+                    <section>PURCHASE ORDER</section>
+                    <!-- <section>
+                        <a href=""><i class="fa-solid fa-upload"></i>Export</a>
+                    </section> -->
                 </div>
-                <div id="selectDate">
+                <div class="order">
+                    <div class="orderno">ORDER NO: 123</div>
+                </div>
+                <!-- <div id="selectDate">
                     <section>
                         <label for="fromdate">From Date: </label>
                         <input type="date" id="fromdate">
@@ -246,84 +252,120 @@
                         <input type="date"id="todate">
                     </section>
                     <a href="" id="search">Search</a>
+                </div> -->
+                <div class="details">
+                    <div class="site">
+                        <div class="site-head">Site Details</div>
+                        <div class="detail">Vijay Sampangi</div>
+                        <div class="detail">Hyderabad</div>
+                        <div class="detail">Telengana</div>
+                        <div class="detail">508213</div>
+                    </div>
+                    <div class="customer">
+                        <div class="customer-head">Organisation Details</div>
+                        <div class="detail">Yuktha</div>
+                        <div class="detail">19AACVCB85QV</div>
+                        <div class="detail">9191911191</div>
+                        <div class="detail">Near Yousufguda Check Post</div>
+                        <div class="detail">Hyderbad</div>
+                        <div class="detail">508213</div>
+                    </div>
                 </div>
                 <div class="main-table">
                     <table class="history-table">
                         <thead>
-                           <tr class="bordered-row">
-                            <th>SNO</th>
-                            <th class="date-col">DATE</th>
-                            <th>AGREEMENT ID</th>
-                            <th>CONTRACTOR NAME</th>
-                            <th>CONTACT METHOD</th>
-                            <th>STATUS</th>
-                            <th id="action-heading">ACTION</th>
-                           </tr>
+                            <tr class="bordered-row">
+                                <th>SNO</th>
+                                <th>MATERIAL ID</th>
+                                <th>MATERIAL/ITEM NAME</th>
+                                <th>SEGMENT</th>
+                                <th>DESCRIPTION</th>
+                                <th>VENDOR/SUPPLIER</th>
+                                <th>QUANTITY</th>
+                                <th>UNIT OF MEASURE</th>
+                                <th>COST PER UNIT</th>
+                                <th>TOTAL COST</th>
+                                <th>TYPE OF PAYMENT</th>
+                                <th class="nextid">UPLOAD PAYMENT STATUS</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>10-06-2024</td>
-                                <td>A-20032014</td>
-                                <td>VIJAY</td>
-                                <td>EMAIL</td>
-                                <td>Pending</td>
-                                <td id="action">
-                                    <i class="fa-solid fa-eye view"></i>
-                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                <td>8585</td>
+                                <td>Cement</td>
+                                <td class="segment">Segment 1</td>
+                                <td>Hg</td>
+                                <td>ACC</td>
+                                <td>3</td>
+                                <td>Kg</td>
+                                <td>100</td>
+                                <td>300</td>
+                                <td>Cash</td>
+                                <td id="payment-status">
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>10-06-2024</td>
-                                <td>A-20038017</td>
-                                <td>SUDHEER</td>
-                                <td>COLD CALL</td>
-                                <td>Pending</td>
-                                <td id="action">
-                                    <i class="fa-solid fa-eye view"></i>
-                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                <td>8585</td>
+                                <td>Cement</td>
+                                <td class="segment">Segment 1</td>
+                                <td>Hg</td>
+                                <td>ACC</td>
+                                <td>3</td>
+                                <td>Kg</td>
+                                <td>100</td>
+                                <td>300</td>
+                                <td>Cash</td>
+                                <td id="payment-status">
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td>10-06-2024</td>
-                                <td>A-20032091</td>
-                                <td>VIJAY</td>
-                                <td>FACE TO FACE</td>
-                                <td>Agreed</td>
-                                <td id="action">
-                                    <i class="fa-solid fa-eye view"></i>
-                                    <i class="fa-regular fa-trash-can delete-row "></i>
+                                <td>8585</td>
+                                <td>Cement</td>
+                                <td class="segment">Segment 1</td>
+                                <td>Hg</td>
+                                <td>ACC</td>
+                                <td>3</td>
+                                <td>Kg</td>
+                                <td>100</td>
+                                <td>300</td>
+                                <td>Online</td>
+                                <td id="payment-status">
+                                    <img src="../assets/paymentscreenshot.png" alt="">
+                                    <span><b>UTR Number:</b> 912345678912</span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td>10-06-2024</td>
-                                <td>A-20022014</td>
-                                <td>SUDHEER</td>
-                                <td>COLD CALL</td>
-                                <td>Agreed</td>
-                                <td id="action">
-                                    <i class="fa-solid fa-eye view"></i>
-                                    <i class="fa-regular fa-trash-can delete-row"></i>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>10-06-2024</td>
-                                <td>A-5222185</td>
-                                <td>SUDHEER</td>
-                                <td>FACE TO FACE</td>
-                                <td>Agreed</td>
-                                <td id="action">
-                                    <i class="fa-solid fa-eye view"></i>
-                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                <td>8585</td>
+                                <td>Cement</td>
+                                <td class="segment">Segment 1</td>
+                                <td>Hg</td>
+                                <td>ACC</td>
+                                <td>3</td>
+                                <td>Kg</td>
+                                <td>100</td>
+                                <td>300</td>
+                                <td>Pending</td>
+                                <td id="payment-status">
+                                    -
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                
+                <div id="fullscreen-overlay">
+                    <img id="fullscreen-image" src="" alt="Full Screen Image">
+                </div>
+                <div class="savebutton">
+                    <button type="button" onclick="saveData()" class="savebtn">Save</button>
+                </div>
+                
             </div>
         </div>
           <!-- footer -->
@@ -387,6 +429,6 @@
         
    </div>
     <script src="../javascript/sidenavbar.js"></script>
-    <script src="../javascript/customeragreementhistory.js"></script>
+    <script src="../javascript/customerpurchaseorder.js"></script>
 </body>
 </html>
