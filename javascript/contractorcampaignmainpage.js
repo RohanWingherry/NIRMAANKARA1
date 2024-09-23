@@ -102,7 +102,7 @@ submitButton.addEventListener('click', function (event) {
 
     if (isValid) {
         alert('Submission Successful');
-        window.location.href="../html/contractorcampaignpackage1.html"
+        window.location.href="../html/contractorcampaignpackage.html"
     }
     else{
         alert("Fill all the details")

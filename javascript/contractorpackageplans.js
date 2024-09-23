@@ -2,7 +2,7 @@ function free(){
     alert("Profile Updated Successfully")
     window.location.href="../html/contractorshomepage.html"
 }
-const buyNow=document.querySelectorAll(".button1")
+const buyNow=document.querySelectorAll(".buy-now")
 
 buyNow.forEach(buy => {
     buy.addEventListener("click",()=>{
