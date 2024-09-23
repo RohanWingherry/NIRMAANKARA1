@@ -32,9 +32,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
 }
 .follow-table{
     border-spacing: 0 10px;
+    max-width: 1200px;
+    width: 100%;
 }
 .follow-table thead>tr,th{
     border: 1px solid rgb(133, 133, 133);
