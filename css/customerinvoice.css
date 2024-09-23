@@ -42,7 +42,7 @@ body{
     justify-content: flex-end;
 
 }
-.export span{
+.export {
     display: flex;
     align-items: center;
     font-size: 14px;
