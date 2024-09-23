@@ -7,12 +7,7 @@
     font-family: "Roboto";
 };
 .main-contentor{
-    width:100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:20px;
+    border: 2px solid red;
 }
 #overview-headings{
     display: flex;
@@ -34,277 +29,202 @@
     color: #286DB3;
     border-bottom: 3px solid #286DB3;
 }
-.box{
-    width:100%;
+.main-lead-package{
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.main-lead-package .package-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-lead-package .package-heading h3{
+    font-size: 16px;
+    color: #008994;
+}
+.main-lead-package .main-package{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  
     align-items: center;
-    gap:30px;
+    justify-content: space-evenly;
+    gap: 20px;
     padding: 20px;
-    /* flex-direction: column; */
 }
-.main-content h1{
-    font-weight: bold;
-    font-size: 18px;
-    padding: 20px;
-    color: #088994;
-    text-align: center;
-}
-.boxes{
-    width:250px;
-    height:455px;
+.main-lead-package .main-package section{
+    width: 300px;
+    height: 500px;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     flex-direction: column;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    border-radius: 15px;
-    padding-bottom: 30px;
-    gap:35px;
-    margin-top: 25px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-}
-.side{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width:100%;
-}
-.boxes:hover{
-    scale:1.06;
-}
-.box2{
-    margin-left: 4%;
-    margin-right:4%;
-    display: flex;
-    align-items: center;
-    gap:15px;
-    width: 85%;
-    height: 100%;
-} 
-.line{
-    width: 80%;
-    border: 1px solid black;
-}
-.icons i{
-    font-size: 18px;
-}
-#boxes1 .icons i{
-    color:rgb(0, 137, 148);
-}
-#boxes2 .icons i{
-    color:rgb(250, 196, 0);
-}
-#boxes3 .icons i{
-    color:rgb(16, 87, 139)
-}
-#boxes4 .icons i{
-    color:rgb(122, 35, 80);
-}
-#boxes5 .icons i{
-    color:rgb(0, 154, 68);
-}
-#boxes6 .icons i{
-    color:rgb(16, 87, 139);
-}
-#boxes7 .icons i{
-    color:rgb(0, 137, 148);
-}
-.para{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    flex-direction: column;
-    gap:15px;
-    font-size: 14px;
-}
-.icons{
-    display: flex;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:15px
-}
-.money i{
-    font-size: 20px;
-}
-.box3{
-    margin-left: 4%;
-    margin-right:4%;
-    border-top:2px solid black;
-    width:80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap:20px;
-}
-.money{
-    display: flex;
-    gap:8px;
-    margin-top: 20px;
-    justify-content: center;
-    align-items: center;
-
-}
-#boxes1{
-    width:250px;
-    height:455px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    border-radius: 15px;
-    padding-bottom: 30px;
-
-}
-#boxes2{
-    width:250px;
-    height:455px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    border-radius: 15px;
-    padding-bottom: 30px;
-}
-.price{
-    color:black;
-    font-weight: 500;
-    font-size: 25px;
-}
-.money span{
-    color:rgb(188, 188, 188);
-    font-size: 16px;
-    font-weight: 500;
-}
-.box1{
-    width:100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-}
-.card{
-   height:50px;
-   width:100px;
-   display: flex;
-   align-items: flex-start;
-   flex-direction: column;
-   border-bottom-right-radius: 15px;
-   border-top-left-radius: 15px;
-   /* background-color: rgb(0, 137, 148); */
-   color:white;
-   text-transform: capitalize;
-   gap:2px;
-}
-.card>p{
-    margin-top: 8px;
-    margin-left: 20px;
-}
-#boxes1 .card{
-    background-color: rgb(0, 137, 148);
-}
-#boxes2 .card{
-    background-color: rgb(250, 196, 0);
-}
-#boxes3 .card{
-    background-color: rgb(16, 87, 139);
-}
-#boxes4 .card{
-    background-color: rgb(122, 35, 80);
-}
-#boxes5 .card{
-    background-color: rgb(0, 154, 68);
-}
-#boxes6 .card{
-    background-color: rgb(16, 87, 139);
-}
-#boxes7 .card{
-    background-color: rgb(0, 137, 148);
-}
-.basic{
-    width:100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.basic1{
-    font-size: 10px;
-    margin-left: 20px;
-}
-.box button{
-    width:100%;
-    padding: 8px;
-    background-color: white;
-    /* color:rgb(0, 137, 148); */
-    outline: none;
-    /* border: 2px solid rgb(0, 137, 148); */
+    gap: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding-bottom: 10px;
     border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.main-lead-package .main-package section:hover{
+    transform: scale(1.04);
+}
+.main-package section .main-head div{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    color: white;
+    border-radius: 10px 0px;
+    width: 110px;
+    height: 55px;
+    padding-left: 12px;
+}
+.main-package section .main-head div span:first-child{
+    font-size: 17px;
+    font-weight: 500;
+}
+.main-package section .main-head div span:last-child{
+    font-size: 12px;
+}
+.main-package section .main-line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-package section .main-line span{
+    border: 1px solid black;
+    width: 90%;
+}
+.main-package section .icons{
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    gap: 10px;
+    padding: 10px;
+}
+.main-package section .icons div{
+    display: flex;
+    gap: 10px;
+}
+.main-package section .plan-price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+}
+
+.main-package section .plan-price div span:first-child{
+    font-size: 26px;
+    font-weight: 500;
+}
+.main-package section .plan-price div span:last-child{
+    font-size: 12px;
+}
+.main-package section .plan-buy{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-package section .plan-buy span{
+    padding: 10px;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
 }
-#boxes1 button{
-    border: 2px solid rgb(0, 137, 148);
-    color:rgb(0, 137, 148);
+.main-package section .main-head .box1{
+    background-color: #008994;
 }
-#boxes7 button{
-    border:2px solid rgb(0, 137, 148);
-    color:rgb(0, 137, 148);
+.main-package section .main-head .box2{
+    background-color: #10578B;
 }
-#boxes2 button{
-    color: rgb(250, 196, 0);
-    border:2px solid rgb(250, 196, 0);
+.main-package section .main-head .box3{
+    background-color: #FAC400;
 }
-#boxes3 button{
-    color: rgb(16, 87, 139);
-    border:2px solid rgb(16, 87, 139);
+.main-package section .main-head .box4{
+    background-color: #7A2350;
 }
-#boxes6 button{
-    color: rgb(16, 87, 139);
-    border:2px solid rgb(16, 87, 139);
-}
-#boxes4 button{
-   color: rgb(122, 35, 80);
-    border:2px solid rgb(122, 35, 80);
-}
-#boxes5 button{
-    color: rgb(0, 154, 68);
-    border:2px solid rgb(0, 154, 68);
+.main-package section .main-head .box5{
+    background-color: #008994;
 }
 
-
-#boxes1 button:hover{
-    background-color: rgb(0, 137, 148);
-    color:white;
+.main-package section #right1 div>i{
+    color: #008994;
+    font-size: 16px;
 }
-#boxes7 button:hover{
-    background-color: rgb(0, 137, 148);
-    color:white;
+.main-package section #right2 div>i{
+    color: #10578B;
+    font-size: 16px;
 }
-#boxes2 button:hover{
-    background-color: rgb(250, 196, 0);
-    color:white;
+.main-package section #right3 div>i{
+    color: #FAC400;
+    font-size: 16px;
 }
-#boxes3 button:hover{
-    background-color: rgb(16, 87, 139);
-    color:white;
+.main-package section #right4 div>i{
+    color: #7A2350;
+    font-size: 16px;
 }
-#boxes6 button:hover{
-    background-color: rgb(16, 87, 139);
-    color:white;
-}
-#boxes4 button:hover{
-    background-color: rgb(122, 35, 80);
-    color:white;
-}
-#boxes5 button:hover{
-    background-color: rgb(0, 154, 68);
-    color:white;
+.main-package section #right5 div>i{
+    color: #008994;
+    font-size: 16px;
 }
 
+.main-package section .plan-buy .boox-1{
+    border: 1px solid #008994;
+    color: #008994;
+}
+.main-package section .plan-buy .boox-2{
+    border: 1px solid #10578B;
+    color: #10578B;
+}
+.main-package section .plan-buy .boox-3{
+    border: 1px solid #FAC400;
+    color: #FAC400;
+}
+.main-package section .plan-buy .boox-4{
+    border: 1px solid #7A2350;
+    color: #7A2350;
+}
+.main-package section .plan-buy .boox-5{
+    border: 1px solid #008994;
+    color: #008994;
+}
 
+.main-package section .plan-buy .boox-1:hover{
+    border: 1px solid #008994;
+    background-color: #008994;
+    color: white;
+}
+.main-package section .plan-buy .boox-2:hover{
+    border: 1px solid #10578B;
+    background-color: #10578B;
+    color: white;
+}
+.main-package section .plan-buy .boox-3:hover{
+    border: 1px solid #FAC400;
+    background-color: #FAC400;
+    color: white;
+}
+.main-package section .plan-buy .boox-4:hover{
+    border: 1px solid #7A2350;
+    background-color: #7A2350;
+    color: white;
+}
+.main-package section .plan-buy .boox-5:hover{
+    border: 1px solid #008994;
+    background-color: #008994;
+    color: white;
+}
+@media (max-width:768px) {
+    .main-lead-package .main-package{
+        padding: 0px;
+    }
+}
