@@ -1,3 +1,76 @@
+ // Toggle chat list (open/close)
+ document.getElementById("chat-list-header").addEventListener("click", function() {
+    var content = document.getElementById("chat-list-content");
+    var arrow = document.getElementById("chat-list-arrow");
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        arrow.style.transform = "rotate(0deg)";
+    } else {
+        content.style.display = "block";
+        arrow.style.transform = "rotate(180deg)";
+    }
+});
+
+document.getElementById('send-chat-btn').addEventListener('click', function() {
+    const messageText = document.getElementById('chat-input').value.trim();
+    if (messageText !== "") {
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message-container', 'right'); // Add 'left' or 'right' based on the sender
+
+        newMessage.innerHTML = `
+            <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+            <div>
+                <p class="message-text">${messageText}</p>
+                <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        `;
+
+        document.getElementById('chat-messages').appendChild(newMessage);
+        document.getElementById('chat-input').value = '';
+        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+    }
+});
+
+
+// Open chat window for selected person
+const chatPersons = document.querySelectorAll(".chat-person");
+const chatWindow = document.getElementById("chat-window");
+const chatPersonName = document.getElementById("chat-person-name");
+const chatPersonImage = document.getElementById("chat-person-image");
+const chatMessages = document.getElementById("chat-messages");
+
+chatPersons.forEach(person => {
+    person.addEventListener("click", function() {
+        const personName = this.dataset.person;
+        const personImg = this.dataset.img;
+
+        chatPersonName.textContent = personName;
+        chatPersonImage.src = personImg;
+        chatWindow.style.display = "block";
+    });
+});
+
+// Close chat window
+document.getElementById("close-chat").addEventListener("click", function() {
+    chatWindow.style.display = "none";
+});
+
+// Send message logic
+document.getElementById("send-chat-btn").addEventListener("click", function() {
+    const chatInput = document.getElementById("chat-input").value;
+    if (chatInput.trim() !== "") {
+        const newMessage = document.createElement("p");
+        newMessage.textContent = chatInput;
+        chatMessages.appendChild(newMessage);
+        document.getElementById("chat-input").value = ""; // Clear input
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+    }
+});
+// end
+
+
+// chatbot toggle
 const chatbotToggler = document.querySelector(".chatbot-toggler");
 const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");

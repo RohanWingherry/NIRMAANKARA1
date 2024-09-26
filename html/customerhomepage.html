@@ -356,6 +356,150 @@
                   <span id="send-btn" class="material-symbols-rounded">send</span>
                 </div>
             </div>
+            <!-- message box -->
+            <div class="chat-box-container">
+                <!-- Chat List -->
+                <div class="chat-list-box" id="chat-list-box">
+                    <div class="chat-list-header" id="chat-list-header">
+                        <div>
+                            <img src="../assets/profile-pic.png" alt="profile">
+                            <span>Messages</span>
+                        </div>
+                        <div class="box-icons">
+                            <span class="material-symbols-outlined">person_add</span>
+                            <div class="arrow" id="chat-list-arrow"><span class="material-symbols-outlined">keyboard_control_key</span></div>
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="chat-list-content" id="chat-list-content">
+                        <div class="searching">
+                            <div class="searchbox">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="search" id="search" placeholder="Search message...">
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="chat-person" data-person="Person 1" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 1">
+                                    <span>Person 1</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">12:00 PM</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 2" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 2">
+                                    <span>Person 2</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">1 day ago</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 3" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 3">
+                                    <span>Person 3</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">2 day ago</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 4" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 4">
+                                    <span>Person 4</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">2 day ago</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 5" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 5">
+                                    <span>Person 5</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">15 sept</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 6" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 6">
+                                    <span>Person 6</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">19 sept</span>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 4" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/profile-pic.png" alt="Person 4">
+                                    <span>Person 4</span>
+                                </div>
+                                <div class="time">
+                                    <span class="time-received">20 spet</span>
+                                </div>
+                            </li>
+                            <!-- Add more people as needed -->
+                        </ul>
+                    </div>
+                </div>
+            
+                <!-- Chat Window -->
+                <div class="chat-window" id="chat-window">
+                    <div class="chat-window-header" id="chat-window-header">
+                        <img id="chat-person-image" src="" alt="Profile">
+                        <span id="chat-person-name">Chat</span>
+                        <div class="close-chat" id="close-chat">&#x2715;</div>
+                    </div>
+                    <div class="chat-window-content">
+                            <div class="chat-messages" id="chat-messages">
+                                <!-- Initial Messages -->
+                                <!-- Left Message -->
+                                <div class="message-container left">
+                                    <img src="../assets/contractor.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text one">Any updates on interview schedules?</p>
+                                        <span class="message-time">Today 9:38 am</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Message -->
+                                <div class="message-container right">
+                                    <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text two">Bleh, it's going. I haven't had many responses yet so I'll probably reach out again this afternoon if still no response.</p>
+                                        <span class="message-time">Today 9:40 am</span>
+                                    </div>
+                                </div>
+                                <!-- Left Message -->
+                                <div class="message-container left">
+                                    <img src="../assets/contractor.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text">Any updates on interview schedules?</p>
+                                        <span class="message-time">Today 9:38 am</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Message -->
+                                <div class="message-container right">
+                                    <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text">Bleh, it's going. I haven't had many responses yet so I'll probably reach out again this afternoon if still no response.</p>
+                                        <span class="message-time">Today 9:40 am</span>
+                                    </div>
+                                </div>
+                                <!-- Add other messages as necessary -->
+                            </div>
+                            <textarea id="chat-input" placeholder="Type a message..."></textarea>
+                            <button id="send-chat-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <!-- footer -->
         <div class="main-footer-box">

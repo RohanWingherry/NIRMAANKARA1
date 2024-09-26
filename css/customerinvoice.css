@@ -12,6 +12,12 @@ body{
  .contentofpage{
     padding: 20px;
  }
+ .invoice-box{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 20px auto;
+ }
 .inheading{
     display: flex;
     justify-content: space-between;
@@ -53,7 +59,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-top: 30px; */
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 .comp h1{
     font-size: 20px;
@@ -66,6 +73,11 @@ body{
     max-width: 50px;
     width: 100%;
     
+}
+hr{
+    width: 90%;
+    color: black;
+    margin: 0px auto;
 }
 /*box*/
 .box{
