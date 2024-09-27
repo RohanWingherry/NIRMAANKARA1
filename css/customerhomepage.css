@@ -524,3 +524,75 @@
   border-radius: 50%;
   margin: 0 10px;
 }
+
+
+/* contracrtir list */
+.contractors-list-box {
+  display: none;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+  z-index: 1001;
+}
+
+.contractors-list-header {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contractors-search {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.contractors-search input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contractors-list-content {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.contractors-list-content li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.contractors-list-content li:hover {
+  background-color: #eeeeee;
+}
+
+.contractors-list-content li img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.close-contractors-list {
+  cursor: pointer;
+  font-size: 20px;
+}

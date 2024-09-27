@@ -31,6 +31,50 @@ document.getElementById('send-chat-btn').addEventListener('click', function() {
         document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
     }
 });
+// new contractor list
+// Toggle the contractors list when the add-person icon is clicked
+document.querySelector('.add-person').addEventListener('click', function() {
+    document.getElementById('contractors-list-box').style.display = 'block';
+});
+
+// Close the contractors list when the close button is clicked
+document.getElementById('close-contractors-list').addEventListener('click', function() {
+    document.getElementById('contractors-list-box').style.display = 'none';
+});
+
+// Example contractors list (you can populate this dynamically)
+const contractors = [
+    { name: 'Contractor 1', img: '../assets/contractor1.png' },
+    { name: 'Contractor 2', img: '../assets/contractor2.png' },
+    { name: 'Contractor 3', img: '../assets/contractor3.png' },
+];
+
+// Populate the contractors list
+const contractorsListContent = document.getElementById('contractors-list-content');
+contractors.forEach(contractor => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <img src="${contractor.img}" alt="${contractor.name}">
+        <span>${contractor.name}</span>
+    `;
+    li.addEventListener('click', function() {
+        // Handle the contractor selection
+        alert(`Starting chat with ${contractor.name}`);
+        document.getElementById('contractors-list-box').style.display = 'none';
+    });
+    contractorsListContent.appendChild(li);
+});
+
+// Implement search functionality for the contractors list
+document.getElementById('contractors-search').addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const contractorItems = contractorsListContent.querySelectorAll('li');
+    contractorItems.forEach(item => {
+        const name = item.querySelector('span').innerText.toLowerCase();
+        item.style.display = name.includes(query) ? '' : 'none';
+    });
+});
+
 
 
 // Open chat window for selected person

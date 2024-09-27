@@ -366,7 +366,7 @@
                             <span>Messages</span>
                         </div>
                         <div class="box-icons">
-                            <span class="material-symbols-outlined">person_add</span>
+                            <span class="material-symbols-outlined add-person">person_add</span>
                             <div class="arrow" id="chat-list-arrow"><span class="material-symbols-outlined">keyboard_control_key</span></div>
 
                         </div>
@@ -498,6 +498,19 @@
                             <button id="send-chat-btn">Send</button>
                     </div>
                 </div>
+            </div>
+            <!-- new contractor list -->
+            <div class="contractors-list-box" id="contractors-list-box">
+                <div class="contractors-list-header">
+                    <span>Select Contractor</span>
+                    <div class="close-contractors-list" id="close-contractors-list">&#x2715;</div>
+                </div>
+                <div class="contractors-search">
+                    <input type="search" id="contractors-search" placeholder="Search contractors...">
+                </div>
+                <ul class="contractors-list-content" id="contractors-list-content">
+                    <!-- Contractors list will be dynamically populated -->
+                </ul>
             </div>
             
         </div>
