@@ -3,7 +3,7 @@ document.getElementById('addRowBtn').addEventListener('click', function() {
     var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
     var newRow = table.insertRow();
 
-    var cell0 = newRow.insertCell(0); // Serial number cell
+    var cell0 = newRow.insertCell(0); 
     var cell1 = newRow.insertCell(1);
     var cell2 = newRow.insertCell(2);
     var cell3 = newRow.insertCell(3);
@@ -14,7 +14,6 @@ document.getElementById('addRowBtn').addEventListener('click', function() {
     var cell8 = newRow.insertCell(8);
     var cell9 = newRow.insertCell(9);
 
-    // Set the serial number based on the current number of rows
     var rowCount = table.rows.length;
     cell0.innerHTML = rowCount;
 
@@ -61,7 +60,6 @@ function deleteRow(element) {
     }
 }
 
-// Function to update the serial numbers after a row is deleted
 function updateSerialNumbers() {
     var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
     for (var i = 0; i < table.rows.length; i++) {
@@ -70,13 +68,12 @@ function updateSerialNumbers() {
 }
 
 document.getElementById('submitBtn').addEventListener('click', function(event) {
-    // Prevent form submission if validation fails
     if (validateForm()&&addingRowCount>=1) {
-        alert("Details are filled Successfully")
+        alert("Successfully submitted the details")
         window.location.href="../html/contractorpurchaseorderhistory.html";
     }
     else{
-        alert("All the fields are required and also enter the procurement item list properly")
+        alert("Enter the customer id and also enter the procurement item list properly")
     }
 });
 
@@ -84,111 +81,16 @@ document.getElementById('submitBtn').addEventListener('click', function(event) {
 function validateForm() {
     var isValid = true;
 
-    // Hide all error messages initially
-    document.getElementById('error-message').style.display = 'none';
-    document.getElementById('error-pincode').style.display = 'none';
-
-    // Reset border colors for inputs
-    var inputs = document.querySelectorAll('.form-group input, .form-group select');
-    inputs.forEach(function(input) {
-        input.style.borderColor = '';
-    });
-
     // Validate all required fields
-    var requiredFields = document.querySelectorAll('.form-group input[required], .form-group select[required]');
+    var requiredFields = document.querySelectorAll('input[required], select[required]');
     requiredFields.forEach(function(input) {
         if (!input.value) {
             input.style.borderColor = 'red';
             isValid = false;
         } else {
-            input.style.borderColor = ''; // Reset border color if valid
+            input.style.borderColor = ''; 
         }
     });
-
-    // Validate mobile number specifically
-    var mobileNumber = document.getElementById('contact-number');
-    if (mobileNumber.value.length !== 10) {
-        document.getElementById('error-message').style.display = 'block';
-        mobileNumber.style.borderColor = 'red';
-        isValid = false;
-    }
-
-    // Validate pincode specifically
-    var clientPincode = document.getElementById('client-pincode');
-    if (clientPincode.value.length !== 6) {
-        document.getElementById('error-pincode').style.display = 'block';
-        clientPincode.style.borderColor = 'red';
-        isValid = false;
-    }
-
-    const clientName = document.getElementById('client-name');
-    const clientAddress=document.getElementById('client-address');
-    const clientCity=document.getElementById('client-city');
-    const orgName=document.getElementById("org-name");
-    const gstName=document.getElementById('gst-reg-no');
-    const orgAddress=document.getElementById('org-address');
-    const orgCity=document.getElementById('org-city');
-
-    const nameRegex = /^[a-zA-Z][a-zA-Z\s]*$/;
-    if (!nameRegex.test(clientName.value.trim())) {
-        isValid = false;
-        clientName.style.border = "1px solid red";
-    } else {
-        clientName.style.border = "";
-    }
-    // organisation name
-    if (!nameRegex.test(orgName.value.trim())) {
-        isValid = false;
-        orgName.style.border = "1px solid red";
-    } else {
-        orgName.style.border = "";
-    }
-// client city
-    if (!nameRegex.test(clientCity.value.trim())) {
-        isValid = false;
-        clientCity.style.border = "1px solid red";
-    } else {
-        clientCity.style.border = "";
-    }
-    //org city
-    if (!nameRegex.test(orgCity.value.trim())) {
-        isValid = false;
-        orgCity.style.border = "1px solid red";
-    } else {
-        orgCity.style.border = "";
-    }
-//client address
-    const addressRegex = /^[a-zA-Z0-9][a-zA-Z0-9\s]*$/;
-    if (!addressRegex.test(clientAddress.value.trim())) {
-        isValid = false;
-        clientAddress.style.border = "1px solid red";
-    } else {
-        clientAddress.style.border = "";
-    }
-
-    //contractor address
-    if (!addressRegex.test(orgAddress.value.trim())) {
-        isValid = false;
-        orgAddress.style.border = "1px solid red";
-    } else {
-        orgAddress.style.border = "";
-    }
-
-    //org-gst
-    if (!addressRegex.test(gstName.value.trim())) {
-        isValid = false;
-        gstName.style.border = "1px solid red";
-    } else {
-        gstName.style.border = "";
-    }
-
-
-    var orgPincode = document.getElementById('org-pincode');
-    if (orgPincode.value.length !== 6) {
-        document.getElementById('error-pincode').style.display = 'block';
-        orgPincode.style.borderColor = 'red';
-        isValid = false;
-    }
     // table validation
     var tableRows = document.querySelectorAll('#itemTable tbody tr');
     tableRows.forEach(function(row) {
@@ -198,9 +100,22 @@ function validateForm() {
                 cell.style.border = ' 1px solid red';
                 isValid = false;
             } else {
-                cell.style.border = ''; // Reset border color if valid
+                cell.style.border = ''; 
             }
         });
     });
     return isValid;
 }
+document.getElementById("fetch-details").addEventListener("click",()=>{
+    const cust=document.getElementById("customer-id").value
+    if(cust){
+        document.querySelector(".main-client-det").style.display="block"
+    }
+    else{
+        alert("Enter the Customer-id")
+    }
+  })
+  const dateInput = document.getElementById('dateInput');
+  const today = new Date().toISOString().split('T')[0]; 
+  dateInput.value = today;
+  dateInput.style.textAlign='center'

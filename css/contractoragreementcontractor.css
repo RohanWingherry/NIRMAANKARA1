@@ -26,7 +26,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 10px;
 }
 .heading #sample{
@@ -43,58 +43,150 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.input-box .heading{
-  background-color: #dbdbdb;
-  padding: 6px;
-  color: black;
-  width: max-content;
-  margin-bottom: 8px;
-  font-weight: 400;
-  font-size: 16px;
+.fetching{
+  border-radius: 10px;
   width: 100%;
-  font-weight: bold;
-}
-.input-box{
-  width: 100%;
-}
-.input-box .form{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.form label{
-  font-size: 14px;
-  font-weight: 500;
-}
-.form .form-group{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  align-items: flex-start;
 }
-.form .form-group .required-fields{
-  color: red;
+.agreement-main .all-details-head{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left:10px ;
+}
+.agreement-main .all-details-head .org-details{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.agreement-main .all-details-head .org-details figure{
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bdbdbd;
+}
+.all-details-head .org-details figure img{
+  background-color: white;
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  object-fit: contain;
+}
+.all-details-head .org-details span{
+  font-family: "Saira", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  i{
+      font-size: 16px;
+  }
+}
+.agreement-main .all-details-head .this-heading{
+  display: flex;
+  align-items: center;
+  padding:30px 40px;
+  border-radius: 40px 0px 0px 40px;
+  background-color: #10578B;
+  height: 100%;
+}
+.agreement-main .all-details-head .this-heading div{
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+.agreement-main .all-details{
+  border-top: 1px solid rgba(27, 31, 35, 0.264);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: space-between;
+  font-size: 14px;
+  gap: 10px;
+}
+.agreement-main .organisation-det{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: rgb(113, 113, 113);
+  max-width: 400px;
+  width: 100%;
+}
+.agreement-main .all-details .details{
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  justify-content: flex-start;
+  gap: 5px;
+  .material-symbols-outlined{
+      font-size: 20px;
+  }
 }
 
-.form-group input{
-  padding: 8px;
-  border-radius: 8px;
-  outline: none;
-  border: none;
-  border: 1px solid gray;
-  width: 240px;
+.agreement-main .all-details .enter-det{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  justify-content: space-evenly;
+  font-size: 14px;
+  color: rgb(113, 113, 113);
 }
-.form-group select{
-  padding: 8px;
-  border-radius: 8px;
+.all-details .enter-det .client input{
+  width: 100px;
+  padding: 5px;
+  text-align: left;
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px;
   outline: none;
-  border: none;
-  border: 1px solid gray;
-  width: 240px;
+  color: rgb(113, 113, 113);
 }
-.form-group input:hover{
-  border: 1px solid rgb(17, 17, 17);
+.enter-det .client span:last-child{
+  padding: 0px 7px;
+}
+.all-details .enter-det .client #fetch-details{
+  background-color: #009944;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.all-details .main-client-det{
+  display: none;
+}
+.all-details .cient-det{
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: rgb(113, 113, 113);
+}
+@media (max-width:768px) {
+  .all-details-head{
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: right;
+      gap: 20px;
+  }
+  .agreement-main .all-details-head .this-heading{
+      border-radius: 30px;
+  }
+  .agreement-main .all-details{
+    justify-content: center;
+    gap: 25px;
+  }
+  
 }
 .container {
     background-color: #ffffff;
@@ -189,7 +281,6 @@
   .agreement-main .witness>span{
     font-size: 16px;
     font-weight: bold;
-    background-color: #dbdbdb;
     padding: 6px;
   }
   .agreement-main .witness>ol{
@@ -213,7 +304,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #dbdbdb;
     padding: 6px;
     margin-bottom: 6px;
   }

@@ -252,66 +252,79 @@
     <div class="main-content">
         <div class="contentofpage">
             <div class="inheading">
-                <div class="invoicehead">INVOICE</div>
                 <div class="recent" onclick="window.location.href='../html/contractorinvoicehistory.html'">Recent Invoice</div>
             </div>
-            <div class="comp">
-                <h1><img src="../assets/nirmankaralogo.png" alt="">Nirmaankara</h1>
-            </div>
-            <div class="box">
-                <div class="box1">
-                    <p><label for="inoviceno">Invoice No: <span class="required">*</span></label> 
-                    <input type="number" id="inoviceno" placeholder="enter invoice" required></p>
+            <div class="fetching">
+                <div class="all-details-head">
+                    <section class="org-details">
+                        <figure>
+                            <img src="../assets/logo.png" alt="">
+                        </figure>
+                        <span><i class="fa-solid fa-building"></i>YUKTHA CONSTRUCTIONS</span>
+                    </section>
+                    <section class="this-heading">
+                        <div>INVOICE</div>
+                    </section>
                 </div>
-                <div class="box1">
-                    <p><label for="date">Invoice Date: <span class="required">*</span></label> 
-                    <input type="date" id="date" required></p>
-                </div>
-            </div>
-            <div class="input-box">
-                <div class="left">
-                    <div class="heading">Bill From</div>
-                    <form action="" class="form">
-                        <div class="form-group">
-                            <label for="receivedFrom">Contractor Name <span class="required">*</span></label>
-                            <input type="text" id="receivedFrom" name="receivedFrom" placeholder="enter name" required>
+                <div class="all-details">
+                    <secction class="organisation-det">
+                        <div class="details">
+                            <span class="material-symbols-outlined">money_bag</span>
+                            <span>GST No: 29AAGCR4375J1ZU</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="gst">Gst <span class="required">*</span></label>
-                            <input type="text" id="gst" name="gst" placeholder="enter gst no" required>
+                        <div class="details">
+                            <span class="material-symbols-outlined">distance</span>
+                            <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
                         </div>
-                        <div class="form-group">
-                            <label for="addressFrom">Address <span class="required">*</span></label>
-                            <input type="text" id="addressFrom" name="addressFrom" placeholder="enter address" required>
+                        <div class="details">
+                            <span class="material-symbols-outlined">call</span>
+                            <span>9985752406</span>
                         </div>
-                    </form>
-                </div>
-                <div class="right">
-                    <div class="heading">Bill To</div>
-                    <form action="" class="form">
-                        <div class="form-group">
-                            <label for="billToName">Customer Name <span class="required">*</span></label>
-                            <input type="text" id="billToName" name="billToName" placeholder="enter name" required>
+                        <div class="details">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span>yukthaconstruction@gmail.com</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="mobile">Mobile No <span class="required">*</span></label>
-                            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile no" required>
-                            <span id="mobileError" class="error-message" style="color: red; display: none; font-size: 12px;">Please fill in a valid 10-digit number</span>
+                    </secction>
+                    <section class="main-client-det">
+                        <section class="cient-det">
+                            <div class="client">
+                                <span>Customer Name: </span>
+                                <span>Sudheer</span>
+                            </div>
+                            <div class="client">
+                                <span>Customer Address: </span>
+                                <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                            </div>
+                            <div class="client">
+                                <span>Mobile Number:</span>
+                                <span>9966778899</span>
+                            </div>
+                        </section>
+                    </section>
+                    <section class="enter-det">
+                        <div class="client">
+                            <span>Invoice No: </span>
+                            <span>I-270920241</span>
                         </div>
-                        <div class="form-group">
-                            <label for="billToAddress">Address <span class="required">*</span></label>
-                            <input type="text" id="billToAddress" name="billToAddress" placeholder="enter address" required>
+                        <div class="client">
+                            <label for="quotation-date">Date:</label>
+                            <input type="date" id="dateInput" disabled>
                         </div>
-                    </form>
+                        <div class="client">
+                            <label for="customer-id">Customer Id:</label>
+                            <input type="text" id="customer-id" required>
+                        </div>
+                        <div class="client">
+                            <span id="fetch-details">Fetch Details</span>
+                        </div>
+                    </section>
                 </div>
             </div>
     
             <div class="description">
 
                 <div class="table-container">
-                    <div class="heading tableheading">Enter List of Items</div>
+                    <div class="heading tableheading">ENTER LIST OF ITEMS :</div>
 
                     <table id="descriptionTable">
                         <thead>

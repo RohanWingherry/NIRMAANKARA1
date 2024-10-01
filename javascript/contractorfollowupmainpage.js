@@ -1,59 +1,32 @@
 document.querySelector(".followup-form").addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const nameInput = document.querySelector('.fullname').value;
-    const mobileNumber = document.querySelector('.mobilenumber').value;
-    const addressInput = document.querySelector('.address').value;
+    
     const face = document.getElementById('face').checked;
     const coldcall = document.getElementById('coldcall').checked;
     const email = document.getElementById('email').checked;
     const chat = document.getElementById('chat').checked;
-
-    // Error message element
-    const errorMessage = document.getElementById("error-message");
-
-    // Clear previous error messages
-    errorMessage.style.display = "none";
-
-    // Validation functions
-    const isValidName = (value) => {
-        const regex = /^[a-zA-Z][a-zA-Z\s]*$/;
-        return regex.test(value);
-    };
-
-    const isValidAddress = (value) => {
-        const regex = /^[a-zA-Z][a-zA-Z0-9\s]*$/;
-        return regex.test(value);
-    };
+    const customerIdInput = document.getElementById("customer-id");
+    const errorMessage = document.getElementById("error-message"); // Assuming there's an element for error messages
 
     const validateForm = () => {
         let isValid = true;
 
-        // Validate name and address
-        if (!isValidName(nameInput)) {
-            errorMessage.textContent = "Invalid name: should not contain numbers, special characters, and must not start with a space.";
-            errorMessage.style.display = "block";
-            isValid = false;
-        }
-
-        if (!isValidAddress(addressInput)) {
-            errorMessage.textContent = "Invalid address: should not start with a space, special characters, and must not start with a space.";
-            errorMessage.style.display = "block";
-            isValid = false;
-        }
-
-        // Validate mobile number
-        if (mobileNumber.length !== 10) {
-            errorMessage.textContent = "The number must be exactly 10 digits!";
-            errorMessage.style.display = "block";
-            isValid = false;
-        }
-
-        // Validate if one prefered type is selected
+        // Validate if one preferred type is selected
         if (!(face || coldcall || email || chat)) {
             errorMessage.textContent = "Please select a preferred type.";
             errorMessage.style.display = "block";
             isValid = false;
+        } else {
+            errorMessage.style.display = "none"; // Clear error if valid
+        }
+
+        // Validate if customer ID is provided
+        if (!customerIdInput.value.trim()) {
+            errorMessage.textContent = "Please enter the Customer ID.";
+            errorMessage.style.display = "block";
+            isValid = false;
+        } else {
+            errorMessage.style.display = "none"; // Clear error if valid
         }
 
         return isValid;
@@ -72,3 +45,19 @@ document.querySelector(".followup-form").addEventListener("submit", (event) => {
         }
     }
 });
+
+// Fetch details button functionality
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value;
+    if (cust) {
+        document.querySelector(".main-client-det").style.display = "block";
+    } else {
+        alert("Enter the Customer ID");
+    }
+});
+
+// Set today's date for date input
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0]; 
+dateInput.value = today;
+dateInput.style.textAlign = 'center';

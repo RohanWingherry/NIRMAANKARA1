@@ -16,32 +16,161 @@
     color: #008994;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .quotation-main .export>span{
     font-size: 14px;
     background-color: #2E6C9A;
     color: white;
-    font-weight: 500;
     padding: 5px 10px;
-    border-radius: 4px;
     display: flex;
     gap: 5px;
     cursor: pointer;
+    border-radius: 4px;
+    font-weight: 400;
 }
-.quotation-main .from-to{
+.fetching{
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
-.quotation-main .from-to>span{
+.quotation-main .all-details-head{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:10px ;
+}
+.quotation-main .all-details-head .org-details{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.quotation-main .all-details-head .org-details figure{
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bdbdbd;
+}
+.all-details-head .org-details figure img{
+    background-color: white;
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    object-fit: contain;
+}
+.all-details-head .org-details span{
+    font-family: "Saira", sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    i{
+        font-size: 16px;
+    }
+}
+.quotation-main .all-details-head .this-heading{
+    display: flex;
+    align-items: center;
+    padding:30px 40px;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #10578B;
+    height: 100%;
+}
+.quotation-main .all-details-head .this-heading div{
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+}
+.quotation-main .all-details{
+    border-top: 1px solid rgba(27, 31, 35, 0.264);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-between;
     font-size: 14px;
+    gap: 10px;
+}
+.quotation-main .organisation-det{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: rgb(113, 113, 113);
+    max-width: 400px;
+    width: 100%;
+}
+.quotation-main .all-details .details{
+    display: flex;
+    align-items: flex-start;
+    font-size: 14px;
+    justify-content: flex-start;
+    gap: 5px;
+    .material-symbols-outlined{
+        font-size: 20px;
+    }
+}
+
+.quotation-main .all-details .enter-det{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    justify-content: space-evenly;
+    font-size: 14px;
+    color: rgb(113, 113, 113);
+    max-width: 300px;
+    width: 100%;
+    text-align: right;
+}
+.all-details .enter-det .client input{
+    width: 100px;
+    padding: 5px;
+    text-align: left;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3px;
+    outline: none;
+    color: rgb(113, 113, 113);
+}
+.enter-det .client span:last-child{
+    padding: 0px 7px;
+}
+
+@media (max-width:768px) {
+    .all-details-head{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: right;
+        gap: 20px;
+    }
+    .quotation-main .all-details-head .this-heading{
+        border-radius: 30px;
+    }
+    .quotation-main .all-details{
+        justify-content: center;
+        gap: 25px;
+    }
+    .quotation-main .all-details .enter-det{
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        max-width: 400px;
+    }
 }
 .quotation-main .house-model{
     display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: flex-start;
+    font-size: 14px;
 }
 .quotation-main .house-modle>div{
     font-size: 14px;
@@ -97,7 +226,6 @@
     border-radius: 4px;
     cursor:pointer;
 }
-
 @media (max-width:768px) {
     .house-model table th{
         padding: 5px 20px;

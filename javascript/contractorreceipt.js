@@ -1,10 +1,10 @@
 // Function to add a new row to the table
-var rowCount=0;
+var rowCount = 0;
 function addRow() {
     const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
     const newRow = table.insertRow();
-    rowCount=rowCount+1;
-    
+    rowCount += 1;
+
     const cell1 = newRow.insertCell(0);
     const cell2 = newRow.insertCell(1);
     const cell3 = newRow.insertCell(2);
@@ -19,13 +19,12 @@ function addRow() {
 
     // Add event listener to the delete button
     cell5.querySelector('.delete-row').addEventListener('click', function() {
-        // Show a confirmation dialog before deletion
         const confirmDelete = confirm("Are you sure you want to delete this row?");
         if (confirmDelete) {
             deleteRow(this);
         }
     });
-    
+
     updateTotals(); 
 }
 
@@ -105,96 +104,16 @@ function deleteRow(button) {
     const row = button.parentElement.parentElement;
     row.remove();
     updateTotals();
-    rowCount=rowCount-1;
+    rowCount -= 1;
 }
 
-// Prevent non-letter characters and manage spaces for Contractor Name input
-document.getElementById('receivedFrom').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove any non-letter characters except spaces
-    value = value.replace(/[^a-zA-Z\s]/g, '');
-    // Remove leading spaces and replace multiple spaces with a single space
-    value = value.replace(/^\s+/, '');
-    value = value.replace(/\s{2,}/g, ' ');
-    this.value = value;
-});
-
-// Prevent non-letter characters and manage spaces for Customer Name input
-document.getElementById('billToName').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove any non-letter characters except spaces
-    value = value.replace(/[^a-zA-Z\s]/g, '');
-    // Remove leading spaces and replace multiple spaces with a single space
-    value = value.replace(/^\s+/, '');
-    value = value.replace(/\s{2,}/g, ' ');
-    this.value = value;
-});
-
-// Prevent non-letter characters and manage spaces for Address input
-document.getElementById('addressFrom').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove leading spaces
-    value = value.replace(/^\s+/, '');
-    // Allow letters, numbers, special characters, and spaces in between, but not leading spaces
-    value = value.replace(/\s{2,}/g, ' '); // Replace multiple spaces with a single space
-    this.value = value;
-});
-
-document.getElementById('billToAddress').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove leading spaces
-    value = value.replace(/^\s+/, '');
-    // Allow letters, numbers, special characters, and spaces in between, but not leading spaces
-    value = value.replace(/\s{2,}/g, ' '); // Replace multiple spaces with a single space
-    this.value = value;
-});
-
-document.getElementById('gst').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove all spaces
-    value = value.replace(/\s+/g, '');
-    // Allow only uppercase letters and numbers, and remove any other characters
-    value = value.replace(/[^a-zA-Z0-9]/g, '');
-    // Set the value to uppercase
-    this.value = value.toUpperCase();
-});
-document.getElementById('mobile').addEventListener('input', function(e) {
-    let value = this.value;
-    // Remove all spaces (leading and in-between)
-    value = value.replace(/\s+/g, '');
-    // Allow only numbers, and remove any non-digit characters
-    value = value.replace(/[^0-9]/g, '');
-    this.value = value;
-});
-
+// Authorised signature input handling
 document.getElementById('authorisedSignature').addEventListener('input', function(e) {
     let value = this.value;
-    // Remove leading spaces
-    value = value.replace(/^\s+/, '');
-    // Allow only letters and spaces between words, remove numbers and special characters
-    value = value.replace(/[^a-zA-Z\s]/g, '');
-    // Replace multiple spaces with a single space
-    value = value.replace(/\s{2,}/g, ' ');
+    value = value.replace(/^\s+/, ''); // Remove leading spaces
+    value = value.replace(/[^a-zA-Z\s]/g, ''); // Allow only letters and spaces
+    value = value.replace(/\s{2,}/g, ' '); // Replace multiple spaces with a single space
     this.value = value;
-});
-
-
-// Regex patterns for validation
-const tinPattern = /^[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-const gstPattern = /^[0-9A-Z]{1,}$/;
-const textPattern = /^[A-Za-z]+[A-Za-z\s]*$/;
-const addressPattern = /^(?!^\s)(?:[A-Za-z0-9]+[\w\s]*[A-Za-z0-9])$/;
-const authSign = /^[A-Za-z]+[A-Za-z\s]*$/;
-const mobilePattern = /^\d{10}$/;
-
-// Capitalize GST input
-document.getElementById('gst').addEventListener('input', function() {
-    this.value = this.value.toUpperCase(); // Capitalize input
-});
-
-// Allow only numbers for TIN input
-document.getElementById('vat').addEventListener('input', function(e) {
-    this.value = this.value.replace(/[^0-9-]/g, ''); // Only allow numbers and hyphens
 });
 
 // Utility to set border red or clear
@@ -210,83 +129,11 @@ function setBorder(input, isValid) {
 document.getElementById('submitBtn').addEventListener('click', function() {
     let isValid = true; // Define isValid variable here
     
-    const tinInput = document.getElementById('vat');
-    const receiptInput = document.getElementById('receipt');
-    const contractorNameInput = document.getElementById('receivedFrom');
-    const gstInput = document.getElementById('gst');
-    const addressFromInput = document.getElementById('addressFrom');
-    const customerNameInput = document.getElementById('billToName');
-    const mobileInput = document.getElementById('mobile');
-    const billToAddressInput = document.getElementById('billToAddress');
     const paymentModeInputs = document.querySelectorAll('input[name="paymentMode"]');
     const paymentError = document.getElementById('paymentError');
     const authorisedSignatureInput = document.getElementById('authorisedSignature');
-
-    // TIN validation
-    if (!tinPattern.test(tinInput.value)) {
-        setBorder(tinInput, false);
-        isValid = false;
-    } else {
-        setBorder(tinInput, true);
-    }
-
-    // Receipt number validation
-    if (!receiptInput.value) {
-        setBorder(receiptInput, false);
-        isValid = false;
-    } else {
-        setBorder(receiptInput, true);
-    }
-
-    // Contractor name validation
-    if (!textPattern.test(contractorNameInput.value)) {
-        setBorder(contractorNameInput, false);
-        isValid = false;
-    } else {
-        setBorder(contractorNameInput, true);
-    }
-
-    // Address From validation
-    if (!addressFromInput.value.trim()) {
-        setBorder(addressFromInput, false);
-        isValid = false;
-    } else {
-        setBorder(addressFromInput, true);
-    }
-
-    // Bill To Address validation
-    if (!billToAddressInput.value.trim()) {
-        setBorder(billToAddressInput, false);
-        isValid = false;
-    } else {
-        setBorder(billToAddressInput, true);
-    }
-
-    // GST validation
-    if (!gstPattern.test(gstInput.value)) {
-        setBorder(gstInput, false);
-        isValid = false;
-    } else {
-        setBorder(gstInput, true);
-    }
-
-    // Customer name validation
-    if (!textPattern.test(customerNameInput.value)) {
-        setBorder(customerNameInput, false);
-        isValid = false;
-    } else {
-        setBorder(customerNameInput, true);
-    }
-
-    // Mobile number validation
-    if (!mobilePattern.test(mobileInput.value)) {
-        setBorder(mobileInput, false);
-        document.getElementById('mobileError').style.display = 'block';
-        isValid = false;
-    } else {
-        setBorder(mobileInput, true);
-        document.getElementById('mobileError').style.display = 'none';
-    }
+    const customerIdInput = document.getElementById('customer-id'); // Add customer ID input
+    const authSign = /^[A-Za-z\s]+$/; // Regex for validating the signature
 
     // Payment mode validation
     let paymentSelected = false;
@@ -303,6 +150,14 @@ document.getElementById('submitBtn').addEventListener('click', function() {
         paymentError.style.display = 'none';
     }
 
+    // Customer ID validation
+    if (!customerIdInput.value.trim()) {
+        setBorder(customerIdInput, false);
+        isValid = false;
+    } else {
+        setBorder(customerIdInput, true);
+    }
+
     // Authorized signature validation
     if (!authSign.test(authorisedSignatureInput.value)) {
         setBorder(authorisedSignatureInput, false);
@@ -317,7 +172,7 @@ document.getElementById('submitBtn').addEventListener('click', function() {
     }
 
     // Show alert and submit if valid
-    if (isValid && rowCount>=1) {
+    if (isValid && rowCount >= 1) {
         alert('Receipt Submitted');
         // Redirect to the next page
         window.location.href = "../html/contractorreceipthistory.html";
@@ -326,19 +181,18 @@ document.getElementById('submitBtn').addEventListener('click', function() {
     }
 });
 
-// Get today's date in the required format (YYYY-MM-DD)
-const today = new Date().toISOString().split('T')[0];
+// Customer ID fetch details
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value;
+    if (cust) {
+        document.querySelector(".main-client-det").style.display = "block";
+    } else {
+        alert("Enter the Customer-id");
+    }
+});
 
-// Get the date input field
-const dateInput = document.getElementById('date');
-
-// Set both the min and max attributes to today's date to restrict it
-dateInput.min = today;
-dateInput.max = today;
-
-// Pre-fill today's date in the input field
+// Set today's date for date input
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0]; 
 dateInput.value = today;
-
-// Disable the input to prevent users from changing the date
-dateInput.setAttribute('readonly', true);
-
+dateInput.style.textAlign = 'center';

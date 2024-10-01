@@ -4,7 +4,7 @@
     }
 
     // Attach event listeners to the fields for validation (Site Name, Building Type, Location, Note)
-    const fieldsToValidate = ['name', 'buildingname', 'loaction', 'desp'];
+    const fieldsToValidate = [`customer-id`,'desp'];
 
     fieldsToValidate.forEach(function(fieldId) {
         var field = document.getElementById(fieldId);

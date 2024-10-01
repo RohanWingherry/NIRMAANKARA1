@@ -9,8 +9,9 @@ let spacingButtons = document.querySelectorAll(".spacing");
 let formatButtons = document.querySelectorAll(".format");
 let scriptButtons = document.querySelectorAll(".script");
 let wordCountDisplay = document.getElementById("word-count");
+let customerIdInput = document.getElementById("customer-id"); // Reference to customer ID input
 
-//List of fontlist
+// List of font list
 let fontList = [
   "Arial",
   "Verdana",
@@ -25,111 +26,28 @@ let fontList = [
 const validateAndSubmit = (event) => {
   event.preventDefault();
 
-    const requiredInputs = document.querySelectorAll('input[required], select[required]');
-    let isFormValid = true;
+  const requiredInputs = document.querySelectorAll('input[required], select[required]');
+  let isFormValid = true;
 
-    requiredInputs.forEach(input => {
-        input.style.border = "";
-
-        if (input.value.trim() === "") {
-            isFormValid = false;
-            input.style.border = "1px solid red";
-        }
-    });
-
-    const contactNumber = document.getElementById('contact-number');
-    const pincode = document.getElementById('client-pincode');
-    const orgPincode = document.getElementById('org-pincode');
-    const clientName = document.getElementById('client-name');
-    const clientAddress=document.getElementById('client-address');
-    const clientCity=document.getElementById('client-city');
-    const orgName=document.getElementById("org-name");
-    const gstName=document.getElementById('gst-reg-no');
-    const orgAddress=document.getElementById('org-address');
-    const orgCity=document.getElementById('org-city');
-
-    // Check if the contact number is exactly 10 digits
-    if (contactNumber.value.length !== 10) {
-        isFormValid = false;
-        contactNumber.style.border = "1px solid red";
-        document.getElementById("error-message").style.display="block"
-    }else {
-      contactNumber.style.border = "";
-      document.getElementById("error-message").style.display = "none";
+  requiredInputs.forEach(input => {
+    input.style.border = "";
+    if (input.value.trim() === "") {
+      isFormValid = false;
+      input.style.border = "1px solid red";
     }
+  });
 
-    // Check if the pincode is exactly 6 digits for both client and organization
-    [pincode, orgPincode].forEach(pin => {
-        if (pin.value.length !== 6) {
-            isFormValid = false;
-            pin.style.border = "1px solid red";
-            document.getElementById("error-pincode").style.display="block"
-        }
-        else {
-          pin.style.border = ""; // Reset border if input is valid
-          document.getElementById("error-pincode").style.display = "none";
-      }
-    });
+  // Check for customer ID
+  if (!customerIdInput.value.trim()) {
+    isFormValid = false;
+    customerIdInput.style.border = "1px solid red";
+  }
 
-    const nameRegex = /^[a-zA-Z][a-zA-Z\s]*$/;
-    if (!nameRegex.test(clientName.value.trim())) {
-        isFormValid = false;
-        clientName.style.border = "1px solid red";
-    } else {
-        clientName.style.border = "";
-    }
-    // organisation name
-    if (!nameRegex.test(orgName.value.trim())) {
-        isFormValid = false;
-        orgName.style.border = "1px solid red";
-    } else {
-        orgName.style.border = "";
-    }
-// client city
-    if (!nameRegex.test(clientCity.value.trim())) {
-        isFormValid = false;
-        clientCity.style.border = "1px solid red";
-    } else {
-        clientCity.style.border = "";
-    }
-    //org city
-    if (!nameRegex.test(orgCity.value.trim())) {
-        isFormValid = false;
-        orgCity.style.border = "1px solid red";
-    } else {
-        orgCity.style.border = "";
-    }
-//client address
-    const addressRegex = /^[a-zA-Z0-9][a-zA-Z0-9\s]*$/;
-    if (!addressRegex.test(clientAddress.value.trim())) {
-        isFormValid = false;
-        clientAddress.style.border = "1px solid red";
-    } else {
-        clientAddress.style.border = "";
-    }
+  if (!isFormValid) {
+    alert("Please fill out all required fields correctly.");
+    return;
+  }
 
-    //contractor address
-    if (!addressRegex.test(orgAddress.value.trim())) {
-        isFormValid = false;
-        orgAddress.style.border = "1px solid red";
-    } else {
-        orgAddress.style.border = "";
-    }
-
-    //org-gst
-    if (!addressRegex.test(gstName.value.trim())) {
-        isFormValid = false;
-        gstName.style.border = "1px solid red";
-    } else {
-        gstName.style.border = "";
-    }
-
-
-
-    if (!isFormValid) {
-        alert("Please fill out all required fields correctly.");
-        return;
-    }
   let text = writingArea.innerText.trim();
   let words = text.split(/\s+/).filter(word => word.length > 0);
   let wordCount = words.length;
@@ -153,10 +71,8 @@ const validateAndSubmit = (event) => {
 // Attach validateAndSubmit to submit button
 document.querySelector('.submittion span').addEventListener('click', validateAndSubmit);
 
-
 // Initial Settings
 const initializer = () => {
-  
   writingArea.addEventListener("input", function() {
     let text = writingArea.innerText.trim();
     let words = text.split(/\s+/).filter(function(word) {
@@ -177,14 +93,13 @@ const initializer = () => {
   writingArea.dispatchEvent(new Event('input'));
 
   // Function calls for highlighting buttons
-  // No highlights for link, unlink, lists, undo, redo since they are one-time operations
   highlighter(alignButtons, true);
   highlighter(spacingButtons, true);
   highlighter(formatButtons, false);
   highlighter(scriptButtons, true);
 
   // Create options for font names
-  fontList.map((value) => {
+  fontList.forEach((value) => {
     let option = document.createElement("option");
     option.value = value;
     option.innerHTML = value;
@@ -205,7 +120,6 @@ const initializer = () => {
 
 // Main logic
 const modifyText = (command, defaultUi, value) => {
-  // execCommand executes command on selected text
   document.execCommand(command, defaultUi, value);
 };
 
@@ -226,7 +140,6 @@ advancedOptionButton.forEach((button) => {
 // Link
 linkButton.addEventListener("click", () => {
   let userLink = prompt("Enter a URL");
-  // If link has http then pass directly, else add https
   if (/http/i.test(userLink)) {
     modifyText(linkButton.id, false, userLink);
   } else {
@@ -239,23 +152,13 @@ linkButton.addEventListener("click", () => {
 const highlighter = (className, needsRemoval) => {
   className.forEach((button) => {
     button.addEventListener("click", () => {
-      // needsRemoval = true means only one button should be highlighted, and others would be normal
       if (needsRemoval) {
-        let alreadyActive = false;
-
-        // If currently clicked button is already active
-        if (button.classList.contains("active")) {
-          alreadyActive = true;
-        }
-
-        // Remove highlight from other buttons
+        let alreadyActive = button.classList.contains("active");
         highlighterRemover(className);
         if (!alreadyActive) {
-          // Highlight clicked button
           button.classList.add("active");
         }
       } else {
-        // If other buttons can be highlighted
         button.classList.toggle("active");
       }
     });
@@ -268,22 +171,43 @@ const highlighterRemover = (className) => {
   });
 };
 
-window.onload = initializer();
+window.onload = initializer;
 
-
-
-//modal
+// Modal logic
 var modal = document.getElementById("myModal");
 var btn1 = document.getElementById("sample");
 var span = document.getElementsByClassName("close")[0];
+
 btn1.onclick = function() {
   modal.style.display = "block";
-}
+};
+
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
+
+// Fetch details logic
+document.getElementById("fetch-details").addEventListener("click", () => {
+  const cust = customerIdInput.value;
+  if (cust) {
+    document.querySelector(".main-client-det").style.display = "block";
+  } else {
+    alert("Enter the Customer-id");
+  }
+});
+
+// Set today's date in input fields
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0]; 
+dateInput.value = today;
+dateInput.style.textAlign = 'center';
+
+const dateInput2 = document.getElementById('dateInput2');
+dateInput2.value = today;
+dateInput2.style.textAlign = 'center';

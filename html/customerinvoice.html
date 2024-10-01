@@ -235,62 +235,64 @@
     <div class="main-content">
         <div class="contentofpage">
                 <div class="inheading">
-                    <div class="invoicehead">INVOICE</div>
                     <span class="export">Export pdf<i class="fa-solid fa-upload"></i></span>
                 </div>
                 <div class="invoice-box">
-
-                <div class="comp">
-                    <h1><img src="../assets/nirmankara-logo.png" alt="">Nirmaankara</h1>
-                </div>
-                <hr>
-                <div class="box">
-                    <div class="box1">
-                        <p><label for="inoviceno">Invoice No: <span class="required">*</span></label> 
-                        <input type="text" id="inoviceno" placeholder="enter invoice" required></p>
+                    <div class="fetching">
+                        <div class="all-details-head">
+                            <section class="org-details">
+                                <figure>
+                                    <img src="../assets/logo.png" alt="">
+                                </figure>
+                                <span><i class="fa-solid fa-building"></i>YUKTHA CONSTRUCTIONS</span>
+                            </section>
+                            <section class="this-heading">
+                                <div>INVOICE</div>
+                            </section>
+                        </div>
+                        <div class="all-details">
+                            <secction class="organisation-det">
+                                <div class="details">
+                                    <span class="material-symbols-outlined">money_bag</span>
+                                    <span>GST No: 29AAGCR4375J1ZU</span>
+                                </div>
+                                <div class="details">
+                                    <span class="material-symbols-outlined">distance</span>
+                                    <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                                </div>
+                                <div class="details">
+                                    <span class="material-symbols-outlined">call</span>
+                                    <span>9985752406</span>
+                                </div>
+                                <div class="details">
+                                    <span class="material-symbols-outlined">mail</span>
+                                    <span>yukthaconstruction@gmail.com</span>
+                                </div>
+                            </secction>
+                            <section class="enter-det">
+                                <div class="client">
+                                    <span>Invoice No: </span>
+                                    <span>Q-270920241</span>
+                                </div>
+                                <div class="client">
+                                    <label for="quotation-date">Date:</label>
+                                    <span>30-09-2024</span>
+                                </div>
+                                <div class="client">
+                                    <span>Customer Name: </span>
+                                    <span>Sudheer</span>
+                                </div>
+                                <div class="client">
+                                    <span>Customer Address: </span>
+                                    <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                                </div>
+                                <div class="client">
+                                    <span>Mobile Number:</span>
+                                    <span>9966778899</span>
+                                </div>
+                            </section>
+                        </div>
                     </div>
-                    <div class="box1">
-                        <p><label for="date">Invoice Date: <span class="required">*</span></label> 
-                        <input type="date" id="date" required></p>
-                    </div>
-                </div>
-                <div class="input-box">
-                    <div class="left">
-                        <div class="heading">Bill From</div>
-                        <form action="" class="form">
-                            <div class="form-group">
-                                <label for="contractorName">Contractor Name <span class="required">*</span></label>
-                                <input type="text" id="contractorName" name="name" placeholder="enter name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="gst">Gst <span class="required">*</span></label>
-                                <input type="text" id="gst" name="gst" placeholder="enter gst no" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contractorAddress">Address <span class="required">*</span></label>
-                                <input type="text" id="contractorAddress" name="address" placeholder="enter address" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="right">
-                        <div class="heading">Bill To</div>
-                        <form action="" class="form">
-                            <div class="form-group">
-                                <label for="customerName">Customer Name <span class="required">*</span></label>
-                                <input type="text" id="customerName" name="name" placeholder="enter name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile">Mobile No <span class="required">*</span></label>
-                                <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile no" required>
-                                <span id="mobileError" class="error-message" style="color: red; display: none;">Please fill in a valid 10-digit number</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="customerAddress">Address <span class="required">*</span></label>
-                                <input type="text" id="customerAddress" name="address" placeholder="enter address" required>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             
                 <div class="container">
                     <div class="table-container">
@@ -305,19 +307,14 @@
                                 </tr>
                             </thead>
                             <tbody id="item-rows">
-                                <!-- <tr>
-                                    <td><input type="text" placeholder="Enter item" required></td>
-                                    <td><input type="number" placeholder="Enter qty" min="0" required></td>
-                                    <td><input type="number" placeholder="Enter price" min="0" step="0.01" required></td>
-                                    <td class="rowedited"><input type="text" placeholder="Total" readonly required><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td> -->
-                                    <!-- <td class="delbtnrow"><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td> Delete button with icon 
-                                </tr> -->
+                                <tr>
+                                    <td>Brick</td>
+                                    <td>5</td>
+                                    <td>50</td>
+                                    <td>250</td>
+                                </tr>
                             </tbody>
                         </table>
-                    </div>
-            
-                    <div class="btn">
-                        <button class="add">Add Row</button>
                     </div>
             
                     
@@ -326,28 +323,28 @@
                                 <div class="totals">
                                     <div class="totals-row">
                                         <div class="label">SUBTOTAL</div>
-                                        <div class="value" id="subtotal">₹0</div>
+                                        <div class="value" id="subtotal">₹250</div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">DISCOUNT(%)</div>
                                         <div class="value">
-                                            <input type="number" id="discountPercent" value="0" min="0" max="100" oninput="updateTotals()">
+                                            <input type="number" id="discountPercent" value="0" min="0" max="100" >
                                         </div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">SGST(%)</div>
                                         <div class="value">
-                                            <input type="number" id="sgst" value="0" min="0" max="100" oninput="updateTotals()">
+                                            <input type="number" id="sgst" value="10" min="0" max="100" >
                                         </div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">SGST Amount</div>
-                                        <div class="value" id="sgstAmount">₹0</div>
+                                        <div class="value" id="sgstAmount">₹10</div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">CGST(%)</div>
                                         <div class="value">
-                                            <input type="number" id="cgst" value="0" min="0" max="100" oninput="updateTotals()">
+                                            <input type="number" id="cgst" value="0" min="0" max="100" >
                                         </div>
                                     </div>
                                     <div class="totals-row">
@@ -356,11 +353,11 @@
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">TOTAL</div>
-                                        <div class="value" id="total">₹0</div>
+                                        <div class="value" id="total">₹250</div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">DUE AMOUNT</div>
-                                        <div class="value" id="dueAmount">₹0</div>
+                                        <div class="value" id="dueAmount">₹250</div>
                                     </div>
                                 </div>
                             </div>

@@ -118,43 +118,6 @@ document.getElementById('submitBtn').addEventListener('click', function () {
             allFilled = false;
         }
 
-        if (input.id === 'receivedFrom' || input.id === 'billToName') {
-            var nameRegex = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
-            if (!nameRegex.test(input.value.trim())) {
-                input.style.border = '1px solid red';
-                allFilled = false;
-                if (errorMessage) {
-                    errorMessage.textContent = 'Only letters and spaces are allowed.';
-                    errorMessage.style.display = 'inline';
-                }
-            }
-        }
-
-        if (input.id === 'gst') {
-            var gstRegex = /^[A-Z0-9]{15}$/;
-            input.value = input.value.toUpperCase();
-
-            if (!gstRegex.test(input.value.trim())) {
-                input.style.border = '1px solid red';
-                allFilled = false;
-                if (errorMessage) {
-                    errorMessage.textContent = 'Invalid GST format. Must be 15 characters with capital letters and numbers.';
-                    errorMessage.style.display = 'inline';
-                }
-            }
-        }
-
-        if (input.id === 'mobile') {
-            var mobileRegex = /^[0-9]{10}$/;
-            if (!mobileRegex.test(input.value.trim())) {
-                input.style.border = '1px solid red';
-                allFilled = false;
-                if (errorMessage) {
-                    errorMessage.style.display = 'inline';
-                }
-            }
-        }
-
         if (input.id === 'authorisedSignature') {
             var nameRegex = /^[A-Za-z][A-Za-z\s]*$/;
             if (!nameRegex.test(input.value.trim())) {
@@ -180,47 +143,11 @@ document.getElementById('submitBtn').addEventListener('click', function () {
     }
 });
 
-// Restrict invalid characters during typing
-document.getElementById('receivedFrom').addEventListener('input', function () {
-    // Remove any leading spaces
-    let value = this.value;
-    if (value.startsWith(' ')) {
-        value = value.replace(/^\s+/, ''); // Remove leading spaces
-    }
-
-    // Remove any characters that are not letters or spaces
-    value = value.replace(/[^A-Za-z\s]/g, '');
-
-    // Remove multiple spaces between words and ensure only single spaces
-    value = value.replace(/\s{2,}/g, ' ');
-
-    // Set the cleaned value back to the input
-    this.value = value;
-});
-
-document.getElementById('billToName').addEventListener('input', function () {
-    // Remove any leading spaces
-    let value = this.value;
-    if (value.startsWith(' ')) {
-        value = value.replace(/^\s+/, ''); // Remove leading spaces
-    }
-
-    // Remove any characters that are not letters or spaces
-    value = value.replace(/[^A-Za-z\s]/g, '');
-
-    // Remove multiple spaces between words and ensure only single spaces
-    value = value.replace(/\s{2,}/g, ' ');
-
-    // Set the cleaned value back to the input
-    this.value = value;
-});
-
 
 document.getElementById('authorisedSignature').addEventListener('input', function () {
     // Remove any leading spaces
     let value = this.value.trimStart(); // Removes leading spaces
 
-    // Remove any characters that are not letters or spaces
     value = value.replace(/[^A-Za-z\s]/g, '');
 
     // Remove multiple spaces between words and ensure only single spaces
@@ -229,57 +156,17 @@ document.getElementById('authorisedSignature').addEventListener('input', functio
     // Update the input value with the cleaned value
     this.value = value;
 });
-
-
-document.getElementById('gst').addEventListener('input', function () {
-    // Remove any characters that are not letters or numbers
-    let value = this.value.replace(/[^a-zA-Z0-9]/g, '');
-
-    // Convert the value to uppercase
-    value = value.toUpperCase();
-
-    // Set the cleaned and uppercase value back to the input field
-    this.value = value;
-});
-
-
-document.getElementById('mobile').addEventListener('input', function () {
-    this.value = this.value.replace(/[^0-9]/g, '');
-});
-
-document.getElementById('addressFrom').addEventListener('input', function () {
-    // Remove leading spaces
-    let value = this.value.trimStart();
-
-    // Allow numbers, special characters, and spaces (but only between text)
-    value = value.replace(/[^A-Za-z0-9\s\p{P}]/gu, '');
-
-    // Set the cleaned value back to the input field
-    this.value = value;
-});
-
-document.getElementById('billToAddress').addEventListener('input', function () {
-    // Remove leading spaces
-    let value = this.value.trimStart();
-
-    // Allow numbers, special characters, and spaces (but only between text)
-    value = value.replace(/[^A-Za-z0-9\s\p{P}]/gu, '');
-
-    // Set the cleaned value back to the input field
-    this.value = value;
-});
-
-
-// Set today's date in the date input and disable changes
-// Get today's date in the required format (YYYY-MM-DD)
-const today = new Date().toISOString().split('T')[0];
-
-// Get the date input field
-const dateInput = document.getElementById('date');
-
-// Set the date value to today
-dateInput.value = today;
-
-// Disable the input to prevent users from changing the date
-dateInput.setAttribute('disabled', true);
+document.getElementById("fetch-details").addEventListener("click",()=>{
+    const cust=document.getElementById("customer-id").value
+    if(cust){
+        document.querySelector(".main-client-det").style.display="block"
+    }
+    else{
+        alert("Enter the Customer-id")
+    }
+  })
+  const dateInput = document.getElementById('dateInput');
+  const today = new Date().toISOString().split('T')[0]; 
+  dateInput.value = today;
+  dateInput.style.textAlign='center'
 

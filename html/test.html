@@ -1,44 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Time Input in 12-hour Format</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Input Example</title>
 </head>
 <body>
 
-  <!-- <label for="time">Choose a time:</label>
-  <input type="time" id="time" name="time">
+<input type="date" id="dateInput" disabled>
 
-  <script>
-    const timeInput = document.getElementById("time");
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('dateInput');
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    dateInput.value = today; // Set the default value
+});
+</script>
 
-    timeInput.addEventListener("input", function() {
-      const timeValue = this.value;
-      const timeIn12HrFormat = formatTime12Hour(timeValue);
-      console.log("Selected Time in 12-hour format:", timeIn12HrFormat);
-    });
-
-    function formatTime12Hour(time) {
-      const [hour, minute] = time.split(':');
-      const period = hour >= 12 ? 'PM' : 'AM';
-      const hour12 = hour % 12 || 12;
-      return `${hour12}:${minute} ${period}`;
-    }
-  </script> -->
-  <label for="timeInput">Enter time:</label>
-  <input type="text" id="timeInput" placeholder="hh:mm AM/PM">
-  
-  <script>
-    document.getElementById('timeInput').addEventListener('input', function (e) {
-      let value = e.target.value.toUpperCase().replace(/[^0-9:APM]/g, '');
-      let match = value.match(/^([01]?[0-9]):([0-5][0-9]) ?(AM|PM)?$/);
-  
-      if (match) {
-        e.target.value = `${match[1].padStart(2, '0')}:${match[2]} ${match[3] || ''}`;
-      }
-    });
-  </script>
-  
 </body>
 </html>

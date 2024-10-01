@@ -39,9 +39,9 @@ body{
     margin-right: 10px;
 }
 .navigation-bar .logo>div{
-    font-size: 18px;
-    font-weight: bold;
-    color: #10578b;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #088994;
 }
 .navigation-bar .notify{
     padding: 0px 10px;

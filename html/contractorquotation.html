@@ -251,147 +251,79 @@
     <div class="main-content">
         <div class="main-quotation">
             <!-- heading -->
-            <div class="recent-quotation">
-                <span>QUOTATION</span>
-                <div class="recent">
-                    <span>Need to calculate the cost by giving budget?<span id="budget-btn">Click here</span></span>
-                    <span onclick="window.location.href='../html/contractorquotationhistory.html'">Recent Quotation</span>
+            <div class="recent">
+                <span>Need to calculate the cost by giving budget? <span id="budget-btn">Click here</span></span>
+                <span onclick="window.location.href='../html/contractorquotationhistory.html'">Recent Quotation</span>
+            </div>
+            <div class="fetching">
+                <div class="all-details-head">
+                    <section class="org-details">
+                        <figure>
+                            <img src="../assets/logo.png" alt="">
+                        </figure>
+                        <span><i class="fa-solid fa-building"></i>YUKTHA CONSTRUCTIONS</span>
+                    </section>
+                    <section class="this-heading">
+                        <div>QUOTATION</div>
+                    </section>
                 </div>
-            </div>
-            <!-- Site Details Section -->
-            <div class="input-box">
-                <div class="heading">Site details </div>
-                <form action="" class="form" id="siteDetailsForm">
-                    <div class="form-group">
-                        <label for="client-name">Client Name <span class="required-fields">*</span></label>
-                        <input type="text" id="client-name" class="client-name" name="client-name" placeholder="Enter name" required>
-                        <div id="error-client-name-message" style="color: red; display: none; font-size: 12px;">Enter the valid name</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="client-address">Address <span class="required-fields">*</span></label>
-                        <input type="text" id="client-address" name="client-address" placeholder="Enter address" required>
-                        <div id="error-client-address-message" style="color: red; display: none; font-size: 12px;">Enter the valid address</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="client-city">City <span class="required-fields">*</span></label>
-                        <input type="text" id="client-city" name="client-city" placeholder="Enter city" required>
-                        <div id="error-client-city-message" style="color: red; display: none; font-size: 12px;">Enter the valid city</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="client-state">State <span class="required-fields">*</span></label>
-                        <select id="client-state" required>
-                            <option value="" hidden>Select your State</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chattisgarh">Chattisgarh</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Harayana">Harayana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jharkand">Jharkand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Maharastra">Maharastra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
-                        </select>
-                        
-                    </div>
-                    <div class="form-group">
-                        <label for="client-pincode">Pincode <span class="required-fields">*</span></label>
-                        <input type="number" id="client-pincode" name="client-pincode" placeholder="Enter pincode" required>
-                    </div>
-                </form>
-            </div>
-    
-            <!-- Organisation Details Section -->
-            <div class="input-box">
-                <div class="heading">Enter Your Organisation details</div>
-                <form action="" class="form" id="orgDetailsForm">
-                    <div class="form-group">
-                        <label for="org-name">Organisation Name <span class="required-fields">*</span></label>
-                        <input type="text" id="org-name" name="org-name" placeholder="Enter your organisation name" required>
-                        <div id="error-org-name-message" style="color: red; display: none; font-size: 12px;">Enter the valid name</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="gst-reg-no">GST Registration Number <span class="required-fields">*</span></label>
-                        <input type="text" id="gst-reg-no" name="gst-reg-no" placeholder="Enter GST registration number" required>
-                        <div id="error-org-gst-message" style="color: red; display: none; font-size: 12px;">Enter the valid gst no.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-number">Mobile Number <span class="required-fields">*</span></label>
-                        <input type="number" id="contact-number" name="contact-number" placeholder="Enter mobile number" required>
-                        <div id="error-message" style="color: red; display: none; font-size: 12px;">Enter the valid Mobile Number</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="org-address">Address <span class="required-fields">*</span></label>
-                        <input type="text" id="org-address" name="org-address" placeholder="Enter address" required>
-                        <div id="error-org-address-message" style="color: red; display: none; font-size: 12px;">Enter the valid address</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="org-city">City <span class="required-fields">*</span></label>
-                        <input type="text" id="org-city" name="org-city" placeholder="Enter city" required>
-                        <div id="error-org-city-message" style="color: red; display: none; font-size: 12px;">Enter the valid city</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="org-state">State <span class="required-fields">*</span></label>
-                        <select id="org-state" required>
-                            <option value="" hidden>Select your State</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chattisgarh">Chattisgarh</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Harayana">Harayana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jharkand">Jharkand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Maharastra">Maharastra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="org-pincode">Pincode <span class="required-fields">*</span></label>
-                        <input type="number" id="org-pincode" name="org-pincode" placeholder="Enter pincode" required>
-                    </div>
-                </form>
+                <div class="all-details">
+                    <secction class="organisation-det">
+                        <div class="details">
+                            <span class="material-symbols-outlined">money_bag</span>
+                            <span>GST No: 29AAGCR4375J1ZU</span>
+                        </div>
+                        <div class="details">
+                            <span class="material-symbols-outlined">distance</span>
+                            <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                        </div>
+                        <div class="details">
+                            <span class="material-symbols-outlined">call</span>
+                            <span>9985752406</span>
+                        </div>
+                        <div class="details">
+                            <span class="material-symbols-outlined">mail</span>
+                            <span>yukthaconstruction@gmail.com</span>
+                        </div>
+                    </secction>
+                    <section class="main-client-det">
+                        <section class="cient-det">
+                            <div class="client">
+                                <span>Customer Name: </span>
+                                <span>Sudheer</span>
+                            </div>
+                            <div class="client">
+                                <span>Customer Address: </span>
+                                <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                            </div>
+                            <div class="client">
+                                <span>Mobile Number:</span>
+                                <span>9966778899</span>
+                            </div>
+                        </section>
+                    </section>
+                    <section class="enter-det">
+                        <div class="client">
+                            <span>Quotation No: </span>
+                            <span>Q-270920241</span>
+                        </div>
+                        <div class="client">
+                            <label for="quotation-date">Date:</label>
+                            <input type="date" id="dateInput" disabled>
+                        </div>
+                        <div class="client">
+                            <label for="customer-id">Customer Id:</label>
+                            <input type="text" id="customer-id">
+                        </div>
+                        <div class="client">
+                            <span id="fetch-details">Fetch Details</span>
+                        </div>
+                    </section>
+                </div>
             </div>
     
             <!-- Quotation Details Section -->
             <div class="input-box">
-                <div class="heading">Enter Quotation details</div>
                 <div class="calculation">
                     <div class="house-modal">
                         <label for="house-modal">House Modal: </label>
@@ -414,18 +346,22 @@
                         <span>SFT.</span>
                     </div>
                     <div class="total-amt-block">
-                        <span>Total amount customer need to pay is</span> 
+                        <span>Total amount customer needs to pay is</span> 
                         <div class="total"></div>
-                        <span>+ GST(</span> 
-                        <input type="number" id="enter-gst" required>
-                        <span>% is</span>
+                        <span>+ GST (</span>
+                        <span>CSGT: </span> 
+                        <input type="number" id="enter-cgst" required>
+                        <span>% + </span>
+                        <span>SGST: </span>
+                        <input type="number" id="enter-sgst" required>
+                        <span>% = </span>
                         <div class="gst-amount"></div>
                         <span>) = </span>
                         <div class="total-amt"></div>
                     </div>
+                    
                 </div>
             </div>
-            <div id="error-pincode" style="color: red; display: none; font-size: 12px;">Enter the valid Pin code</div>
     
             <!-- Generate Table Button -->
             <button onclick="generateTable()" id="generate-table-button">Generate Table</button>
