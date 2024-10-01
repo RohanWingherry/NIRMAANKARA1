@@ -526,22 +526,69 @@
 }
 
 
-/* contracrtir list */
-.contractors-list-box {
-  display: none;
-  width: 300px;
-  height: 400px;
+/* contactor */
+
+.contractor-list-box {
+  position: absolute;
+  left: 20px; /* Adjust to where you want the list to appear */
+  top: 50px;  /* Adjust to where you want the list to appear */
+  width: 250px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  z-index: 1000; /* Ensure it's visible */
+  display: none; /* Hidden by default */
+}
+
+.contractor-list-header {
+  color: rgb(0, 0, 0);
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 5px;
+}
+
+.contractor-list-content {
+  display: block; /* Show contractor list by default when visible */
+  max-height: 450px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.contractor-chat-window {
+  display: none; /* Initially hidden */
+  width: 500px;
+  height: 100%;
   border: 1px solid #ccc;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  position: fixed;
-  bottom: 100px;
-  left: 100px;
-  z-index: 1001;
+  position: absolute;
+  bottom: 0;
+  left: 300px; /* Adjust as per your layout */
+  z-index: 1000; /* Ensure it's visible */
 }
 
-.contractors-list-header {
+.contractor-list-header .contractor-sect img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+.contractor-person .persontext img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+
+.contractor-chat-window-header {
   background-color: #007BFF;
   color: white;
   padding: 10px;
@@ -553,46 +600,54 @@
   align-items: center;
 }
 
-.contractors-search {
+.contractor-chat-window-content {
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
 }
 
-.contractors-search input {
+.contractor-chat-messages {
+  height: 295px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+#contractor-chat-input {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#send-contractor-chat-btn {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  background-color: #007BFF;
+  color: white;
+  border: none;
   border-radius: 5px;
-}
-
-.contractors-list-content {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: 300px;
-  overflow-y: auto;
-}
-
-.contractors-list-content li {
-  display: flex;
-  align-items: center;
-  padding: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #ccc;
 }
 
-.contractors-list-content li:hover {
-  background-color: #eeeeee;
+#send-contractor-chat-btn:hover {
+  background-color: #0056b3;
+}
+.contractor-list-box {
+  display: block; /* Ensure contractor list is shown when needed */
 }
 
-.contractors-list-content li img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.close-contractors-list {
-  cursor: pointer;
-  font-size: 20px;
+.chat-list-box {
+  display: block; /* Ensure chat list is shown when needed */
 }

@@ -1,7 +1,11 @@
- // Toggle chat list (open/close)
- document.getElementById("chat-list-header").addEventListener("click", function() {
+// Toggle main chat list (open/close)
+document.getElementById("chat-list-header").addEventListener("click", function() {
     var content = document.getElementById("chat-list-content");
     var arrow = document.getElementById("chat-list-arrow");
+
+    // Close the contractor list and chat window when main chat is toggled
+    document.getElementById("contractor-list-box").style.display = 'none';
+    document.getElementById("contractor-chat-window").style.display = "none";
 
     if (content.style.display === "block") {
         content.style.display = "none";
@@ -12,72 +16,7 @@
     }
 });
 
-document.getElementById('send-chat-btn').addEventListener('click', function() {
-    const messageText = document.getElementById('chat-input').value.trim();
-    if (messageText !== "") {
-        const newMessage = document.createElement('div');
-        newMessage.classList.add('message-container', 'right'); // Add 'left' or 'right' based on the sender
-
-        newMessage.innerHTML = `
-            <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
-            <div>
-                <p class="message-text">${messageText}</p>
-                <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
-            </div>
-        `;
-
-        document.getElementById('chat-messages').appendChild(newMessage);
-        document.getElementById('chat-input').value = '';
-        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-    }
-});
-// new contractor list
-// Toggle the contractors list when the add-person icon is clicked
-document.querySelector('.add-person').addEventListener('click', function() {
-    document.getElementById('contractors-list-box').style.display = 'block';
-});
-
-// Close the contractors list when the close button is clicked
-document.getElementById('close-contractors-list').addEventListener('click', function() {
-    document.getElementById('contractors-list-box').style.display = 'none';
-});
-
-// Example contractors list (you can populate this dynamically)
-const contractors = [
-    { name: 'Contractor 1', img: '../assets/contractor1.png' },
-    { name: 'Contractor 2', img: '../assets/contractor2.png' },
-    { name: 'Contractor 3', img: '../assets/contractor3.png' },
-];
-
-// Populate the contractors list
-const contractorsListContent = document.getElementById('contractors-list-content');
-contractors.forEach(contractor => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-        <img src="${contractor.img}" alt="${contractor.name}">
-        <span>${contractor.name}</span>
-    `;
-    li.addEventListener('click', function() {
-        // Handle the contractor selection
-        alert(`Starting chat with ${contractor.name}`);
-        document.getElementById('contractors-list-box').style.display = 'none';
-    });
-    contractorsListContent.appendChild(li);
-});
-
-// Implement search functionality for the contractors list
-document.getElementById('contractors-search').addEventListener('input', function() {
-    const query = this.value.toLowerCase();
-    const contractorItems = contractorsListContent.querySelectorAll('li');
-    contractorItems.forEach(item => {
-        const name = item.querySelector('span').innerText.toLowerCase();
-        item.style.display = name.includes(query) ? '' : 'none';
-    });
-});
-
-
-
-// Open chat window for selected person
+// Open chat window for selected person in the main chat
 const chatPersons = document.querySelectorAll(".chat-person");
 const chatWindow = document.getElementById("chat-window");
 const chatPersonName = document.getElementById("chat-person-name");
@@ -92,25 +31,122 @@ chatPersons.forEach(person => {
         chatPersonName.textContent = personName;
         chatPersonImage.src = personImg;
         chatWindow.style.display = "block";
+
+        // Close the contractor chat window if it's open
+        document.getElementById("contractor-chat-window").style.display = "none";
     });
 });
 
-// Close chat window
+// Close the main chat window
 document.getElementById("close-chat").addEventListener("click", function() {
     chatWindow.style.display = "none";
 });
 
-// Send message logic
-document.getElementById("send-chat-btn").addEventListener("click", function() {
-    const chatInput = document.getElementById("chat-input").value;
-    if (chatInput.trim() !== "") {
-        const newMessage = document.createElement("p");
-        newMessage.textContent = chatInput;
-        chatMessages.appendChild(newMessage);
-        document.getElementById("chat-input").value = ""; // Clear input
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+// Show contractor list when 'add-person' is clicked
+document.querySelector('.add-person').addEventListener('click', function() {
+    const contractorListBox = document.getElementById('contractor-list-box');
+    const chatListBox = document.getElementById('chat-list-box');
+    const chatWindow = document.getElementById('chat-window');
+    const contractorChatWindow = document.getElementById('contractor-chat-window');
+    
+    // Hide chat-related sections
+    chatListBox.style.display = 'none'; // Hide the chat list
+    chatWindow.style.display = 'none'; // Hide the chat window
+
+    // Make the contractor list box visible
+    contractorListBox.style.display = 'block'; // Show the contractor section
+    contractorChatWindow.style.display = 'none'; // Ensure contractor chat is initially hidden
+});
+
+// Add click event listeners to contractor persons
+const contractorPersons = document.querySelectorAll(".contractor-person");
+const contractorWindow = document.getElementById("contractor-chat-window");
+const contractorPersonName = document.getElementById("contractor-person-name");
+const contractorPersonImage = document.getElementById("contractor-person-image");
+const contractorMessages = document.getElementById("contractor-chat-messages");
+
+contractorPersons.forEach(person => {
+    person.addEventListener("click", function() {
+        const contractorName = this.dataset.person;
+        const contractorImg = this.dataset.img;
+
+        // Close the chat window when contractor is opened
+        chatWindow.style.display = "none";
+
+        // Open contractor chat window
+        contractorPersonName.textContent = contractorName;
+        contractorPersonImage.src = contractorImg;
+        contractorWindow.style.display = "block"; // Make contractor chat visible
+
+        // Hide contractor list box when contractor chat opens
+        document.getElementById("contractor-list-box").style.display = 'none';
+    });
+});
+document.getElementById("add-person-btn").addEventListener("click", function() {
+    // Hide chat list
+    document.querySelector(".chat-list-box").style.display = "none"; // hide chat list box
+    // Show contractor list
+    document.querySelector(".contractor-list-box").style.display = "block"; // show contractor list box
+});
+
+document.getElementById("chat-list-btn").addEventListener("click", function() {
+    // Hide contractor list
+    document.querySelector(".contractor-list-box").style.display = "none"; // hide contractor list box
+    // Show chat list
+    document.querySelector(".chat-list-box").style.display = "block"; // show chat list box
+});
+
+
+// Close contractor chat window
+document.getElementById("close-contractor-chat").addEventListener("click", function() {
+    contractorWindow.style.display = "none";
+    document.getElementById('contractor-list-box').style.display = 'block'; // Show the contractor list again
+});
+
+// Send message in contractor chat
+document.getElementById('send-contractor-chat-btn').addEventListener('click', function() {
+    const contractorMessageText = document.getElementById('contractor-chat-input').value.trim();
+    if (contractorMessageText !== "") {
+        const contractorNewMessage = document.createElement('div');
+        contractorNewMessage.classList.add('message-container', 'right');
+
+        contractorNewMessage.innerHTML = `
+            <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+            <div>
+                <p class="message-text">${contractorMessageText}</p>
+                <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        `;
+
+        contractorMessages.appendChild(contractorNewMessage);
+        document.getElementById('contractor-chat-input').value = '';
+        contractorMessages.scrollTop = contractorMessages.scrollHeight;
     }
 });
+
+// Send message logic for the main chat
+document.getElementById('send-chat-btn').addEventListener('click', function() {
+    const messageText = document.getElementById('chat-input').value.trim();
+    if (messageText !== "") {
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message-container', 'right');
+
+        newMessage.innerHTML = `
+            <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+            <div>
+                <p class="message-text">${messageText}</p>
+                <span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+            </div>
+        `;
+
+        document.getElementById('chat-messages').appendChild(newMessage);
+        document.getElementById('chat-input').value = '';
+        document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+    }
+});
+
+
+
 // end
 
 

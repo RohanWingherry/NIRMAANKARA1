@@ -498,20 +498,57 @@
                             <button id="send-chat-btn">Send</button>
                     </div>
                 </div>
-            </div>
-            <!-- new contractor list -->
-            <div class="contractors-list-box" id="contractors-list-box">
-                <div class="contractors-list-header">
-                    <span>Select Contractor</span>
-                    <div class="close-contractors-list" id="close-contractors-list">&#x2715;</div>
+
+                <!-- cpntactor -->
+                <!-- Contractor List -->
+                <div class="contractor-list-box" id="contractor-list-box" style="display: none;"> <!-- Hidden initially -->
+                    <div class="contractor-list-header">
+                        <div class="contractor-sect">
+                            <img src="../assets/profile-pic.png" alt="profile">
+                            <span>Contractors</span>
+                        </div>
+                        <div class="box-icons">
+                            <span class="close-contractor-list" id="close-contractor-list" style="cursor: pointer;">&times;</span>                                
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    <div class="contractor-list-content" id="contractor-list-content">
+                        <ul>
+                            <li class="contractor-person" data-person="Contractor 1" data-img="../assets/contractor.png">
+                                <div class="persontext">
+                                    <img src="../assets/contractor.png" alt="Contractor 1">
+                                    <span>Contractor 1</span>
+                                </div>
+                            </li>
+                            <li class="contractor-person" data-person="Contractor 2" data-img="../assets/contractor.png">
+                                <div class="persontext">
+                                    <img src="../assets/contractor.png" alt="Contractor 2">
+                                    <span>Contractor 2</span>
+                                </div>
+                            </li>
+                            <!-- Add more contractors as needed -->
+                        </ul>
+                    </div>
                 </div>
-                <div class="contractors-search">
-                    <input type="search" id="contractors-search" placeholder="Search contractors...">
-                </div>
-                <ul class="contractors-list-content" id="contractors-list-content">
-                    <!-- Contractors list will be dynamically populated -->
-                </ul>
+                
+                <!-- Contractor Chat Window -->
+                <div class="contractor-chat-window" id="contractor-chat-window"> 
+                    <div class="chat-window-header" id="contractor-chat-window-header">
+                        <img id="contractor-person-image" src="" alt="Profile">
+                        <span id="contractor-person-name">Chat</span>
+                        <div class="close-chat" id="close-contractor-chat">&#x2715;</div>
+                    </div>
+                    <div class="chat-window-content">
+                        <div class="chat-messages" id="contractor-chat-messages"></div>
+                        <textarea id="contractor-chat-input" placeholder="Type a message..."></textarea>
+                        <button id="send-contractor-chat-btn">Send</button>
+                    </div>
+                </div> 
+
+            
             </div>
+           
             
         </div>
         <!-- footer -->
