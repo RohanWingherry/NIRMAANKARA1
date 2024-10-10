@@ -255,15 +255,16 @@
                 <span >PAYMENT</span>
             </div>
             <div class="main-profile">
-                <h5>Profile photo</h5>
-                <div class="image">
-                    <img src="../assets/profile.jpg" alt="">
-                    <label for="file-path">
-                        <span class="material-symbols-rounded">photo_camera</span>
-                    </label>
-                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="file-path" class="file-path">
-                </div>
+            <h5>Profile photo</h5>
+            <div class="image">
+              <img src="../assets/profile.jpg">
+              <label for="file-path">
+                <span class="material-symbols-rounded">photo_camera</span>
+              </label>
+              <input type="file" accept="image/jpeg, image/png, image/jpg" id="file-path" class="file-path" style="display: none;">
+              <button id="delete-btn" style="display: none;"><i class="fa-regular fa-trash-can"></i></button>
             </div>
+        </div>
             <div class="input-box">
                 <form action="" class="form" id="siteDetailsForm">
                     <div class="form-group">

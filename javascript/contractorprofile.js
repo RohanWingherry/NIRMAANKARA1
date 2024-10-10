@@ -1,10 +1,20 @@
-// Profile Picture Update
 const profilePic = document.querySelector(".image img");
 const userFile = document.querySelector(".file-path");
+const deleteBtn = document.getElementById("delete-btn");
 
 userFile.onchange = function () {
+  if (userFile.files.length > 0) {
     profilePic.src = URL.createObjectURL(userFile.files[0]);
+    deleteBtn.style.display = "block";
+  }
 };
+
+deleteBtn.onclick = function () {
+  profilePic.src = "../assets/profile.jpg";
+  userFile.value = "";
+  deleteBtn.style.display = "none"; 
+};
+
 
 // Toastify Notifications
 let notifications = document.getElementById('notification');

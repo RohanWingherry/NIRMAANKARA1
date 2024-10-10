@@ -176,6 +176,7 @@ body{
         gap: 20px;
     }
     .contentofpage .all-details-head .this-heading{
+        padding: 20px;
         border-radius: 30px;
     }
     .contentofpage .all-details{
