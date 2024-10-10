@@ -109,7 +109,17 @@
     color: rgb(16, 87, 139);
     cursor: pointer;
 }
-
+.edit{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.remove-icon{
+    padding-top: 4px;
+    color: #10578B;
+}
 .profile-details-section {
     display: flex;
     justify-content: center;

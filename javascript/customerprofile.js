@@ -131,7 +131,21 @@ document.getElementById('file-input').addEventListener('change', function(event)
         reader.onload = function(e) {
             document.getElementById('image-preview').style.backgroundImage = `url('${e.target.result}')`;
             document.getElementById('image-preview').innerHTML = ''; // Remove the user icon
+            document.getElementById('remove-icon').style.display = 'block'; // Show remove icon
         };
         reader.readAsDataURL(file);
     }
 });
+
+// Add event listener for the remove icon
+document.getElementById('remove-icon').addEventListener('click', function() {
+    // Show a confirmation alert
+    const confirmRemove = confirm('Are you sure you want to remove the uploaded image?');
+    if (confirmRemove) {
+        document.getElementById('file-input').value = ''; // Clear the file input
+        document.getElementById('image-preview').style.backgroundImage = ''; // Clear the image preview
+        document.getElementById('image-preview').innerHTML = '<i class="fa-solid fa-user user-icon"></i>'; // Show the user icon
+        this.style.display = 'none'; // Hide the remove icon
+    }
+});
+

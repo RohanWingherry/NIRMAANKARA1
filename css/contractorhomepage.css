@@ -71,6 +71,8 @@ font-weight: bold;
     height: 180px;
     width: 250px;
     background-color: #F7F8FB;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .main-contents #dayorweek{
     display: flex;
@@ -159,6 +161,8 @@ font-weight: bold;
     height: 200px;
     width: 230px;
     background-color: #F7F8FB;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .main-contents .profile-1>p,.profile-2>p{
     font-size: 20px;

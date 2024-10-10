@@ -1,21 +1,478 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Input Example</title>
-</head>
+    <title>Contractor Home</title>
+    <link rel="icon" href="../assets/nirmankara-logo.png">
+    <link rel="stylesheet" href="../css/sidenavbar.css">
+    <link rel="stylesheet" href="../css/customerhomepage.css">
+    <link rel="stylesheet" href="../css/test.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../assets/nirmankara-logo.png">
 <body>
+    <div class="navigation-bar">
+        <div class="mob-hamberger">
+            <div class="mobile-btn-main">
+                <i class="fa-solid fa-bars" id="mobile-btn"></i>
+            </div>
+        </div>
+        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
+            <img src="../assets/nirmankara-logo.png" alt="">
+            <div>NIRMAANKARA</div>
+        </div>
+        <div class="notify">
+            <i class="fa-regular fa-bell" id="bell"></i>
+            <div>
+                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
+            </div>
+        </div>
+    </div>
+    <div class="main-profileview">
+        <div class="profile-view">
+            <div class="profile">
+                <span><img src="../assets/profile-pic.png" alt=""></span>
+            </div>
+            <div class="manage">
+                <span>Manage Your Profile</span>
+            </div>
+            <span class="line"></span>
+            <div class="logout">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-notification">
+        <div class="notification">
+            <div class="notify-heading">
+                <span>Notifications</span>
+            </div>
+            <div class="single-block" id="agreement-notification">
+                <div class="icon-block">
+                    <span class="red-dot"></span>
+                    <span class="material-symbols-outlined">handshake</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Agreement</span>
+                        <div>
+                            <span>Today</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Agreement is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">price_change</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Quotation</span>
+                        <div>
+                            <span>1 day ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Quotation is accepted by your customer.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">timer</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Follow up</span>
+                        <div>
+                            <span>2 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your follow up has been scheduled! Thank You.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">groups</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Leads</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>7:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>We have a new lead only for you! Hurry Up.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">campaign</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Campaign</span>
+                        <div>
+                            <span>5 days ago</span>
+                            <span>5:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Your ads has been published, Thank you!.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-block">
+                <div class="icon-block">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="notify-block">
+                    <div class="notify-block-head">
+                        <span class="notified-heading">Profile</span>
+                        <div>
+                            <span>8 days ago</span>
+                            <span>9:30AM</span>
+                        </div>
+                    </div>
+                    <div class="notify-block-body">
+                        <span>Congrulations, your profile has been updated successfully.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="sidebar">
+        <div class="top">
+            <i class="fa-solid fa-bars" id="btn"></i>
+        </div>
+        <ul>
+            <li id="present-active-page" >
+                <a href="../html/customerhomepage.html">
+                    <span class="material-symbols-outlined">home</span>
+                    <span class="nav-item">Home</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/customercontractorlist.html">
+                    <span class="material-symbols-outlined">engineering</span>
+                    <span class="nav-item">Contractor List</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerlead.html">
+                    <span class="material-symbols-outlined">groups</span>
+                    <span class="nav-item">Lead Creation</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/customerfollowup.html">
+                    <span class="material-symbols-outlined">timer</span>
+                    <span class="nav-item">Follow Up</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerquotation.html">
+                <a href="../html/customerquotationhistory.html">
+                    <span class="material-symbols-outlined">price_change</span>
+                    <span class="nav-item">Quotation</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customeragreement.html">
+                <a href="../html/customeragreementhistory.html">
+                    <span class="material-symbols-outlined">handshake</span>
+                    <span class="nav-item">Agreement</span>
+                </a>
+            </li>
+            <li >
+                <a href="../html/cust.html">
+                <a href="../html/customerpurchaseorderhistory.html">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                    <span class="nav-item">Purchasing</span>
+                </a>
+            </li>
+            <li>
+            <li >
+                <a href="../html/customerworkhistory.html">
+                    <span class="material-symbols-outlined">work_history</span>
+                    <span class="nav-item">Work Status</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerinvoicehistory.html">
+                    <span class="material-symbols-outlined">description</span>
+                    <span class="nav-item">Invoice</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerreceipthistory.html">
+                    <span class="material-symbols-outlined">receipt_long</span>
+                    <span class="nav-item">Receipt</span>
+                </a>
+            </li>
+            <li>
+                <a href="../html/customerprofile.html">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="nav-item">Profile</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="contentofpage">
 
-<input type="date" id="dateInput" disabled>
+            <div class="main-faqs">
+                <div class="heading">
+                    <span>FREQUENTLY ASKED QUESTION'S (FAQ's)</span>
+                </div>
+                <div class="faqs">
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q1. What are all the packages included for Contractor in Nirmaankara?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Classified Plans allow you to advertise your property or services on NIRMAANKARA. You can choose between paid or free classifieds and post your listing</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q2. Can I check the ratings and reviews of a builder or contractor before listing my property?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Yes, NIRMAANKARA provides tools for landowners to check the CIBIL score, ratings, reviews, and projects history of builders and contractors.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q3.How can i get the leads on NIRMAANKARA?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Lead allows you to track and manage potential clients or projects. You can receive leads from various cities, view hot classifieds, and assign leads </span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q4.How do I follow up on leads?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Follow-ups can be managed through your dashboard, where you can create, track communication, set reminders, and update the status of each lead.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q5.How do I create a quotation for a project?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>To create a quotation, go to the "Quotation" section, enter the site and organisation details. You should also add details such as size of the land, cost per square feet and number of slabs after entering the total amount will get distributed will get auto calculated.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span> Q6.How do I manage Agreements?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span> Agreements can be managed and viewed under the "Agreements" section, which includes details like rental summaries and contract terms.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span> Q7.How do I manage Work Status?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Work status updates, including images and videos for the morning and evening updates can be uploaded in the "Work Status" section.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q8. How do I manage material procurement on NIRAMAANKARA?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Material procurement, including vendor supplies like bricks, cement, and sand, can be managed through the "Procurement" section, where you can list the required materials based on segments.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q9. What is meant by segments in procurement on NIRAMAANKARA?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Segments are nothing but the number times the particluar material should be brought. ForEx. At the same time cement cannot be brought at the starting of the construction it should be brought at the different stages of the construction thats stages are called at the number of segments.</span>
+                        </div>
+                    </div>
+                    <div class="questionandanswer">
+                        <div class="main-question">
+                            <span>Q10. What is Campaign in Nirmaankara?</span>
+                            <span class="arrow-icon material-symbols-outlined">keyboard_arrow_down</span>
+                        </div>
+                        <div class="main-answer">
+                            <span>Here you can post your projects where it includes 2 packages one we will post your project in Nirmaankara portal and another include posting in Nirmaankara portal and Nirmaankara social medias. You will get the direct leads once you complete the process of Campaign.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="chatbot-toggler">
+                <span class="material-symbols-rounded">
+                    mode_comment
+                    </span>
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="chatbot">
+                <header>
+                  <div>
+                    <span class="material-symbols-rounded roboicon">robot_2</span>
+                    <h2>ChatBot</h2>
+                  </div>
+                  <span class="close-btn material-symbols-outlined">close</span>
+                </header>
+                <ul class="chatbox">
+                  <li class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>Hi there <br>How can I help you today?</p>
+                  </li>
+                </ul>
+                <div class="chat-input">
+                  <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                  <span id="send-btn" class="material-symbols-rounded">send</span>
+                </div>
+            </div>
+            <!-- message box -->
+            
+            <div class="message-section">
+                <div class="tabbed-message">
+                   <div class="mes-header">
+                        <div class="main-head">Messgae</div>
+                        <span class="material-symbols-outlined add-person">person_add</span>
+                        <div class="arrow" id="chat-list-arrow"><span class="material-symbols-outlined">keyboard_control_key</span></div>
+                    
+                   </div>
+                    <div class="chat-list">
+                        <div class="person1">hi</div>
+                        <div class="person1">hii</div>
+                        <div class="person1">hiii</div>
+                    </div>
+                </div>
+                <div class="chat-section">
+                    <div class="hi">
+                        hido
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- footer -->
+        <div class="main-footer-box">
+        
+          <!-- footer -->
+          <div class="main-footer-box">
+            <footer>
+                <section>
+                    <section class="social">
+                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+                    <div>
+                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                        <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                        <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+                    </div>
+                </section>
+                </section>
+                <section class="quick-links">
+                    <span>QUICK LINKS</span>
+                    <div>
+                        <a href="../html/contractorshomepage.html">List your Business</a>
+                        <a href="../html/customerprofile.html">Develop your Land</a>
+                        <a href="">List your Land</a>
+                        <a href="">Post a Free Ad</a>
+                        <a href="">Buyer</a>
+      
+                    </div>
+                </section>
+                <section class="contact-info">
+                    <span>CONTACT INFO</span>
+                    <div>
+                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                        <span><b>Phone:</b> +91 9985752406</span>
+                        <span><b>Email:</b> nirmaankara@gmail.com</span>
+                    </div>
+                </section>
+                <section class="subscribe">
+                    <span>SUBSCRIBE TO OUR PORTAL</span>
+                    <div>
+                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                        <form>
+                            <input type="email" placeholder="Your Email" >
+                            <button type="submit" class="fotbtn">&#8594;</button>
+                        </form>
+                    </div>
+                </section>
+            </footer>
+            <div class="copyright">
+                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+                <div>
+                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                    <div></div>
+                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+                </div>
+            </div>
+         </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const dateInput = document.getElementById('dateInput');
-    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-    dateInput.value = today; // Set the default value
+        <!-- footer --> 
+       
+   </div>
+   <script src="../javascript/sidenavbar.js"></script>
+    <script src="../javascript/customerhomepage.js"></script>
+
+         <!-- footer --> 
+        
+   </div>
+    <script src="../javascript/sidenavbar.js"></script>
+    <!-- <script src="../javascript/customeragreementhistory.js"></script> -->
+   <script>
+    document.querySelector(".tabbed-message").addEventListener("click", function() {
+    var chatList = document.querySelector(".chat-list");
+    if (chatList.style.display === "none" ) {
+        chatList.style.display = "block"; // Show the chat list
+    } else {
+        chatList.style.display = "none"; // Hide the chat list
+    }
 });
-</script>
+    const person=document.querySelectorAll(".person1")
+    person.forEach(eachperson => {
+        eachperson.addEventListener("click", function(){
+            document.querySelector(".chat-section").style.display="block";
+            const full =document.querySelector(".chat-list");
+            if(full.style.display==='block'){
+                full.style.display='block';
+            }
+        })
+    });
 
+   </script>
 </body>
 </html>
