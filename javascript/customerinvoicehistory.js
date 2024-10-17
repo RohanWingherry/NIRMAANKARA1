@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.edit-row').forEach(function(element) {
         element.addEventListener('click', function() {
-            window.location.href = "../html/customerreceipt.html";
+            window.location.href = "../html/customerinvoice.html";
         });
     });
 });

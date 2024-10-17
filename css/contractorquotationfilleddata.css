@@ -152,6 +152,7 @@
         gap: 20px;
     }
     .quotation-main .all-details-head .this-heading{
+        padding: 10px 20px;
         border-radius: 30px;
     }
     .quotation-main .all-details{

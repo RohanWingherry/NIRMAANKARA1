@@ -155,14 +155,15 @@
         justify-content: right;
         gap: 20px;
     }
-    .agreement-main .all-details-head .this-heading{
+    .main .all-details-head .this-heading{
+        padding: 10px 20px;
         border-radius: 30px;
     }
-    .agreement-main .all-details{
+    .main .all-details{
         justify-content: center;
         gap: 25px;
     }
-    .agreement-main .all-details .enter-det{
+    .main .all-details .enter-det{
         align-items: flex-start;
         text-align: left;
         width: 100%;

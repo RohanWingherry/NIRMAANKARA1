@@ -156,6 +156,7 @@
         gap: 20px;
     }
     .agreement-main .all-details-head .this-heading{
+        padding: 10px 20px;
         border-radius: 30px;
     }
     .agreement-main .all-details{
