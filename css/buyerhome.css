@@ -8,3 +8,19 @@
     padding: 20px;
   }
   
+  .search-section{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .searching{
+    border: 1px solid red;
+    width: 95%;
+  }
+  .searchbar{
+    display: flex;
+    justify-content: space-evenly;
+  }
