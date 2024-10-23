@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Explore</title>
     <link rel="stylesheet" href="../css/buyerpropertyexplore.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
@@ -14,8 +15,8 @@
                 <div class="main-image">
                     <img src="../assets/Aparna1.png" alt="Main Image" id="main-img">
                     <!-- Like Button -->
-                    <button class="like-btn">
-                        <img src="like-icon.png" alt="Like">
+                    <button class="like-btn not-liked">
+                        <span class="material-symbols-rounded">favorite</span>
                     </button>
                     <!-- Navigation Arrows -->
                     <button class="prev-btn" onclick="prevImage()">&#10094;</button>
@@ -40,7 +41,7 @@
                 <div class="header-section">
                     <div class="building-heading">
                         <div class="building-name">Building</div>
-                        <div class="share"><span class="material-symbols-rounded">ios_share</span> Share</div>
+                        <div class="share"><span class="material-symbols-rounded">ios_share</span> <div class="share-text">Share</div></div>
                     </div>
                     <div class="type-rate">
                         <div class="building-type">Residence</div>

@@ -50,7 +50,7 @@
     height: 100%;
     object-fit: cover;
     transition: 0.2s ease-in-out;
-    transition: opacity 1s ease-in-out; /* Smooth transition */
+    transition:  0.3s ease-in-out; /* Smooth transition */
 
 }
 .main-image:hover img{
@@ -61,20 +61,34 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(236, 236, 236, 0.7);
     border: none;
-    padding: 10px;
+    padding: 6px;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.like-btn img {
-    width: 20px;
-    height: 20px;
+.like-btn span{
+    font-size: 18px;
 }
 .next-images{
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+.like-btn {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 24px; /* Adjust size if needed */
+}
+.liked {
+    color: rgb(239, 0, 0); /* Filled color */
+}
+.not-liked {
+    color: gray; /* Unfilled color */
 }
 .next-images .next{
     max-width: 180px;
@@ -161,4 +175,29 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     padding: 15px;
     border-radius: 10px;
+}
+
+.building-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.building-name{
+    font-size: 18px;
+    font-weight: 500;
+}
+.share{
+    font-size: 14px;
+    display: flex;
+    color: rgb(60, 60, 60);
+    align-items: center; 
+    justify-content: center;
+    gap: 2px;   
+    border-radius: 15px;
+    background-color: #eee;
+    padding: 4px 8px;
+    font-weight: 400;
+}
+.share span{
+    font-size: 16px;
 }
