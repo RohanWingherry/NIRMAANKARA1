@@ -12,7 +12,7 @@ function changeImage(src) {
     setTimeout(() => {
         mainImage.src = src;
         mainImage.style.opacity = 1; // Fade-in the new image
-    }, 800); // Matches the transition time for a smoother effect
+    }, 200); // Matches the transition time for a smoother effect
 }
 
 function prevImage() {
@@ -24,3 +24,20 @@ function nextImage() {
     currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
     changeImage(images[currentImageIndex]);
 }
+
+
+// like
+const likeBtn = document.querySelector('.like-btn');
+    
+likeBtn.addEventListener('click', function() {
+    // Toggle liked state
+    likeBtn.classList.toggle('liked');
+    likeBtn.classList.toggle('not-liked');
+    
+    // Change icon based on state
+    if (likeBtn.classList.contains('liked')) {
+        likeBtn.innerHTML = '<span class="material-icons">favorite</span>';
+    } else {
+        likeBtn.innerHTML = '<span class="material-icons">favorite_border</span>';
+    }
+});

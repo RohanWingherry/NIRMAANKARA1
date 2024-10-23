@@ -427,16 +427,16 @@ input#max-range {
 
 }
 .main-home-content .home-content .property-names:hover .property-icon>img{
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 .property-names .property-icon{
   height: 55px;
   width: 55px;
-  background: rgb(224, 224, 224);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .property-names .property-icon>img{
   height: 35px;
