@@ -29,15 +29,32 @@ function nextImage() {
 // like
 const likeBtn = document.querySelector('.like-btn');
     
-likeBtn.addEventListener('click', function() {
-    // Toggle liked state
-    likeBtn.classList.toggle('liked');
-    likeBtn.classList.toggle('not-liked');
-    
-    // Change icon based on state
-    if (likeBtn.classList.contains('liked')) {
-        likeBtn.innerHTML = '<span class="material-icons">favorite</span>';
-    } else {
-        likeBtn.innerHTML = '<span class="material-icons">favorite_border</span>';
+    likeBtn.addEventListener('click', function() {
+        // Toggle liked state
+        likeBtn.classList.toggle('liked');
+        
+        // Change icon based on state
+        if (likeBtn.classList.contains('liked')) {
+            likeBtn.innerHTML = '<span class="material-icons">bookmark_added</span>';
+        } else {
+            likeBtn.innerHTML = '<span class="material-icons">bookmark</span>';
+        }
+    });
+
+// scroll active
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section-part');
+    const navLinks = document.querySelectorAll('.link-scroll a');
+
+    function changeActiveLink() {
+        let index = sections.length;
+
+        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+        
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
     }
+
+    changeActiveLink();
+    window.addEventListener('scroll', changeActiveLink);
 });

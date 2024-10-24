@@ -5,116 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Explore</title>
     <link rel="stylesheet" href="../css/buyerpropertyexplore.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="explore">
-        <div class="left">
-            <div class="image-section">
-                <div class="main-image">
-                    <img src="../assets/Aparna1.png" alt="Main Image" id="main-img">
-                    <!-- Like Button -->
-                    <button class="like-btn">
-                        <img src="like-icon.png" alt="Like">
-                    </button>
-                    <!-- Navigation Arrows -->
-                    <button class="prev-btn" onclick="prevImage()">&#10094;</button>
-                    <button class="next-btn" onclick="nextImage()">&#10095;</button>
+    <div class="link-scroll">
+        <ul>
+            <li><a href="#overview-part">Overview</a></li>
+            <li><a href="#more-details-part">More Details</a></li>
+            <li><a href="#local-insights-part">Local Insights</a></li>
+            <li><a href="#recommendations-part">Recommendations</a></li>
+            <li><a href="#review-part">Reviews</a></li>
+        </ul>
+    </div>
+
+    <div class="scroll-part">
+        <div id="overview-part" class="section-part">
+            <div class="overview-heading">OVERVIEW</div>
+            <div class="explore">
+                <div class="left">
+                    <div class="image-section">
+                        <div class="main-image">
+                            <img src="../assets/Aparna1.png" alt="Main Image" id="main-img">
+                            
+                            <!-- Navigation Arrows -->
+                            <button class="prev-btn" onclick="prevImage()">&#10094;</button>
+                            <button class="next-btn" onclick="nextImage()">&#10095;</button>
+                        </div>
+                        <div class="next-images">
+                            <div class="next">
+                                <img src="../assets/Aparna2.png" alt="Image 2" onclick="changeImage('../assets/Aparna2.png')">
+                            </div>
+                            <div class="next">
+                                <img src="../assets/Aparna3.png" alt="Image 3" onclick="changeImage('../assets/Aparna3.png')">
+                            </div>
+                            <div class="next">
+                                <img src="../assets/Aparna4.png" alt="Image 4" onclick="changeImage('../assets/Aparna4.png')">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="next-images">
-                    <div class="next">
-                        <img src="../assets/Aparna2.png" alt="Image 2" onclick="changeImage('../assets/Aparna2.png')">
-                    </div>
-                    <div class="next">
-                        <img src="../assets/Aparna3.png" alt="Image 3" onclick="changeImage('../assets/Aparna3.png')">
-                    </div>
-                    <div class="next">
-                        <img src="../assets/Aparna4.png" alt="Image 4" onclick="changeImage('../assets/Aparna4.png')">
+        
+                <div class="right">
+                    <div class="details-section">
+                        <div class="header-section">
+                            <div class="building-heading">
+                                <div class="building-name">Aparna </div>
+                                <div class="book-share">
+                                    <div class="book">
+                                        <button class="like-btn not-liked">
+                                            <span class="material-symbols-rounded">bookmark</span>                            
+                                        </button>
+                                    </div>
+                                    <div class="share"><span class="material-symbols-rounded">ios_share</span> <div class="share-text">Share</div></div>
+                                </div>
+                            </div>
+                            <div class="building-price">
+                                <div class="price">₹ 80,000/month</div> <hr>
+                                <div class="price-unit">2,800 sqft</div> <hr>
+                                <div class="typeof">3BHK</div>
+                            </div>
+                            <div class="building-deatils">
+                                <div class="posted bd"><span class="material-symbols-rounded">post_add</span><div class="post-text">Posted On: 08/10/2024</div></div>
+                                <div class="constructed bd"><span class="material-symbols-rounded">construction</span><div class="constructed-text">Constructed Year: 2018</div></div>
+                                <div class="available bd"><span class="material-symbols-rounded">done_all</span><div class="avaliable-text">Immediate Available: Yes</div></div>
+                            </div>
+                        </div>
+                        <div class="overview-section">
+                            <div class="box-head">Property Overview</div>
+                            <div class="overview-grid">
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">bed</span>
+                                    <span>3 Bedroom</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">shower</span>
+                                    <span>2 Washroom</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">table_restaurant</span>
+                                    <span>1 Dining Hall</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">balcony</span>
+                                    <span>2 balcony</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">temple_hindu</span>
+                                    <span>1 Pooja Room</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">floor</span>
+                                    <span>3 Floor</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="overview-section">
+                            <div class="box-head">Amenities & Property Features</div>
+                            <div class="overview-grid">
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">local_parking</span>
+                                    <span>Parking</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">pool</span>
+                                    <span>Swimming Pool</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">fitness_center</span>
+                                    <span>Gym</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">sports_and_outdoors</span>
+                                    <span>playground</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">water</span>
+                                    <span>Water</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">wifi</span>
+                                    <span>Internet</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- <div class="overview-section">
+                            <div class="box-head">Neighborhood Features</div>
+                            <div class="overview-grid">
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">nature_people</span>
+                                    <span>Park</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">school</span>
+                                    <span>School</span>
+                                </div>
+                                <div class="overview-item">
+                                    <span class="material-symbols-rounded">shopping_cart</span>
+                                    <span>Shopping</span>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
+    
+        <div id="more-details-part" class="section-part">
+            <div class="overview-heading">MORE DETAILS</div>
 
-        <div class="right">
-            <div class="details-section">
-                <div class="header-section">
-                    <div class="building-heading">
-                        <div class="building-name">Building</div>
-                        <div class="share"><span class="material-symbols-rounded">ios_share</span> Share</div>
-                    </div>
-                    <div class="type-rate">
-                        <div class="building-type">Residence</div>
-                        <div class="rating">4.5 Review</div>
-                    </div>
-                </div>
-                <div class="overview-section">
-                    <div class="overview-grid">
-                        <div class="overview-item">
-                            <img src="bed-icon.png" alt="Bed Icon">
-                            <span>3 Bedroom</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="bath-icon.png" alt="Bath Icon">
-                            <span>7 Bathroom</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="area-icon.png" alt="Area Icon">
-                            <span>3,943ft</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="furniture-icon.png" alt="Furniture Icon">
-                            <span>All Furniture</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="garage-icon.png" alt="Garage Icon">
-                            <span>1 Car Garage</span>
-                        </div>
-                        <div class="overview-item">
-                            <!-- <img src="garage-icon.png" alt="Garage Icon">
-                            <span>1 Car Garage</span> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="description">
-                    <div class="descp-head">Description</div>
-                    <div class="para-section">
-                        <p class="para">This is a description of the property.</p>
-                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium animi exercitationem quisquam voluptas beatae nemo est fuga, repellat blanditiis adipisci. Molestiae distinctio qui placeat ad adipisci quia porro consectetur dolores.</p>
-                    </div>
-                </div>
-                <div class="address">
-                    <div class="address-head">Address</div>
-                    <div class="overview-grid">
-                        <div class="overview-item">
-                            <img src="bed-icon.png" alt="Bed Icon">
-                            <span>City</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="bath-icon.png" alt="Bath Icon">
-                            <span>State</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="area-icon.png" alt="Area Icon">
-                            <span>Country</span>
-                        </div>
-                        <div class="overview-item">
-                            <img src="furniture-icon.png" alt="Furniture Icon">
-                            <span>All Furniture</span>
-                        </div>
-                        <div class="overview-item">
-                            <!-- <img src="furniture-icon.png" alt="Furniture Icon">
-                            <span>All Furniture</span> -->
-                        </div>
-                        <div class="overview-item">
-                            <!-- <img src="furniture-icon.png" alt="Furniture Icon">
-                            <span>All Furniture</span> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="details"></div>
-            </div>
+        </div>
+    
+        <div id="local-insights-part" class="section-part">
+            <div class="overview-heading">LOCAL INSIGHTS</div>
+
+        </div>
+    
+        <div id="recommendations-part" class="section-part">
+            <div class="overview-heading">RECOMMENDATIONS</div>
+
+        </div>
+    
+        <div id="review-part" class="section-part">
+            <div class="overview-heading">REVIEWS</div>
+
         </div>
     </div>
+
     <script src="../javascript/buyerexploreimage.js"></script>
 </body>
 </html>
