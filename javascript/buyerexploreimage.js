@@ -27,19 +27,22 @@ function nextImage() {
 
 
 // like
-const likeBtn = document.querySelector('.like-btn');
-    
+const likeBtns = document.querySelectorAll('.like-btn');
+
+likeBtns.forEach(likeBtn => {
     likeBtn.addEventListener('click', function() {
         // Toggle liked state
-        likeBtn.classList.toggle('liked');
+        this.classList.toggle('liked');
         
         // Change icon based on state
-        if (likeBtn.classList.contains('liked')) {
-            likeBtn.innerHTML = '<span class="material-icons">bookmark_added</span>';
+        if (this.classList.contains('liked')) {
+            this.innerHTML = '<span class="material-icons">bookmark_added</span>';
         } else {
-            likeBtn.innerHTML = '<span class="material-icons">bookmark</span>';
+            this.innerHTML = '<span class="material-icons">bookmark</span>';
         }
     });
+});
+
 
 // scroll active
 document.addEventListener('DOMContentLoaded', function() {
