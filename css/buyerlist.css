@@ -4,111 +4,191 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
-  .contentofpage{
-    padding: 20px;
-  }
-
-  /* property list */
-  .property-list{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-  }
-  .property{
-    padding: 10px;
-    border: 1px solid gainsboro;
-    border: 1px solid rgb(188, 188, 188);
-
-    box-shadow: rgba(134, 141, 148, 0.3) 0px 1px 1px 0px, rgba(133, 141, 148, 0.15) 0px 1px 1px 1px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  .property .image-section{
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;    
-    border-radius: 8px;
-    max-width: 250px;
-    width: 100%;
-    overflow: hidden;
-    /* height: 200px; */
-  }
-  .image-section img{
-    border-radius: 7px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s;
-  }
-  .image-section:hover img{
-    transform: scale(1.05);
-  }
-  .details-section{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .details-part{
-    padding: 10px;
-    border: 1px solid rgb(188, 188, 188);
-    border-radius: 10px;
-
-  }
-  .property-head{
-    display: flex;
-    justify-content: space-between;
-  }
-  .contact{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid rgb(188, 188, 188);
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgb(255, 255, 255);
+/* Buyer list */
+.main-buyerlist{
+  border: 2px solid red;
 }
-  .number{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .more{
-    display: flex;
-    gap: 10px;
-  }
-  .explore, .share{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    width: 100%;
-    /* max-width: 800px; */
-    width: 100%;
-    border: 1px solid rgb(215, 215, 215);
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 2px;
+.main-buyerlist .buyerlist{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-.feature-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    background-color: white;
-    font-size: 14px;
-    color: #333;
-    border: 1px solid #c7c7c7;
-    text-align: center;
-    border-radius: 6px;
+.buyerlist .singleproperty{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  border-radius: 15px;
 }
-.feature-item img {
-    margin-right: 8px;
+.singleproperty .imageview{
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.singleproperty .imageview>img{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: fill;
+  transition: all ease 0.5s;
+}
+.buyerlist .singleproperty:hover .imageview>img{
+  transform: scale(1.04);
+}
+.singleproperty .property-desc{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  width: 350px;
+}
+.property-desc .prop-icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.prop-icons .available{
+  color: rgb(7, 173, 7);
+  font-size: 14px;
+  font-weight: bold;
+}
+.prop-icons .main-share{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.property-desc .prop-icons .bookmark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(236, 236, 236, 0.7);
+  border: 1px solid rgb(196, 196, 196);
+  padding: 5px;
+  cursor: pointer;
+}
+.property-desc .prop-icons .bookmark>span{
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(63, 63, 63);
+
+}
+.property-desc .prop-icons .share{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background-color: rgba(236, 236, 236, 0.7);
+  border: 1px solid rgb(196, 196, 196);
+  padding: 5px 8px;
+  font-size: 14px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.property-desc .prop-icons .share>span{
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(65, 65, 65);
+
+}
+.prop-icons .bookmark{
+  border-radius: 50%;
+}
+.property-desc .prop-head{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 18px;
+  gap: 10px;
+}
+.property-desc .prop-head>span{
+  font-weight: bold;
+  color: rgb(68, 68, 68);
+}
+.property-desc .prop-head #line{
+  border: 1px solid grey;
+  height: 20px;
+}
+.property-desc .prop-addr{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: grey;
+  font-size: 12px;
+}
+.property-desc .prop-price-sqrt{
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  width: 100%;
+}
+.prop-price-sqrt .single-prop-det{
+  border: 1px solid rgb(207, 207, 207);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 50%;
+  height: 40px;
+  color: rgb(54, 54, 54);
+}
+.prop-price-sqrt .single-prop-det .heading{
+  font-size: 14px;
+}
+.prop-price-sqrt .single-prop-det .material-symbols-rounded{
+  font-size: 18px;
+}
+.single-prop-det.price{
+  border-radius: 8px 0px 0px 0px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.single-prop-det.area{
+  border-left: none;
+  border-radius: 0px 8px 0px 0px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.single-prop-det.feature{
+  border-top: none;
+  width: 100%;
+  border-radius: 0px 0px 8px 8px;
+  font-weight: 500;
+  font-size: 13px;
+}
+.property-desc .prop-explore{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.property-desc .prop-explore .exp{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  font-size: 14px;
+  background-color: #038598;
+  color: white;
+  border: 1px solid rgb(196, 196, 196);
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.property-desc .prop-explore .material-symbols-rounded{
+  font-size: 18px;
+}
+.property-desc .prop-posted{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+  color: grey;
+  font-weight: 500;
 }
