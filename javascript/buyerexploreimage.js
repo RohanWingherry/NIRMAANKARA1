@@ -31,17 +31,20 @@ const likeBtns = document.querySelectorAll('.like-btn');
 
 likeBtns.forEach(likeBtn => {
     likeBtn.addEventListener('click', function() {
-        // Toggle liked state
+        // Toggle the liked state
         this.classList.toggle('liked');
         
-        // Change icon based on state
+        // Update icon based on state
+        const icon = this.querySelector('.material-symbols-rounded');
         if (this.classList.contains('liked')) {
-            this.innerHTML = '<span class="material-icons">bookmark_added</span>';
+            icon.textContent = 'favorite'; // Filled heart
         } else {
-            this.innerHTML = '<span class="material-icons">bookmark</span>';
+            icon.textContent = 'favorite_border'; // Unfilled heart
         }
     });
 });
+
+
 
 
 // scroll active
@@ -61,3 +64,117 @@ document.addEventListener('DOMContentLoaded', function() {
     changeActiveLink();
     window.addEventListener('scroll', changeActiveLink);
 });
+
+
+// property card slider
+let currentIndex = 0;
+
+function moveSlide(direction) {
+    const slides = document.querySelector('.buyerlist');
+    const totalSlides = document.querySelectorAll('.singleproperty').length;
+    const cardWidth = document.querySelector('.singleproperty').offsetWidth; // Get the current width of the card
+    
+    currentIndex += direction;
+    
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1; // Wrap around to last slide
+    } else if (currentIndex >= totalSlides) {
+        currentIndex = 0; // Wrap around to first slide
+    }
+    
+    // Calculate the offset to center the current slide
+    const offset = -currentIndex * cardWidth + (window.innerWidth / 2 - cardWidth / 2);
+    slides.style.transform = `translateX(${offset}px)`;
+}
+
+
+// review
+document.getElementById('addReviewForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const stars = document.getElementById('stars').value;
+    const reviewText = document.getElementById('reviewText').value;
+
+    // Create a new review element
+    const newReview = document.createElement('div');
+    newReview.className = 'review';
+
+    newReview.innerHTML = `
+        <div class="profile">
+            <img src="../assets/profile-pic.png" alt="Profile Image">
+            <div class="profile-details">
+                <h3>Your Name</h3>
+                <p>Total Review: <strong>1</strong></p>
+            </div>
+        </div>
+        <div class="review-content">
+            <div class="review-header">
+                <div class="stars">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</div>
+                <p>${new Date().toLocaleDateString()}</p>
+            </div>
+            <p>${reviewText}</p>
+        </div>
+    `;
+
+    // Insert the new review at the top of the review list
+    const reviewList = document.getElementById('reviewList');
+    reviewList.insertBefore(newReview, reviewList.firstChild);
+
+    // Clear the form
+    document.getElementById('addReviewForm').reset();
+});
+
+
+// Get modal elements
+const reportButton = document.getElementById('reportButton');
+const reportModal = document.getElementById('reportModal');
+const closeButton = document.querySelector('.close-button');
+const confirmReportButton = document.getElementById('confirmReport');
+const cancelReportButton = document.getElementById('cancelReport');
+
+// Open modal
+reportButton.onclick = function() {
+    reportModal.style.display = "block";
+}
+
+// Close modal
+closeButton.onclick = function() {
+    reportModal.style.display = "none";
+}
+
+// Cancel report action
+cancelReportButton.onclick = function() {
+    reportModal.style.display = "none";
+}
+
+// Confirm report action
+confirmReportButton.onclick = function() {
+    const selectedReasons = [];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    
+    checkboxes.forEach(checkbox => {
+        selectedReasons.push(checkbox.value);
+    });
+    
+    const issueDescription = document.getElementById('issueDescription').value;
+    
+    // Example of how you might handle the report submission
+    const reportData = {
+        reasons: selectedReasons,
+        description: issueDescription
+    };
+
+    // Send the reportData to your server or handle it as needed
+    console.log("Reported Data:", reportData); // Replace with actual submission logic
+    alert("Thank you for reporting the issue!");
+
+    // Close the modal
+    reportModal.style.display = "none";
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target == reportModal) {
+        reportModal.style.display = "none";
+    }
+}
