@@ -1,18 +1,29 @@
+const profile = document.getElementById("toggleProfile");
+const profileview = document.querySelector(".main-profileview");
+
+profile.addEventListener("click", () => {
+    // Toggle the display of the profile view
+    if (profileview.style.display === "none" || profileview.style.display === "") {
+        profileview.style.display = "block";
+    } else {
+        profileview.style.display = "none";
+    }
+});
 // like
-const likeBtns = document.querySelectorAll('.like-btn');
-    likeBtns.forEach(likeBtn => {
-        likeBtn.addEventListener('click', function() {
-            // Toggle liked state
-            likeBtn.classList.toggle('liked');
-            
-            // Change icon based on state
-            if (likeBtn.classList.contains('liked')) {
-                likeBtn.innerHTML = '<span class="material-symbols-rounded">bookmark_added</span>';
-            } else {
-                likeBtn.innerHTML = '<span class="material-symbols-rounded">bookmark</span>';
-            }
-        });
+document.querySelectorAll('.bookmark').forEach(bookmark => {
+    bookmark.addEventListener('click', function() {
+        // Check if the bookmark is already active
+        const isActive = this.classList.toggle('active');
+
+        // Show alert based on the state
+        if (isActive) {
+            alert('Bookmarked!');
+        } else {
+            alert('Bookmark removed!');
+        }
     });
+});
+
 
     document.querySelectorAll('.sort-option').forEach(option => {
         option.addEventListener('click', function() {

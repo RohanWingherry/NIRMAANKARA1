@@ -1,3 +1,14 @@
+const profile = document.getElementById("toggleProfile");
+const profileview = document.querySelector(".main-profileview");
+
+profile.addEventListener("click", () => {
+    // Toggle the display of the profile view
+    if (profileview.style.display === "none" || profileview.style.display === "") {
+        profileview.style.display = "block";
+    } else {
+        profileview.style.display = "none";
+    }
+});
 // property type
 document.getElementById("proptype").addEventListener("click", () => {
     let price = document.querySelector(".main-property-type");
@@ -142,4 +153,31 @@ maxRangeSlider.addEventListener("input", function() {
         maxRangeSlider.value = minValue + 5000000;  // Ensure max value doesn't go below min
     }
     maxValueDisplay.textContent = formatValue(maxRangeSlider.value);
+});
+
+// FAQ
+document.addEventListener('DOMContentLoaded', function() {
+    const questions = document.querySelectorAll('.main-question');
+
+    questions.forEach(question => {
+        question.addEventListener('click', function() {
+            const currentAnswer = this.nextElementSibling;
+            const arrowIcon = this.querySelector('.arrow-icon');
+            const isCurrentlyOpen = currentAnswer.style.display === 'block';
+
+            // Close all answers and reset all arrow icons
+            document.querySelectorAll('.main-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+            document.querySelectorAll('.arrow-icon').forEach(icon => {
+                icon.style.transform = 'rotate(0deg)';
+            });
+
+            // If the clicked question's answer was not open, open it and rotate the arrow
+            if (!isCurrentlyOpen) {
+                currentAnswer.style.display = 'block';
+                arrowIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
 });

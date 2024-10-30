@@ -18,6 +18,7 @@ body{
 
 .navigation-bar{
     position: fixed;
+    top: 0px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -36,6 +37,7 @@ body{
 }
 .navigation-bar .logo>img{
     max-width: 35px;
+    max-height: 35px;
     margin-right: 10px;
 }
 .navigation-bar .logo>div{
@@ -49,6 +51,29 @@ body{
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
+}
+.navigation-bar .notify .shortlisted{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+    font-size: 14px;
+    border: 1px solid rgb(170, 170, 170);
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+}
+.navigation-bar .notify .shortlisted:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.navigation-bar .notify .shortlisted:hover .like-btn{
+    color: red;
+    
+}
+.navigation-bar .notify .shortlisted .like-btn{
+    font-size: 18px;
 }
 .navigation-bar .notify #bell{
     font-size: 20px;
@@ -262,11 +287,27 @@ body{
     font-size: 20px;
 }
 @media (max-width:768px) {
+    .navigation-bar{
+        padding: 0px 5px;
+        width: 100%;
+    }
+    .navigation-bar .logo>img{
+        height: 30px;
+        width: 30px;
+    }
     .mob-hamberger{
         display: block;
     }
+    .navigation-bar .logo>div{
+        font-size: 16px;
+    }
     .notification{
         right: 10px;
+        font-size: 10px;
+    }
+    .navigation-bar .notify .shortlisted{
+        font-size: 12px;
+        padding: 5px;
     }
 }
 
@@ -436,7 +477,15 @@ body{
     flex-direction: column;
     justify-content: space-between;
 }
-
+.main-content-buyer{
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 /* .sidebar.active ~ .main-content {
     left: 240px;
 } */
