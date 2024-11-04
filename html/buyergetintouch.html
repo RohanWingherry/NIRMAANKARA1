@@ -34,17 +34,21 @@
                 <input type="time" id="visit-time" placeholder="enter your visit time">
             </div>
             <div class="form-field">
-                <label for="location">Pickup Location</label>
-                <input type="text" id="location" placeholder="enter your location">
-            </div>
-            <div class="form-field">
                 <label>Mode of Transport</label>
                 <div class="mode-of-transport">
-                    <input type="radio" id="own-vehicle" name="transport" value="own">
-                    <label for="own-vehicle">own vehicle</label>
-                    <input type="radio" id="provided" name="transport" value="provided">
-                    <label for="provided">vehicle provided by owner</label>
+                    <div class="select-part">
+                        <input type="radio" id="own-vehicle" name="transport" value="own">
+                        <label for="own-vehicle">own vehicle</label>
+                    </div>
+                    <div class="select-part">
+                        <input type="radio" id="provided" name="transport" value="provided">
+                        <label for="provided">vehicle provided by owner</label>
+                    </div>
                 </div>
+            </div>
+            <div class="form-field">
+                <label for="location">Pickup Location</label>
+                <input type="text" id="location" placeholder="enter your location">
             </div>
             <div class="form-field">
                 <label for="attendees">Number of attendees/Visits</label>

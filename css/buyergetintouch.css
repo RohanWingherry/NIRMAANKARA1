@@ -5,18 +5,17 @@
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
 }
-/* body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
+body{
+    background-image: url("../assets/buyerhome.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
     overflow: hidden;
-    background: url('https://example.com/background.jpg') no-repeat center center/cover;
-    color: white;
-} */
+}
 
 /* Container Styling */
 .form-container {
+    /* background-color: transparent; */
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -24,22 +23,29 @@
     justify-content: center;
     height: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 25px auto;
     border-radius: 12px;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border: 1px solid rgb(209, 209, 209);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.548);
+    /* background-color: transparent; */
 }
 
 /* Title Styling */
 .form-title {
-    font-size: 2.2em;
+    font-size: 1.8em;
     font-weight: 600;
-    color: #333;
+    /* color: #333; */
+    color: black;
     margin-bottom: 10px;
 }
 
 .form-subtitle {
     font-size: 1.1em;
-    color: #666;
+    /* color: #666; */
+    color: black;
     margin-bottom: 25px;
 }
 
@@ -64,8 +70,11 @@
 /* Input & Label Styling */
 .form-field label {
     font-weight: 500;
-    color: #444;
+    /* color: #444; */
+    color: black;
     margin-bottom: 5px;
+    margin-left: 4px;
+    font-size: 16px;
 }
 
 .form-field input {
@@ -74,7 +83,7 @@
     font-size: 1em;
     color: #333;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 2px solid #6e6e6e;
     border-radius: 8px;
     outline: none;
     transition: border-color 0.2s;
@@ -87,13 +96,12 @@
 /* Radio Button Group */
 .mode-of-transport {
     display: flex;
-    gap: 15px; 
+    gap: 5px; 
     justify-content: flex-start;
     align-items: center; 
-    padding: 10px; 
-    margin-top: 15px;
+    margin-top: 2px;
     width: 100%;
-    border-radius: 8px; /* Rounded corners */
+    /* border: 1px solid black; */
 }
 
 /* Radio Button Styling */
@@ -101,7 +109,14 @@
     margin-right: 8px; 
     cursor: pointer; 
 }
-
+.select-part{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.select-part input{
+    max-width: 16px;
+}
 
 /* Button Styling */
 .buttons {
