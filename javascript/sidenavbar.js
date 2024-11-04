@@ -102,3 +102,4 @@ window.addEventListener("click", (e) => {
 document.querySelector(".manage span").addEventListener("click",()=>{
     window.location.href="../html/contractorprofile.html"
 })
+

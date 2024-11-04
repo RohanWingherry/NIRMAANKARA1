@@ -4,7 +4,17 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
-
+#back-arrow{
+    position: fixed;
+    top: 50px;
+    color: #088992;
+    padding: 0px 20px;
+    z-index: 999;
+    width: 100%;
+}
+#back-arrow>span{
+    cursor: pointer;
+}
 /* Buyer list */
 .main-buyerlist{
   display: flex;

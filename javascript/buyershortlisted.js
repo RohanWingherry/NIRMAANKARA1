@@ -39,3 +39,11 @@ function hideProperty(bookmark) {
             modal.classList.remove('show'); 
         });
     });
+
+    const allExplore=document.querySelectorAll(".exp")
+
+    allExplore.forEach(explore => {
+        explore.addEventListener("click",()=>{
+            window.location.href="../html/buyerpropertyexplore.html"
+        })
+    });

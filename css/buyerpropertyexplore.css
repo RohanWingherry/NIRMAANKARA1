@@ -5,64 +5,73 @@
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
 }
-
-.link-scroll {
+#back-arrow{
     position: fixed;
-    top: 0;
+    top: 52px;
+    color: #088992;
+    padding: 0px 20px;
+    background-color: white;
     z-index: 999;
-    background: rgb(255, 255, 255);
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 5px;
 }
-
-.link-scroll ul {
-    list-style: none;
-    padding: 10px;
+#back-arrow>span{
+    cursor: pointer;
+}
+.main-scroll{
+    position: fixed;
+    top: 75px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+    z-index: 999;
+    padding: 20px;
+}
+.main-scroll .link-scroll>ul{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
 }
-
-.link-scroll li {
-    margin: 0 15px;
+.main-scroll .link-scroll>ul>li{
+    list-style: none;
 }
-
-.link-scroll a {
-    font-weight: 500;
+.main-scroll .link-scroll>ul>li>a{
+    white-space: nowrap;
+    font-size: 16px;
     text-decoration: none;
-    color: #333;
-    padding: 2px 4px;
-    border:1px solid #ffffff;
-    transition: all 0.2s ease;
+    font-weight: 500;
+    color: black;
 }
 .link-scroll a.active {
     font-weight: 500;
-    color: #007BFF; /* Change to your desired active color */
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     padding: 2px 4px;
-    border:1px solid #d4d4d4;
-    border-radius: 6px;
+    border-bottom:3px solid #007BFF;
     transition: all 0.2s ease;
+    color: #007BFF;
 }
 .scroll-part{
-    margin-top: 60px;
+    margin-top: 70px;
+    padding:20px;
 }
 .section-part {
-    height: 100vh; /* Full height for each section */
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #ccc;
     /* background-color:rgb(249, 249, 249); */
 
 }
+@media (max-width:768px) {
+    .link-scroll{
+        overflow-x: scroll;
+    }
+}
 
 .overview-heading{
     /* background-color:rgb(249, 249, 249); */
     background-color: #fff;
     font-size: 18px;
-    padding-top: 10px;
-    padding-left: 20px;
     font-weight: 500;
+    margin-top: 20px;
 }
 .headandreport{
     display: flex;
@@ -70,7 +79,6 @@
     align-items: center;
 }
 .report{
-    margin-right: 20px;
     font-size: 14px;
     background-color: #0056b3;
     padding: 5px 10px;
@@ -84,7 +92,7 @@
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 0;
+    left: 20px;
     top: 0;
     width: 100%;
     height: 100%;
@@ -164,13 +172,17 @@ textarea {
 #cancelReport:hover{
     background-color: #cd392f;
 }
+@media (max-width:768px) {
+    .scroll-part{
+        margin-top: 120px;
+    }
+}
 
 /* explore */
 .explore{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 100vh;
     gap: 2px;
     padding: 10px;
     /* background-color:rgb(249, 249, 249); */
@@ -389,8 +401,7 @@ hr{
     font-weight: 500;
 }
 /* Like Button */
-.like-btn {
-    
+.right .like-btn {
     background-color: rgba(236, 236, 236, 0.7);
     border: none;
     padding: 6px;
@@ -400,7 +411,7 @@ hr{
     justify-content: center;
     align-items: center;
 }
-.like-btn span{
+.right .like-btn span{
     font-size: 18px;
 }
 .next-images{
@@ -408,7 +419,7 @@ hr{
     justify-content: space-between;
     gap: 10px;
 }
-.like-btn {
+.right .like-btn {
     background: none;
     border: 1px solid rgb(196, 196, 196);
     border-radius: 50%;
@@ -419,7 +430,7 @@ hr{
     color: rgba(23, 23, 23, 0.963);
     transition: background-color 0.3s, color 0.3s; 
 }
-.liked {
+.right .liked {
     color: rgba(255, 255, 255, 0.963);
     background-color: #038598;
 }
@@ -445,6 +456,114 @@ hr{
 .share-text{
     margin-top: 2px;
 }
+/* share modal */
+.modal-content1 {
+    position: absolute;
+    right: 20px;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    opacity: 0; 
+    transform: scale(0.9); 
+    border-radius: 40px;
+    padding: 5px 30px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+  }
+  .show {
+    opacity: 1; 
+    transform: scale(1);
+    visibility: visible; 
+  }
+  .social-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+  }
+  
+  .modal-content1 .social {
+      height: 38px;
+      width: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all ease-in-out 0.2s;
+      margin: 0 5px;
+  }
+  
+  .modal-content1 .social:hover {
+      transform: translateY(-8px);
+  }
+  
+  .modal-content1 .social > i {
+      font-size: 20px;
+      color: white;
+  }
+  
+  .modal-content1 #facebook {
+      background-color: #3C5998;
+      box-shadow: 0 4px 8px -2px #3C5998;
+  }
+  
+  .modal-content1 #whatsapp {
+      background-color: #25D366;
+      box-shadow: 0 4px 8px -2px #25D366;
+  }
+  
+  .modal-content1 #twitter {
+      background-color: black;
+      box-shadow: 0 4px 8px -2px black;
+  }
+  
+  .modal-content1 #insta {
+      background-color: #E44E8B;
+      box-shadow: 0 4px 8px -2px #E44E8B;
+  }
+  
+  input[type="text"] {
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      padding: 0px 3px;
+      width: 100px;
+  }
+  .copy-content{
+    display: flex;
+    border: 1px solid #ccc;
+    align-items: center;
+    border-radius: 15px;
+    padding: 1px;
+    width: 155px;
+  }
+  .copyButton {
+    padding: 5px 10px;
+    background-color: rgb(74, 74, 196);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+      cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+  }
+  
 .highlights{
     display: flex;
     align-items: center;
@@ -469,12 +588,13 @@ hr{
 
 }
 .interested{
-    padding-right: 20px;
+    padding: 0px 20px;
     margin-bottom: 20px;
     display: flex;
     gap: 10px;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 .interest-text{
     font-size: 18px;
@@ -651,29 +771,19 @@ iframe{
     padding: 5px;
     cursor: pointer;
   }
+  
   .property-desc .prop-icons .bookmark>span{
     font-size: 18px;
     font-weight: 500;
     color: rgb(63, 63, 63);
   
   }
-  .property-desc .prop-icons .share{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    background-color: rgba(236, 236, 236, 0.7);
-    border: 1px solid rgb(196, 196, 196);
-    padding: 5px 8px;
-    font-size: 14px;
-    border-radius: 15px;
-    cursor: pointer;
+  .property-desc .prop-icons .active{
+    background-color: #088992;
+    border: 1px solid #038598;
   }
-  .property-desc .prop-icons .share>span{
-    font-size: 14px;
-    font-weight: 500;
-    color: rgb(65, 65, 65);
-  
+  .property-desc .prop-icons .active>span{
+    color: white;
   }
   .prop-icons .bookmark{
     border-radius: 50%;
@@ -842,7 +952,6 @@ iframe{
     flex-direction: column;
     gap: 10px;
     height: 100%;
-    padding: 20px;  
 }
 .reviews-section{
     display: flex;
@@ -1041,6 +1150,6 @@ textarea{
     }
     .right{
         width: 100%;
-        height: 100vh;
+        height: 100%;
     }
 }

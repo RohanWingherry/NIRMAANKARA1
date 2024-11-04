@@ -5,6 +5,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+#back-arrow{
+  position: fixed;
+  color: #088992;
+  padding: 0px 20px;
+  background-color: white;
+  z-index: 999;
+  width: 100%;
+}
+#back-arrow>span{
+  cursor: pointer;
+}
+
 .main-buyerhome{
     margin: 20px;
     display: flex;

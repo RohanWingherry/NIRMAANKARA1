@@ -31,18 +31,56 @@ const likeBtns = document.querySelectorAll('.like-btn');
 
 likeBtns.forEach(likeBtn => {
     likeBtn.addEventListener('click', function() {
-        // Toggle the liked state
         this.classList.toggle('liked');
         
-        // Update icon based on state
         const icon = this.querySelector('.material-symbols-rounded');
         if (this.classList.contains('liked')) {
-            icon.textContent = 'favorite'; // Filled heart
+            icon.textContent = 'favorite';
+            alert("Added this to Shortlist");
         } else {
-            icon.textContent = 'favorite_border'; // Unfilled heart
+            icon.textContent = 'favorite_border';
+            alert("Removed from the Shortlist") 
         }
     });
 });
+
+document.querySelectorAll('.bookmark').forEach(bookmark => {
+    bookmark.addEventListener('click', function() {
+        // Check if the bookmark is already active
+        const isActive = this.classList.toggle('active');
+
+        // Show alert based on the state
+        if (isActive) {
+            alert('Bookmarked!');
+        } else {
+            alert('Bookmark removed!');
+        }
+    });
+});
+// Share button functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const shareButton2 = document.getElementById('shareButton');
+    const modalContent2 = document.getElementById('modalContent');
+    const closeModal2 = document.getElementById('closeModal');
+
+    // Show modal on share button click
+    shareButton2.addEventListener('click', function() {
+        modalContent2.classList.toggle('show');
+    });
+
+    // Close modal on close button click
+    closeModal2.addEventListener('click', function() {
+        modalContent2.classList.remove('show');
+    });
+    
+    // Optionally close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === modalContent) {
+            modalContent2.classList.remove('show');
+        }
+    });
+});
+
 
 
 
@@ -55,15 +93,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function changeActiveLink() {
         let index = sections.length;
 
-        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
-        
+        while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
+
         navLinks.forEach((link) => link.classList.remove('active'));
-        navLinks[index].classList.add('active');
+        if (navLinks[index]) {
+            navLinks[index].classList.add('active');
+        }
     }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href'); // Get target section ID
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                // Scroll to the target section with smooth behavior
+                window.scrollTo({
+                    top: targetSection.offsetTop -120,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
     changeActiveLink();
     window.addEventListener('scroll', changeActiveLink);
 });
+
 
 
 // property card slider
@@ -178,3 +235,27 @@ window.onclick = function(event) {
         reportModal.style.display = "none";
     }
 }
+// Function to copy text to clipboard
+function copyToClipboard(inputField) {
+    inputField.select();
+    document.execCommand('copy');
+    alert('Copied: ' + inputField.value);
+}
+
+// Copy functionality for each button
+const copyButtons = document.querySelectorAll('button.copyButton');
+copyButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+        const inputField = document.getElementById(`inputField${index + 1}`);
+        if (inputField) {
+            copyToClipboard(inputField);
+        } else {
+            alert('Input field not found.');
+        }
+    });
+});
+
+document.querySelector(".shortlisted").addEventListener("click",()=>{
+    window.location.href="../html/buyershorlisted.html"
+})
+

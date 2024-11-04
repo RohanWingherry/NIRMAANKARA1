@@ -216,7 +216,16 @@ closeButtons.forEach((button, index) => {
         modal.classList.remove('show'); // Hide the corresponding modal
     });
 });
+document.querySelector(".shortlisted").addEventListener("click",()=>{
+    window.location.href="../html/buyershorlisted.html"
+})
+const allExplore=document.querySelectorAll(".exp")
 
+allExplore.forEach(explore => {
+    explore.addEventListener("click",()=>{
+        window.location.href="../html/buyerpropertyexplore.html"
+    })
+});
 
 
 

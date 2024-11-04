@@ -181,3 +181,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+const propertyItems = document.querySelectorAll('.property-names,#my-location,.searchicon');
+
+propertyItems.forEach(item => {
+    item.addEventListener('click', () => {
+        window.location.href = '../html/buyerlist.html'; 
+    });
+});
+
+document.querySelector(".shortlisted").addEventListener("click",()=>{
+    window.location.href="../html/buyershorlisted.html"
+})
