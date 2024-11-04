@@ -124,24 +124,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // property card slider
-let currentIndex = 0;
+let currentIndex = 0; // Track the current slide index
+const slider = document.querySelector('.buyerlist');
+const properties = document.querySelectorAll('.singleproperty');
 
 function moveSlide(direction) {
-    const slides = document.querySelector('.buyerlist');
-    const totalSlides = document.querySelectorAll('.singleproperty').length;
-    const cardWidth = document.querySelector('.singleproperty').offsetWidth; // Get the current width of the card
-    
-    currentIndex += direction;
-    
-    if (currentIndex < 0) {
-        currentIndex = totalSlides - 1; // Wrap around to last slide
-    } else if (currentIndex >= totalSlides) {
-        currentIndex = 0; // Wrap around to first slide
+    const propertyWidth = properties[0].offsetWidth + 15; // Including gap
+    const maxIndex = properties.length - 1;
+    const maxSlide = maxIndex * propertyWidth;
+
+    if (direction === 1 && Math.abs(currentIndex * propertyWidth) < maxSlide) {
+        currentIndex++;
+    } else if (direction === -1 && currentIndex > 0) {
+        currentIndex--;
     }
-    
-    // Calculate the offset to center the current slide
-    const offset = -currentIndex * cardWidth + (window.innerWidth / 2 - cardWidth / 2);
-    slides.style.transform = `translateX(${offset}px)`;
+
+    slider.style.transform = `translateX(-${currentIndex * propertyWidth}px)`;
 }
 
 
@@ -259,3 +257,10 @@ document.querySelector(".shortlisted").addEventListener("click",()=>{
     window.location.href="../html/buyershorlisted.html"
 })
 
+const allExplore=document.querySelectorAll(".exp")
+
+allExplore.forEach(explore => {
+    explore.addEventListener("click",()=>{
+        window.location.href="../html/buyerpropertyexplore.html"
+    })
+});

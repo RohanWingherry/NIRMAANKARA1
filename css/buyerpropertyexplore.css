@@ -7,11 +7,11 @@
 }
 #back-arrow{
     position: fixed;
-    top: 52px;
+    top: 93px;
     color: #088992;
-    padding: 0px 20px;
-    background-color: white;
-    z-index: 999;
+    padding: 0px 10px;
+    /* background-color: white; */
+    z-index: 9999;
     width: 100%;
 }
 #back-arrow>span{
@@ -19,12 +19,13 @@
 }
 .main-scroll{
     position: fixed;
-    top: 75px;
+    top: 51px;
     width: 100%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     background-color: white;
     z-index: 999;
-    padding: 20px;
+    padding: 10px 20px;
+    padding-bottom:15px ;
 }
 .main-scroll .link-scroll>ul{
     display: flex;
@@ -41,16 +42,18 @@
     text-decoration: none;
     font-weight: 500;
     color: black;
+    padding: 2px 4px;
+
 }
 .link-scroll a.active {
     font-weight: 500;
     padding: 2px 4px;
     border-bottom:3px solid #007BFF;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
     color: #007BFF;
 }
 .scroll-part{
-    margin-top: 70px;
+    margin-top: 50px;
     padding:20px;
 }
 .section-part {
@@ -64,6 +67,13 @@
     .link-scroll{
         overflow-x: scroll;
     }
+    .main-scroll{
+        top: 46px;
+    }
+    #back-arrow{
+        position: fixed;
+        top: 90px;
+    }
 }
 
 .overview-heading{
@@ -71,9 +81,13 @@
     background-color: #fff;
     font-size: 18px;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 0px;
+    padding: 10px;
+    padding-left: 20px;
 }
 .headandreport{
+    padding-right: 15px;
+    padding-top: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,7 +106,7 @@
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 20px;
+    left: 0px;
     top: 0;
     width: 100%;
     height: 100%;
@@ -174,7 +188,7 @@ textarea {
 }
 @media (max-width:768px) {
     .scroll-part{
-        margin-top: 120px;
+        margin-top: 100px;
     }
 }
 
@@ -393,12 +407,18 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
     color: rgba(23, 23, 23, 0.963);
     /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
     padding: 4px 0px;
     border-radius: 4px;
     font-weight: 500;
+
+}
+.bd .texted{
+    /* text-align: center; */
+    white-space: nowrap;
+    width: 100%;
 }
 /* Like Button */
 .right .like-btn {
@@ -482,6 +502,7 @@ hr{
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
       margin: 10px 0;
   }
   
@@ -951,6 +972,7 @@ iframe{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px;
     height: 100%;
 }
 .reviews-section{
@@ -1143,6 +1165,8 @@ textarea{
         flex-wrap: wrap;
         width: 100%;
         height: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     .left{
         width: 100%;
@@ -1151,5 +1175,43 @@ textarea{
     .right{
         width: 100%;
         height: 100%;
+    }
+    .scroll-part{
+        margin-top: 70px;
+        padding:0px;
+    }
+    .modal-content1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        right: 10px;
+      }
+      .close{
+        position: absolute;
+        top: 2px;
+        right: 30px;
+      }
+      .modal-content1 .social-group{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+}
+@media (max-width:1230px) {
+    .building-deatils .bd{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .bd .texted{
+        text-align: center;
+        white-space: wrap;
+        width: 100%;
     }
 }
