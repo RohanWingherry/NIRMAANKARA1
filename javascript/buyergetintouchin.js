@@ -74,9 +74,12 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
             alert('Request sent');
             this.reset();
             togglePickupLocation();
-            window.location.href = 'buyerpropertyexplore.html';
+            window.location.href = '../html/buyerpackageplan.html';
         }
     } else {
         alert('Please fill in all required fields correctly.');
     }
 });
+document.querySelector(".shortlisted").addEventListener("click",()=>{
+    window.location.href="../html/buyershorlisted.html"
+})

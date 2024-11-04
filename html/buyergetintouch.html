@@ -5,113 +5,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get in touch</title>
     <link rel="stylesheet" href="../css/buyergetintouch.css">
+    <link rel="stylesheet" href="../css/sidenavbar.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" /></head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../assets/nirmankaralogo.png">
 </head>
 <body>
-    <div class="form-containers">
-        <h1 class="form-title">GET IN TOUCH !</h1>
-        <p class="form-subtitle">"See it, love it, live it .... Dream space is just a visit away.... Plan your visit right now"</p>
-        <form class="form-group" id="myForm">
-            <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-                <span class="error" id="nameError"></span>
+    <div class="navigation-bar">
+        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
+            <img src="../assets/nirmankara-logo.png" alt="">
+            <div>NIRMAANKARA</div>
+        </div>
+        <div class="notify">
+            <div class="shortlisted">
+                <span class="material-symbols-rounded like-btn">favorite</span>
+                <span>Shortlisted</span>
             </div>
-            <div class="form-field">
-                <label for="mobile">Mobile No</label>
-                <input type="tel" id="mobile" pattern="[0-9]{10}" placeholder="Enter your mobile no" required>
-                <span class="error" id="mobileError"></span>
+            <div>
+                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
             </div>
-            <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-                <span class="error" id="emailError"></span>
-            </div>
-            <div class="form-field">
-                <label for="visit-date">Preferred visit date</label>
-                <input type="date" id="visit-date" required>
-                <span class="error" id="dateError"></span>
-            </div>
-            <div class="form-field">
-                <section class="time-format">
-                    <label for="">Meeting Time <span class="required-fields">*</span></label>
-                    <div>
-                        <div>
-                            <label for="hour">Hour:</label>
-                            <select id="hour" required>
-                                <!-- Populating the hours (1-12) -->
-                                <option value="">--</option> <!-- Default empty option -->
-                                <option value="1">01</option>
-                                <option value="2">02</option>
-                                <option value="3">03</option>
-                                <option value="4">04</option>
-                                <option value="5">05</option>
-                                <option value="6">06</option>
-                                <option value="7">07</option>
-                                <option value="8">08</option>
-                                <option value="9">09</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                
-                        <div>
-                            <label for="minute">Minute:</label>
-                            <select id="minute" required>
-                                <!-- Populating the minutes (00-59) -->
-                                <option value="">--</option> <!-- Default empty option -->
-                                <option value="00">00</option>
-                                <option value="15">15</option>
-                                <option value="30">30</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
-                
-                        <div>
-                            <label for="ampm">AM/PM:</label>
-                            <select id="ampm" required>
-                                <option value="">--</option> <!-- Default empty option -->
-                                <option value="AM">AM</option>
-                                <option value="PM">PM</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="time-error" class="error-message" style="display: none; font-size: 12px; color: red;">Please select a valid time!</div>
-                </section>
-            </div>
-            <div class="form-field">
-                <label>Mode of Transport</label>
-                <div class="mode-of-transport">
-                    <div class="select-part">
-                        <input type="radio" id="own-vehicle" name="transport" value="own" required onchange="togglePickupLocation()">
-                        <label for="own-vehicle">Own vehicle</label>
-                    </div>
-                    <div class="select-part">
-                        <input type="radio" id="provided" name="transport" value="provided" required onchange="togglePickupLocation()">
-                        <label for="provided">Vehicle provided by owner</label>
-                    </div>
-                </div>
-                <span class="error" id="transportError"></span>
-            </div>
-            <div class="form-field">
-                <label for="location">Pickup Location</label>
-                <input type="text" id="location" placeholder="Enter your location"  disabled>
-                <span class="error" id="locationError"></span>
-            </div>
-            
-            <div class="form-field">
-                <label for="attendees">Number of attendees/Visits</label>
-                <input type="number" id="attendees" placeholder="Enter your attendees" min="1" required>
-                <span class="error" id="attendeesError"></span>
-            </div>
-            <div class="buttons">
-                <button type="button" class="button" onclick="window.location.href='buyerpropertyexplore.html'">Back</button>
-                <button type="submit" class="button">Submit</button>
-            </div>
-        </form>
+        </div>
     </div>
+    <div class="main-profileview">
+        <div class="profile-view">
+            <div class="profile">
+                <span><img src="../assets/profile-pic.png" alt=""></span>
+            </div>
+            <div class="manage">
+                <span>Manage Your Profile</span>
+            </div>
+            <span class="line"></span>
+            <div class="logout">
+                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
+            </div>
+        </div>
+    </div>
+    <div class="main-content-buyer">
+        <div class="main-form-container">
+            <div class="form-containers">
+                <h1 class="form-title">GET IN TOUCH !</h1>
+                <p class="form-subtitle">"See it, love it, live it .... Dream space is just a visit away.... Plan your visit right now"</p>
+                <form class="form-group" id="myForm">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                        <span class="error" id="nameError"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="mobile">Mobile No</label>
+                        <input type="tel" id="mobile" pattern="[0-9]{10}" placeholder="Enter your mobile no" required>
+                        <span class="error" id="mobileError"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <span class="error" id="emailError"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="visit-date">Preferred visit date</label>
+                        <input type="date" id="visit-date" required>
+                        <span class="error" id="dateError"></span>
+                    </div>
+                    <div class="form-field">
+                        <section class="time-format">
+                            <label for="">Meeting Time <span class="required-fields">*</span></label>
+                            <div>
+                                <div>
+                                    <label for="hour">Hour:</label>
+                                    <select id="hour" required>
+                                        <!-- Populating the hours (1-12) -->
+                                        <option value="">--</option> <!-- Default empty option -->
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                        
+                                <div>
+                                    <label for="minute">Minute:</label>
+                                    <select id="minute" required>
+                                        <!-- Populating the minutes (00-59) -->
+                                        <option value="">--</option> <!-- Default empty option -->
+                                        <option value="00">00</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                </div>
+                        
+                                <div>
+                                    <label for="ampm">AM/PM:</label>
+                                    <select id="ampm" required>
+                                        <option value="">--</option> <!-- Default empty option -->
+                                        <option value="AM">AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="time-error" class="error-message" style="display: none; font-size: 12px; color: red;">Please select a valid time!</div>
+                        </section>
+                    </div>
+                    <div class="form-field">
+                        <label>Mode of Transport</label>
+                        <div class="mode-of-transport">
+                            <div class="select-part">
+                                <input type="radio" id="own-vehicle" name="transport" value="own" required onchange="togglePickupLocation()">
+                                <label for="own-vehicle">Own vehicle</label>
+                            </div>
+                            <div class="select-part">
+                                <input type="radio" id="provided" name="transport" value="provided" required onchange="togglePickupLocation()">
+                                <label for="provided">Vehicle provided by owner</label>
+                            </div>
+                        </div>
+                        <span class="error" id="transportError"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="location">Pickup Location</label>
+                        <input type="text" id="location" placeholder="Enter your location"  disabled>
+                        <span class="error" id="locationError"></span>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label for="attendees">Number of attendees/Visits</label>
+                        <input type="number" id="attendees" placeholder="Enter your attendees" min="1" required>
+                        <span class="error" id="attendeesError"></span>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="button" onclick="window.location.href='buyerpropertyexplore.html'">Back</button>
+                        <button type="submit" class="button">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="main-footer-box">
+            <footer>
+                <section>
+                    <section class="social">
+                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
+                    <div>
+                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                        <div><i class="fa-brands fa-square-x-twitter"></i></div>
+                        <div><i class="fa-brands fa-square-instagram"></i></div>
+                    </div>
+                </section>
+                </section>
+                <section class="quick-links">
+                    <span>QUICK LINKS</span>
+                    <div>
+                        <a href="../html/contractorshomepage.html">List your Business</a>
+                        <a href="../html/customerhomepage.html">Develop your Land</a>
+                        <a href="">List your Land</a>
+                        <a href="">Post a Free Ad</a>
+                        <a href="../html/buyerhome.html">Buyer</a>
+      
+                    </div>
+                </section>
+                <section class="contact-info">
+                    <span>CONTACT INFO</span>
+                    <div>
+                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                        <span><b>Phone:</b> +91 9985752406</span>
+                        <span><b>Email:</b> nirmaankara@gmail.com</span>
+                    </div>
+                </section>
+                <section class="subscribe">
+                    <span>SUBSCRIBE TO OUR PORTAL</span>
+                    <div>
+                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                        <form>
+                            <input type="email" placeholder="Your Email" >
+                            <button type="submit" class="fotbtn">&#8594;</button>
+                        </form>
+                    </div>
+                </section>
+            </footer>
+            <div class="copyright">
+                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES</span></span>
+                <div>
+                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                    <div></div>
+                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                    <div></div>
+                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+                </div>
+            </div>
+         </div>
+         <!-- footer -->
+    </div>
+    
+    <script src="../javascript/sidenavbar.js"></script>
     <script src="../javascript/buyergetintouchin.js"></script>
 </body>
 </html>

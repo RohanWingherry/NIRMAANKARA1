@@ -662,13 +662,13 @@ input[type="text"] {
   }
   .filter-mobile{
     position: absolute;
-    top: 0px;
+    top: 10px;
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    padding: 10px;
+    padding: 20px;
   }
   .main-filter {
     position: absolute;
