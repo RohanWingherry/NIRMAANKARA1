@@ -3,18 +3,17 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    scroll-behavior: smooth;
 }
 body{
     background-image: url("../assets/buyerhome.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: cover;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* Container Styling */
-.form-container {
+.form-containers {
     /* background-color: transparent; */
     padding: 30px;
     display: flex;
@@ -32,7 +31,12 @@ body{
     background-color: rgba(255, 255, 255, 0.548);
     /* background-color: transparent; */
 }
-
+@media (max-width:480px) {
+    .form-containers{
+        padding: 15px;
+        margin: 15px;
+    }
+}
 /* Title Styling */
 .form-title {
     font-size: 1.8em;
@@ -124,6 +128,7 @@ body{
     justify-content: center;
     gap: 15px;
     margin-top: 25px;
+    width: 100%;
 }
 
 .button {
@@ -141,4 +146,45 @@ body{
 .button:hover {
     background-color: #0056b3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.form-field {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+    display: none; /* Initially hide error messages */
+}
+
+input.error {
+    border: 1px solid red;
+}
+.form-field .time-format{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+}
+.form-field .time-format>div{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.form-field .time-format>div>div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.form-field .time-format>div>div>select{
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid rgb(226, 226, 226);
+    outline: none;
+}
+.form-field .time-format>div>div>select:hover{
+    border: 1px solid rgb(0, 0, 0);
 }
