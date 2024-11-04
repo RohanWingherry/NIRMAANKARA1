@@ -242,6 +242,7 @@ font-weight: bold;
       border: 1px solid #ccc;
       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
       transition: all 0.1s ease;
+      z-index: 9999;
     }
     body.show-chatbot .chatbot {
       opacity: 1;
@@ -870,5 +871,15 @@ color: #5a5a5a;
     left: 5px;
     max-width: 500px;
     max-height:600px ;
+    bottom: 5px;
+  }
+  .contractor-list {
+    
+    left: 10px;
+    bottom: 25px;
+    max-height: 550px;
+    max-width: 350px;
+    width: 80%;
+    
   }
 }
