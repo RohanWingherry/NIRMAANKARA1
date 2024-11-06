@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/profilebilling.css">
+</head>
+<body>
+    <div class="main-profile">
+        <section class="tabbed-headings">
+            <div class="tab-head" id="profileTab">Profile</div>
+            <div class="tab-head" id="billingTab">Billing</div>
+            <div class="tab-head" id="securityTab">Security</div>
+            <div class="tab-head" id="notificationTab">Notifications</div>
+        </section>
+        <section class="main-accountdetails" id="profileSection"> 
+            <span >Account Details</span>
+        </section>
+        <section class="main-billingdetails" id="billingSection">
+            <div class="current-plan">
+                <article class="plan-cards current">
+                    <div class="plan-text-small">Current plan</div>
+                    <div class="plan-text-big">Premium</div>
+                </article>
+                <article class="plan-cards from">
+                    <div class="plan-text-small">Valid From</div>
+                    <div class="plan-text-big">20-12-2023</div>
+                </article>
+                <article class="plan-cards to">
+                    <div class="plan-text-small">Valid To</div>
+                    <div class="plan-text-big">20-12-2024</div>
+                </article>
+            </div>
+            <div class="billingdetails">
+                <div class="billing-head">
+                    <span>Billing History</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#76859</td>
+                            <td>06-08-2024</td>
+                            <td>&#8377;2000</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>#76859</td>
+                            <td>06-08-2024</td>
+                            <td>&#8377;2000</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>#76859</td>
+                            <td>06-08-2024</td>
+                            <td>&#8377;2000</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>#76859</td>
+                            <td>06-08-2024</td>
+                            <td>&#8377;2000</td>
+                            <td>Paid</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="main-securitydetails" id="securitySection">
+            <span>Security Details</span>
+        </section>
+        <section class="main-notificationdetails" id="notificationSection">
+            <div>
+                <div class="notificationdetails">
+                    <div class="email-notification">
+                        <div class="email-notify-head">
+                            <div>Email Notifications</div>
+                            <div class="toggle-container">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggle" checked />
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="email-notify-body">
+                            <div class="email-detail">
+                                <span>Default notification email</span>
+                                <input type="text" value="name@example.com">
+                            </div>
+                            <div class="email-checkboxes">
+                                <div class="checkbox-head">Choose which type of email you receive</div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch1">
+                                    <label for="ch1">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch2">
+                                    <label for="ch2">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch3">
+                                    <label for="ch3">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch4">
+                                    <label for="ch4">Changes made to account</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notificationdetails">
+                    <div class="email-notification">
+                        <div class="email-notify-head">
+                            <div>Push Notifications</div>
+                            <div class="toggle-container">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggle" checked />
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="email-notify-body">
+                            <div class="email-detail">
+                                <span>Default SMS number</span>
+                                <input type="text" value="name@example.com">
+                            </div>
+                            <div class="email-checkboxes">
+                                <div class="checkbox-head">Choose which type of push notifications you receive</div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch1">
+                                    <label for="ch1">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch2">
+                                    <label for="ch2">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch3">
+                                    <label for="ch3">Changes made to account</label>
+                                </div>
+                                <div class="single-checkbox">
+                                    <input type="checkbox" name="" id="ch4">
+                                    <label for="ch4">Changes made to account</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>    
+    <script src="../javascript/profilebilling.js"></script>
+</body>
+</html>

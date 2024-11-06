@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+.main-profile{
+    padding: 20px;
+}
+.main-profile .tabbed-headings{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    border-bottom: 2px solid rgb(209, 209, 209);
+    padding: 1px;
+}
+.tabbed-headings .tab-head{
+    padding: 10px;
+    border-bottom: 3px solid white;
+    cursor: pointer;
+    font-weight: 500;
+    color: #69707A;
+
+}
+.tabbed-headings .tab-active{
+    color: blue;
+    border-bottom: 3px solid blue;
+}
+
+/* Billing */
+.main-billingdetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.main-billingdetails .current-plan{
+    margin: 0px 60px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.current-plan .plan-cards{
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    border: 1px solid rgba(33, 40, 50, 0.125);
+    border-radius: 4px;
+    color: #69707A;
+    width: 200px;
+    height: 80px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+.current-plan .current{
+    border-left: 4px solid #009846;
+}
+.current-plan .from{
+    border-left: 4px solid #7A2350;
+
+}
+.current-plan .to{
+    border-left: 4px solid #105589;
+}
+.current-plan .plan-cards .plan-text-small{
+    font-size: 12px;
+}
+.current-plan .plan-cards .plan-text-big{
+    font-size: 20px;
+    font-weight: 500;
+}
+.main-billingdetails .billingdetails{
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    border: 1px solid rgba(33, 40, 50, 0.125);
+    margin: 0px 60px;
+    margin-top: 20px;
+}
+.billing-head{
+    padding: 15px 10px;
+    color: #69707A;
+    background-color: #F8F8F8;
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    font-weight: 500;
+}
+.billingdetails table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.billingdetails table tbody tr, .billingdetails table td{
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    padding: 15px 10px;
+    text-align: start;
+    font-size: 14px;
+}
+.billingdetails table th{
+    border-bottom: 1px solid rgba(33, 40, 50, 0.678);
+    padding: 15px 10px;
+    text-align: start;
+}
+@media (max-width:768px) {
+    .main-billingdetails .billingdetails{
+        margin: 0px;
+    }
+}
+
+/* Notification */
+
+.main-notificationdetails{
+    margin-top: 30px;
+    display: flex;
+}
+.main-notificationdetails>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.main-notificationdetails .notificationdetails{
+    max-width: 800px;
+    width: 100%;
+}
+.notificationdetails .email-notification{
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    border: 1px solid rgba(33, 40, 50, 0.125);
+}
+.email-notification .email-notify-head{
+    background-color: #F8F8F8;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    color: #69707A;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 10px;
+}
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 22px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: blue;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+.email-notification .email-notify-body{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.email-notify-body .email-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.email-notify-body .email-detail>span{
+    font-size: 14px;
+    color: #69707A;
+}
+.email-notify-body .email-detail>input{
+    background-color: #E9ECEF;
+    padding: 14px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(33, 40, 50, 0.125);
+    font-size: 14px;
+    outline: none;
+    color: #69707A;
+}
+.email-notify-body .email-checkboxes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.email-checkboxes .checkbox-head{
+    font-size: 14px;
+    color: #69707A;
+}
+.email-checkboxes .single-checkbox{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
