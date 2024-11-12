@@ -10,12 +10,24 @@ profile.addEventListener("click", () => {
     }
 });
 // property type
-document.getElementById("proptype").addEventListener("click", () => {
+document.getElementById("proptype").addEventListener("click", (event) => {
+    event.stopPropagation();
+
     let price = document.querySelector(".main-property-type");
     if (getComputedStyle(price).display === "none") {
         price.style.display = "flex";
-        document.querySelector(".main-price-range").style.display="none"
+        document.querySelector(".main-price-range").style.display = "none";
     } else {
+        price.style.display = "none";
+    }
+});
+
+document.addEventListener("click", (event) => {
+    let price = document.querySelector(".main-property-type");
+    let priceRange = document.querySelector(".main-price-range");
+    let propTypeButton = document.getElementById("proptype");
+
+    if (!price.contains(event.target) && !propTypeButton.contains(event.target) && !priceRange.contains(event.target)) {
         price.style.display = "none";
     }
 });
@@ -115,13 +127,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // budget price range
-document.getElementById("budget").addEventListener("click", () => {
+document.getElementById("budget").addEventListener("click", (e) => {
     let price = document.querySelector(".main-price-range");
+    let propertyType = document.querySelector(".main-property-type");
+
     if (getComputedStyle(price).display === "none") {
         price.style.display = "flex";
-        document.querySelector(".main-property-type").style.display="none"
+        propertyType.style.display = "none";
     } else {
-        price.style.display = "none";
+        price.style.display = "none"; 
+    }
+
+    e.stopPropagation();
+});
+
+document.addEventListener("click", (e) => {
+    let price = document.querySelector(".main-price-range");
+    let budgetButton = document.getElementById("budget");
+
+    if (!price.contains(e.target) && e.target !== budgetButton) {
+        price.style.display = "none"; 
     }
 });
 

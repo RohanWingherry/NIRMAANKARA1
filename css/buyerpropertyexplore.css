@@ -11,7 +11,7 @@
     color: #088992;
     padding: 0px 10px;
     /* background-color: white; */
-    z-index: 9999;
+    z-index: 50;
     width: 100%;
 }
 #back-arrow>span{
@@ -24,14 +24,14 @@
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;    
     background-color: white;
     z-index: 999;
-    padding: 10px 20px;
-    padding-bottom:15px ;
 }
 .main-scroll .link-scroll>ul{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     gap: 30px;
+    padding: 10px 20px;
+
 }
 .main-scroll .link-scroll>ul>li{
     list-style: none;

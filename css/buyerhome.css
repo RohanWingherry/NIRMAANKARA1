@@ -7,7 +7,7 @@
 .main-buyerhome .heading-section{
   position: absolute;
   margin-top: 10px;
-  z-index: 999;
+  z-index:2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,7 +254,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 450px;
+  top: 385px;
   width: 100%;
   z-index: 1;
 }
@@ -377,7 +377,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 450px;
+  top: 385px;
   z-index: 1;
   width: 100%;
 }

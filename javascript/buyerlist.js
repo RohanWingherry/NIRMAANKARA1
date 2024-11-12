@@ -17,9 +17,9 @@ document.querySelectorAll('.bookmark').forEach(bookmark => {
 
         // Show alert based on the state
         if (isActive) {
-            alert('Bookmarked!');
+            alert('Added to shortlist');
         } else {
-            alert('Bookmark removed!');
+            alert('Removed from shortlist');
         }
     });
 });
