@@ -16,6 +16,7 @@
     gap: 30px;
     border-bottom: 2px solid rgb(209, 209, 209);
     padding: 1px;
+    overflow-x: auto;
 }
 .tabbed-headings .tab-head{
     padding: 10px;
@@ -23,7 +24,6 @@
     cursor: pointer;
     font-weight: 500;
     color: #69707A;
-
 }
 .tabbed-headings .tab-active{
     color: blue;
@@ -40,6 +40,8 @@
     margin: 0px 60px;
     margin-top: 20px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
     justify-content: space-evenly;
 }
@@ -103,6 +105,9 @@
     text-align: start;
 }
 @media (max-width:768px) {
+    .main-profile .tabbed-headings{
+        gap: 10px;
+    }
     .main-billingdetails .billingdetails{
         margin: 0px;
     }

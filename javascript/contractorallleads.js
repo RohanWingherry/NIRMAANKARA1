@@ -72,21 +72,6 @@ window.onclick = function(event) {
         document.getElementById("text-copy").innerText="Copy"
     }
 }
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.lead-link').forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const leadDetails = this.closest('.lead-details');
-            const name = leadDetails.getAttribute('data-name');
-            const contract = leadDetails.getAttribute('data-contract');
-            const status = leadDetails.getAttribute('data-status');
-            const assigned = leadDetails.getAttribute('data-assigned');
-
-            const queryString = `?name=${encodeURIComponent(name)}&contract=${encodeURIComponent(contract)}&status=${encodeURIComponent(status)}&assigned=${encodeURIComponent(assigned)}`;
-            window.location.href = `../html/contractorsinglelead.html${queryString}`;
-        });
-    });
-});
 function copyText() {
     var copyText = document.getElementById("copy");
     copyText.disabled = false;
