@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/profilebilling.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="main-profile">
@@ -15,7 +17,129 @@
             <div class="tab-head" id="notificationTab">Notifications</div>
         </section>
         <section class="main-accountdetails" id="profileSection"> 
-            <span >Account Details</span>
+            <div class="profile-part">
+                <div class="profile-photo-part">
+                    <div class="profile-photo-box">
+                        <div class="profile-photo-head">
+                            Profile Picture
+                        </div>
+                        <div class="profile-photo-body">
+                            <div class="profile-photo-img">
+                                <!-- Default profile picture -->
+                                <img id="profile-img" src="../assets/profile.jpg" alt="Profile">
+                            </div>
+                            <div class="profile-photo-text">
+                                JPG, JPEG, or PNG no larger than 5 MB
+                            </div>
+                            <div class="profile-photo-btn">
+                                <!-- Hidden file input for changing the image -->
+                                <input type="file" id="upload-input" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
+                                
+                                <!-- Change Image Button -->
+                                <button id="change-btn" class="upload-image" onclick="document.getElementById('upload-input').click();">Change image</button>
+                                
+                                <!-- Delete Image Button -->
+                                <button id="delete-btn" class="delete-img" onclick="deleteImage();">Delete image</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+        
+                </div>
+                
+                <div class="profile-details-part">
+                    <div class="profile-details-box">
+                        <div class="profile-details-head">
+                            Account Details
+                        </div>
+                        <div class="profile-details-body">
+                            <form action="" class="profile-update">
+                                <div class="form-group">
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="fname">First name</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('fname')"></i>
+                                        </div>
+                                        <input type="text" id="fname" value="ABC" disabled>
+                                    </div>
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="lname">Last name</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('lname')"></i>
+                                        </div>
+                                        <input type="text" id="lname" value="XYZ" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="email">Email</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('email')"></i>
+                                        </div>
+                                        <input type="email" id="email" value="abc@gmail.com" disabled oninput="checkEmailValidation()">
+                                        <div id="otp-email-container" style="display: none;">
+                                            <button type="button" onclick="getOtp('email')" id="get-otp-email" style="display: none;">Get OTP</button>
+                                            <input type="text" id="email-otp" placeholder="Enter OTP" style="display: none;" />
+                                            <button type="button" onclick="verifyOtp('email')" style="display: none;" id="verify-email">Verify OTP</button>
+                                            <div id="otp-timer-email" style="display: none; margin-left: 10px;">
+                                                <span id="timer-email">60</span> seconds remaining
+                                            </div>
+                                            <button type="button" id="resend-email" onclick="resendOtp('email')" style="display: none;">Resend OTP</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="mob">Mobile Number</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('mob')"></i>
+                                        </div>
+                                        <input type="tel" id="mob" maxlength="10" oninput="restrictMobileInput(this)" value="9191919191" disabled oninput="checkMobileValidation()">
+                                        <div id="otp-mob-container" style="display: none;">
+                                            <button type="button" onclick="getOtp('mob')" id="get-otp-mob" style="display: none;">Get OTP</button>
+                                            <input type="text" id="mob-otp" placeholder="Enter OTP" style="display: none; margin-bottom: 10px;" />
+                                            <button type="button" onclick="verifyOtp('mob')" style="display: none; margin-top: 10px;" id="verify-mob" >Verify OTP</button>
+                                            <div id="otp-timer-mob" style="display: none; margin-left: 10px;">
+                                                <span id="timer-mob">60</span> seconds remaining
+                                            </div>
+                                            <button type="button" id="resend-mob" onclick="resendOtp('mob')" style="display: none;">Resend OTP</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="location">Location</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('location')"></i>
+                                        </div>
+                                        <input type="text" id="location" value="ABC" disabled>
+                                    </div>
+                                    <div class="form-input">
+                                        <div class="label-edit">
+                                            <label for="usertype">User Type</label>
+                                            <i class="fa-regular fa-pen-to-square edit" onclick="editField('usertype')"></i>
+                                        </div>
+                                        <select id="usertype" disabled>
+                                            <option value="Contractor">Contractor</option>
+                                            <option value="Customer">Customer</option>
+                                            <option value="Buyer">Buyer</option>
+                                            <option value="Seller">Seller</option>
+                                            <option value="Renter">Renter</option>
+                                            <option value="Rental">Rental</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+                                <div class="smallpara">
+                                    (Click on Save Changes after editing the fields)
+                                </div>
+                                <div class="save-button">
+                                    <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
+                                </div>
+                            </form>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="main-billingdetails" id="billingSection">
             <div class="current-plan">
@@ -75,7 +199,49 @@
             </div>
         </section>
         <section class="main-securitydetails" id="securitySection">
-            <span>Security Details</span>
+            <div class="security-part">
+                <div class="change-password-part">
+                    <div class="change-password-box">
+                        <div class="password-head">
+                            Change Password
+                        </div>
+                        <div class="password-body">
+                            <form action="" class="pass-update">
+                                    <div class="form-input">
+                                        <label for="curpass">Current Password</label>
+                                        <input type="text" id="curpass" placeholder="" value="Abc@01">
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="newpass">New Password</label>
+                                        <input type="password" id="newpass" placeholder="enter new password">
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="conpass">Confirm Password</label>
+                                        <input type="email" id="conpass" placeholder="confirm new password">
+                                    </div>                        
+                                    <div class="save-button">
+                                        <button class="save-btn">Save</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="delete-account-part">
+                    <div class="delete-account-box">
+                        <div class="delete-head">
+                            Delete Account
+                        </div>
+                        <div class="delete-body">
+                            <div class="delete-para">
+                                Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
+                            </div>
+                            <div class="delete-account-btn">
+                                <button class="del-acc-btn">I understand, delete my account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="main-notificationdetails" id="notificationSection">
             <div>
