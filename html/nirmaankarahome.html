@@ -57,90 +57,72 @@
         <!-- <img src="../img/india.png" alt=""> -->
         <div class="side">
           <div class="quotation">
-            <a href="#" id="getQuoteBtn">Get Quote</a>
+            <a href="#" onclick="openPopup()">Get Quote</a>
           </div>
          </div>
          <!-- pop up -->
-         <div id="popup" class="popup"  style="display: none;">
+         <div id="popup" class="popup" style="display: none;">
           <div class="popup-content">
-              <span class="close">&times;</span>
-              <div class="contractor-pop">
-                  <!-- <img id="contractorImage" src="" alt="Contractor Image"> -->
-                  <p id="contractorNamee">Get Quote</p>
-              </div>
-              <div class="hr"><hr></div>
-              <div class="qoute">
-                <form id="constructionForm">
-                  <div class="form-group">
-                      <div class="input-box">
-                          <input type="text" id="fullName" placeholder="Full Name *" required>
-                          <span class="material-symbols-outlined">
-                              account_circle
-                          </span>
-                      </div>
-              
-                      <div class="input-box">
-                          <input type="text" id="phoneNumber" placeholder="Phone Number *" required>
-                          <span class="material-symbols-outlined">
-                              call
-                          </span>
-                      </div>
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div class="contractor-pop">
+              <p id="contractorName">Get Quote</p>
+            </div>
+            <div class="hr">
+              <hr>
+            </div>
+            <div class="qoute">
+              <form id="constructionForm" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                  <div class="input-box">
+                    <input type="text" id="fullName" placeholder="Full Name *" required>
+                    <span class="material-symbols-outlined">account_circle</span>
                   </div>
-              
-                  <div class="form-group">
-                      <div class="input-box sel-dif">
-                          <select id="nameType" class="name-type-select" required>
-                              <option value="select">Construction type *</option>
-                              <option value="building-remodulation">Building Remodulation</option>
-                              <option value="independent-house-villa">Independent House/Villa</option>
-                              <option value="residential-apartment">Residential Apartment</option>
-                              <option value="serviced-apartment">Serviced Apartment</option>
-                              <option value="industry-complex">Industry Complex</option>
-                              <option value="commercial">Commercial</option>
-                              <option value="farm-house">Farm House</option>
-                              <option value="venture-development">Venture Development</option>
-                              <option value="other">Other</option>
-                          </select>
-              
-                          <input type="text" id="otherNameType" placeholder="Enter custom" style="display: none;">
-                          <span class="material-symbols-outlined">
-                              check_circle
-                          </span>
-                      </div>
-              
-                      <div class="input-box">
-                          <input type="number" id="landSize" placeholder="Size of land in SFT *" required>
-                          <span class="material-symbols-outlined">
-                              aspect_ratio
-                          </span>
-                      </div>
+                  <div class="input-box">
+                    <input type="text" id="phoneNumber" placeholder="Phone Number *" required>
+                    <span class="material-symbols-outlined">call</span>
                   </div>
-              
-                  <div class="form-group">
-                      <div class="input-box">
-                          <input type="text" id="landAddress" placeholder="Address of land *" required>
-                          <span class="material-symbols-outlined">
-                              location_on
-                          </span>
-                      </div>
-                      <div class="input-box">
-                          <input type="text" placeholder="Notes">
-                          <span class="material-symbols-outlined">
-                              chat
-                          </span>
-                      </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-box sel-dif">
+                    <select id="nameType" class="name-type-select" required>
+                      <option value="select">Construction type *</option>
+                      <option value="building-remodulation">Building Remodulation</option>
+                      <option value="independent-house-villa">Independent House/Villa</option>
+                      <option value="residential-apartment">Residential Apartment</option>
+                      <option value="serviced-apartment">Serviced Apartment</option>
+                      <option value="industry-complex">Industry Complex</option>
+                      <option value="commercial">Commercial</option>
+                      <option value="farm-house">Farm House</option>
+                      <option value="venture-development">Venture Development</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <input type="text" id="otherNameType" placeholder="Enter custom" style="display: none;">
+                    <span class="material-symbols-outlined">check_circle</span>
                   </div>
-              
-                  <div class="form-group">
-                      <button class="submit" type="submit">Send Request</button>
+                  <div class="input-box">
+                    <input type="number" id="landSize" placeholder="Size of land in SFT *" required>
+                    <span class="material-symbols-outlined">aspect_ratio</span>
                   </div>
-
-                </form>
-              </div>
-
+                </div>
+                <div class="form-group">
+                  <div class="input-box">
+                    <input type="text" id="landAddress" placeholder="Address of land *" required>
+                    <span class="material-symbols-outlined">location_on</span>
+                  </div>
+                  <div class="input-box">
+                    <input type="text" id="notes" placeholder="Notes">
+                    <span class="material-symbols-outlined">chat</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="submit" type="submit">Send Request</button>
+                </div>
+              </form>
+            </div>
           </div>
-         </div> 
-         <!--  -->
+        </div>
+        
+         <!-- search bar code -->
             <div class="search-content">
               
                 <div class="search">
@@ -384,7 +366,7 @@
       </div>
 
       <!-- pop up of the individual contractor -->
-      <div id="popup" class="popup" style="display: none;">
+      <!-- <div id="popup" class="popup" style="display: none;"> 
         <div class="popup-content">
             <span class="close">&times;</span>
             <div class="contractor-pop">
@@ -455,7 +437,7 @@
                   </form>
             </div>
         </div>
-      </div>
+      </div>  -->
       <!-- end -->
 
       <div class="deal">
@@ -475,65 +457,45 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/Aparna1.png" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/Aparna2.png" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/Aparna3.png" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/Aparna4.png" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/Aparna5.png" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/car.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">APARNA NEWLANDS</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                </button>
+                
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
-                <h4 class="quote "  onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price"> Price:
@@ -556,66 +518,45 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/AparnaSarovar1.png" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/AparnaSarovar2.png" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/AparnaSarovar3.png" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/AparnaSarovar4.png" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/AparnaSarovar5.png" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/car.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">
                   APARNA SAROVAR TOWERS</h4>
+                  <button class="like-button" onclick="likeSlide(event)">
+                    <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                  </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price">Price:
@@ -638,65 +579,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/green1.png" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/green2.png" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/green3.png" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/green4.png" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/green5.png" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">APARNA GREENSCAPES</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : </h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price">Price: 3356 – 5100 sq.ft.</div>
@@ -723,65 +643,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/marine1.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/marine2.jpg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/marine3.jpg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/marine1.jpg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">MARINA SKIES</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price">Price: 2860 SFT. TO 4070 SFT.</div>
@@ -803,65 +702,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/Sattva1.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/Sattva2.jpg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/Sattva3.jpg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/Sattva4.jpg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/Sattva5.jpg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/Sattvavideo.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">SATTVA PARK CUBIX</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price">Price : ₹ 43.36 - 98.72 L</div>
@@ -883,65 +761,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/Trilight1.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/Trilight2.jpg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/Trilight3.jpg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="10">
                 <h4 class="pro-name">TRILIGHT</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price">Price: 2,888 to 11,332 Sq. Ft *</div>
@@ -970,65 +827,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/vasavi1.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/vasavi2.jpg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/vasavi3.jpg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/vasavi4.jpg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/vasavi5.jpg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="5">
                 <h4 class="pro-name">VASAVI SAROVAR</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">5</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price"> Price: ₹ 97.5 Lac - ₹ 2.19 Cr</div>
@@ -1051,64 +887,44 @@
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
                   <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+
                       <img src="../assets/mk1.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/mk2.jpg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/mk3.jpg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/mk4.jpg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/mk5.jpg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="15">
                 <h4 class="pro-name">MK ONE YENDADA</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">15</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :  </h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price"> Price: Rs24,600,000</div>
@@ -1130,65 +946,44 @@
             <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide" data-views="100" data-likes="50">
-                      <span class="views">Views: 100</span>
-                      <span class="likes">Likes: 50</span>
+                  <div class="slide">
                       <img src="../assets/asbl.jpg" alt="Image 1">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="120" data-likes="60">
-                      <span class="views">Views: 120</span>
-                      <span class="likes">Likes: 60</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 2">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="80" data-likes="40">
-                      <span class="views">Views: 80</span>
-                      <span class="likes">Likes: 40</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 3">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="200" data-likes="100">
-                      <span class="views">Views: 200</span>
-                      <span class="likes">Likes: 100</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 4">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="150" data-likes="70">
-                      <span class="views">Views: 150</span>
-                      <span class="likes">Likes: 70</span>
+                  <div class="slide">
                       <img src="../assets/.jpeg" alt="Image 5">
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="300" data-likes="150">
-                      <span class="views">Views: 300</span>
-                      <span class="likes">Likes: 150</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="250" data-likes="120">
-                      <span class="views">Views: 250</span>
-                      <span class="likes">Likes: 120</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
-                  <div class="slide" data-views="180" data-likes="90">
-                      <span class="views">Views: 180</span>
-                      <span class="likes">Likes: 90</span>
+                  <div class="slide">
                       <video src="../assets/.mp4" controls></video>
-                      <button class="like-button" onclick="likeSlide(event)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
                   </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
           </div>
              <!-- end -->
             <div class="pro-box-descrp">
-              <div class="project-name">
+              <div class="project-name slide" data-likes="5">
                 <h4 class="pro-name">ASBL Springs</h4>
+                <button class="like-button" onclick="likeSlide(event)">
+                  <i class="fa-solid fa-heart"></i> <span class="like-count">5</span>
+                </button>
               </div>
               <div class="contractor-name">
                 <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
-                <h4 class="quote" onclick="openPopup('Vijay Sampangi')">GET QUOTE</h4>
+                <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
               </div>
               <div class="project-price">
                 <div class="price"> Price: ₹90.0 Lac</div>

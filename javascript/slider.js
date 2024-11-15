@@ -1,3 +1,9 @@
+// Initialize the currentIndex for each slider container
+document.querySelectorAll('.slider-container').forEach(container => {
+    container.currentIndex = 0;
+});
+
+// Show a specific slide based on index
 function showSlide(container, index) {
     const slider = container.querySelector('.content-slider');
     const slides = slider.querySelectorAll('.slide');
@@ -7,28 +13,55 @@ function showSlide(container, index) {
     slider.style.transform = `translateX(-${container.currentIndex * 100}%)`;
 }
 
+// Go to the next slide
 function nextSlide(button) {
     const container = button.closest('.slider-container');
     showSlide(container, container.currentIndex + 1);
 }
 
+// Go to the previous slide
 function prevSlide(button) {
     const container = button.closest('.slider-container');
     showSlide(container, container.currentIndex - 1);
 }
 
+// Handle the like button functionality
+// Initialize like counts on page load based on data-likes attribute
+document.querySelectorAll('.slide').forEach(slide => {
+    const likes = parseInt(slide.getAttribute('data-likes'), 10) || 0;
+    slide.querySelector('.like-count').textContent = likes;
+});
+
+// Like/Unlike functionality
 function likeSlide(event) {
-    const slide = event.target.closest('.slide');
-    const likesElement = slide.querySelector('.likes');
-    let likes = parseInt(slide.getAttribute('data-likes'), 10);
-    likes += 1;
+    const button = event.currentTarget;
+    const slide = button.closest('.slide');
+    const likeCountElement = button.querySelector('.like-count');
+    const heartIcon = button.querySelector('i');
+
+    // Retrieve the current like count from data-likes attribute
+    let likes = parseInt(slide.getAttribute('data-likes'), 10) || 0;
+
+    // Toggle like/unlike
+    if (button.classList.contains('liked')) {
+        // Unlike: decrement the count, remove 'liked' class, and reset icon color
+        likes -= 1;
+        button.classList.remove('liked');
+        heartIcon.style.color = ''; // Reset to default color
+    } else {
+        // Like: increment the count, add 'liked' class, and change icon color
+        likes += 1;
+        button.classList.add('liked');
+        heartIcon.style.color = 'red'; // Fill with red color
+    }
+
+    // Update the like count in data attribute and visually
     slide.setAttribute('data-likes', likes);
-    likesElement.textContent = `Likes: ${likes}`;
+    likeCountElement.textContent = likes;
 }
 
-document.querySelectorAll('.slider-container').forEach(container => {
-    container.currentIndex = 0;
-});
+
+
 
 
 
@@ -252,90 +285,145 @@ function dropLeasingDiv2(){
   
 
 // pop up modal
-var popup = document.getElementById("popup");
+// Wait for DOM to load
+// Wait for DOM to load
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('popup'); // The single modal
+    const closeButton = modal.querySelector('.close');
 
-// Get the button that opens the modal
-var btn = document.getElementById("getQuoteBtn");
+    // Open modal on button click
+    document.querySelectorAll('.get-quote-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            modal.style.display = 'block'; // Show the modal
+        });
+    });
 
-// Get the <span> element that closes the modal
-var closeBtn = document.querySelector(".popup .close");
+    // Close modal on close button click
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none'; // Hide the modal
+    });
 
-// When the user clicks on the button, open the modal
-btn.onclick = function(event) {
-  event.preventDefault();
-  popup.style.display = "flex";
+    // Close modal when clicking outside modal content
+    modal.addEventListener('click', (event) => {
+        const content = modal.querySelector('.popup-content');
+        if (event.target === modal) {
+            modal.style.display = 'none'; // Hide modal
+        }
+    });
+});
+
+
+// Open popup function
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-closeBtn.onclick = function() {
-  popup.style.display = "none";
+// Close popup function
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == popup) {
-    popup.style.display = "none";
-  }
-}
-
-
-// in form qoute dropdown
+// Handle dropdown logic
 const form = document.getElementById("constructionForm");
-    const nameTypeSelect = document.getElementById("nameType");
-    const otherNameTypeInput = document.getElementById("otherNameType");
+const nameTypeSelect = document.getElementById("nameType");
+const otherNameTypeInput = document.getElementById("otherNameType");
 
-    nameTypeSelect.addEventListener("change", function() {
-        if (this.value === "other") {
-            otherNameTypeInput.style.display = "block";
-            otherNameTypeInput.setAttribute("required", "true");
-        } else {
-            otherNameTypeInput.style.display = "none";
-            otherNameTypeInput.removeAttribute("required");
-        }
-    });
+nameTypeSelect.addEventListener("change", function () {
+    if (this.value === "other") {
+        otherNameTypeInput.style.display = "block";
+        otherNameTypeInput.setAttribute("required", "true");
+    } else {
+        otherNameTypeInput.style.display = "none";
+        otherNameTypeInput.removeAttribute("required");
+    }
+});
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form submission for validation
+// Handle form submission
+// form.addEventListener("submit", function (event) {
+//     event.preventDefault(); // Prevent form submission for validation
 
-        const fullName = document.getElementById("fullName").value.trim();
-        const phoneNumber = document.getElementById("phoneNumber").value.trim();
-        const nameType = document.getElementById("nameType").value;
-        const landSize = document.getElementById("landSize").value.trim();
-        const landAddress = document.getElementById("landAddress").value.trim();
+//     const fullName = document.getElementById("fullName").value.trim();
+//     const phoneNumber = document.getElementById("phoneNumber").value.trim();
+//     const nameType = document.getElementById("nameType").value;
+//     const landSize = document.getElementById("landSize").value.trim();
+//     const landAddress = document.getElementById("landAddress").value.trim();
 
-        if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
-            (nameType === "other" && !otherNameTypeInput.value.trim())) {
-            alert("Please fill in all required fields.");
-        } else {
-            alert("Get Quote Sent");
-            // Reset form or close modal logic here
-            form.reset(); // Reset form fields
-            // Close the modal (assuming you have a modal with id "myModal")
-            document.getElementById("popup").style.display = "none";
-        }
-    });
+//     if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
+//         (nameType === "other" && !otherNameTypeInput.value.trim())) {
+//         alert("Please fill in all required fields.");
+//     } else {
+//         alert("Get Quote Sent");
+//         // Reset form or close modal logic here
+//         form.reset(); // Reset form fields
+//         closePopup(); // Close the popup
+//     }
+// });
 
 
-    // individyal
-    // Function to open the popup and set the contractor's name
-function openPopup(contractorName) {
-    const popup = document.getElementById("popup");
-    const contractorNameElement = document.getElementById("contractorName");
+function validateForm(event) {
+    event.preventDefault(); // Prevent form submission
 
-    contractorNameElement.textContent = contractorName;
-    popup.style.display = "block";
+    let isValid = true; // Initialize isValid flag
+
+    // Full Name: Only letters and spaces allowed
+    const fullName = document.getElementById("fullName");
+    const nameRegex = /^[a-zA-Z](?!\s)([a-zA-Z\s]*)$/;
+    if (!nameRegex.test(fullName.value.trim())) {
+        isValid = false;
+        fullName.nextElementSibling.textContent = "Full Name can only contain letters and spaces, and cannot start with a space.";
+    } else {
+        fullName.nextElementSibling.textContent = "";
+    }
+
+    // Phone Number: Only 10 digits allowed
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+        alert("Phone Number must be exactly 10 digits.");
+        return false;
+    }
+
+    // Land Size: Only positive numbers allowed
+    const landSize = document.getElementById("landSize").value.trim();
+    if (isNaN(landSize) || landSize <= 0) {
+        alert("Land Size must be a positive number.");
+        return false;
+    }
+
+    // Address: Letters, numbers, and '#' allowed
+    const landAddress = document.getElementById("landAddress").value.trim();
+    const addressRegex = /^[a-zA-Z0-9#\s]+$/;
+    if (!addressRegex.test(landAddress)) {
+        alert("Address can only contain letters, numbers, spaces, and '#'.");
+        return false;
+    }
+
+    // Ensure Construction Type is selected
+    const nameType = document.getElementById("nameType").value;
+    if (nameType === "select") {
+        alert("Please select a Construction Type.");
+        return false;
+    }
+
+    // If all validations passed
+    if (isValid) {
+        alert("Get quote sent successfully!");
+
+        // Reset the form
+        document.getElementById("constructionForm").reset();
+
+        // Close the popup
+        closePopup();
+    }
+
+    return true;
 }
 
 // Function to close the popup
 function closePopup() {
     const popup = document.getElementById("popup");
-    popup.style.display = "none";
+    popup.style.display = "none"; // Hide the popup
 }
 
-// Optional: Close popup when clicking outside of it
-window.onclick = function(event) {
-    const popup = document.getElementById("popup");
-    if (event.target == popup) {
-        popup.style.display = "none";
-    }
-}
+

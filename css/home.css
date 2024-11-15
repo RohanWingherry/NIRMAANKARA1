@@ -847,7 +847,7 @@ button.prev:hover, button.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.views, .likes {
+/* .views, .likes {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -866,25 +866,50 @@ button.prev:hover, button.next:hover {
     top: 10px;
     right: 10px;
     font-size: 12px;
-}
+} */
 
 .like-button {
-    position: absolute;
-    bottom: 10px;
+    /* position: absolute; */
+    /* bottom: 10px; */
     right: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* color: white; */
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    z-index: 2;
+    /* z-index: 2; */
     border-radius: 5px;
     font-size: 12px;
 }
 
 .like-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(224, 224, 224, 0.8);
 }
+.like-button .fa-heart {
+  color: gray;
+  transition: color 0.3s ease;
+}
+
+.like-button.liked .fa-heart {
+  color: red;
+}
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.like-button i{
+  font-size: 16px;
+  margin-right: 4px;
+}
+.like-button.liked i {
+  color: red; /* Red color for liked state */
+  transition: color 0.3s;
+}
+
 
   /* end */
 
@@ -894,6 +919,11 @@ button.prev:hover, button.next:hover {
     margin-right: 10px;
     /* padding-left: 5px;
     padding-right: 5px; */
+  }
+  .project-name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .pro-name{
     font-size: 15px;
