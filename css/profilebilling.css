@@ -37,8 +37,7 @@
     justify-content: space-evenly;
 }
 .main-billingdetails .current-plan{
-    margin: 0px 60px;
-    margin-top: 20px;
+    margin: 20px 60px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
