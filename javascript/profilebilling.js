@@ -48,7 +48,6 @@ let otpResendTime = 60;
 let isOtpVerifiedEmail = false;
 let isOtpVerifiedMobile = false;
 
-// Store old values for comparison
 let oldEmail = document.getElementById('email').value;
 let oldMobile = document.getElementById('mob').value;
 
@@ -63,7 +62,6 @@ function editField(field) {
         return;
     }
 
-    // Enable the field for editing
     document.getElementById(field).disabled = false;
     if (field === 'email') {
         document.getElementById("otp-email-container").style.display = 'block';
@@ -91,7 +89,6 @@ function checkEmailValidation() {
     const emailInput = document.getElementById('email').value;
     const getOtpButton = document.getElementById('get-otp-email');
 
-    // Check if the entered email is the same as the old email
     if (emailInput === oldEmail) {
         alert('This is your old email, please enter a new one.');
         getOtpButton.style.display = 'none';
@@ -109,7 +106,6 @@ function checkMobileValidation() {
     const mobileInput = document.getElementById('mob').value;
     const getOtpButton = document.getElementById('get-otp-mob');
 
-    // Check if the entered mobile number is the same as the old mobile number
     if (mobileInput === oldMobile) {
         alert('This is your old mobile number, please enter a new one.');
         getOtpButton.style.display = 'none';
@@ -134,7 +130,6 @@ function getOtp(type) {
     document.getElementById(`get-otp-${type}`).style.display = 'none';
 }
 
-// Start OTP timer (60 seconds countdown)
 function startOtpTimer(type) {
     let timerDisplay, resendButton;
     if (type === 'email') {
@@ -170,7 +165,6 @@ function startOtpTimer(type) {
     }
 }
 
-// Stop OTP timer
 function stopOtpTimer(type) {
     if (type === 'email') {
         clearInterval(otpTimeoutEmail);
@@ -179,7 +173,6 @@ function stopOtpTimer(type) {
     }
 }
 
-// Resend OTP when the timer reaches zero
 function resendOtp(type) {
     otpResendTime = 60;
     startOtpTimer(type);
@@ -190,7 +183,7 @@ function verifyOtp(type) {
     let otpField = document.getElementById(type + '-otp');
     let otpValue = otpField.value;
 
-    if (otpValue === "123456") {  // Simulate OTP validation edit this while adding functionality
+    if (otpValue === "123456") { 
         alert(`${type.charAt(0).toUpperCase() + type.slice(1)} OTP verified successfully!`);
         otpField.disabled = true;
 
@@ -219,7 +212,6 @@ function saveChanges() {
     Location: ${location}
     User Type: ${userType}`);
 
-    // Disable all fields and reset editing
     cancelEdit('fname');
     cancelEdit('lname');
     cancelEdit('email');
@@ -236,27 +228,21 @@ function validateEmail(email) {
 function restrictMobileInput(inputElement) {
     let value = inputElement.value;
 
-    // Allow only numbers
     value = value.replace(/[^0-9]/g, '');
 
-    // Ensure it starts with 6, 7, 8, or 9 and is exactly 10 digits long
     if (value.length === 1) {
         if (['6', '7', '8', '9'].indexOf(value[0]) === -1) {
-            value = ''; // Reset if it doesn't start with 6, 7, 8, or 9
+            value = ''; 
         }
     }
 
-    // Limit to 10 digits
     if (value.length > 10) {
         value = value.substring(0, 10);
     }
-
-    // Update the input field with the corrected value
     inputElement.value = value;
 }
 
 function validateMobile(mob) {
-    // Ensure the number starts with 6, 7, 8, or 9 and is exactly 10 digits long
     const mobileRegex = /^[6-9][0-9]{9}$/;
     return mobileRegex.test(mob);
 }
@@ -271,10 +257,7 @@ const profileImg = document.getElementById('profile-img');
 const changeBtn = document.getElementById('change-btn');
 const deleteBtn = document.getElementById('delete-btn');
 
-// Path for the default profile image
-const defaultImagePath = '../assets/profile.jpg'; // Update this to your actual path
-
-// Function to handle image upload
+const defaultImagePath = '../assets/profile.jpg'; 
 function handleImageUpload(event) {
     const file = event.target.files[0];
     
@@ -283,20 +266,17 @@ function handleImageUpload(event) {
         return;
     }
     
-    // Validate file type (JPG, JPEG, PNG)
     const validTypes = ['image/jpeg', 'image/png'];
     if (!validTypes.includes(file.type)) {
         alert('Invalid file type. Please upload a JPG, JPEG, or PNG file.');
         return;
     }
 
-    // Validate file size (max 5 MB)
     if (file.size > 5 * 1024 * 1024) {
         alert('File size exceeds the 5 MB limit. Please upload a smaller file.');
         return;
     }
 
-    // Create a URL for the uploaded image and set it to the profile image
     const reader = new FileReader();
     reader.onload = function(e) {
         profileImg.src = e.target.result;
@@ -305,10 +285,8 @@ function handleImageUpload(event) {
     reader.readAsDataURL(file);
 }
 
-// Function to delete the image and revert to default
 function deleteImage() {
     if (profileImg.src === defaultImagePath) {
-        // If the image is already the default image, alert the user
         alert("No image is uploaded to delete.");
     } else {
         const confirmDelete = confirm("Are you sure you want to delete your profile image?");
@@ -327,22 +305,60 @@ function deleteImage() {
 
 
 
-// Show the delete button and change "Upload Image" to "Change Image"
 function showDeleteOption() {
     deleteBtn.style.display = 'inline-block'; 
     changeBtn.textContent = 'Change Image'; 
 }
 
-// Show only the "Upload Image" button when the profile image is deleted
 function showUploadOption() {
     deleteBtn.style.display = 'none'; 
     changeBtn.textContent = 'Upload Image'; 
 }
 
-// Initial state: If there's no profile image, show the upload option
 if (profileImg.src === defaultImagePath) {
     showUploadOption();
 } else {
     showDeleteOption();
 }
 
+
+// security pass change
+
+function togglePassword(fieldId) {
+    const passwordField = document.getElementById(fieldId);
+    const eyeIcon = document.getElementById(`eye-icon-${fieldId}`);
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    
+    passwordField.setAttribute('type', type);
+    
+    if (type === 'password') {
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    } else {
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    }
+}
+
+function validateForm() {
+    const newPassword = document.getElementById('newpass').value;
+    const confirmPassword = document.getElementById('conpass').value;
+    const errorMessage = document.getElementById('error-message');
+
+    const lengthValid = newPassword.length >= 6;
+    const hasUpperCase = /[A-Z]/.test(newPassword);
+    const hasSpecialChar = /[@]/.test(newPassword);
+    const hasNumber = /\d/.test(newPassword);
+    
+    if (newPassword !== confirmPassword) {
+        errorMessage.textContent = "Passwords do not match.";
+        return false;
+    } else if (!lengthValid || !hasUpperCase || !hasSpecialChar || !hasNumber) {
+        errorMessage.textContent = "Password must be at least 6 characters long, contain one uppercase letter, one special character (@), and one number.";
+        return false;
+    }
+
+    errorMessage.textContent = "";
+    alert("Password changed successfully!");
+    return true; 
+}

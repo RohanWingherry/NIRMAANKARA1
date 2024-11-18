@@ -206,23 +206,32 @@
                             Change Password
                         </div>
                         <div class="password-body">
-                            <form action="" class="pass-update">
-                                    <div class="form-input">
-                                        <label for="curpass">Current Password</label>
-                                        <input type="text" id="curpass" placeholder="" value="Abc@01">
+                            <form action="" class="pass-update" onsubmit="return validateForm()">
+                                <div class="form-input">
+                                    <label for="curpass">Current Password</label>
+                                    <input type="text" id="curpass" placeholder="">
+                                </div>
+                                <div class="form-input">
+                                    <label for="newpass">New Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="newpass" placeholder="Enter new password">
+                                        <span class="eye-icon" onclick="togglePassword('newpass')"><i class="fas fa-eye" id="eye-icon-newpass"></i></span>
                                     </div>
-                                    <div class="form-input">
-                                        <label for="newpass">New Password</label>
-                                        <input type="password" id="newpass" placeholder="enter new password">
+                                </div>
+                                <div class="form-input">
+                                    <label for="conpass">Confirm Password</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" id="conpass" placeholder="Confirm new password">
+                                        <span class="eye-icon" onclick="togglePassword('conpass')"><i class="fas fa-eye" id="eye-icon-conpass"></i></span>
                                     </div>
-                                    <div class="form-input">
-                                        <label for="conpass">Confirm Password</label>
-                                        <input type="email" id="conpass" placeholder="confirm new password">
-                                    </div>                        
-                                    <div class="save-button">
-                                        <button class="save-btn">Save</button>
-                                    </div>
+                                </div>   
+                                <div id="error-message" style="color: red; font-size: 12px;"></div>                     
+                                <div class="save-button">
+                                    <button type="submit" class="save-btn">Save</button>
+                                </div>
                             </form>
+                            
+                            
                         </div>
                     </div>
                 </div>

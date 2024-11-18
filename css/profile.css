@@ -138,9 +138,7 @@
     font-size: 14px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.profile-update #usertype{
 
-}
 .profile-update input:focus, .pass-update input:focus, .profile-update #usertype:focus{
     outline: none;
     border: 1px solid rgba(62, 171, 186, 0.84);
@@ -208,6 +206,17 @@
 .smallpara{
     font-size: 12px;
     margin: 10px 0px;
+}
+.password-wrapper {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 @media (max-width:768px) {
     .profile-update .form-group{
