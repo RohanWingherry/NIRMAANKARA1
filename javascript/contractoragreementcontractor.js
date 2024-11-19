@@ -54,7 +54,7 @@ const validateAndSubmit = (event) => {
   let secondPartySignature = document.getElementById('builder-signature').value.trim();
 
   if (wordCount < 80 || wordCount > 160) {
-    alert("The agreement text must be between 120 and 300 words.");
+    alert("The agreement text must be between 80 and 160 words.");
     return false;
   }
 

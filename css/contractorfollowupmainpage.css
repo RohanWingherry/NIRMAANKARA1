@@ -256,6 +256,9 @@
     width: 100px;
     text-align: center;
 }
+.required-filed{
+    color: red;
+}
 .submittion{
     display: flex;
     flex-direction: column;
