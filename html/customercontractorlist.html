@@ -287,7 +287,8 @@
                                 <div class="contact">
                                     <div class="contact-type">
                                         <div class="connect">
-                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact Number</div>
+                                            <div class="chatting"><i class="fa-solid fa-message"></i>Chat</div>
+                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact</div>
                                             <div class="enq">Enquire Now</div>
                                         </div>
                                         <div class="views">
@@ -344,7 +345,8 @@
                                 <div class="contact">
                                     <div class="contact-type">
                                         <div class="connect">
-                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact Number</div>
+                                            <div class="chatting"><i class="fa-solid fa-message"></i>Chat</div>
+                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact</div>
                                             <div class="enq">Enquire Now</div>
                                         </div>
                                         <div class="views">
@@ -401,7 +403,8 @@
                                 <div class="contact">
                                     <div class="contact-type">
                                         <div class="connect">
-                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact Number</div>
+                                            <div class="chatting"><i class="fa-solid fa-message"></i>Chat</div>
+                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact</div>
                                             <div class="enq">Enquire Now</div>
                                         </div>
                                         <div class="views">
@@ -458,7 +461,8 @@
                                 <div class="contact">
                                     <div class="contact-type">
                                         <div class="connect">
-                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact Number</div>
+                                            <div class="chatting"><i class="fa-solid fa-message"></i>Chat</div>
+                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact</div>
                                             <div class="enq">Enquire Now</div>
                                         </div>
                                         <div class="views">
@@ -515,7 +519,8 @@
                                 <div class="contact">
                                     <div class="contact-type">
                                         <div class="connect">
-                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact Number</div>
+                                            <div class="chatting"><i class="fa-solid fa-message"></i>Chat</div>
+                                            <div class="chat"><i class="fa-solid fa-phone"></i>Contact</div>
                                             <div class="enq">Enquire Now</div>
                                         </div>
                                         <div class="views">
@@ -680,6 +685,314 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- message box -->
+            <div class="chat-box-container">
+                <!-- Chat List -->
+                <div class="chat-list-box" id="chat-list-box">
+                    <div class="chat-list-header" id="chat-list-header">
+                        <div>
+                            <img src="../assets/profile-pic.png" alt="profile">
+                            <span>Messages</span>
+                        </div>
+                        <div class="box-icons">
+                            <span class="material-symbols-outlined add-person">person_add</span>
+                            <div class="arrow" id="chat-list-arrow"><span class="material-symbols-outlined">keyboard_control_key</span></div>
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="chat-list-content" id="chat-list-content">
+                        <div class="searching">
+                            <div class="searchbox">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="search" id="search" placeholder="Search message...">
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="chat-person" data-person="Person 1" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/contractor.png" alt="Person 1">
+                                    <span>Person 1</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">12:00 PM</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 2" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/circle.png" alt="Person 2">
+                                    <span>Person 2</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">1 day ago</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 3" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/buy.png" alt="Person 3">
+                                    <span>Person 3</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">2 day ago</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 4" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/rental.png" alt="Person 4">
+                                    <span>Person 4</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">2 day ago</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 5" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/rentor.png" alt="Person 5">
+                                    <span>Person 5</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">15 sept</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 6" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/sell.png" alt="Person 6">
+                                    <span>Person 6</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">19 sept</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 7" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/receipt.jpg" alt="Person 7">
+                                    <span>Person 7</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">20 spet</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="chat-person" data-person="Person 8" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/receipt.jpg" alt="Person 8">
+                                    <span>Person 8</span>
+                                </div>
+                                <div class="time">
+                                    <span class="material-symbols-outlined dots">more_horiz</span>
+                                    <span class="time-received">20 spet</span>
+                                </div>
+                                <!-- Inside each chat-person li -->
+                                <div class="menu" style="display:none;">
+                                    <ul>
+                                        <li class="delete-chat">Delete</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- Add more people as needed -->
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Chat Window -->
+                <div class="chat-window" id="chat-window">
+                    <div class="chat-window-header" id="chat-window-header">
+                        <img id="chat-person-image" src="" alt="Profile">
+                        <span id="chat-person-name">Chat</span>
+                        <div class="chat-dots">
+                            <span class="material-symbols-outlined dots" id="options-dots">more_horiz</span>
+                            <div class="close-chat" id="close-chat">&#x2715;</div>
+                            <div class="dropdown-menu" id="dropdown-menu">
+                                <div class="dropdown-item" id="clear-chat">Clear Chat</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-window-content">
+                            <div class="chat-messages" id="chat-messages">
+                                <!-- Initial Messages -->
+                                <!-- Left Message -->
+                                <div class="message-container left">
+                                    <img src="../assets/contractor.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text one">Any updates on interview schedules?</p>
+                                        <span class="message-time">Today 9:38 am</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Message -->
+                                <div class="message-container right">
+                                    <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text two">Bleh, it's going. I haven't had many responses yet so I'll probably reach out again this afternoon if still no response.</p>
+                                        <span class="message-time">Today 9:40 am</span>
+                                    </div>
+                                </div>
+                                <!-- Left Message -->
+                                <div class="message-container left">
+                                    <img src="../assets/contractor.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text">Any updates on interview schedules?</p>
+                                        <span class="message-time">Today 9:38 am</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right Message -->
+                                <div class="message-container right">
+                                    <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+                                    <div>
+                                        <p class="message-text">Bleh, it's going. I haven't had many responses yet so I'll probably reach out again this afternoon if still no response.</p>
+                                        <span class="message-time">Today 9:40 am</span>
+                                    </div>
+                                </div>
+                                <!-- Add other messages as necessary -->
+                            </div>
+                            <textarea id="chat-input" placeholder="Type a message..."></textarea>
+                            <button id="send-chat-btn">Send</button>
+                    </div>
+                </div>
+
+                <!-- Contractor List -->
+                <div class="contractor-list">
+                    <div class="contractor-list-header">
+                        <div>
+                            <!-- <img src="../assets/profile-pic.png" alt="profile"> -->
+                        <span>New Contractors</span>
+                        </div>
+                        <div class="box-icons">
+                            <span class="material-symbols-outlined close-contractor">close</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="contractor-content">
+                        <div class="searching">
+                            <div class="searchbox">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="search" id="search" placeholder="Search new contractors...">
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="chat-person" data-person="Contractor 1" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna1.png" alt="Contractor 1">
+                                    <span>Contractor 1</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 2" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna2.png" alt="Contractor 2">
+                                    <span>Contractor 2</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 3" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna3.png" alt="Contractor 3">
+                                    <span>Contractor 3</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 4" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna4.png" alt="Contractor 4">
+                                    <span>Contractor 4</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 5" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna5.png" alt="Contractor 5">
+                                    <span>Contractor 5</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 6" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna5.png" alt="Contractor 6">
+                                    <span>Contractor 6</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 7" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna5.png" alt="Contractor 7">
+                                    <span>Contractor 7</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 8" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna5.png" alt="Contractor 8">
+                                    <span>Contractor 8</span>
+                                </div>
+                                
+                            </li>
+                            <li class="chat-person" data-person="Contractor 9" data-img="../assets/profile-pic.png">
+                                <div class="persontext">
+                                    <img src="../assets/Aparna5.png" alt="Contractor 9">
+                                    <span>Contractor 9</span>
+                                </div>
+                                
+                            </li>
+                            <!-- Add more people as needed -->
+                        </ul>
+
+                    </div>
+                </div>
+
+                
+
+            
             </div>
         </div>
         <!-- footer -->
