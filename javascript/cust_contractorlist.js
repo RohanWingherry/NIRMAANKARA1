@@ -415,3 +415,28 @@ document.addEventListener('click', (event) => {
         dropdownMenu.style.display = 'none';
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select all elements with the class "add-persons"
+    const addPersonsElements = document.querySelectorAll('.add-persons');
+    
+    // Select the contractor list by ID
+    const contractorList = document.getElementById('contractor-list');
+    
+    // Add event listener to each "Add Person" element
+    addPersonsElements.forEach(function(element) {
+      element.addEventListener('click', function() {
+        // Get the current display style of the contractor list using getComputedStyle
+        const currentDisplay = window.getComputedStyle(contractorList).display;
+  
+        // Toggle visibility of the contractor list
+        if (currentDisplay === 'none') {
+          contractorList.style.display = 'block';  // Show the list
+        } else {
+          contractorList.style.display = 'none';  // Hide the list
+        }
+      });
+    });
+  });
+  
+  
