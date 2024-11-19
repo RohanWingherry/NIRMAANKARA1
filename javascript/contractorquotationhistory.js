@@ -18,9 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSerialNumbers();
 });
+
 document.querySelectorAll('.view').forEach(function(vieweach) {
     vieweach.addEventListener('click', function() {
-        var status = this.closest('tr').querySelector('td:nth-child(7)').textContent.trim();
+        var status = this.closest('tr').querySelector('td:nth-child(5)').textContent.trim();
         if (status === 'Pending' || status === 'Approved') {
             window.location.href = '../html/contractorquotationfilleddata.html';
         } else if (status === 'Negotiate') {
