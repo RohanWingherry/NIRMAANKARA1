@@ -325,8 +325,8 @@
                         <span>Prefered Type <span class="required-filed">*</span></span>
                         <article>
                             <span class="prefered-type">
-                            <label for="face">Face to Face</label>
-                            <input type="radio" id="face" name="prefered-type" value="face" required>
+                                <label for="face">Face to Face</label>
+                                <input type="radio" id="face" name="prefered-type" value="face" required>
                             </span>
                             <span class="prefered-type">
                                 <label for="coldcall">Cold Call</label>
@@ -336,12 +336,187 @@
                                 <label for="email">Email</label>
                                 <input type="radio" id="email" name="prefered-type" value="email" required>
                             </span>
-                            <span class="prefered-type">
-                                <label for="chat">Chat</label>
-                                <input type="radio" id="chat" name="prefered-type" value="chat" required>
-                            </span>
                         </article>
                     </section>
+                    <div class="main-details" id="main-facetoface">
+                            <section>
+                                <label for="meeting">Meeting Location <span class="required-fields">*</span></label>
+                                <input type="text" id="face-meeting" required placeholder="Enter the meeting location">
+                            </section>
+                            <section>
+                                <label for="purpose">Purpose <span class="required-fields">*</span></label>
+                                <input type="text" id="purpose" required placeholder="Enter the puropse of Meeting ">
+                            </section>
+                            <section>
+                                <label for="">Meeting Date <span class="required-fields">*</span></label>
+                                <input type="date" id="required" required>
+                            </section>
+                            <section class="time-format">
+                                <label for="">Meeting Time <span class="required-fields">*</span></label>
+                                <div>
+                                    <div>
+                                        <label for="hour">Hour:</label>
+                                        <select id="hour" required>
+                                            <option value="" hidden>Hours</option>
+                                     <!-- Populating the hours (1-12) -->
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                
+                                    <div>
+                                        <label for="minute">Minute:</label>
+                                        <select id="minute" required>
+                                            <option value="" hidden>Minutes</option>
+                                    <!-- Populating the minutes (00-59) -->
+                                            <option value="00">00</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                
+                                    <div>
+                                        <label for="ampm">AM/PM:</label>
+                                        <select id="ampm" required>
+                                            <option value="" hidden>AM/PM</option>
+                                            <option value="AM">AM</option>
+                                            <option value="PM">PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
+                    </div>
+                    <div class="main-details" id="main-coldcall">
+                            <section>
+                                <label for="mobile-number">Mobile Number<span class="required-fields">*</span></label>
+                                <input type="text" id="mobile-number" class="mobilenumber" placeholder="Enter Mobile Number" required>
+                                <div id="mobile-error" class="error-message" style="display: none; font-size: 12px; color: red;">The number must be exactly 10 digits!</div>
+                            </section>
+                            <section>
+                                <label for="coldcallpurpose">Purpose <span class="required-fields">*</span></label>
+                                <input type="text" id="coldcallpurpose" required placeholder="Enter the purpose of Meeting ">
+                                <div id="purpose-error" class="error-message" style="display: none; font-size: 12px; color: red;">The purpose should not contain numbers and special characters, and cannot start with spaces!</div>
+                            </section>
+                            <section>
+                                <label for="calling-date">Calling Date <span class="required-fields">*</span></label>
+                                <input type="date" id="calling-date" required>
+                                <div id="date-error" class="error-message" style="display: none; font-size: 12px; color: red;">The date cannot be in the past!</div>
+                            </section>
+                            <section class="time-format">
+                                <label for="">Meeting Time <span class="required-fields">*</span></label>
+                                <div>
+                                    <div>
+                                        <label for="hour">Hour:</label>
+                                        <select id="hour" required>
+                                            <!-- Populating the hours (1-12) -->
+                                            <option value="">--</option> <!-- Default empty option -->
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                            
+                                    <div>
+                                        <label for="minute">Minute:</label>
+                                        <select id="minute" required>
+                                            <!-- Populating the minutes (00-59) -->
+                                            <option value="">--</option> <!-- Default empty option -->
+                                            <option value="00">00</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                            
+                                    <div>
+                                        <label for="ampm">AM/PM:</label>
+                                        <select id="ampm" required>
+                                            <option value="">--</option> <!-- Default empty option -->
+                                            <option value="AM">AM</option>
+                                            <option value="PM">PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="time-error" class="error-message" style="display: none; font-size: 12px; color: red;">Please select a valid time!</div>
+                            </section>
+                    </div>
+                    <div class="main-details" id="main-mail">
+                            <section>
+                                <label for="email">Email<span class="required-fields">*</span></label>
+                                <input type="email" id="email" required placeholder="Enter your email id">
+                                <span class="error-message" id="emailError" style="font-size: 12px;color: red;"></span>
+                            </section>
+                            <section>
+                                <label for="date">Date <span class="required-fields">*</span></label>
+                                <input type="date" id="date" required>
+                                <span class="error-message" id="dateError"></span>
+                            </section>
+                            <section class="time-format">
+                                <label for="">Meeting Time <span class="required-fields">*</span></label>
+                                <div>
+                                    <div>
+                                        <label for="hour">Hour:</label>
+                                        <select id="hour" required>
+                                            <option value="" hidden>Hours</option>
+                                     <!-- Populating the hours (1-12) -->
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                
+                                    <div>
+                                        <label for="minute">Minute:</label>
+                                        <select id="minute" required>
+                                            <option value="" hidden>Minutes</option>
+                                    <!-- Populating the minutes (00-59) -->
+                                            <option value="00">00</option>
+                                            <option value="15">15</option>
+                                            <option value="30">30</option>
+                                            <option value="45">45</option>
+                                        </select>
+                                    </div>
+                
+                                    <div>
+                                        <label for="ampm">AM/PM:</label>
+                                        <select id="ampm" required>
+                                            <option value="" hidden>AM/PM</option>
+                                            <option value="AM">AM</option>
+                                            <option value="PM">PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
+                    </div>
                     <div class="submittion">
                         <div id="error-message" style="color: red; display: none; font-size: 12px;">The number must be exactly 10!</div>
                         <input class="submit" type="submit" value="Next &#8594;" />

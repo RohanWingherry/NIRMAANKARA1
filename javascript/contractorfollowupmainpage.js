@@ -1,63 +1,54 @@
-document.querySelector(".followup-form").addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-    const face = document.getElementById('face').checked;
-    const coldcall = document.getElementById('coldcall').checked;
-    const email = document.getElementById('email').checked;
-    const chat = document.getElementById('chat').checked;
-    const customerIdInput = document.getElementById("customer-id");
-    const errorMessage = document.getElementById("error-message"); // Assuming there's an element for error messages
+const faceRadio = document.getElementById("face");
+const coldcallRadio = document.getElementById("coldcall");
+const emailRadio = document.getElementById("email");
 
-    const validateForm = () => {
-        let isValid = true;
+const facetofaceSection = document.getElementById("main-facetoface");
+const coldcallSection = document.getElementById("main-coldcall");
+const mailSection = document.getElementById("main-mail");
 
-        // Validate if one preferred type is selected
-        if (!(face || coldcall || email || chat)) {
-            errorMessage.textContent = "Please select a preferred type.";
-            errorMessage.style.display = "block";
-            isValid = false;
-        } else {
-            errorMessage.style.display = "none"; // Clear error if valid
-        }
+function hideAllSections() {
+    facetofaceSection.style.display = "none";
+    coldcallSection.style.display = "none";
+    mailSection.style.display = "none";
+}
 
-        // Validate if customer ID is provided
-        if (!customerIdInput.value.trim()) {
-            errorMessage.textContent = "Please enter the Customer ID.";
-            errorMessage.style.display = "block";
-            isValid = false;
-        } else {
-            errorMessage.style.display = "none"; // Clear error if valid
-        }
-
-        return isValid;
-    };
-
-    // Run validation
-    if (validateForm()) {
-        if (face) {
-            window.location.href = '../html/contractorfollowupfacetoface.html';
-        } else if (coldcall) {
-            window.location.href = '../html/contractorfollowupcoldcall.html';
-        } else if (email) {
-            window.location.href = '../html/contractorfollowupemail.html';
-        } else if (chat) {
-            window.location.href = '../html/contractorfollowupchat.html';
-        }
-    }
+faceRadio.addEventListener("change", function () {
+    hideAllSections();
+    facetofaceSection.style.display = "flex";
 });
 
-// Fetch details button functionality
-document.getElementById("fetch-details").addEventListener("click", () => {
-    const cust = document.getElementById("customer-id").value;
-    if (cust) {
-        document.querySelector(".main-client-det").style.display = "block";
+coldcallRadio.addEventListener("change", function () {
+    hideAllSections();
+    coldcallSection.style.display = "flex";
+});
+
+emailRadio.addEventListener("change", function () {
+    hideAllSections();
+    mailSection.style.display = "flex";
+});
+
+hideAllSections();
+
+const form = document.getElementById('followup-form');
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const requiredFields = document.querySelectorAll('[required]');
+    let isValid = true;
+
+    for (let field of requiredFields) {
+        if (!field.value) {
+            isValid = false;
+            break;
+        }
+    }
+    if (isValid) {
+        alert("Scheduled the follow-up");
+        window.location.href="../html/contractorfollowuphistory.html"
     } else {
-        alert("Enter the Customer ID");
+        alert("Please fill in all required fields!");
     }
 });
-
-// Set today's date for date input
-const dateInput = document.getElementById('dateInput');
-const today = new Date().toISOString().split('T')[0]; 
-dateInput.value = today;
-dateInput.style.textAlign = 'center';
+document.getElementById('face-meeting').addEventListener('input', function(event) {
+    event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
+});
