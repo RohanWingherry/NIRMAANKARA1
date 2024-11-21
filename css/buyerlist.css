@@ -24,7 +24,7 @@
 /* Buyer list */
 .main-buyerlist{
   display: flex;
-  gap: 50px;
+  gap: 30px;
   padding: 10px 80px;
   height: 600px;
   width: 1400px;
