@@ -373,3 +373,9 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button{
     -webkit-appearance: none;
 }
+input:invalid {
+    border: 2px solid red;
+}
+.error-message {
+    display: none; /* Initially hide error messages */
+}

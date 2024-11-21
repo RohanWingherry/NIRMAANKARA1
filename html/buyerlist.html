@@ -39,565 +39,563 @@
             </div>
         </div>
     </div>
-    <div id="back-arrow">
-        <span class="material-symbols-rounded" onclick="window.location.href='../html/buyerhome.html'">keyboard_backspace</span>
-    </div>
     <div class="main-content-buyer">
-        <div class="main-buyerlist">
-            <div class="filter-mobile" onclick="showFilter()">
-                <span class="material-symbols-rounded">tune</span>
-                <span>Apply Filters</span>
-            </div>
-            <div class="main-filter">
-                <div class="filter-head">
-                    <span id="filter">Filters</span>
-                    <span id="apply">Apply</span>
+        <div class="main-main-buyer">
+            <div class="main-buyerlist">
+                <div class="filter-mobile" onclick="showFilter()">
+                    <span class="material-symbols-rounded">tune</span>
+                    <span>Apply Filters</span>
                 </div>
-                <div class="type-of-prop">
-                    <div class="type-of-prop-head">
-                        <span>Property type</span>
+                <div class="main-filter">
+                    <div class="filter-head">
+                        <span id="filter">Filters</span>
+                        <span id="apply">Apply</span>
                     </div>
-                    <div class="type-of-prop-type">
-                        <div class="prop-type active-tag" data-target="type1-res">
-                            <span class="material-symbols-rounded">cottage</span>
-                            <span>Residential</span>
+                    <div class="type-of-prop">
+                        <div class="type-of-prop-head">
+                            <span>Property type</span>
                         </div>
-                        <div class="prop-type" data-target="type2-comm">
-                            <span class="material-symbols-rounded">storefront</span>
-                            <span>Commercial</span>
+                        <div class="type-of-prop-type">
+                            <div class="prop-type active-tag" data-target="type1-res">
+                                <span class="material-symbols-rounded">cottage</span>
+                                <span>Residential</span>
+                            </div>
+                            <div class="prop-type" data-target="type2-comm">
+                                <span class="material-symbols-rounded">storefront</span>
+                                <span>Commercial</span>
+                            </div>
+                            <div class="prop-type" data-target="type2-apt">
+                                <span class="material-symbols-rounded">apartment</span>
+                                <span>Apartment</span>
+                            </div>
+                            <div class="prop-type" data-target="type2-vill">
+                                <span class="material-symbols-rounded">houseboat</span>
+                                <span>Villa</span>
+                            </div>
+                            <div class="prop-type" data-target="type2-land">
+                                <span class="material-symbols-rounded">real_estate_agent</span>
+                                <span>Land</span>
+                            </div>
                         </div>
-                        <div class="prop-type" data-target="type2-apt">
-                            <span class="material-symbols-rounded">apartment</span>
-                            <span>Apartment</span>
+                        <div class="type1-res type" style="display: none;">
+                            <div>1BHK</div>
+                            <div>2BHK</div>
+                            <div>3BHK</div>
+                            <div>Single Family Home</div>
+                            <div>Multi Family Home</div>
+                            <div>Town house</div>
+                            <div>Duplex</div>
+                            <div>Bungalow</div>
                         </div>
-                        <div class="prop-type" data-target="type2-vill">
-                            <span class="material-symbols-rounded">houseboat</span>
-                            <span>Villa</span>
+                        <div class="type2-apt type" style="display: none;">
+                            <div>1BHK</div>
+                            <div>2BHK</div>
+                            <div>3BHK</div>
+                            <div>Furnished Apartment</div>
+                            <div>Unfurnished Apartment</div>
+                            <div>Studio Apartment</div>
                         </div>
-                        <div class="prop-type" data-target="type2-land">
-                            <span class="material-symbols-rounded">real_estate_agent</span>
-                            <span>Land</span>
+                        <div class="type2-comm type" style="display: none;">
+                            <div>Office Space</div>
+                            <div>Standalone Stores</div>
+                            <div>Shopping Complex</div>
+                            <div>Industrial Property</div>
+                            <div>Hotels and Restaurants</div>
+                            <div>Lodging</div>
+                            <div>Healthcare Facilities</div>
+                            <div>Infrastructure</div>
+                        </div>
+                        <div class="type2-vill type" style="display: none;">
+                            <div>Luxury Villa</div>
+                            <div>Beach Villa</div>
+                            <div>Modern Villa</div>
+                            <div>Traditional Villa</div>
+                            <div>Private Villa</div>
+                            <div>Eco-friendly Villa</div>
+                            <div>Garden Villa</div>
+                            <div>Pool Villa</div>
+                        </div>
+                        <div class="type2-land type" style="display: none;">
+                            <div>Residential land</div>
+                            <div>Commercial Land</div>
+                            <div>Shopping Complex</div>
+                            <div>Mixed use land</div>
+                            <div>Agriculture/ Farm Land</div>
+                            <div>Industrial land</div>
                         </div>
                     </div>
-                    <div class="type1-res type" style="display: none;">
-                        <div>1BHK</div>
-                        <div>2BHK</div>
-                        <div>3BHK</div>
-                        <div>Single Family Home</div>
-                        <div>Multi Family Home</div>
-                        <div>Town house</div>
-                        <div>Duplex</div>
-                        <div>Bungalow</div>
+                    <div class="type-of-prop-furnish">
+                        <div class="type-of-prop-furnish-head">
+                            <span>Furnishing Status</span>
+                        </div>
+                        <div class="type-of-prop-fur-desc">
+                            <div class="option" onclick="toggleColor(this)">
+                                <span>Furnished</span>
+                                <span class="material-symbols-rounded">check</span>
+                            </div>
+                            <div class="option" onclick="toggleColor(this)">
+                                <span>Semi-Furnished</span>
+                                <span class="material-symbols-rounded">check</span>
+                            </div>
+                            <div class="option" onclick="toggleColor(this)">
+                                <span>Un-Furnished</span>
+                                <span class="material-symbols-rounded">check</span>
+                            </div>
+                        </div>                              
                     </div>
-                    <div class="type2-apt type" style="display: none;">
-                        <div>1BHK</div>
-                        <div>2BHK</div>
-                        <div>3BHK</div>
-                        <div>Furnished Apartment</div>
-                        <div>Unfurnished Apartment</div>
-                        <div>Studio Apartment</div>
+                    <div class="type-of-prop-budget">
+                        <div class="type-of-prop-bud-head">
+                            <span>Budget</span>
+                        </div>
+                        <div class="type-of-prop-bud-desc">
+                            <select name="" id="">
+                                <option value="" hidden>Min-price</option>
+                                <option value="">&#8377;0</option>
+                                <option value="">&#8377;50 Lac</option>
+                                <option value="">&#8377;1 Cr</option>
+                                <option value="">&#8377;1.5 Cr</option>
+                                <option value="">&#8377;2 Cr</option>
+                                <option value="">&#8377;2.5 Cr</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="" hidden>Max-price</option>
+                                <option value="">&#8377;50 Lac</option>
+                                <option value="">&#8377;1 Cr</option>
+                                <option value="">&#8377;1.5 Cr</option>
+                                <option value="">&#8377;2 Cr</option>
+                                <option value="">&#8377;2.5 Cr</option>
+                                <option value="">&#8377;3+ Cr</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="type2-comm type" style="display: none;">
-                        <div>Office Space</div>
-                        <div>Standalone Stores</div>
-                        <div>Shopping Complex</div>
-                        <div>Industrial Property</div>
-                        <div>Hotels and Restaurants</div>
-                        <div>Lodging</div>
-                        <div>Healthcare Facilities</div>
-                        <div>Infrastructure</div>
+                    <div class="type-of-prop-dir">
+                        <div class="type-of-prop-dir-head">
+                            <span>Property-direction</span>
+                        </div>
+                        <div class="type-of-prop-dir-desc">
+                            <div class="directions">East</div>
+                            <div class="directions">West</div>
+                            <div class="directions">North</div>
+                            <div class="directions">South</div>
+                        </div>
                     </div>
-                    <div class="type2-vill type" style="display: none;">
-                        <div>Luxury Villa</div>
-                        <div>Beach Villa</div>
-                        <div>Modern Villa</div>
-                        <div>Traditional Villa</div>
-                        <div>Private Villa</div>
-                        <div>Eco-friendly Villa</div>
-                        <div>Garden Villa</div>
-                        <div>Pool Villa</div>
+                    <div class="type-of-prop-post">
+                        <div class="type-of-prop-post-head">
+                            <span>Posted On</span>
+                        </div>
+                        <div class="type-of-prop-post-desc">
+                            <div>
+                                <input type="radio" id="10days" name="posted" onchange="updateStyles()">
+                                <label for="10days">10 days ago</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="15days" name="posted" onchange="updateStyles()">
+                                <label for="15days">15 days ago</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="30days" name="posted" onchange="updateStyles()">
+                                <label for="30days">30+ days ago</label>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="type2-land type" style="display: none;">
-                        <div>Residential land</div>
-                        <div>Commercial Land</div>
-                        <div>Shopping Complex</div>
-                        <div>Mixed use land</div>
-                        <div>Agriculture/ Farm Land</div>
-                        <div>Industrial land</div>
+                    <div class="type-of-prop-size">
+                        <div class="type-of-prop-size-head">
+                            <span>Size of Property</span>
+                        </div>
+                        <div class="type-of-prop-size-desc">
+                            <div>
+                                <input type="radio" id="sqft1" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft1">200-300 sqft</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sqft2" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft2">300-400 sqft</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sqft3" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft3">400-500 sqft</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sqft4" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft4">500-600 sqft</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sqft5" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft5">600-800 sqft</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="sqft6" name="size" onchange="updateSizeStyles()">
+                                <label for="sqft6">800+ sqft</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="type-of-prop-aval">
+                        <div class="type-of-prop-aval-head">
+                            <span>Available From</span>
+                        </div>
+                        <div class="type-of-prop-aval-desc">
+                            <div>
+                                <input type="radio" id="imm" name="avail" onchange="updateAvailabilityStyles()">
+                                <label for="imm">Immediately</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="const" name="avail" onchange="updateAvailabilityStyles()">
+                                <label for="const">Under Construction</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="with1" name="avail" onchange="updateAvailabilityStyles()">
+                                <label for="with1">Within 2 Months</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="with2" name="avail" onchange="updateAvailabilityStyles()">
+                                <label for="with2">Within 3 Months</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="type-of-prop-furnish">
-                    <div class="type-of-prop-furnish-head">
-                        <span>Furnishing Status</span>
-                    </div>
-                    <div class="type-of-prop-fur-desc">
-                        <div class="option" onclick="toggleColor(this)">
-                            <span>Furnished</span>
-                            <span class="material-symbols-rounded">check</span>
-                        </div>
-                        <div class="option" onclick="toggleColor(this)">
-                            <span>Semi-Furnished</span>
-                            <span class="material-symbols-rounded">check</span>
-                        </div>
-                        <div class="option" onclick="toggleColor(this)">
-                            <span>Un-Furnished</span>
-                            <span class="material-symbols-rounded">check</span>
-                        </div>
-                    </div>                              
-                </div>
-                <div class="type-of-prop-budget">
-                    <div class="type-of-prop-bud-head">
-                        <span>Budget</span>
-                    </div>
-                    <div class="type-of-prop-bud-desc">
-                        <select name="" id="">
-                            <option value="" hidden>Min-price</option>
-                            <option value="">&#8377;0</option>
-                            <option value="">&#8377;50 Lac</option>
-                            <option value="">&#8377;1 Cr</option>
-                            <option value="">&#8377;1.5 Cr</option>
-                            <option value="">&#8377;2 Cr</option>
-                            <option value="">&#8377;2.5 Cr</option>
-                        </select>
-                        <select name="" id="">
-                            <option value="" hidden>Max-price</option>
-                            <option value="">&#8377;50 Lac</option>
-                            <option value="">&#8377;1 Cr</option>
-                            <option value="">&#8377;1.5 Cr</option>
-                            <option value="">&#8377;2 Cr</option>
-                            <option value="">&#8377;2.5 Cr</option>
-                            <option value="">&#8377;3+ Cr</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="type-of-prop-dir">
-                    <div class="type-of-prop-dir-head">
-                        <span>Property-direction</span>
-                    </div>
-                    <div class="type-of-prop-dir-desc">
-                        <div class="directions">East</div>
-                        <div class="directions">West</div>
-                        <div class="directions">North</div>
-                        <div class="directions">South</div>
-                    </div>
-                </div>
-                <div class="type-of-prop-post">
-                    <div class="type-of-prop-post-head">
-                        <span>Posted On</span>
-                    </div>
-                    <div class="type-of-prop-post-desc">
-                        <div>
-                            <input type="radio" id="10days" name="posted" onchange="updateStyles()">
-                            <label for="10days">10 days ago</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="15days" name="posted" onchange="updateStyles()">
-                            <label for="15days">15 days ago</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="30days" name="posted" onchange="updateStyles()">
-                            <label for="30days">30+ days ago</label>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="type-of-prop-size">
-                    <div class="type-of-prop-size-head">
-                        <span>Size of Property</span>
-                    </div>
-                    <div class="type-of-prop-size-desc">
-                        <div>
-                            <input type="radio" id="sqft1" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft1">200-300 sqft</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="sqft2" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft2">300-400 sqft</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="sqft3" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft3">400-500 sqft</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="sqft4" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft4">500-600 sqft</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="sqft5" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft5">600-800 sqft</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="sqft6" name="size" onchange="updateSizeStyles()">
-                            <label for="sqft6">800+ sqft</label>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="type-of-prop-aval">
-                    <div class="type-of-prop-aval-head">
-                        <span>Available From</span>
-                    </div>
-                    <div class="type-of-prop-aval-desc">
-                        <div>
-                            <input type="radio" id="imm" name="avail" onchange="updateAvailabilityStyles()">
-                            <label for="imm">Immediately</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="const" name="avail" onchange="updateAvailabilityStyles()">
-                            <label for="const">Under Construction</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="with1" name="avail" onchange="updateAvailabilityStyles()">
-                            <label for="with1">Within 2 Months</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="with2" name="avail" onchange="updateAvailabilityStyles()">
-                            <label for="with2">Within 3 Months</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="buyerlist">
-                <article class="sort-by">
-                    <div class="sort-by-head">Sort By:</div>
-                    <div class="sort-by-div">
-                        <span class="sort-option">Price Low to High</span>
-                        <span class="sort-option">Price High to Low</span>
-                    </div>                
-                </article>
-                <div>
-                    <article class="singleproperty">
-                        <div class="imageview">
-                            <img src="../assets/marine1.jpg" alt="">
-                        </div>
-                        <div class="property-desc">
-                            <div class="prop-icons">
-                                <div class="available">
-                                    <span>Available</span>
-                                </div>
-                                <div class="main-share">
-                                    <div class="bookmark">
-                                        <span class="material-symbols-rounded like-btn">favorite</span>
+                <div class="buyerlist">
+                    <article class="sort-by">
+                        <div class="sort-by-head">Sort By:</div>
+                        <div class="sort-by-div">
+                            <span class="sort-option">Price Low to High</span>
+                            <span class="sort-option">Price High to Low</span>
+                        </div>                
+                    </article>
+                    <div>
+                        <article class="singleproperty">
+                            <div class="imageview">
+                                <img src="../assets/marine1.jpg" alt="">
+                            </div>
+                            <div class="property-desc">
+                                <div class="prop-icons">
+                                    <div class="available">
+                                        <span>Available</span>
                                     </div>
-                                    <div class="share" data-modal="modalContent1">
-                                        <span class="material-symbols-rounded">ios_share</span>
-                                        <span>Share</span>
-                                    </div>
-                                    <div class="modal-content" id="modalContent1">
-                                        <div class="social-group">
-                                            <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                            <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                            <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                            <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                            <div class="copy-content">
-                                                <input type="text" id="inputField1" value="https://google.com" />
-                                                <button class="copyButton" >Copy</button>
+                                    <div class="main-share">
+                                        <div class="bookmark">
+                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                        </div>
+                                        <div class="share" data-modal="modalContent1">
+                                            <span class="material-symbols-rounded">ios_share</span>
+                                            <span>Share</span>
+                                        </div>
+                                        <div class="modal-content" id="modalContent1">
+                                            <div class="social-group">
+                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                <div class="copy-content">
+                                                    <input type="text" id="inputField1" value="https://google.com" />
+                                                    <button class="copyButton" >Copy</button>
+                                                </div>
+                                                <span class="close">&times;</span>
                                             </div>
-                                            <span class="close">&times;</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="prop-head">
-                                <span>Vijay Residential</span>
-                                <span id="line"></span>
-                                <span>2BHK</span>
-                            </div>
-                            <div class="prop-addr">
-                                <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                            </div>
-                            <div class="prop-price-sqrt">
-                                <div class="single-prop-det price">
-                                    <span class="heading">Price: </span>
-                                    <span class="material-symbols-rounded">currency_rupee</span>
-                                    <span>50 L</span>
+                                <div class="prop-head">
+                                    <span>Vijay Residential</span>
+                                    <span id="line"></span>
+                                    <span>2BHK</span>
                                 </div>
-                                <div class="single-prop-det area">
-                                    <span class="heading">Area: </span>
-                                    <span>200 Sqft</span>
+                                <div class="prop-addr">
+                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                 </div>
-                                <div class="single-prop-det feature">
-                                    <span class="heading">Features: </span>
-                                    <span>Gym, Internet</span>
-                                </div>
-                            </div>
-                            <div class="prop-explore">
-                                <div class="prop-posted">
-                                    <span>Posted On: 15/08/2024</span>
-                                </div>
-                                <div class="exp">
-                                    <span class="material-symbols-rounded">travel_explore</span>
-                                    <span>Explore</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="singleproperty">
-                        <div class="imageview">
-                            <img src="../assets/green2.png" alt="">
-                        </div>
-                        <div class="property-desc">
-                            <div class="prop-icons">
-                                <div class="available">
-                                    <span>Available</span>
-                                </div>
-                                <div class="main-share">
-                                    <div class="bookmark">
-                                        <span class="material-symbols-rounded like-btn">favorite</span>
+                                <div class="prop-price-sqrt">
+                                    <div class="single-prop-det price">
+                                        <span class="heading">Price: </span>
+                                        <span class="material-symbols-rounded">currency_rupee</span>
+                                        <span>50 L</span>
                                     </div>
-                                    <div class="share" data-modal="modalContent2">
-                                        <span class="material-symbols-rounded">ios_share</span>
-                                        <span>Share</span>
+                                    <div class="single-prop-det area">
+                                        <span class="heading">Area: </span>
+                                        <span>200 Sqft</span>
                                     </div>
-                                    <div class="modal-content" id="modalContent2">
-                                        <div class="social-group">
-                                            <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                            <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                            <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                            <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                            <div class="copy-content">
-                                                <input type="text" id="inputField2" value="https://google.com" />
-                                                <button class="copyButton">Copy</button>
+                                    <div class="single-prop-det feature">
+                                        <span class="heading">Features: </span>
+                                        <span>Gym, Internet</span>
+                                    </div>
+                                </div>
+                                <div class="prop-explore">
+                                    <div class="prop-posted">
+                                        <span>Posted On: 15/08/2024</span>
+                                    </div>
+                                    <div class="exp">
+                                        <span class="material-symbols-rounded">travel_explore</span>
+                                        <span>Explore</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="singleproperty">
+                            <div class="imageview">
+                                <img src="../assets/green2.png" alt="">
+                            </div>
+                            <div class="property-desc">
+                                <div class="prop-icons">
+                                    <div class="available">
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="main-share">
+                                        <div class="bookmark">
+                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                        </div>
+                                        <div class="share" data-modal="modalContent2">
+                                            <span class="material-symbols-rounded">ios_share</span>
+                                            <span>Share</span>
+                                        </div>
+                                        <div class="modal-content" id="modalContent2">
+                                            <div class="social-group">
+                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                <div class="copy-content">
+                                                    <input type="text" id="inputField2" value="https://google.com" />
+                                                    <button class="copyButton">Copy</button>
+                                                </div>
+                                                <span class="close">&times;</span>
                                             </div>
-                                            <span class="close">&times;</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="prop-head">
-                                <span>Vijay Residential</span>
-                                <span id="line"></span>
-                                <span>2BHK</span>
-                            </div>
-                            <div class="prop-addr">
-                                <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                            </div>
-                            <div class="prop-price-sqrt">
-                                <div class="single-prop-det price">
-                                    <span class="heading">Price: </span>
-                                    <span class="material-symbols-rounded">currency_rupee</span>
-                                    <span>50 L</span>
+                                <div class="prop-head">
+                                    <span>Vijay Residential</span>
+                                    <span id="line"></span>
+                                    <span>2BHK</span>
                                 </div>
-                                <div class="single-prop-det area">
-                                    <span class="heading">Area: </span>
-                                    <span>200 Sqft</span>
+                                <div class="prop-addr">
+                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                 </div>
-                                <div class="single-prop-det feature">
-                                    <span class="heading">Features: </span>
-                                    <span>Gym, Internet</span>
-                                </div>
-                            </div>
-                            <div class="prop-explore">
-                                <div class="prop-posted">
-                                    <span>Posted On: 15/08/2024</span>
-                                </div>
-                                <div class="exp">
-                                    <span class="material-symbols-rounded">travel_explore</span>
-                                    <span>Explore</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="singleproperty">
-                        <div class="imageview">
-                            <img src="../assets/Aparna1.png" alt="">
-                        </div>
-                        <div class="property-desc">
-                            <div class="prop-icons">
-                                <div class="available">
-                                    <span>Available</span>
-                                </div>
-                                <div class="main-share">
-                                    <div class="bookmark">
-                                        <span class="material-symbols-rounded like-btn">favorite</span>
+                                <div class="prop-price-sqrt">
+                                    <div class="single-prop-det price">
+                                        <span class="heading">Price: </span>
+                                        <span class="material-symbols-rounded">currency_rupee</span>
+                                        <span>50 L</span>
                                     </div>
-                                    <div class="share" data-modal="modalContent3">
-                                        <span class="material-symbols-rounded">ios_share</span>
-                                        <span>Share</span>
+                                    <div class="single-prop-det area">
+                                        <span class="heading">Area: </span>
+                                        <span>200 Sqft</span>
                                     </div>
-                                    <div class="modal-content" id="modalContent3">
-                                        <div class="social-group">
-                                            <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                            <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                            <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                            <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                            <div class="copy-content">
-                                                <input type="text"id="inputField3" value="https://google.com" />
-                                                <button class="copyButton">Copy</button>
+                                    <div class="single-prop-det feature">
+                                        <span class="heading">Features: </span>
+                                        <span>Gym, Internet</span>
+                                    </div>
+                                </div>
+                                <div class="prop-explore">
+                                    <div class="prop-posted">
+                                        <span>Posted On: 15/08/2024</span>
+                                    </div>
+                                    <div class="exp">
+                                        <span class="material-symbols-rounded">travel_explore</span>
+                                        <span>Explore</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="singleproperty">
+                            <div class="imageview">
+                                <img src="../assets/Aparna1.png" alt="">
+                            </div>
+                            <div class="property-desc">
+                                <div class="prop-icons">
+                                    <div class="available">
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="main-share">
+                                        <div class="bookmark">
+                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                        </div>
+                                        <div class="share" data-modal="modalContent3">
+                                            <span class="material-symbols-rounded">ios_share</span>
+                                            <span>Share</span>
+                                        </div>
+                                        <div class="modal-content" id="modalContent3">
+                                            <div class="social-group">
+                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                <div class="copy-content">
+                                                    <input type="text"id="inputField3" value="https://google.com" />
+                                                    <button class="copyButton">Copy</button>
+                                                </div>
+                                                <span class="close">&times;</span>
                                             </div>
-                                            <span class="close">&times;</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="prop-head">
-                                <span>Vijay Residential</span>
-                                <span id="line"></span>
-                                <span>2BHK</span>
-                            </div>
-                            <div class="prop-addr">
-                                <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                            </div>
-                            <div class="prop-price-sqrt">
-                                <div class="single-prop-det price">
-                                    <span class="heading">Price: </span>
-                                    <span class="material-symbols-rounded">currency_rupee</span>
-                                    <span>50 L</span>
+                                <div class="prop-head">
+                                    <span>Vijay Residential</span>
+                                    <span id="line"></span>
+                                    <span>2BHK</span>
                                 </div>
-                                <div class="single-prop-det area">
-                                    <span class="heading">Area: </span>
-                                    <span>200 Sqft</span>
+                                <div class="prop-addr">
+                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                 </div>
-                                <div class="single-prop-det feature">
-                                    <span class="heading">Features: </span>
-                                    <span>Gym, Internet</span>
-                                </div>
-                            </div>
-                            <div class="prop-explore">
-                                <div class="prop-posted">
-                                    <span>Posted On: 15/08/2024</span>
-                                </div>
-                                <div class="exp">
-                                    <span class="material-symbols-rounded">travel_explore</span>
-                                    <span>Explore</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="singleproperty">
-                        <div class="imageview">
-                            <img src="../assets/green2.png" alt="">
-                        </div>
-                        <div class="property-desc">
-                            <div class="prop-icons">
-                                <div class="available">
-                                    <span>Available</span>
-                                </div>
-                                <div class="main-share">
-                                    <div class="bookmark">
-                                        <span class="material-symbols-rounded like-btn">favorite</span>
+                                <div class="prop-price-sqrt">
+                                    <div class="single-prop-det price">
+                                        <span class="heading">Price: </span>
+                                        <span class="material-symbols-rounded">currency_rupee</span>
+                                        <span>50 L</span>
                                     </div>
-                                    <div class="share" data-modal="modalContent2">
-                                        <span class="material-symbols-rounded">ios_share</span>
-                                        <span>Share</span>
+                                    <div class="single-prop-det area">
+                                        <span class="heading">Area: </span>
+                                        <span>200 Sqft</span>
                                     </div>
-                                    <div class="modal-content" id="modalContent2">
-                                        <div class="social-group">
-                                            <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                            <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                            <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                            <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                            <div class="copy-content">
-                                                <input type="text" id="inputField4" value="https://google.com" />
-                                                <button class="copyButton">Copy</button>
+                                    <div class="single-prop-det feature">
+                                        <span class="heading">Features: </span>
+                                        <span>Gym, Internet</span>
+                                    </div>
+                                </div>
+                                <div class="prop-explore">
+                                    <div class="prop-posted">
+                                        <span>Posted On: 15/08/2024</span>
+                                    </div>
+                                    <div class="exp">
+                                        <span class="material-symbols-rounded">travel_explore</span>
+                                        <span>Explore</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="singleproperty">
+                            <div class="imageview">
+                                <img src="../assets/green2.png" alt="">
+                            </div>
+                            <div class="property-desc">
+                                <div class="prop-icons">
+                                    <div class="available">
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="main-share">
+                                        <div class="bookmark">
+                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                        </div>
+                                        <div class="share" data-modal="modalContent2">
+                                            <span class="material-symbols-rounded">ios_share</span>
+                                            <span>Share</span>
+                                        </div>
+                                        <div class="modal-content" id="modalContent2">
+                                            <div class="social-group">
+                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                <div class="copy-content">
+                                                    <input type="text" id="inputField4" value="https://google.com" />
+                                                    <button class="copyButton">Copy</button>
+                                                </div>
+                                                <span class="close">&times;</span>
                                             </div>
-                                            <span class="close">&times;</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="prop-head">
-                                <span>Vijay Residential</span>
-                                <span id="line"></span>
-                                <span>2BHK</span>
-                            </div>
-                            <div class="prop-addr">
-                                <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                            </div>
-                            <div class="prop-price-sqrt">
-                                <div class="single-prop-det price">
-                                    <span class="heading">Price: </span>
-                                    <span class="material-symbols-rounded">currency_rupee</span>
-                                    <span>50 L</span>
+                                <div class="prop-head">
+                                    <span>Vijay Residential</span>
+                                    <span id="line"></span>
+                                    <span>2BHK</span>
                                 </div>
-                                <div class="single-prop-det area">
-                                    <span class="heading">Area: </span>
-                                    <span>200 Sqft</span>
+                                <div class="prop-addr">
+                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                 </div>
-                                <div class="single-prop-det feature">
-                                    <span class="heading">Features: </span>
-                                    <span>Gym, Internet</span>
-                                </div>
-                            </div>
-                            <div class="prop-explore">
-                                <div class="prop-posted">
-                                    <span>Posted On: 15/08/2024</span>
-                                </div>
-                                <div class="exp">
-                                    <span class="material-symbols-rounded">travel_explore</span>
-                                    <span>Explore</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="singleproperty">
-                        <div class="imageview">
-                            <img src="../assets/AparnaSarovar3.png" alt="">
-                        </div>
-                        <div class="property-desc">
-                            <div class="prop-icons">
-                                <div class="available">
-                                    <span>Available</span>
-                                </div>
-                                <div class="main-share">
-                                    <div class="bookmark">
-                                        <span class="material-symbols-rounded like-btn">favorite</span>
+                                <div class="prop-price-sqrt">
+                                    <div class="single-prop-det price">
+                                        <span class="heading">Price: </span>
+                                        <span class="material-symbols-rounded">currency_rupee</span>
+                                        <span>50 L</span>
                                     </div>
-                                    <div class="share" data-modal="modalContent2">
-                                        <span class="material-symbols-rounded">ios_share</span>
-                                        <span>Share</span>
+                                    <div class="single-prop-det area">
+                                        <span class="heading">Area: </span>
+                                        <span>200 Sqft</span>
                                     </div>
-                                    <div class="modal-content" id="modalContent2">
-                                        <div class="social-group">
-                                            <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                            <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                            <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                            <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                            <div class="copy-content">
-                                                <input type="text" id="inputField5" value="https://google.com" />
-                                                <button class="copyButton">Copy</button>
+                                    <div class="single-prop-det feature">
+                                        <span class="heading">Features: </span>
+                                        <span>Gym, Internet</span>
+                                    </div>
+                                </div>
+                                <div class="prop-explore">
+                                    <div class="prop-posted">
+                                        <span>Posted On: 15/08/2024</span>
+                                    </div>
+                                    <div class="exp">
+                                        <span class="material-symbols-rounded">travel_explore</span>
+                                        <span>Explore</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="singleproperty">
+                            <div class="imageview">
+                                <img src="../assets/AparnaSarovar3.png" alt="">
+                            </div>
+                            <div class="property-desc">
+                                <div class="prop-icons">
+                                    <div class="available">
+                                        <span>Available</span>
+                                    </div>
+                                    <div class="main-share">
+                                        <div class="bookmark">
+                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                        </div>
+                                        <div class="share" data-modal="modalContent2">
+                                            <span class="material-symbols-rounded">ios_share</span>
+                                            <span>Share</span>
+                                        </div>
+                                        <div class="modal-content" id="modalContent2">
+                                            <div class="social-group">
+                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                <div class="copy-content">
+                                                    <input type="text" id="inputField5" value="https://google.com" />
+                                                    <button class="copyButton">Copy</button>
+                                                </div>
+                                                <span class="close">&times;</span>
                                             </div>
-                                            <span class="close">&times;</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="prop-head">
-                                <span>Vijay Residential</span>
-                                <span id="line"></span>
-                                <span>2BHK</span>
-                            </div>
-                            <div class="prop-addr">
-                                <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                            </div>
-                            <div class="prop-price-sqrt">
-                                <div class="single-prop-det price">
-                                    <span class="heading">Price: </span>
-                                    <span class="material-symbols-rounded">currency_rupee</span>
-                                    <span>50 L</span>
+                                <div class="prop-head">
+                                    <span>Vijay Residential</span>
+                                    <span id="line"></span>
+                                    <span>2BHK</span>
                                 </div>
-                                <div class="single-prop-det area">
-                                    <span class="heading">Area: </span>
-                                    <span>200 Sqft</span>
+                                <div class="prop-addr">
+                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                 </div>
-                                <div class="single-prop-det feature">
-                                    <span class="heading">Features: </span>
-                                    <span>Gym, Internet</span>
+                                <div class="prop-price-sqrt">
+                                    <div class="single-prop-det price">
+                                        <span class="heading">Price: </span>
+                                        <span class="material-symbols-rounded">currency_rupee</span>
+                                        <span>50 L</span>
+                                    </div>
+                                    <div class="single-prop-det area">
+                                        <span class="heading">Area: </span>
+                                        <span>200 Sqft</span>
+                                    </div>
+                                    <div class="single-prop-det feature">
+                                        <span class="heading">Features: </span>
+                                        <span>Gym, Internet</span>
+                                    </div>
+                                </div>
+                                <div class="prop-explore">
+                                    <div class="prop-posted">
+                                        <span>Posted On: 15/08/2024</span>
+                                    </div>
+                                    <div class="exp">
+                                        <span class="material-symbols-rounded">travel_explore</span>
+                                        <span>Explore</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="prop-explore">
-                                <div class="prop-posted">
-                                    <span>Posted On: 15/08/2024</span>
-                                </div>
-                                <div class="exp">
-                                    <span class="material-symbols-rounded">travel_explore</span>
-                                    <span>Explore</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
                 </div>
-                
             </div>
         </div>
         <!-- footer -->

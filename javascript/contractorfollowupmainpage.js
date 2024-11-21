@@ -28,27 +28,58 @@ emailRadio.addEventListener("change", function () {
 });
 
 hideAllSections();
+document.querySelector('.followup-form').addEventListener('submit', function(event) {
+    let valid = true;
 
-const form = document.getElementById('followup-form');
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const requiredFields = document.querySelectorAll('[required]');
-    let isValid = true;
-
-    for (let field of requiredFields) {
-        if (!field.value) {
-            isValid = false;
-            break;
+    // Reset all error states
+    const inputs = this.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.style.border = '';
+        const errorMessage = input.nextElementSibling;
+        if (errorMessage) {
+            errorMessage.style.display = 'none';
         }
+    });
+
+    // Check for required fields
+    const requiredFields = this.querySelectorAll('[required]');
+    requiredFields.forEach(field => {
+        if (!field.value) {
+            field.style.border = '2px solid red';
+            valid = false;
+        }
+    });
+
+    // Check specific field validations
+    const mobileNumber = document.getElementById('mobile-number');
+    if (mobileNumber.value && mobileNumber.value.length !== 10) {
+        mobileNumber.style.border = '2px solid red';
+        valid = false;
+        document.getElementById('mobile-error').style.display = 'block';
     }
-    if (isValid) {
-        alert("Scheduled the follow-up");
-        window.location.href="../html/contractorfollowuphistory.html"
-    } else {
-        alert("Please fill in all required fields!");
+
+    const email = document.getElementById('email');
+    if (email.value && !validateEmail(email.value)) {
+        email.style.border = '2px solid red';
+        valid = false;
+        document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+        document.getElementById('emailError').style.display = 'block';
     }
+
+    // Prevent form submission if any field is invalid
+    if (!valid) {
+        event.preventDefault();
+        return;
+    }
+
+    // Alert message and navigate if everything is valid
+    alert('Form submitted successfully!');
+    // Here you can add the logic to navigate to the next page, e.g.:
+    // window.location.href = 'next-page.html';
 });
-document.getElementById('face-meeting').addEventListener('input', function(event) {
-    event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
-});
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+

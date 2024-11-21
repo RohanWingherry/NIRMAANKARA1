@@ -234,12 +234,33 @@ function addRow() {
     lastPercentageCell.innerText = newPercentage;
     lastAmountCell.innerText = newAmount;
     
-    // Create and append the new row without a delete button
+    // Create and append the new row with the "Delete" button included
     const newRow = createRow('', newPercentage, (lastPercentage / 2), false, true);
+    
+    // Add the delete button to the new row
+    const deleteCell = document.createElement('td');
+    deleteCell.className = 'action-delete';
+    deleteCell.style.textAlign = "center";
+    const deleteButton = document.createElement('button');
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.className = 'fa-solid fa-trash';
+    deleteIcon.style.color = 'red';
+    deleteIcon.style.fontSize = '16px';
+    deleteIcon.style.padding = '3px';
+    deleteIcon.style.cursor = 'pointer';
+    deleteButton.appendChild(deleteIcon);
+
+    deleteButton.onclick = () => deleteRow(newRow);  // Use the deleteRow function for this row
+    deleteCell.appendChild(deleteButton);
+    newRow.appendChild(deleteCell); // Append the delete cell to the new row
+
+    // Insert the new row before the last three rows
     tableBody.insertBefore(newRow, tableBody.childNodes[tableBody.childNodes.length - 3]);
     
     updateTotalAmount();
 }
+
 
 
 function appendFinalRows(tableBody) {
