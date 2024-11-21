@@ -140,7 +140,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Prevent closing when clicking on the search input
     document.getElementById("search").addEventListener("click", function(event) {
         event.stopPropagation(); // Prevent click from closing the list
+        // Optionally, you can add your search functionality here
+        console.log("Search button clicked!");
     });
+    
+    // Event listener to close the contractor-list when clicking outside of it
+    document.addEventListener("click", function(event) {
+        const contractorList = document.getElementById("contractor-list");
+        const searchButton = document.getElementById("search");
+        
+        if (!contractorList.contains(event.target) && !searchButton.contains(event.target)) {
+            contractorList.style.display = "none";  // Close the list
+        }
+    });
+    
 
     // Prevent closing when clicking on the contractor list itself
     document.querySelector(".contractor-list").addEventListener("click", function(event) {
@@ -336,7 +349,7 @@ chatPersons.forEach(person => {
     };
 
     // Dots icon click event
-    dotsIcon.addEventListener('click', toggleMenu);
+    // dotsIcon.addEventListener('click', toggleMenu);
 
     // Delete person from list
     menu.querySelector('.delete-chat').addEventListener('click', function (event) {
@@ -416,27 +429,27 @@ document.addEventListener('click', (event) => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Select all elements with the class "add-persons"
-    const addPersonsElements = document.querySelectorAll('.add-persons');
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Select all elements with the class "add-persons"
+//     const addPersonsElements = document.querySelectorAll('.add-persons');
     
-    // Select the contractor list by ID
-    const contractorList = document.getElementById('contractor-list');
+//     // Select the contractor list by ID
+//     const contractorList = document.getElementById('contractor-list');
     
-    // Add event listener to each "Add Person" element
-    addPersonsElements.forEach(function(element) {
-      element.addEventListener('click', function() {
-        // Get the current display style of the contractor list using getComputedStyle
-        const currentDisplay = window.getComputedStyle(contractorList).display;
+//     // Add event listener to each "Add Person" element
+//     addPersonsElements.forEach(function(element) {
+//       element.addEventListener('click', function() {
+//         // Get the current display style of the contractor list using getComputedStyle
+//         const currentDisplay = window.getComputedStyle(contractorList).display;
   
-        // Toggle visibility of the contractor list
-        if (currentDisplay === 'none') {
-          contractorList.style.display = 'block';  // Show the list
-        } else {
-          contractorList.style.display = 'none';  // Hide the list
-        }
-      });
-    });
-  });
+//         // Toggle visibility of the contractor list
+//         if (currentDisplay === 'none') {
+//           contractorList.style.display = 'block';  // Show the list
+//         } else {
+//           contractorList.style.display = 'none';  // Hide the list
+//         }
+//       });
+//     });
+//   });
   
   
