@@ -54,14 +54,20 @@
     background-color: #e2e2e2;
 }
 .follow-table #action-heading{
-    border-right: 1px solid rgb(133, 133, 133);
     padding: 15px 100px;
+}
+.follow-table #last-col{
+    border-right: 1px solid rgb(133, 133, 133);
+
 }
 .follow-table td{  
     border: none;
     border-right: 1px solid rgb(196, 196, 196);
     background-color: #f1f1f1;
     padding: 10px 10px;
+}
+.follow-table .lastrow{
+    border-right: none;
 }
 @media (max-width:768px) {
     .main-table{
