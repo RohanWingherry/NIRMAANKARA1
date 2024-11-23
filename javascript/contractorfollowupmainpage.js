@@ -228,3 +228,11 @@ function validateEmail() {
     return valid;
     
 }
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value;
+    if (cust) {
+        document.querySelector(".main-client-det").style.display = "block";
+    } else {
+        alert("Enter the Customer ID");
+    }
+});
