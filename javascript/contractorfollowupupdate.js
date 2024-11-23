@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('customerName').value = record.customerName;
         document.getElementById('customerMob').value = record.customerMob;
         document.getElementById('contactMethod').value = record.contactMethod;
+        document.getElementById('clientStatus').value=record.clientStatus;
         document.getElementById('status').value = record.status;
     } else {
         dateInput.value = today;  
@@ -26,12 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const customerName = document.getElementById('customerName').value;
         const customerMob = document.getElementById('customerMob').value;
         const contactMethod = document.getElementById('contactMethod').value;
+        const clientStatus=document.getElementById('clientStatus').value;
         const status = document.getElementById('status').value;
         
         const isConductedSelected = document.getElementById('conducted').checked;
         const isNotConductedSelected = document.getElementById('notconducted').checked;
 
-        if (!sno || !date || !customerName || !customerMob || !contactMethod || !status) {
+        if (!sno || !date || !customerName || !customerMob ||!clientStatus || !contactMethod || !status) {
             alert("All fields are mandatory. Please fill out all fields.");
             return;
         }
@@ -52,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             customerName: customerName,
             customerMob: customerMob,
             contactMethod: contactMethod,
+            clientStatus:clientStatus,
             status: status
         };
 
