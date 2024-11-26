@@ -40,8 +40,7 @@ function submitForm() {
 
     if (valid) {
         alert('Form submitted successfully!');
-        // You can redirect to another page or reset the form here
-        // window.location.href = 'nextPage.html'; // Example of redirection
+        window.location.href = '../html/contractorfollowuphistory.html';
     } else {
         alert('Please fill in all the fields correctly');
     }

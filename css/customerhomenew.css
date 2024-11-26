@@ -16,7 +16,6 @@
     position: fixed;
     width: 100%;
     transition: all 1s ease;
-    border-bottom: 1px solid grey;
 }
 /* main logo */
 .navigation-bar .main-logo{
@@ -28,14 +27,15 @@
 .navigation-bar .main-logo .logo-img{
     height: 35px;
     width: 35px;
-    background-color: white;
-    border-radius: 50%;
+}
+.navigation-bar .main-logo .name-img{
+  height: 20px;
+  width: 150px;
 }
 .navigation-bar .main-logo .logo-name{
     font-size: 20px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
-    color: white;
 }
 /* nav sections */
 .navigation-bar .nav-sections{
@@ -44,54 +44,273 @@
     justify-content: center;
     gap: 15px;
 }
-.navigation-bar .nav-sections .single-section>div{
+.navigation-bar .nav-sections .single-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.navigation-bar .single-section .nav-buyer{
     font-family: "REM", sans-serif;
+    font-weight: 300;
     color: white;
+}
+.navigation-bar .single-section .nav-agent{
+  font-family: "REM", sans-serif;
+    font-weight: 300;
+    color: white;
+}
+.navigation-bar .single-section .nav-tenants{
+  font-family: "REM", sans-serif;
+    font-weight: 300;
+    color: white;
+}
+.navigation-bar .single-section  .nav-findcontractor{
+  font-family: "REM", sans-serif;
+    font-weight: 300;
+    color: white;
+}
+.navigation-bar .all-hover-heading{
+  display: flex;
+}
+.navigation-bar .nav-sections .single-section .all-hover-heading >span{
+  color: white;
+}
+
+.navigation-bar .nav-contractor{
+  background-color: #A5362B;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+.navigation-bar .nav-builder{
+  background-color: #D96F2C;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+.navigation-bar .nav-postproperty{
+  background-color: #0B3A62;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
 }
 /* nav- profile*/
 .navigation-bar .nav-main-profile{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 1px;
+    cursor: pointer;
+    color: white;
 }
-.navigation-bar .nav-main-profile .nav-profile-pic{
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: 2px solid rgb(194, 191, 191);
+.navigation-bar .nav-main-profile .nav-profile{
+  font-family: "REM", sans-serif;
+  font-weight: 500;
+}
+/* Main menu */
+.navigation-bar .main-menus{
+  padding: 0px 3px;
+  color: white;
 }
 /* Scrolled */
 .navbar-scrolled{
-    background-color: white;
+  background-color: rgb(241, 241, 241);
 }
-.navbar-scrolled .main-logo .logo-name{
-    color: #008892;
+.navbar-scrolled .nav-contractor{
+  color: white;
 }
-.navbar-scrolled .nav-sections .single-section>div{
-    color: black;
+.navbar-scrolled .nav-builder{
+  color: white;
 }
+.navbar-scrolled .nav-postproperty{
+  color: white;
+}
+.navbar-scrolled .single-section .nav-buyer{
+ color: black;
+}
+.navbar-scrolled .single-section .nav-agent{
+ color: black;
+}
+.navbar-scrolled .single-section .nav-tenants{
+ color: black;
+}
+.navbar-scrolled .single-section  .nav-findcontractor{
+ color: black;
+}
+.navbar-scrolled .nav-sections .single-section .all-hover-heading>span{
+  color: black;
+}
+.navbar-scrolled .nav-main-profile{
+  color: black;
+}
+.navbar-scrolled .main-menus{
+  color: black;
+}
+
+/* Buyer-hover */
+
+.all-hover {
+  background-color: #f1f1f1;
+  position: fixed;
+  top: 60px;
+  font-size: 14px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 25px 50px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  display: none; 
+}
+
+.all-hover .hover-content-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.all-hover .hover-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.all-hover .hover-content .hover-heading {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.all-hover .hover-content .hover-heading>span{
+  padding: 3px;
+  border-radius: 50%;
+  align-items: center;
+  color: rgb(58, 58, 58);
+  border: 1px solid rgb(194, 194, 194);
+}
+.all-hover .hover-content .hover-heading>div{
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+}
+.hover-heading #house{
+  background-color: #acb6e5cb;
+}
+.hover-heading #apartment{
+  background-color: #ffd8c0b4;
+}
+.hover-heading #storefront{
+  background-color: #b5f1ccc5;
+}
+.hover-heading #houseboat{
+  background-color: #9fe9f68c;
+}
+.hover-heading #nature-people{
+  background-color: #ffc0d9b2;
+}
+
+.all-hover .hover-content .hover-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.hover-tags ul{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 25px;
+}
+.hover-tags ul li a {
+  text-decoration: none;
+  color: rgb(39, 39, 39);
+  position: relative;
+  padding: 2px;
+  font-weight: 500;
+}
+
+.hover-tags ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.5s ease;
+}
+
+.hover-tags ul li a:hover::before {
+  width: 100%;
+}
+
+#buyer-hover-heading:hover + #buyer-hover {
+  display: block;
+}
+.all-hover-heading {
+  cursor: pointer;
+}
+#buyer-hover:hover {
+  display: block;
+}
+
 /* End main nav bar */
-.main-content{
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/maps.png');
-    height: 660px;
+.main-search-bar{
+    background-image: url(../assets/maps.png);
+    height: 750px;    
     width: 100%;
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: center;
     z-index: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+.main-content>video{
+  position: absolute;
+  top: 0;
+  height: 500px;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 10px;
+  transition: all ease-in-out 0.3s;
+}
+.searching-tabs{
+    width: 80%;
+    position: relative;
+    top: 100px;
+    display: flex;
+    gap: 2px;
+}
+.searching-tabs .singletab{
+  padding: 8px 10px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: rgba(255, 255, 255, 0.158);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 
+}
+.singletab>span{
+  font-family: "REM", sans-serif;
+  font-weight: 300;
+}
+.searching-tabs .tab-active{
+  background-color: #f1f1f1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.tab-active>span{
+  font-weight: 500;
+}
 .searching{
     width: 80%;
     background: rgba(255, 255, 255, 0.562);
     backdrop-filter: blur(2px);
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 10px;
     position: relative;
     top: 100px;
 }
@@ -220,6 +439,20 @@
 }
 .searchbar .searchselect .searchicon:hover{
   background-color: grey;
+}
+.searchbar .searchselect .getexperts{
+  background-color: black;
+  color: white;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.searchbar .searchselect .getexperts .span{
+  padding: 10px;
 }
 @media (max-width:768px) {
   .main-buyerhome .heading-section{

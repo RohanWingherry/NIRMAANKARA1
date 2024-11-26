@@ -305,7 +305,7 @@
                             <span>F-270920241</span>
                         </div>
                         <div class="client">
-                            <label for="quotation-date">Date:</label>
+                            <label for="dateInput">Date:</label>
                             <input type="date" id="dateInput" disabled>
                         </div>
                         <div class="client">
@@ -321,16 +321,16 @@
             <div class="main-followup">
                 <div class="form-container">
                     <div class="prefered-type">Schedule an Appointment</div>
-                    
+            
                     <div class="radio-buttons">
-                        <label>
-                            <input type="radio" name="contactMode" value="faceToFace" id="faceToFace" onclick="showInputs('faceToFace')"> Face to Face
+                        <label for="faceToFace">
+                            <input type="radio" name="contactMode" value="faceToFace" id="faceToFace" onclick="showInputs('faceToFace')" autocomplete="off"> Face to Face
                         </label>
-                        <label>
-                            <input type="radio" name="contactMode" value="coldCall" id="coldCall" onclick="showInputs('coldCall')"> Cold Call
+                        <label for="coldCall">
+                            <input type="radio" name="contactMode" value="coldCall" id="coldCall" onclick="showInputs('coldCall')" autocomplete="off"> Cold Call
                         </label>
-                        <label>
-                            <input type="radio" name="contactMode" value="email" id="email" onclick="showInputs('email')"> Email
+                        <label for="email">
+                            <input type="radio" name="contactMode" value="email" id="email" onclick="showInputs('email')" autocomplete="off"> Email
                         </label>
                     </div>
             
@@ -339,37 +339,37 @@
                         <div>
                             <div class="inputs-fields">
                                 <label for="location">Meeting Location:</label>
-                                <input type="text" id="location" placeholder="Enter meeting location">
+                                <input type="text" id="location" name="location" placeholder="Enter meeting location" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
                                 <label for="purpose">Purpose:</label>
-                                <input type="text" id="purpose" placeholder="Enter purpose of meeting">
+                                <input type="text" id="purpose" name="purpose" placeholder="Enter purpose of meeting" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
                                 <label for="meetingDate">Meeting Date:</label>
-                                <input type="date" id="meetingDate">
+                                <input type="date" id="meetingDate" name="meetingDate" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
-                                <label for="meetingTime">Meeting Time:</label>
+                                <span>Meeting Time:</span>
                                 <div>
-                                    <select id="meetingHour">
+                                    <select id="meetingHour" name="meetingHour" autocomplete="on">
                                         <option value="" hidden>Hour</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
-                                    <!-- More options can be added -->
+                                        <!-- More options can be added -->
                                     </select>
-                                    <select id="meetingMinute">
+                                    <select id="meetingMinute" name="meetingMinute" autocomplete="on">
                                         <option value="">Minute</option>
                                         <option value="00">00</option>
                                         <option value="15">15</option>
                                         <option value="30">30</option>
                                         <option value="45">45</option>
                                     </select>
-                                    <select id="meetingAMPM">
+                                    <select id="meetingAMPM" name="meetingAMPM" autocomplete="on">
                                         <option value="">AM/PM</option>
                                         <option value="AM">AM</option>
                                         <option value="PM">PM</option>
@@ -384,29 +384,29 @@
                         <div>
                             <div class="inputs-fields">
                                 <label for="mobileNumber">Mobile Number:</label>
-                                <input type="text" id="mobileNumber" placeholder="Enter mobile number">
+                                <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Enter mobile number" autocomplete="tel">
                             </div>
-                
+            
                             <div class="inputs-fields">
                                 <label for="callPurpose">Purpose:</label>
-                                <input type="text" id="callPurpose" placeholder="Enter purpose of the call">
+                                <input type="text" id="callPurpose" name="callPurpose" placeholder="Enter purpose of the call" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
                                 <label for="callingDate">Calling Date:</label>
-                                <input type="date" id="callingDate">
+                                <input type="date" id="callingDate" name="callingDate" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
-                                <label for="callingTime">Calling Time:</label>
+                                <span>Calling Time:</span>
                                 <div>
-                                    <select id="callingHour">
+                                    <select id="callingHour" name="callingHour" autocomplete="on">
                                         <option value="">Hour</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </select>
-                                    <select id="callingMinute">
+                                    <select id="callingMinute" name="callingMinute" autocomplete="on">
                                         <option value="">Minute</option>
                                         <option value="00">00</option>
                                         <option value="15">15</option>
@@ -423,31 +423,31 @@
                         <div>
                             <div class="inputs-fields">
                                 <label for="emailAddress">Email:</label>
-                                <input type="email" id="emailAddress" placeholder="Enter email address">
+                                <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter email address" autocomplete="email">
                             </div>
-                
+            
                             <div class="inputs-fields">
                                 <label for="emailDate">Date:</label>
-                                <input type="date" id="emailDate">
+                                <input type="date" id="emailDate" name="emailDate" autocomplete="on">
                             </div>
-                
+            
                             <div class="inputs-fields">
-                                <label for="emailTime">Time:</label>
+                                <span>Time:</span>
                                 <div>
-                                    <select id="emailHour">
+                                    <select id="emailHour" name="emailHour" autocomplete="on">
                                         <option value="">Hour</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </select>
-                                    <select id="emailMinute">
+                                    <select id="emailMinute" name="emailMinute" autocomplete="on">
                                         <option value="">Minute</option>
                                         <option value="00">00</option>
                                         <option value="15">15</option>
                                         <option value="30">30</option>
                                         <option value="45">45</option>
                                     </select>
-                                    <select id="emailAMPM">
+                                    <select id="emailAMPM" name="emailAMPM" autocomplete="on">
                                         <option value="">AM/PM</option>
                                         <option value="AM">AM</option>
                                         <option value="PM">PM</option>
@@ -462,6 +462,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         <div class="main-footer-box">
             <footer>
@@ -500,8 +501,8 @@
                     <div>
                         <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                         <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <input type="email" id="email-footer" placeholder="Enter email">
+                            <button class="fotbtn">&#8594;</button>
                         </form>
                     </div>
                 </section>
