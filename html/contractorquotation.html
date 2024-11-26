@@ -306,8 +306,8 @@
                             <span>Q-270920241</span>
                         </div>
                         <div class="client">
-                            <label for="quotation-date">Date:</label>
-                            <input type="date" id="dateInput" disabled>
+                            <label for="dateInput">Date:</label>
+                            <input type="date" id="dateInput" disabled/>
                         </div>
                         <div class="client">
                             <label for="customer-id">Customer Id:</label>
@@ -362,7 +362,7 @@
             </div>
     
             <!-- Generate Table Button -->
-            <button onclick="generateTable()" id="generate-table-button">Generate Table</button>
+            <div onclick="generateTable()" id="generate-table-button">Generate Table</div>
             
             <!-- Dynamic Table Section -->
             <div id="main-dynamicTable">
@@ -388,7 +388,7 @@
             <form id="main-submit">
                 <div>
                     <div>
-                        <label for="">Enter Your e-signature here:</label>
+                        <label for="quote">Enter Your e-signature here:</label>
                         <input type="text" required id="quote">
                     </div>
                     <input type="submit" id="submit-quotation"></input>
@@ -464,8 +464,8 @@
                     <div>
                         <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                         <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <input type="email" id="email-footer" placeholder="Enter email">
+                            <button class="fotbtn">&#8594;</button>
                         </form>
                     </div>
                 </section>

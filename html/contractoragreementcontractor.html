@@ -309,7 +309,7 @@
                             <span>A-270920241</span>
                         </div>
                         <div class="client">
-                            <label for="quotation-date">Date:</label>
+                            <label for="dateInput">Date:</label>
                             <input type="date" id="dateInput" disabled>
                         </div>
                         <div class="client">
@@ -426,7 +426,7 @@
             </div>
             <div class="list">
                   <span>List of Works Excluded : </span>
-                  <input type="text">
+                  <input type="text" id="list-of-work">
             </div>
             <div class="withness-text">
                  <b> IN WITNESSETH WHERE</b> OF First Party and the Second Party here in have signed this WORK ORDER with free will and consent without any force of coercion, on the day, month, and year aforementioned in the presence of the following witnesses
@@ -435,7 +435,7 @@
                   <span>WITNESSES: </span>
                   <ol>
                       <li>
-                          <input type="text" disabled>
+                          <input type="text" disabled id="landowner-signature">
                           <span>FIRST PARTY e-signature(Land Owner)</span>
                       </li>
                       <li>
@@ -520,8 +520,8 @@
                     <div>
                         <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                         <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <input type="email" id="email-footer" placeholder="Enter email">
+                            <button class="fotbtn">&#8594;</button>
                         </form>
                     </div>
                 </section>

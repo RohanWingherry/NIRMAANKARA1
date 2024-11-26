@@ -202,12 +202,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
   }
 });
 
-// Set today's date in input fields
 const dateInput = document.getElementById('dateInput');
 const today = new Date().toISOString().split('T')[0]; 
 dateInput.value = today;
 dateInput.style.textAlign = 'center';
-
-const dateInput2 = document.getElementById('dateInput2');
-dateInput2.value = today;
-dateInput2.style.textAlign = 'center';

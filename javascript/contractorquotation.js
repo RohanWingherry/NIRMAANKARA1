@@ -132,6 +132,7 @@ function createRow(schedule, displayPercentage, calcPercentage, isFirstRow, isNe
             input.type = 'text';
             input.value = schedule;
             input.placeholder = 'Enter schedule';
+            input.id = 'scheduleInput'; 
             scheduleCell.appendChild(input);
         } else {
             scheduleCell.innerText = schedule;
@@ -202,16 +203,10 @@ function updateTotalAmount() {
 
     tableBody.querySelectorAll('tr').forEach(row => {
         const amountCell = row.cells[2];
-        totalAmount += parseFloat(amountCell.innerText.replace(/,/g, '').trim());
     });
 
-    const gstPercent = parseFloat(document.getElementById('enter-gst').value || 0);
-    const gstAmount = (totalAmount * gstPercent / 100).toLocaleString('en-IN');
-    const grandTotal = (totalAmount + parseFloat(gstAmount.replace(/,/g, ''))).toLocaleString('en-IN');
+    
 
-    document.querySelector('.total-amt').innerText = totalAmount.toLocaleString('en-IN');
-    document.querySelector('.gst-amount').innerText = gstAmount;
-    document.querySelector('.grand-total').innerText = grandTotal;
 
 }
 function addRow() {
@@ -251,11 +246,10 @@ function addRow() {
     deleteIcon.style.cursor = 'pointer';
     deleteButton.appendChild(deleteIcon);
 
-    deleteButton.onclick = () => deleteRow(newRow);  // Use the deleteRow function for this row
+    deleteButton.onclick = () => deleteRow(newRow); 
     deleteCell.appendChild(deleteButton);
-    newRow.appendChild(deleteCell); // Append the delete cell to the new row
+    newRow.appendChild(deleteCell); 
 
-    // Insert the new row before the last three rows
     tableBody.insertBefore(newRow, tableBody.childNodes[tableBody.childNodes.length - 3]);
     
     updateTotalAmount();
@@ -274,10 +268,11 @@ function appendFinalRows(tableBody) {
 
     const gstRow = document.createElement('tr');
     const gstAmount = document.querySelector('.gst-amount').innerText;
-    const gstPercent = document.getElementById("enter-gst").value;
+    const cgstval=document.getElementById("enter-cgst").value;
+    const sgstval=document.getElementById("enter-sgst").value;
     gstRow.innerHTML = `
         <td><b>GST</b></td>
-        <td><b>${gstPercent}%</b></td>
+        <td><b>CGST: ${cgstval}% + SGST: ${sgstval}%</b></td>
         <td><b>${gstAmount}</b></td>
     `;
     tableBody.appendChild(gstRow);
