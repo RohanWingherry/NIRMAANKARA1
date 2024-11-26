@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <div id="modal-container">
+        <div class="modal-background">
+          <div class="modal">
+            
+            <svg class="modal-svg" width="100%" height="100%" preserveAspectRatio="none">
+                <rect x="0" y="0" fill="none" width="100%" height="100%" rx="3" ry="3"></rect>
+            </svg>
+                <div class="log-modal">
+                    <div class="login-content">
+                        <div class="login-header">
+                            <div class="login-welcome">Log in to your Account</div>
+                            <p>Welcome back! Select method to log in:</p>
+                        </div>
+                        <div class="social-login">
+                            <div class="social-icon"><img src="../assets/google.png" alt=""></div>
+                            <div class="social-icon"><img src="../assets/facebook.png" alt=""></div>
+                        </div>
+                        <h5 class="login-divider">
+                            <span class="line"></span>or<span class="line"></span>
+                        </h5>
+                        <div class="input-group">
+                            <label for="mobile">Mobile No / Email ID</label>
+                            <input class="input-field" id="mobile" type="text" placeholder="mobile no / email" aria-label="Mobile or Email">
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <div class="password-wrapper">
+                                <input class="input-field" id="password" type="password" placeholder="password" aria-label="Password">
+                                <span class="material-symbols-outlined toggle-password">
+                                    visibility
+                                </span>
+                            </div>                            
+                            <p class="error-message"></p>
+                        </div>
+                        
+                        <div class="login-actions">
+                            <!-- <div class="remember-me">
+                                <input class="checkbox" type="checkbox" id="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div> -->
+                            <p class="forgot-password">Forgot password?</p>
+                        </div>
+                        <div class="login-btn">
+                            <button class="btn-login">Log in</button>
+                        </div>
+                        <p class="signup-message">Don't have an account? <span class="signup-link">Create an account</span></p>
+                    </div>
+                </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="buttons">
+          <div id="six" class="button">Sketch</div>
+        </div>
+      </div>
+      <script src="../javascript/modal.js"></script>
+</body>
+</html>

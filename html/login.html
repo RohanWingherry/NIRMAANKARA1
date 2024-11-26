@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../css/sidenavbar.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/login.css"/>
-    <link rel="stylesheet" href="../css/modal.css">
     <link rel="icon" href="../assets/nirmankaralogo.png">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -60,23 +59,22 @@
                 <div class="login-box">
                     <div class="login-content">
                         <div class="login-header">
-                            <p>Sign in using</p>
+                            <div class="login-welcome">Log in to your Account</div>
+                            <p>Welcome back! Select method to log in:</p>
                         </div>
                         <div class="social-login">
-                            <i class="fa-brands fa-google" aria-label="Login with WhatsApp"></i>
-                            <i class="fa-brands fa-instagram" aria-label="Login with Instagram"></i>
-                            <i class="fa-brands fa-facebook" aria-label="Login with Facebook"></i>
-                            <i class="fa-brands fa-x-twitter" aria-label="Login with Twitter"></i>
+                            <div class="social-icon"><img src="../assets/google.png" alt=""></div>
+                            <div class="social-icon"><img src="../assets/facebook.png" alt=""></div>
                         </div>
                         <h5 class="login-divider">
-                            <span class="line"></span>or Sign in with mobile no/ email id<span class="line"></span>
+                            <span class="line"></span>or<span class="line"></span>
                         </h5>
                         <div class="input-group">
-                            <label for="mobile">Mobile No/Email ID</label>
+                            <label for="mobile">Mobile No / Email ID</label>
                             <input class="input-field" id="mobile" type="text" placeholder="mobile no / email" aria-label="Mobile or Email">
                         </div>
                         <div class="input-group">
-                            <label for="password">OTP/Password</label>
+                            <label for="password">Password</label>
                             <div class="password-wrapper">
                                 <input class="input-field" id="password" type="password" placeholder="password" aria-label="Password">
                                 <span class="material-symbols-outlined toggle-password">
@@ -85,15 +83,18 @@
                             </div>                            
                             <p class="error-message"></p>
                         </div>
-                        <div class="remember-me">
-                            <input class="checkbox" type="checkbox" id="rememberMe">
-                            <label for="rememberMe">Remember me</label>
-                        </div>
+                        
                         <div class="login-actions">
-                            <button class="btn-login">Log in</button>
+                            <!-- <div class="remember-me">
+                                <input class="checkbox" type="checkbox" id="rememberMe">
+                                <label for="rememberMe">Remember me</label>
+                            </div> -->
                             <p class="forgot-password">Forgot password?</p>
                         </div>
-                        <p class="signup-message">Don't have an account? <span class="signup-link">Sign up</span></p>
+                        <div class="login-btn">
+                            <button class="btn-login">Log in</button>
+                        </div>
+                        <p class="signup-message">Don't have an account? <span class="signup-link">Create an account</span></p>
                     </div>
                 </div>
             </div>
@@ -104,26 +105,25 @@
                     <svg class="modal-svg" width="100%" height="100%" preserveAspectRatio="none">
                         <rect x="0" y="0" fill="none" width="100%" height="100%" rx="3" ry="3"></rect>
                     </svg>
-                        <h2>
+                        <div class="log-modal">
                             <div class="login-content">
                                 <div class="login-header">
-                                    <p>Sign in using</p>
+                                    <div class="login-welcome">Log in to your Account</div>
+                                    <p>Welcome back! Select method to log in:</p>
                                 </div>
                                 <div class="social-login">
-                                    <i class="fa-brands fa-google" aria-label="Login with WhatsApp"></i>
-                                    <i class="fa-brands fa-instagram" aria-label="Login with Instagram"></i>
-                                    <i class="fa-brands fa-facebook" aria-label="Login with Facebook"></i>
-                                    <i class="fa-brands fa-x-twitter" aria-label="Login with Twitter"></i>
+                                    <div class="social-icon"><img src="../assets/google.png" alt=""></div>
+                                    <div class="social-icon"><img src="../assets/facebook.png" alt=""></div>
                                 </div>
                                 <h5 class="login-divider">
-                                    <span class="line"></span>or Sign in with mobile no/ email id<span class="line"></span>
+                                    <span class="line"></span>or<span class="line"></span>
                                 </h5>
                                 <div class="input-group">
-                                    <label for="mobile">Mobile No/Email ID</label>
+                                    <label for="mobile">Mobile No / Email ID</label>
                                     <input class="input-field" id="mobile" type="text" placeholder="mobile no / email" aria-label="Mobile or Email">
                                 </div>
                                 <div class="input-group">
-                                    <label for="password">OTP/Password</label>
+                                    <label for="password">Password</label>
                                     <div class="password-wrapper">
                                         <input class="input-field" id="password" type="password" placeholder="password" aria-label="Password">
                                         <span class="material-symbols-outlined toggle-password">
@@ -132,24 +132,26 @@
                                     </div>                            
                                     <p class="error-message"></p>
                                 </div>
-                                <div class="remember-me">
-                                    <input class="checkbox" type="checkbox" id="rememberMe">
-                                    <label for="rememberMe">Remember me</label>
-                                </div>
+                                
                                 <div class="login-actions">
-                                    <button class="btn-login">Log in</button>
+                                    <!-- <div class="remember-me">
+                                        <input class="checkbox" type="checkbox" id="rememberMe">
+                                        <label for="rememberMe">Remember me</label>
+                                    </div> -->
                                     <p class="forgot-password">Forgot password?</p>
                                 </div>
-                                <p class="signup-message">Don't have an account? <span class="signup-link">Sign up</span></p>
+                                <div class="login-btn">
+                                    <button class="btn-login">Log in</button>
+                                </div>
+                                <p class="signup-message">Don't have an account? <span class="signup-link">Create an account</span></p>
                             </div>
-                        </h2>
+                        </div>
                     
                   </div>
                 </div>
               </div>
               
               <div class="content">
-                <h1>Modal Animations</h1>
                 <div class="buttons">
                   <div id="six" class="button">Sketch</div>
                 </div>

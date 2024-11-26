@@ -129,7 +129,21 @@
 }
 .lead-details .lead-name{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.lead-name .profile-img{
+    max-width: 50px;
+    height: 50px;
+    width: 100%;
+    border: 2px solid rgb(163, 163, 163);
+    border-radius: 50%;
+}
+.lead-name .profile-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 .lead-details .lead-name>a{
     text-decoration: none;

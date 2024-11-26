@@ -10,6 +10,7 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    
   }
   
   .image-section {
@@ -26,7 +27,44 @@
     width: 100%;
     max-width: 100px;
   }
-  
+  .social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.social-login .social-icon {
+    width: 180px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    /* border: 1px solid rgba(209, 209, 209, 0.532); */
+    /* box-shadow: rgba(0, 0, 0, 0.289) 0px 1px 4px; */
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.social-icon img{
+    max-width: 20px;
+    width: 100%;
+    object-fit: cover;
+}
+.login-divider {
+    text-align: center;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    color: #777777;
+}
+
+.line {
+    border: 1px solid #d5d5d5;
+    width: 100%;
+}
   .form-container {
     max-width: 600px;
     width: 100%;
@@ -34,9 +72,10 @@
     margin-bottom: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    border: 2px solid rgb(231, 228, 237);
-
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border: 1px solid rgb(209, 209, 209);    
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    
   }
   
   .form-title {
@@ -80,14 +119,23 @@
   .signup-form label {
     font-size: 14px;
     margin-bottom: 5px;
+    color: #2E2E2E;
+    margin-left: 4px;
   }
   
   .input-field {
     width: 100%;
-    padding: 10px;
+    border: none;
+    border: 1px solid rgba(194, 185, 210, 0.127);
+    /* box-shadow: rgba(50, 50, 93, 0.25) -2px 2px 2px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;     */
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 7px;
+    padding: 10px 10px;
     font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #89848d;
+    outline: none;
+  }
+  .input-field:focus {
+    border: 1px solid #8e8e8edb;
   }
   .password-wrapper {
     position: relative;
@@ -100,7 +148,7 @@
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 14px;
-    color: #646464;
+    color: #2E2E2E;
     user-select: none;
   }
   
@@ -121,7 +169,7 @@
   
   .terms label {
     font-size: 12px;
-    color: #000;
+    color: #2E2E2E;
     text-transform: uppercase;
   }
   
