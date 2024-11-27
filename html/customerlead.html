@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lead Generate</title>
     <link rel="stylesheet" href="../css/customerlead.css">
+    <link rel="stylesheet" href="../css/history.css">
     <link rel="icon" href="../assets/nirmankara-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,16 +287,103 @@
                             <input type="text" id="address" name="address" placeholder="Enter address" required>
                         </div>
         
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="note">Note</label>
                             <input type="text" id="note" name="note" placeholder="Enter note">
-                        </div>
+                        </div> -->
                     </div>
         
                     <div class="Btn">
                         <button type="submit" class="leadbtn">Submit</button>
                     </div>
                 </form>
+            </div>
+            <div id="history-main">
+                <div id="historyheading">
+                    <section>QUOTATION HISTORY</section>
+                </div>
+                <div id="selectDate">
+                    <section>
+                        <label for="fromdate">From Date: </label>
+                        <input type="date" id="fromdate">
+                    </section>
+                    <section>
+                        <label for="todate">To Date: </label>
+                        <input type="date"id="todate">
+                    </section>
+                    <a href="" id="search">Search</a>
+                </div>
+                <div class="main-table">
+                    <table class="history-table">
+                        <thead>
+                           <tr class="bordered-row">
+                            <th>SNO</th>
+                            <th class="date-col">DATE</th>
+                            <th>QUOTATION ID</th>
+                            <th>CONTRACTOR NAME</th>
+                            <th>STATUS</th>
+                            <th id="action-heading">ACTION</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>10-06-2024</td>
+                                <td>Q-20032014</td>
+                                <td>VIJAY</td>
+                                <td>Pending</td>
+                                <td id="action">
+                                    <i class="fa-solid fa-eye view"></i>
+                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>11-06-2024</td>
+                                <td>Q-20038017</td>
+                                <td>SUDHEER</td>
+                                <td>Pending</td>
+                                <td id="action">
+                                    <i class="fa-solid fa-eye view"></i>
+                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>10-06-2024</td>
+                                <td>Q-20032091</td>
+                                <td>VIJAY</td>
+                                <td>Negotiate</td>
+                                <td id="action">
+                                    <i class="fa-solid fa-eye view"></i>
+                                    <i class="fa-regular fa-trash-can delete-row "></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>10-06-2024</td>
+                                <td>Q-20022014</td>
+                                <td>SUDHEER</td>
+                                <td>Approved</td>
+                                <td id="action">
+                                    <i class="fa-solid fa-eye view"></i>
+                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>10-06-2024</td>
+                                <td>Q-5222185</td>
+                                <td>VIJAY</td>
+                                <td>Approved</td>
+                                <td id="action">
+                                    <i class="fa-solid fa-eye view"></i>
+                                    <i class="fa-regular fa-trash-can delete-row"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- footer -->
@@ -362,3 +450,4 @@
    <script src="../javascript/customerlead.js"></script>
    </body>
    </html>
+   
