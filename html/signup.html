@@ -57,13 +57,13 @@
 <div class="main-content">
     <div class="contentofpage">
       <div class="signcontainer">
-        <div class="image-section">
+        <!-- <div class="image-section">
           <img src="../assets/girl.jpg" alt="Profile Image" />
-        </div>
+        </div> -->
         <div class="form-container">
           <p class="form-title">Sign Up</p>
           <p class="form-description">
-            Let's get you all set up so you can access your personal account.
+            Enter your details below to create your account and get started.
           </p>
           <div class="social-login">
             <div class="social-icon"><img src="../assets/google.png" alt=""></div>
@@ -72,24 +72,40 @@
         <h5 class="login-divider">
             <span class="line"></span>or<span class="line"></span>
         </h5>
-          <form class="signup-form">
+        <form class="signup-form" id="signupForm">
+          <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input id="full-name" class="input-field" placeholder="enter fullname" type="text" required />
+            <p class="error-message" id="nameError"></p>
+          </div>
+          <div class="form-group grp">
             <div class="form-group">
-              <label for="full-name">Full Name</label>
-              <input id="full-name" class="input-field" placeholder="enter fullname" type="text" required />
-              <p class="error-message" id="nameError"></p>
-            </div>
-            <div class="form-group grp">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" class="input-field" placeholder="enter email ID" type="email" required />
-                <p class="error-message" id="emailError"></p>
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input id="phone" class="input-field" placeholder="enter mobile number" type="tel" required />
-                <p class="error-message" id="phoneError"></p>
+              <label for="email">Email</label>
+              <input id="email" class="input-field" placeholder="Enter email ID" type="email" required />
+              <button id="verifyEmailButton" disabled>Verify Email</button>
+              <p id="signUpError"></p>
+              <p class="error-message" id="emailError"></p>
+              <div id="emailOTPSection" style="display: none;">
+                <input id="emailOTPInput" placeholder="Enter OTP" type="text" required />
+                <button id="submitEmailOTP">Submit OTP</button>
+                <p class="error-message" id="emailOTPError"></p>
+                <p id="emailVerifiedMessage" class="verifiedMessage" style="display: none;">OTP Verified!</p>
               </div>
             </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input id="phone" class="input-field" placeholder="Enter mobile number" type="tel" required />
+              <button id="verifyPhoneButton" disabled>Verify Phone</button>
+              <p class="error-message" id="phoneError"></p>
+              <div id="phoneOTPSection" style="display: none;">
+                <input id="phoneOTPInput" placeholder="Enter OTP" type="text" required />
+                <button id="submitPhoneOTP">Submit OTP</button>
+                <p class="error-message" id="phoneOTPError"></p>
+                <p id="phoneVerifiedMessage" class="verifiedMessage" style="display: none;">OTP Verified!</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group grp">
             <div class="form-group">
               <label for="password">Password</label>
               <input id="password" class="input-field" placeholder="enter password" type="password" required />
@@ -103,15 +119,23 @@
               </div>
               <p class="error-message" id="confirmPasswordError"></p>
             </div>
-            <div class="form-group terms">
-              <input id="agree" type="checkbox" required />
-              <label for="agree">I agree to all the <span>Terms</span> and <span>Privacy Policies</span></label>
+          </div>
+          <div class="terms">
+            <div class="termsconditions">
+              <div class="termagree">
+                <input type="checkbox" id="terms" required />
+              </div>
+              <div class="termagree">
+                <label for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+              </div>
             </div>
-            <div class="subbtn">
-              <input class="submit-btn" type="submit" value="Sign Up" />
-            </div>
-          </form>
-          <p class="existing-account">Already have an account? <span class="login-link">Log In</span></p>
+          </div>
+          <div class="subbtn">
+            <input class="submit-btn" type="submit" value="Sign Up" />
+          </div>
+        </form>
+        
+          <p class="existing-account">Already have an account? <a href="../html/login.html" class="login-link">Log In</a></p>
         </div>
       </div>   
     </div>

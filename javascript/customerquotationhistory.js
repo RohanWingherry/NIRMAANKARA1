@@ -10,19 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const del = confirm('Are you sure you want to delete this row?');
             if (del) {
                 this.closest('tr').remove();
-                updateSerialNumbers(); 
+                updateSerialNumbers();
+                alert("Successfully deleted the row"); // Moved inside the if block
             }
-            alert("Successfully deleted the row")
         });
     });
 
     updateSerialNumbers();
 });
+
 document.querySelectorAll('.view').forEach(function(vieweach) {
     vieweach.addEventListener('click', function() {
         window.location.href = '../html/customerquotation.html';
     });
 });
-
-
-
