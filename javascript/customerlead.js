@@ -93,3 +93,8 @@ document.getElementById('note').addEventListener('input', function (event) {
     }
     event.target.value = value;
 });
+
+
+
+
+// table
