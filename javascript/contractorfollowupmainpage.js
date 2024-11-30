@@ -146,13 +146,14 @@ function validateColdCall() {
     let callingDate = document.getElementById('callingDate');
     let callingHour = document.getElementById('callingHour');
     let callingMinute = document.getElementById('callingMinute');
+    let callingAMPM=document.getElementById('callingAMPM')
 
     // Reset borders before validation
     resetInputBorders();
 
     let valid = true;
 
-    if (!mobileNumber.value || !callPurpose.value || !callingDate.value || !callingHour.value || !callingMinute.value) {
+    if (!mobileNumber.value || !callPurpose.value || !callingDate.value || !callingHour.value || !callingMinute.value || !callingAMPM.value) {
         if (!mobileNumber.value) mobileNumber.style.borderColor = 'red';
         if (!callPurpose.value) callPurpose.style.borderColor = 'red';
         if (!callingDate.value || isPastDate(callingDate.value)) {
@@ -164,6 +165,8 @@ function validateColdCall() {
         }
         if (!callingHour.value) callingHour.style.borderColor = 'red';
         if (!callingMinute.value) callingMinute.style.borderColor = 'red';
+        if (!callingAMPM.value) callingAMPM.style.borderColor = 'red';
+
         valid = false;
     }
 
@@ -193,6 +196,7 @@ document.getElementById('callPurpose').addEventListener('input', function(event)
 // Validation for Email
 function validateEmail() {
     let emailAddress = document.getElementById('emailAddress');
+    let emailPurpose = document.getElementById('emailpurpose')
     let emailDate = document.getElementById('emailDate');
     let emailHour = document.getElementById('emailHour');
     let emailMinute = document.getElementById('emailMinute');
@@ -203,8 +207,9 @@ function validateEmail() {
 
     let valid = true;
 
-    if (!emailAddress.value || !emailDate.value || !emailHour.value || !emailMinute.value || !emailAMPM.value) {
+    if (!emailAddress.value || !emailDate.value || !emailHour.value || !emailMinute.value || !emailAMPM.value || !emailPurpose.value) {
         if (!emailAddress.value) emailAddress.style.borderColor = 'red';
+        if (!emailPurpose.value) emailPurpose.style.borderColor = 'red';
         if (!emailDate.value || isPastDate(emailDate.value)) {
             if (!emailDate.value) emailDate.style.borderColor = 'red';
             if (isPastDate(emailDate.value)) {
@@ -217,7 +222,7 @@ function validateEmail() {
         if (!emailAMPM.value) emailAMPM.style.borderColor = 'red';
         valid = false;
     }
-
+    
     // Validate the email address format
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailAddress.value && !emailPattern.test(emailAddress.value)) {
@@ -235,3 +240,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
         alert("Enter the Customer ID");
     }
 });
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0]; 
+dateInput.value = today;
+dateInput.style.textAlign = 'center';
