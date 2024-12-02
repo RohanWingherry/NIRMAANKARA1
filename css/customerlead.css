@@ -28,8 +28,6 @@ input[type='number']::-webkit-outer-spin-button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1000px;
-    width: 100%;
 }
 .lead-box .form{
     display: flex;
@@ -104,14 +102,8 @@ input[type='number']::-webkit-outer-spin-button{
     border: none;
     outline: none;
     height: max-content;
+    font-size: 14px;
 }
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 4px;
-    display: block;
-}
-
 .error {
-    border-color: red;
+    border: 2px solid red;
 }

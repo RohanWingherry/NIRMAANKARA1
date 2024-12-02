@@ -1,7 +1,6 @@
 document.getElementById('orgDetailsForm').addEventListener('submit', function (event) {
     let isValid = true;
 
-    // Fields to validate for non-empty values
     const fields = [
         'fullname',
         'mob',
@@ -10,13 +9,11 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
         'address'
     ];
 
-    // Remove previous error classes
     fields.forEach(field => {
         const input = document.getElementById(field);
         input.classList.remove('error');
     });
 
-    // Check if required fields are empty
     fields.forEach(field => {
         const input = document.getElementById(field);
         if (!input.value.trim()) {
@@ -25,7 +22,6 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
         }
     });
 
-    // Mobile number validation (10 digits, starts with 6, 7, 8, or 9)
     const phoneInput = document.getElementById('mob');
     const phonePattern = /^[6-9]\d{9}$/;
     if (phoneInput.value && !phonePattern.test(phoneInput.value)) {
@@ -33,16 +29,36 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
         isValid = false;
     }
 
-    // Prevent form submission if validation fails
     if (!isValid) {
         event.preventDefault();
         alert("Please fill in the required fields correctly.");
     } else {
+        event.preventDefault();
+        addDataToTable();
         alert("Your lead has been generated");
     }
 });
 
-// Show/Hide "Other" construction type field
+document.querySelectorAll('.delete-row').forEach(button => {
+    button.addEventListener('click', function (event) {
+        const row = event.target.closest('tr');
+        const confirmDelete = confirm("Are you sure you want to delete this lead?");
+        
+        if (confirmDelete) {
+            row.remove();
+            updateSerialNumbers();
+        }
+    });
+});
+
+function updateSerialNumbers() {
+    const rows = document.querySelectorAll('.history-table tbody tr');
+    
+    rows.forEach((row, index) => {
+        row.querySelector('td:first-child').textContent = index + 1;
+    });
+}
+
 document.getElementById('constructions').addEventListener('change', function () {
     const otherTypeInput = document.getElementById('other-construction-type');
     if (this.value === 'Other') {
@@ -54,47 +70,51 @@ document.getElementById('constructions').addEventListener('change', function () 
     }
 });
 
-// Validation for Full Name: Only alphabets and spaces allowed, no leading spaces
-document.getElementById('fullname').addEventListener('input', function (event) {
-    let value = event.target.value;
-    value = value.replace(/[^a-zA-Z\s]/g, ''); // Remove non-alphabetic characters
-    if (value.startsWith(' ')) {
-        value = value.slice(1); // Remove leading space
+function addDataToTable() {
+    const fullname = document.getElementById('fullname').value;
+    const mob = document.getElementById('mob').value;
+    const constructionType = document.getElementById('constructions').value;
+    const size = document.getElementById('size').value;
+    const address = document.getElementById('address').value;
+
+    let constructionTypeToDisplay = constructionType;
+    if (constructionType === 'Other') {
+        const otherConstructionType = document.getElementById('other-construction').value;
+        constructionTypeToDisplay = otherConstructionType || constructionType;
     }
-    event.target.value = value;
-});
 
-// Validation for Size: Only numeric input allowed
-document.getElementById('size').addEventListener('input', function (event) {
-    event.target.value = event.target.value.replace(/[^0-9]/g, ''); // Allow only numbers
-});
+    const leadId = `L-${Date.now()}`;
 
-// Validation for Mobile Number: Only numeric input allowed
-document.getElementById('mob').addEventListener('input', function (event) {
-    event.target.value = event.target.value.replace(/[^0-9]/g, ''); // Allow only numbers
-});
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const formattedTableDate = `${day}-${month}-${year}`;
 
-// Validation for Address: Alphanumeric characters and spaces allowed, no leading spaces
-document.getElementById('address').addEventListener('input', function (event) {
-    let value = event.target.value;
-    value = value.replace(/[^a-zA-Z0-9\s]/g, ''); // Remove non-alphanumeric characters
-    if (value.startsWith(' ')) {
-        value = value.slice(1); // Remove leading space
-    }
-    event.target.value = value;
-});
+    const newRow = document.createElement('tr');
 
-// Validation for Note: Alphanumeric characters and spaces allowed, no leading spaces
-document.getElementById('note').addEventListener('input', function (event) {
-    let value = event.target.value;
-    value = value.replace(/[^a-zA-Z0-9\s]/g, ''); // Remove non-alphanumeric characters
-    if (value.startsWith(' ')) {
-        value = value.slice(1); // Remove leading space
-    }
-    event.target.value = value;
-});
+    newRow.innerHTML = `
+        <td></td>
+        <td>${formattedTableDate}</td>
+        <td>${leadId}</td>
+        <td>${fullname}</td>
+        <td>${mob}</td>
+        <td>${constructionTypeToDisplay}</td>
+        <td>${size} SFT</td>
+        <td>${address}</td>
+        <td id="action">
+            <i class="fa-regular fa-trash-can delete-row"></i>
+        </td>
+    `;
 
+    document.querySelector('.history-table tbody').appendChild(newRow);
 
+    updateSerialNumbers();
 
+<<<<<<< HEAD
 
 // table
+=======
+    document.getElementById('orgDetailsForm').reset();
+}
+>>>>>>> 6b411c0ff6e7a3dbc848f0df880d0ea78eaff175
