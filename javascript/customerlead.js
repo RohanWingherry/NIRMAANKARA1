@@ -39,17 +39,17 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
     }
 });
 
-document.querySelectorAll('.delete-row').forEach(button => {
-    button.addEventListener('click', function (event) {
-        const row = event.target.closest('tr');
-        const confirmDelete = confirm("Are you sure you want to delete this lead?");
+// document.querySelectorAll('.delete-row').forEach(button => {
+//     button.addEventListener('click', function (event) {
+//         const row = event.target.closest('tr');
+//         const confirmDelete = confirm("Are you sure you want to delete this lead?");
         
-        if (confirmDelete) {
-            row.remove();
-            updateSerialNumbers();
-        }
-    });
-});
+//         if (confirmDelete) {
+//             row.remove();
+//             updateSerialNumbers();
+//         }
+//     });
+// });
 
 function updateSerialNumbers() {
     const rows = document.querySelectorAll('.history-table tbody tr');
