@@ -11,9 +11,9 @@ function addRow() {
     const cell4 = newRow.insertCell(3);
     const cell5 = newRow.insertCell(4); // Add a cell for the delete button
 
-    cell1.innerHTML = '<input type="text" placeholder="enter item">';
-    cell2.innerHTML = '<input type="number" placeholder="enter price" oninput="updateTotal(this)">';
-    cell3.innerHTML = '<input type="number" placeholder="enter qty" oninput="updateTotal(this)">';
+    cell1.innerHTML = '<input type="text" id="Item-name" placeholder="enter item">';
+    cell2.innerHTML = '<input type="number" id="Enter-price" placeholder="enter price" oninput="updateTotal(this)">';
+    cell3.innerHTML = '<input type="number" id="Item-quantity" placeholder="enter qty" oninput="updateTotal(this)">';
     cell4.innerHTML = '₹0';
     cell5.innerHTML = '<button class="delete-row"><i class="fa-solid fa-trash"></i></button>'; // Add delete button
 

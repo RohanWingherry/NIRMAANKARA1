@@ -228,17 +228,15 @@ th, td {
     padding: 10px;
     font-size: 14px;
     box-sizing: border-box;
-    padding: 10px 2px;
+    padding: 12px 2px;
     border-bottom: 1px solid #828282;
     text-align: left;
     background-color: transparent;
-}
-td input{
-    background-color: transparent;
+    text-align: center;
 }
 th{
     max-width: 200px;
-    
+    font-size: 15px;
 }
 thead {
     background-color: transparent;
@@ -342,7 +340,7 @@ thead {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    align-items: flex-start;
+    align-items: center;
     font-size: 14px;
 }
 .mod .label{

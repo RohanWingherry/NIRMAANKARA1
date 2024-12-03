@@ -294,7 +294,7 @@
                                     <span>R-270920241</span>
                                 </div>
                                 <div class="client">
-                                    <label for="quotation-date">Date:</label>
+                                    <span>Date:</span>
                                     <span>30-09-2024</span>
                                 </div>
                                 <div class="client">
@@ -327,22 +327,22 @@
                                 <tbody>
                                     <!-- Initially empty -->
                                     <tr>
-                                        <td><input type="text" placeholder="Enter item" value="Bricks"></td>
-                                        <td><input type="number" placeholder="Enter qty" min="0" value="20"></td>
-                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="10"></td>
-                                        <td><input type="text" placeholder="Total" readonly value="200"></td>
+                                        <td><span>Bricks</span></td>
+                                        <td><span>2500</span></td>
+                                        <td><span>2</span></td>
+                                        <td><span>5000</span></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" placeholder="Enter item" value="Iron Rod"></td>
-                                        <td><input type="number" placeholder="Enter qty" min="0" value="50"></td>
-                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="5"></td>
-                                        <td><input type="text" placeholder="Total" readonly value="250"></td>
+                                        <td><span>Cement</span></td>
+                                        <td><span>2500</span></td>
+                                        <td><span>2</span></td>
+                                        <td><span>5000</span></td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" placeholder="Enter item" value="Door"></td>
-                                        <td><input type="number" placeholder="Enter qty" min="0" value="1000"></td>
-                                        <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="2"></td>
-                                        <td><input type="text" placeholder="Total" readonly value="2000"></td>
+                                        <td><span>Wood</span></td>
+                                        <td><span>2500</span></td>
+                                        <td><span>2</span></td>
+                                        <td><span>5000</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -357,13 +357,13 @@
                                     <div class="totals-row">
                                         <div class="label">DISCOUNT(%)</div>
                                         <div class="value">
-                                            <input type="number" id="discountPercent" value="10" oninput="updateTotals()">
+                                            <span id="discountPercent">1</span>
                                         </div>
                                     </div>
                                     <div class="totals-row">
                                         <div class="label">SGST(%)</div>
                                         <div class="value">
-                                            <input type="number" id="sgst" value="10" oninput="updateTotals()">
+                                            <span id="sgst">10</span>
                                         </div>
                                     </div>
                                     <div class="totals-row">
@@ -373,7 +373,7 @@
                                     <div class="totals-row">
                                         <div class="label">CGST(%)</div>
                                         <div class="value">
-                                            <input type="number" id="cgst" value="10" oninput="updateTotals()">
+                                            <span id="cgst">10</span>
                                         </div>
                                     </div>
                                     <div class="totals-row">
@@ -394,29 +394,21 @@
         
                         <div class="pay">
                             <div class="mod">
-                                <label>Mode of Payment : <span class="required">*</span></label>
-                                <label>
-                                    <input type="radio" name="paymentMode" value="Cash" disabled> Cash
-                                </label>
-                                <label>
-                                    <input type="radio" name="paymentMode" value="NEFT/RTGS" checked> NEFT/RTGS
-                                </label>
+                                <span>Mode of Payment : <span class="required">*</span></span>
+                                <span>NEFT/RTGS</span>
                             </div>
-                        </div>
-                        <div class="note">
-                            <textarea name="note" id="note" rows="3" cols="50" placeholder="Note (Optional)"></textarea>
                         </div>
         
                         
                     <div class="Signature">
                         <div class="subsign">
                             <div class="form1">
-                                <label>Client Signature<span class="required">*</span></label>
-                                <input type="text" class="inputs" placeholder="Enter name" required>
+                                <label for="client-signature">Client Signature<span class="required">*</span></label>
+                                <input type="text" id="client-signature" class="inputs" placeholder="Enter name" required disabled>
                             </div>
                             <div class="form2">
-                                <label>Authorised Signature<span class="required">*</span></label>
-                                <input type="text" class="inputs" placeholder="Enter name" required>
+                                <label for="authorised-signature">Authorised Signature<span class="required">*</span></label>
+                                <input type="text" id="authorised-signature" value="Vijay" class="inputs" placeholder="Enter name" required disabled>
                             </div>
                         </div>
                     </div>
@@ -481,8 +473,8 @@
                     <div>
                         <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                         <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <input type="email" id="email-footer" placeholder="Enter email">
+                            <button class="fotbtn">&#8594;</button>
                         </form>
                     </div>
                 </section>

@@ -1,14 +1,3 @@
-const profile = document.getElementById("toggleProfile");
-const profileview = document.querySelector(".main-profileview");
-
-profile.addEventListener("click", () => {
-    // Toggle the display of the profile view
-    if (profileview.style.display === "none" || profileview.style.display === "") {
-        profileview.style.display = "block";
-    } else {
-        profileview.style.display = "none";
-    }
-});
 // property type
 document.getElementById("proptype").addEventListener("click", (event) => {
     event.stopPropagation();
@@ -214,6 +203,3 @@ propertyItems.forEach(item => {
     });
 });
 
-document.querySelector(".shortlisted").addEventListener("click",()=>{
-    window.location.href="../html/buyershorlisted.html"
-})

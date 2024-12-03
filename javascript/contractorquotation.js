@@ -34,9 +34,9 @@ function addition() {
     const total_gst_percentage = cgst + sgst;
     const total_gst_amount = (mul * total_gst_percentage) / 100;
     
-    document.querySelector(".gst-amount").innerText = (total_gst_amount).toLocaleString('en-IN');
+    document.querySelector("#gst-amount").innerText = (total_gst_amount).toLocaleString('en-IN');
     const total = mul + total_gst_amount;
-    document.querySelector(".total-amt").innerText = (total).toLocaleString('en-IN');
+    document.querySelector("#total-amt").innerText = (total).toLocaleString('en-IN');
 }
 
 const numberOfSlabs = document.getElementById("slab-number");
@@ -267,7 +267,7 @@ function appendFinalRows(tableBody) {
     tableBody.appendChild(totalRow);
 
     const gstRow = document.createElement('tr');
-    const gstAmount = document.querySelector('.gst-amount').innerText;
+    const gstAmount = document.querySelector('#gst-amount').innerText;
     const cgstval=document.getElementById("enter-cgst").value;
     const sgstval=document.getElementById("enter-sgst").value;
     gstRow.innerHTML = `
@@ -281,7 +281,7 @@ function appendFinalRows(tableBody) {
     const grandTotalRow = document.createElement('tr');
     grandTotalRow.innerHTML = `
         <td colspan="2"><b>Grand Total</b></td>
-        <td class="grand-total"><b>${document.querySelector('.total-amt').innerText}</b></td>
+        <td class="grand-total"><b>${document.querySelector('#total-amt').innerText}</b></td>
     `;
     tableBody.appendChild(grandTotalRow);
 }

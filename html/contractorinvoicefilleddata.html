@@ -252,65 +252,66 @@
     </div>
     <div class="main-content">
         <div class="contentofpage">
-            <div class="export">
-                <span>Export pdf<i class="fa-solid fa-upload"></i></span>
+            <div class="inheading">
+                <span class="export">Export pdf<i class="fa-solid fa-upload"></i></span>
             </div>
-            <div class="fetching">
-                <div class="all-details-head">
-                    <section class="org-details">
-                        <figure>
-                            <img src="../assets/logo.png" alt="">
-                        </figure>
-                        <span><i class="fa-solid fa-building"></i>YUKTHA CONSTRUCTIONS</span>
-                    </section>
-                    <section class="this-heading">
-                        <div>INVOICE</div>
-                    </section>
+            <div class="invoice-box">
+                <div class="fetching">
+                    <div class="all-details-head">
+                        <section class="org-details">
+                            <figure>
+                                <img src="../assets/logo.png" alt="">
+                            </figure>
+                            <span><i class="fa-solid fa-building"></i>YUKTHA CONSTRUCTIONS</span>
+                        </section>
+                        <section class="this-heading">
+                            <div>INVOICE</div>
+                        </section>
+                    </div>
+                    <div class="all-details">
+                        <secction class="organisation-det">
+                            <div class="details">
+                                <span class="material-symbols-outlined">money_bag</span>
+                                <span>GST No: 29AAGCR4375J1ZU</span>
+                            </div>
+                            <div class="details">
+                                <span class="material-symbols-outlined">distance</span>
+                                <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                            </div>
+                            <div class="details">
+                                <span class="material-symbols-outlined">call</span>
+                                <span>9985752406</span>
+                            </div>
+                            <div class="details">
+                                <span class="material-symbols-outlined">mail</span>
+                                <span>yukthaconstruction@gmail.com</span>
+                            </div>
+                        </secction>
+                        <section class="enter-det">
+                            <div class="client">
+                                <span>Invoice No: </span>
+                                <span>Q-270920241</span>
+                            </div>
+                            <div class="client">
+                                <span>Date:</span>
+                                <span>30-09-2024</span>
+                            </div>
+                            <div class="client">
+                                <span>Customer Name: </span>
+                                <span>Sudheer</span>
+                            </div>
+                            <div class="client">
+                                <span>Customer Address: </span>
+                                <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                            </div>
+                            <div class="client">
+                                <span>Mobile Number:</span>
+                                <span>9966778899</span>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-                <div class="all-details">
-                    <secction class="organisation-det">
-                        <div class="details">
-                            <span class="material-symbols-outlined">money_bag</span>
-                            <span>GST No: 29AAGCR4375J1ZU</span>
-                        </div>
-                        <div class="details">
-                            <span class="material-symbols-outlined">distance</span>
-                            <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
-                        </div>
-                        <div class="details">
-                            <span class="material-symbols-outlined">call</span>
-                            <span>9985752406</span>
-                        </div>
-                        <div class="details">
-                            <span class="material-symbols-outlined">mail</span>
-                            <span>yukthaconstruction@gmail.com</span>
-                        </div>
-                    </secction>
-                    <section class="enter-det">
-                        <div class="client">
-                            <span>Invoice No: </span>
-                            <span>I-270920241</span>
-                        </div>
-                        <div class="client">
-                            <label for="quotation-date">Date:</label>
-                            <span>30-09-2024</span>
-                        </div>
-                        <div class="client">
-                            <span>Customer Name: </span>
-                            <span>Sudheer</span>
-                        </div>
-                        <div class="client">
-                            <span>Customer Address: </span>
-                            <span>Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
-                        </div>
-                        <div class="client">
-                            <span>Mobile Number:</span>
-                            <span>9966778899</span>
-                        </div>
-                    </section>
-                </div>
-            </div>
-    
+        
             <div class="container">
                 <div class="table-container">
                     <table class="table">
@@ -320,84 +321,90 @@
                                 <th><i class="fa-solid fa-bag-shopping bag"></i>Qty</th>
                                 <th><i class="fa-solid fa-money-bill price"></i>Price</th>
                                 <th><i class="fa-solid fa-money-bill price"></i>Total</th>
+                                <!-- <th></th> Empty header for delete button -->
                             </tr>
                         </thead>
                         <tbody id="item-rows">
                             <tr>
-                                <td><input type="text" placeholder="Enter item" value="bricks"></td>
-                                <td><input type="number" placeholder="Enter qty" min="0" value="2"></td>
-                                <td><input type="number" placeholder="Enter price" min="0" step="0.01" value="100"></td>
-                                <td><input type="text" placeholder="Total" readonly value="200"></td>
+                                <td>Brick</td>
+                                <td>5</td>
+                                <td>50</td>
+                                <td>250</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
         
-                <!-- <div class="btn">
-                    <button class="add">Add Row</button>
-                    <button class="remove">Remove Row</button>
-                </div> -->
+                
+                <div class="thetotal">
+                        <div class="total-container">
+                            <div class="totals">
+                                <div class="totals-row">
+                                    <div class="label">SUBTOTAL</div>
+                                    <div class="value" id="subtotal">₹250</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">DISCOUNT(%)</div>
+                                    <div class="value">
+                                        <span>10</span>
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">SGST(%)</div>
+                                    <div class="value">
+                                        <span>9</span>
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">SGST Amount</div>
+                                    <div class="value" id="sgstAmount">₹10</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">CGST(%)</div>
+                                    <div class="value">
+                                        <span>9</span>
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">CGST Amount</div>
+                                    <div class="value" id="cgstAmount">₹0</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">TOTAL</div>
+                                    <div class="value" id="total">₹250</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">DUE AMOUNT</div>
+                                    <div class="value" id="dueAmount">₹250</div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                    
+                
         
-               <div class="thetotal">
-                <div class="total-container">
-                    <div class="totals">
-                        <div class="totals-row">
-                            <div class="label">SUBTOTAL</div>
-                            <div class="value" id="subtotal" >₹200</div>
+                <div class="Signature">
+                    <div class="subsign">
+                        <div class="form1">
+                            <label for="clientSignature">Client Signature</label>
+                            <input type="text" class="inputs" placeholder="Enter name" id='clientSignature' required disabled>
                         </div>
-                        <div class="totals-row">
-                            <div class="label">DISCOUNT(%)</div>
-                            <div class="value">
-                                <input type="number" id="discountPercent" value="10" min="0" max="100">
-                            </div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">SGST(%)</div>
-                            <div class="value">
-                                <input type="number" id="sgst" value="10" min="0" max="100">
-                            </div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">SGST Amount</div>
-                            <div class="value" id="sgstAmount">₹220</div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">CGST(%)</div>
-                            <div class="value">
-                                <input type="number" id="cgst" value="10" min="0" max="100">
-                            </div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">CGST Amount</div>
-                            <div class="value" id="cgstAmount">₹240</div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">TOTAL</div>
-                            <div class="value" id="total">₹240</div>
-                        </div>
-                        <div class="totals-row">
-                            <div class="label">DUE AMOUNT</div>
-                            <div class="value" id="dueAmount">₹240</div>
+                        <div class="form2">
+                            <label for="authorised-Signature">Authorised Signature</label>
+                            <input type="text" id="authorized-Signature" class="inputs" placeholder="Enter name" value="Vjay" disabled>
                         </div>
                     </div>
                 </div>
-               </div>
-    
-    
-               
-               <div class="Signature">
-                <div class="subsign">
-                    <div class="form1">
-                        <label>Client Signature<span class="required">*</span></label>
-                        <input type="text" class="inputs" placeholder="Enter name" required>
-                    </div>
-                    <div class="form2">
-                        <label>Authorised Signature<span class="required">*</span></label>
-                        <input type="text" class="inputs" placeholder="Enter name" required>
-                    </div>
-                </div>
             </div>
+        </div>
+    
+        <div class="savebtn">
+            <div class="btnbox">
+                <!-- <div class="save" >Pay</div> -->
+                <div class="save" id="submitBtn">Submit</div>
+                <!-- <div class="reset" id="resetBtn">Reset</div> -->
             </div>
+        </div>
         </div>
           <!-- footer -->
           <div class="main-footer-box">
@@ -459,7 +466,6 @@
          <!-- footer --> 
         
    </div>
-    <script src="../javascript/invoice.js"></script>
     <script src="../javascript/sidenavbar.js"></script>
 
 </body>
