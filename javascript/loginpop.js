@@ -218,7 +218,7 @@ function verifyOTP(type) {
 // Function to resend OTP
 function resendOTP(type) {
   const correctOTP = type === 'email' ? staticEmailOTP : staticMobileOTP;
-  alert(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent. The OTP is ${correctOTP}`);
+  alert(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent. `);
 }
 
 // Function to show error (display error message outside input field)
