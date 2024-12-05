@@ -178,7 +178,7 @@
                   <li>Recently Contacted</li>
                 </ul>
               </div>
-              <div class="myactivity-login">Login/ Register</div>
+              <div class="myactivity-login" id="login-popup">Login/ Register</div>
             </div>
             <div class="nav-logout-hover">
               <div class="myactivity-heading">
@@ -243,6 +243,124 @@
         </div> 
     </nav>
     <!-- Top nav bar -->
+
+    <!-- Signin signup pop up -->
+    <div class="main-popup-signup">
+      <div class="popup-container">
+      <div class="popup-box">
+          <button class="close-btn">&times;</button>
+          <!-- <h1>Popup Title</h1>
+          <p>This is the popup content.</p> -->
+          <div class="container">
+              <div class="forms-container">
+                <div class="signin-signup">
+                  <!-- Sign In Form -->
+                  <form action="#" class="sign-in-form" id="sign-in-form">
+                    <h2 class="title">Login</h2>
+                    <div class="input-field">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="sign-in-email" placeholder="Email or Mobile Number" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" id="sign-in-password" placeholder="Password" />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                  </form>
+            
+                  <!-- Sign Up Form -->
+                  <form action="#" class="sign-up-form" id="sign-up-form">
+                    <h2 class="title">Register</h2>
+                    <div class="input-field">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="full-name" placeholder="Full Name" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-envelope"></i>
+                      <input type="email" id="sign-up-email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-phone"></i>
+                      <input type="tel" id="mobile-number" placeholder="Mobile Number" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" id="sign-up-password" placeholder="Password" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" id="confirm-password" placeholder="Confirm Password" />
+                    </div>
+                    <div class="input-field forradio">
+                      <p>Please select your role:</p>
+                      <div class="radio-group">
+                        <div class="radio-content">
+                          <input type="radio" name="role" value="contractor" id="role-contractor" />
+                          Contractor
+                        </div>
+                        <div class="radio-content">
+                          <input type="radio" name="role" value="customer" id="role-customer" />
+                          Customer
+                        </div>
+                        <div class="radio-content">
+                          <input type="radio" name="role" value="buyer" id="role-buyer" />
+                          Buyer
+                        </div>
+                        <div class="radio-content">
+                          <input type="radio" name="role" value="seller" id="role-seller" />
+                          Seller
+                        </div>   
+                      </div>
+                    </div>
+                    
+                    <input type="submit" class="btn" value="Register" />
+                  </form>
+                </div>
+              </div>
+            
+              <div class="panels-container">
+                <div class="panel left-panel">
+                  
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME BACK!</h3>
+                      <img src="../assets/nirmankara-logo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        "Buy, Sell, Build, or Develop - Nirmaankara simplifies it all. Your trusted partner in real estate and construction"
+                      </p>
+                      <button class="btn transparent" id="sign-up-btn">
+                         Register
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            
+                <div class="panel right-panel">
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME TO</h3>
+                      <img src="../assets/nirmankara-logo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        Your hub for construction and realestate, connecting landowners,contractors, buyers, and sellers with ease.
+                      </p>
+                      <button class="btn transparent" id="sign-in-btn">
+                        Login
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    </div>
+    <!-- signin signup pop up -->
 
      <!-- Home Image and search Bar -->
     <div class="main-search-bar">
@@ -929,7 +1047,7 @@
         </div>
      </div>
      <!-- footer --> 
-    <script src="../customerhomenew.js"></script>
+    <script src="../javascript/customerhomenew.js"></script>
     <script src="../javascript/navbarfooter.js"></script>
 </body>
 </html>

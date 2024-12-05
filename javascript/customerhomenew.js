@@ -25,5 +25,16 @@ function prevSlide(button) {
   showSlide(container, container.currentIndex - 1);
 }
 
+// signinsignup
+const showPopup = document.querySelectorAll('#login-popup');
+const popupContainer = document.querySelector('.popup-container');
+const closeBtn = document.querySelector('.close-btn');
+showPopup.onclick = () => {
+  popupContainer.classList.add('active-popup');
+}
+closeBtn.onclick = () => {
+  popupContainer.classList.remove('active-popup');
+}
+
 
 
