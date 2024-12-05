@@ -271,11 +271,13 @@ th, td {
     box-sizing: border-box;
     padding: 10px 2px;
     border-bottom: 1px solid #828282;
-    text-align: left;
+    text-align: center;
     background-color: transparent;
 }
 td input{
     background-color: transparent;
+    text-align: center;
+    width: 150px;
 }
 th{
     white-space: nowrap;
@@ -311,7 +313,6 @@ thead {
     cursor: pointer;
 }
 .delete-row i {
-    
     font-size: 16px;
     color: #f44336;
 }
