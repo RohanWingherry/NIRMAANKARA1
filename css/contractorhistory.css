@@ -88,6 +88,15 @@
 #action .fa-trash-can{
     color: red;
 }
+#action .edit-row{
+  font-size: 20px;
+  padding: 3px;
+  border: 3px solid rgb(177, 177, 177);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white;
+  color: #008994;
+}
 #action .fa-pen-to-square,.fa-eye{
     color: #008994;
 }

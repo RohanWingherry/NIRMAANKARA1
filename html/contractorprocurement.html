@@ -307,7 +307,7 @@
                             <span>O-270920241</span>
                         </div>
                         <div class="client">
-                            <label for="quotation-date">Date:</label>
+                            <label for="dateInput">Date:</label>
                             <input type="date" id="dateInput" disabled>
                         </div>
                         <div class="client">
@@ -340,7 +340,24 @@
                             </tr>
                         </thead>
                         <tbody>
-        
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" id="materialName1" placeholder="Enter material name" required ></td>
+                                <td><input type="text" id="description1" placeholder="Enter description" required></td>
+                                <td><input type="text" id="vendor1" placeholder="Enter vendor" required></td>
+                                <td><input type="number" id="quantity1" class="quantity" required placeholder="Enter quantity" oninput="calculateTotalCost(this)"></td>
+                                <td>
+                                    <select name="unitOfMeasure" id="unitOfMeasure1" required>
+                                        <option value="kg">kg</option>
+                                        <option value="tons">tons</option>
+                                        <option value="pieces">pieces</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" required id="costPerUnit1" class="costPerUnit" oninput="calculateTotalCost(this)"  placeholder="Enter cost"></td>
+                                <td><input type="number" name="totalCost" id="totalCost1" class="totalCost" readonly></td>
+                                <td><input type="number" id="segments1" required placeholder="Enter no of Segments"></td>
+                                <td></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -390,8 +407,8 @@
                     <div>
                         <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                         <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <input type="email" id="email-footer" placeholder="Enter email">
+                            <button class="fotbtn">&#8594;</button>
                         </form>
                     </div>
                 </section>

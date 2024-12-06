@@ -86,3 +86,9 @@ document.querySelectorAll('.edit-row').forEach(function(element) {
         window.location.href="../html/contractorpurchaseorder.html";
     });
 });
+
+document.querySelectorAll(".view-page").forEach(function(eachelement){
+    eachelement.addEventListener("click",()=>{
+        window.location.href='../html/contractorpurchaseorderflled.html';
+    })
+})

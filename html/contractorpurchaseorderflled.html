@@ -251,6 +251,11 @@
     <div class="main-content">
         <div class="contentofpage">
             <div id="history-main">
+                <div id="historyheading">
+                    <section>
+                        <a href="">Export pdf <i class="fa-solid fa-upload"></i></a>
+                    </section>
+                </div>
                 <div class="fetching">
                     <div class="all-details-head">
                         <section class="org-details">
@@ -336,15 +341,9 @@
                                 <td>Kg</td>
                                 <td>100</td>
                                 <td>300</td>
-                                <td>
-                                    <select name="paymentMethod" id="paymentMethod_2" onchange="updateNextTd(this, 'nextTd_2')">
-                                        <option value="">Select</option>
-                                        <option value="cash">Cash</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </td>
-                                <td id="nextTd_2">
-                                    <!-- Content will change based on selection -->
+                                <td>Cash</td>
+                                <td id="nextTd_3" class="payment-status">
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                             <tr>
@@ -358,15 +357,9 @@
                                 <td>Kg</td>
                                 <td>100</td>
                                 <td>300</td>
-                                <td>
-                                    <select name="paymentMethod" id="paymentMethod_3" onchange="updateNextTd(this, 'nextTd_3')">
-                                        <option value="">Select</option>
-                                        <option value="cash">Cash</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </td>
-                                <td id="nextTd_3">
-                                    <!-- Content will change based on selection -->
+                                <td>Cash</td>
+                                <td id="nextTd_3" class="payment-status">
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                             <tr>
@@ -380,15 +373,10 @@
                                 <td>Kg</td>
                                 <td>100</td>
                                 <td>300</td>
-                                <td>
-                                    <select name="paymentMethod" id="paymentMethod_4" onchange="updateNextTd(this, 'nextTd_4')">
-                                        <option value="">Select</option>
-                                        <option value="cash">Cash</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </td>
-                                <td id="nextTd_4">
-                                    <!-- Content will change based on selection -->
+                                <td>Online</td>
+                                <td id="nextTd_4" class="payment-status">
+                                    <span>UTR-Num:912345678912</span>
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                             <tr>
@@ -402,22 +390,14 @@
                                 <td>Kg</td>
                                 <td>100</td>
                                 <td>300</td>
-                                <td>
-                                    <select name="paymentMethod" id="paymentMethod_5" onchange="updateNextTd(this, 'nextTd_5')">
-                                        <option value="">Select</option>
-                                        <option value="cash">Cash</option>
-                                        <option value="online">Online</option>
-                                    </select>
-                                </td>
-                                <td id="nextTd_5">
-                                    <!-- Content will change based on selection -->
+                                <td>Online</td>
+                                <td id="nextTd_5" class="payment-status">
+                                    <span>UTR-Num:912345678912</span>
+                                    <img src="../assets/receipt.jpg" alt="">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="savebutton">
-                    <button type="button" onclick="saveData()" class="savebtn">Save</button>
                 </div>
                 
             </div>
@@ -483,6 +463,6 @@
         
    </div>
     <script src="../javascript/sidenavbar.js"></script>
-    <script src="../javascript/contractorpurchaseorder.js"></script>
+    <script src="../javascript/contractorpurchaseorderfilled.js"></script>
 </body>
 </html>
