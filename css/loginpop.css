@@ -17,7 +17,7 @@
         }
 
         .show-popup {
-            padding: 18px 40px;
+            /* padding: 18px 40px;
             background: #6e78ff;
             border: none;
             outline: none;
@@ -28,7 +28,7 @@
             color: #f2f2f2;
             font-weight: 500;
             position: relative;
-            z-index: 1;
+            z-index: 1; */
             /* Button will stay below popup when opened */
         }
 
