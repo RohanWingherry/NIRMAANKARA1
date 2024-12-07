@@ -329,13 +329,19 @@
                     <table id="descriptionTable">
                         <thead>
                             <tr>
-                                <th><i class="fa-solid fa-building building"></i>ITEM</th>
-                                <th><i class="fa-solid fa-bag-shopping bag"></i>₹Rs</th>
-                                <th><i class="fa-solid fa-money-bill price"></i>Qty</th>
-                                <th><i class="fa-solid fa-money-bill price"></i>Total</th>
+                                <td><i class="fa-solid fa-building building"></i>ITEM</td>
+                                <td><i class="fa-solid fa-bag-shopping bag"></i>₹Rs</td>
+                                <td><i class="fa-solid fa-money-bill price"></i>Qty</td>
+                                <td><i class="fa-solid fa-money-bill price"></i>Total</td>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td><input type="text"placeholder="enter item" class="enter-item" name="enter-item"></td>
+                                <td><input type="number" placeholder="enter price" class="enter-price" name="enter-price" oninput="updateTotal(this)"></td>
+                                <td><input type="number" placeholder="enter qty" class="enter-qty" name="enter-det" oninput="updateTotal(this)"></td>
+                                <td><span>₹0</span></td>
+                            </tr>
                             <!-- Initially empty -->
                         </tbody>
                     </table>

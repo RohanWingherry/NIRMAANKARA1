@@ -1,7 +1,13 @@
-var addingRowCount=0;
+var addingRowCount = 0;
+
 document.getElementById('addRowBtn').addEventListener('click', function() {
     var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
     var newRow = table.insertRow();
+
+    var rowCount = table.rows.length;
+
+    // Generate unique prefix for each row
+    var uniquePrefix = 'row' + rowCount;
 
     var cell0 = newRow.insertCell(0); 
     var cell1 = newRow.insertCell(1);
@@ -14,26 +20,28 @@ document.getElementById('addRowBtn').addEventListener('click', function() {
     var cell8 = newRow.insertCell(8);
     var cell9 = newRow.insertCell(9);
 
-    var rowCount = table.rows.length;
-    cell0.innerHTML = rowCount;
+    // Set ID for each cell's input field to be unique (suffix at the end)
+    cell0.innerHTML = rowCount;  // Row number
 
-    cell1.innerHTML = '<input type="text" name="materialName" placeholder="Enter material name" required>';
-    cell2.innerHTML = '<input type="text" name="description" placeholder="Enter description" required>';
-    cell3.innerHTML = '<input type="text" name="vendor" placeholder="Enter vendor" required>';
-    cell4.innerHTML = '<input type="number" name="quantity" class="quantity" oninput="calculateTotalCost(this)" placeholder="Enter quantity" required>';
+    cell1.innerHTML = `<input type="text" id="materialName${uniquePrefix}" name="materialName" placeholder="Enter material name" required>`;
+    cell2.innerHTML = `<input type="text" id="description${uniquePrefix}" name="description" placeholder="Enter description" required>`;
+    cell3.innerHTML = `<input type="text" id="vendor${uniquePrefix}" name="vendor" placeholder="Enter vendor" required>`;
+    cell4.innerHTML = `<input type="number" id="quantity${uniquePrefix}" name="quantity" class="quantity" oninput="calculateTotalCost(this)" placeholder="Enter quantity" required>`;
     cell5.innerHTML = `
-        <select name="unitOfMeasure" required>
+        <select id="unitOfMeasure${uniquePrefix}" name="unitOfMeasure" required>
             <option value="kg">kg</option>
             <option value="tons">tons</option>
             <option value="pieces">pieces</option>
         </select>`;
-    cell6.innerHTML = '<input type="number" name="costPerUnit" class="costPerUnit" oninput="calculateTotalCost(this)" placeholder="Enter cost/unit" required>';
-    cell7.innerHTML = '<input type="number" name="totalCost" class="totalCost" readonly>';
-    cell8.innerHTML = '<input type="number" name="segments" placeholder="Enter no of Segments" required>';
-    cell9.innerHTML = '<span onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></span>';
+    cell6.innerHTML = `<input type="number" id="costPerUnit${uniquePrefix}" name="costPerUnit" class="costPerUnit" oninput="calculateTotalCost(this)" placeholder="Enter cost" required>`;
+    cell7.innerHTML = `<input type="number" id="totalCost${uniquePrefix}" name="totalCost" class="totalCost" readonly>`;
+    cell8.innerHTML = `<input type="number" id="segments${uniquePrefix}" name="segments" placeholder="Enter no of Segments" required>`;
+    cell9.innerHTML = `<span onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></span>`;
 
-    addingRowCount=addingRowCount+1;
+    addingRowCount = addingRowCount + 1;
 });
+
+
 
 function calculateTotalCost(element) {
     var row = element.parentElement.parentElement;
@@ -47,6 +55,7 @@ function calculateTotalCost(element) {
         totalCostField.value = '0';
     }
 }
+
 
 function deleteRow(element) {
     var row = element.parentElement.parentElement;

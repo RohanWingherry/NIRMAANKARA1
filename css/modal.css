@@ -1,22 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body,
-input {
-  font-family: "Poppins", sans-serif;
-}
 
 .container {
   position: relative;
   width: 100%;
   background-color: #fff;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  border-radius: 20px;
+
 }
 
 .forms-container {
@@ -39,7 +30,7 @@ input {
   z-index: 5;
 }
 
-form {
+.sign-up-form, .sign-in-form{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,11 +64,11 @@ form.sign-in-form {
   max-width: 380px;
   width: 100%;
   background-color: #f0f0f0;
-  margin: 10px 0;
+  margin: 5px 0;
   /* height: 50px; */
   border-radius: 6px;
   display: grid;
-  grid-template-columns:  5% 85%;
+  grid-template-columns:  5% 75%;
   padding: 10px;
   position: relative;
   border: 1px solid rgba(133, 133, 133, 0.127);
@@ -177,7 +168,7 @@ form.sign-in-form {
   border-color: #4481eb;
 }
 
-.btn {
+.sign-btn {
   width: 150px;
   background-color: #5995fd;
   border: none;
@@ -192,7 +183,7 @@ form.sign-in-form {
   transition: 0.5s;
 }
 
-.btn:hover {
+.sign-btn:hover {
   background-color: #4d84e2;
 }
 .panels-container {
@@ -213,7 +204,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  background-image: linear-gradient(-45deg, #eb5744 0%, #04befe 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -272,7 +263,7 @@ form.sign-in-form {
   /* border: 1px solid black; */
 }
 
-.btn.transparent {
+.transparent {
   margin: 0;
   background: none;
   border: 2px solid #fff;
@@ -280,6 +271,9 @@ form.sign-in-form {
   height: 41px;
   font-weight: 600;
   font-size: 0.8rem;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
 }
 
 .right-panel .image,
@@ -533,7 +527,7 @@ form.sign-in-form {
   color: black;
 }
 .resend-button:hover{
-  background-color: #05adef;
+  background-color: #ef5b05;
   }
   .otp-box{
     border: 1px solid #333;

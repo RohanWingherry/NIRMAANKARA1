@@ -38,6 +38,7 @@
     gap: 20px;
 }
 
+
 /* search section */
 .main-search-bar{
   height: 600px;    
@@ -239,7 +240,15 @@ margin-left: 10px;
 .searchbar .searchselect .getexperts .span{
 padding: 10px;
 }
+
 @media (max-width:768px) {
+    .main-search-bar>video{
+      height: 500px;
+    }
+  .searching-tabs{
+    top: 425px;
+    width: 90%;
+  }
 .main-buyerhome .heading-section{
   position: relative;
 }
@@ -252,11 +261,13 @@ padding: 10px;
   filter: grayscale(0%);
 }
 .searching{
+  position: absolute;
+  top: 480px;
   width: 90%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  bottom: 10px;
   backdrop-filter: blur(0px);
   background-color: white;
+  border-radius: 0px 0px 5px 5px;
 }
 .searchbar{
   align-items: flex-start;
@@ -391,7 +402,13 @@ padding: 10px;
   border-radius: 20px;
   border: 3px solid rgb(112, 112, 112);
 }
-
+@media (min-width:769px) and (max-width:1180px) {
+    .main-property-type {
+      position: absolute;
+      top: 560px;
+      left: 0px;
+    }
+}
 @media (max-width:768px) {
 
   .selected-properties {
@@ -399,9 +416,12 @@ padding: 10px;
     width: 100%;
   }
   .main-property-type{
-    position: relative;
-    top: 0px;
-    bottom: 25px;
+    position: absolute;
+    top: 735px;
+    left: 0;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
   }
 
 }
@@ -495,9 +515,21 @@ input[type=range]::-moz-range-thumb {
 input#max-range {
   z-index: 2;
 }
+@media (min-width:769px) and (max-width:1180px) {
+  .main-price-range {
+    position: absolute;
+    top: 560px;
+    left: 0px;
+  }
+}
 @media (max-width:768px) {
   .main-price-range{
-    bottom: 25px;
+    position: absolute;
+    top: 735px;
+    left: 0;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
   }
 }
 
@@ -580,7 +612,7 @@ input#max-range {
 @media (max-width:768px) {
   .main-home-content{
     position: relative;
-    bottom: 0px;
+    top: -100px;
   }
   .main-home-content .home-content .property-names{
     width: 280px;

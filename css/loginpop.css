@@ -7,15 +7,6 @@
             font-family: "Poppins", sans-serif;
         }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f2f2f2;
-            overflow: hidden;
-        }
-
         .show-popup {
             /* padding: 18px 40px;
             background: #6e78ff;
@@ -27,18 +18,23 @@
             font-size: 18px;
             color: #f2f2f2;
             font-weight: 500;
+<<<<<<< HEAD
             position: relative;
             z-index: 1; */
+=======
+            z-index: 1;
+>>>>>>> f6861c2337480796f1ba2f4112a01b6b615c59cc
             /* Button will stay below popup when opened */
         }
 
         .popup-container {
             position: fixed;
             /* Ensure it covers the entire screen */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 500px;
+            transform: translate(-50%,-50%);
             background: rgba(0, 0, 0, 0.6);
             /* Dark overlay */
             display: flex;
@@ -47,6 +43,8 @@
             opacity: 0;
             pointer-events: none;
             z-index: 10;
+            border-radius: 20px;
+
             /* Higher than button */
         }
 
@@ -62,6 +60,8 @@
             background: #fff;
             position: relative;
             transform: scale(0);
+            border-radius: 20px;
+
         }
 
         .popup-container.active .popup-box {
