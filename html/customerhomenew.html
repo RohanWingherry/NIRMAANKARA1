@@ -11,7 +11,8 @@
     <link rel="shortcut icon" href="../assets/newlogo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
-</head>
+    
+  </head>
 <body>
     <!-- Top Nav Bar -->
     <nav class="navigation-bar">
@@ -266,6 +267,9 @@
                         <i class="fas fa-lock"></i>
                         <input type="password" id="sign-in-password" placeholder="Password" />
                       </div>
+                      <p style="text-align: right; margin: 10px 0; color: blue; cursor: pointer;" id="forgot-password-link">
+                        Forgot Password?
+                    </p>
                       <input type="submit" value="Login" class="sign-btn solid" />
                     </form>
               
@@ -360,6 +364,35 @@
               </div>
         </div>
     </div>
+    <!-- Forgot Password Popup -->
+<!-- Forgot Password Popup -->
+<div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
+  <div class="popup-box forgot-box">
+      <button class="close-btn" id="close-forgot-popup">&times;</button>
+      <h2>Forgot Password</h2>
+      <p>Enter your registered email:</p>
+      <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
+      <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
+
+      <div id="otp-section" style="display: none;">
+          <!-- <h3>Enter OTP</h3> -->
+          <div class="otp-v">
+            <div class="inputfototp">
+              <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
+            </div>
+            <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
+          </div>
+      </div>
+
+      <div id="reset-password-section" style="display: none;">
+          <h3>Reset Password</h3>
+          <input type="password" id="new-password" placeholder="New Password" class="input-field" />
+          <input type="password" id="confirm-new-password" placeholder="Confirm Password" class="input-field" />
+          <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
+      </div>
+  </div>
+</div>
+
      <!-- Signup -->
 
      <!-- Home Image and search Bar -->
@@ -1049,5 +1082,56 @@
      <!-- footer --> 
     <script src="../javascript/loginpop.js"></script>
     <script src="../javascript/navbarfooter.js"></script>
+    <script>
+   document.addEventListener("DOMContentLoaded", () => {
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
+    const forgotPasswordPopup = document.getElementById("forgot-password-popup");
+    const closeForgotPopup = document.getElementById("close-forgot-popup");
+
+    const sendOtpBtn = document.getElementById("send-otp-btn");
+    const otpSection = document.getElementById("otp-section");
+    const verifyOtpBtn = document.getElementById("verify-otp-btn");
+    const resetPasswordSection = document.getElementById("reset-password-section");
+    const resetPasswordBtn = document.getElementById("reset-password-btn");
+
+    // Show Forgot Password Popup
+    forgotPasswordLink.addEventListener("click", () => {
+        forgotPasswordPopup.style.display = "flex"; // Make the Forgot Password popup visible
+    });
+
+    // Close Forgot Password Popup
+    closeForgotPopup.addEventListener("click", () => {
+        forgotPasswordPopup.style.display = "none";
+    });
+
+    // Send OTP Simulation
+    sendOtpBtn.addEventListener("click", () => {
+        alert("OTP sent to your email!");
+        otpSection.style.display = "block";
+    });
+
+    // Verify OTP Simulation
+    verifyOtpBtn.addEventListener("click", () => {
+        alert("OTP verified!");
+        otpSection.style.display = "none";
+        resetPasswordSection.style.display = "block";
+    });
+
+    // Reset Password Simulation
+    resetPasswordBtn.addEventListener("click", () => {
+        const newPassword = document.getElementById("new-password").value;
+        const confirmPassword = document.getElementById("confirm-new-password").value;
+
+        if (newPassword === confirmPassword) {
+            alert("Password reset successfully!");
+            resetPasswordSection.style.display = "none";
+            forgotPasswordPopup.style.display = "none";
+        } else {
+            alert("Passwords do not match!");
+        }
+    });
+});
+
+    </script>
 </body>
 </html>

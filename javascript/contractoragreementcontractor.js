@@ -74,14 +74,21 @@ document.querySelector('.submittion span').addEventListener('click', validateAnd
 // Initial Settings
 const initializer = () => {
   writingArea.addEventListener("input", function() {
+    // Get the text and trim leading/trailing spaces
     let text = writingArea.innerText.trim();
+
+    // Split the text into words based on whitespace and filter out empty entries
     let words = text.split(/\s+/).filter(function(word) {
-      return word.length > 0;
+      return word.length > 0; // Ensure empty strings are not counted
     });
+
+    // Count the words
     let wordCount = words.length;
 
+    // Update word count display
     wordCountDisplay.textContent = "Word Count: " + wordCount;
 
+    // Apply color styling based on the word count
     if (wordCount < 80 || wordCount > 160) {
       wordCountDisplay.style.color = "red";
     } else {
@@ -117,6 +124,7 @@ const initializer = () => {
   // Default size
   fontSizeRef.value = 3;
 };
+
 
 // Main logic
 const modifyText = (command, defaultUi, value) => {
