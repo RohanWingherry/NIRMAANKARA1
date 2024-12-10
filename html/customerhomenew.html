@@ -365,33 +365,46 @@
         </div>
     </div>
     <!-- Forgot Password Popup -->
-<!-- Forgot Password Popup -->
-<div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
-  <div class="popup-box forgot-box">
-      <button class="close-btn" id="close-forgot-popup">&times;</button>
-      <h2>Forgot Password</h2>
-      <p>Enter your registered email:</p>
-      <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
-      <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
+    <div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
+      <div class="popup-box forgot-box">
+          <button class="close-btn" id="close-forgot-popup">&times;</button>
+          <h2>Forgot Password</h2>
+          <p>Enter your registered email:</p>
+          <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
+          <span id="email-error" class="error-message" style="color: red; display: none;">Please enter a valid Gmail address!</span>
+          <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
 
-      <div id="otp-section" style="display: none;">
-          <!-- <h3>Enter OTP</h3> -->
-          <div class="otp-v">
-            <div class="inputfototp">
-              <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
-            </div>
-            <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
+          <div id="otp-section" style="display: none;">
+              <div class="otp-v">
+                  <div class="inputfototp">
+                      <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
+                  </div>
+
+                  <div id="otp-actions">
+                      <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
+                  </div>
+                  <div id="resend-otp" style="display: none;">
+                      <button id="resend-btn" class="resend-btn">Resend OTP</button>
+                  </div>
+              </div>
+              <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
+              <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
+          </div>
+
+          <div id="reset-password-section" style="display: none;">
+              <h3>Reset Password</h3>
+              <div class="reset-content">
+                  <input type="password" id="new-password" placeholder="New Password" class="input-field" />
+                  <span id="password-error" class="error-message" style="color: red; display: none;">Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@#$%^&+=!).</span>
+                  <input type="password" id="confirm-new-password" placeholder="Confirm Password" class="input-field" />
+                  <span id="confirm-password-error" class="error-message" style="color: red; display: none;">Passwords do not match!</span>
+                  <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
+              </div>
           </div>
       </div>
+    </div>
 
-      <div id="reset-password-section" style="display: none;">
-          <h3>Reset Password</h3>
-          <input type="password" id="new-password" placeholder="New Password" class="input-field" />
-          <input type="password" id="confirm-new-password" placeholder="Confirm Password" class="input-field" />
-          <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
-      </div>
-  </div>
-</div>
+
 
      <!-- Signup -->
 
@@ -1084,6 +1097,7 @@
     <script src="../javascript/navbarfooter.js"></script>
     <script>
    document.addEventListener("DOMContentLoaded", () => {
+  
     const forgotPasswordLink = document.getElementById("forgot-password-link");
     const forgotPasswordPopup = document.getElementById("forgot-password-popup");
     const closeForgotPopup = document.getElementById("close-forgot-popup");
@@ -1094,9 +1108,20 @@
     const resetPasswordSection = document.getElementById("reset-password-section");
     const resetPasswordBtn = document.getElementById("reset-password-btn");
 
+    const emailError = document.getElementById("email-error");
+    const otpError = document.getElementById("otp-error");
+    const otpSuccess = document.getElementById("otp-success");
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirm-password-error");
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
+
+    const temporaryOtp = "123456"; // Predefined temporary OTP
+
     // Show Forgot Password Popup
     forgotPasswordLink.addEventListener("click", () => {
-        forgotPasswordPopup.style.display = "flex"; // Make the Forgot Password popup visible
+        forgotPasswordPopup.style.display = "flex";
     });
 
     // Close Forgot Password Popup
@@ -1104,34 +1129,74 @@
         forgotPasswordPopup.style.display = "none";
     });
 
-    // Send OTP Simulation
+    // Show OTP Section
     sendOtpBtn.addEventListener("click", () => {
-        alert("OTP sent to your email!");
-        otpSection.style.display = "block";
+        const emailInput = document.getElementById("forgot-email").value;
+
+        if (emailRegex.test(emailInput)) {
+            emailError.style.display = "none";
+            alert(` OTP sent to your email`); // Simulated OTP sending
+            otpSection.style.display = "block";
+        } else {
+            emailError.style.display = "block";
+        }
     });
 
-    // Verify OTP Simulation
-    verifyOtpBtn.addEventListener("click", () => {
-        alert("OTP verified!");
-        otpSection.style.display = "none";
-        resetPasswordSection.style.display = "block";
-    });
+    // Verify OTP
+    // Verify OTP
+verifyOtpBtn.addEventListener("click", () => {
+    const enteredOtp = document.getElementById("otp-input").value;
 
-    // Reset Password Simulation
+    if (enteredOtp === temporaryOtp) {
+        // Hide the OTP input and button
+        otpError.style.display = "none";
+        document.getElementById("otp-actions").style.display = "none";
+
+        // Show success message
+        otpSuccess.style.display = "block";
+
+        // Optionally move to the next section
+        setTimeout(() => {
+            otpSuccess.style.display = "none";
+            otpSection.style.display = "none";
+            resetPasswordSection.style.display = "block";
+        }, 2000); // Adjust timing as needed
+    } else {
+        // Show error message
+        otpSuccess.style.display = "none";
+        otpError.style.display = "block";
+    }
+});
+
+    // Reset Password with Validation
     resetPasswordBtn.addEventListener("click", () => {
         const newPassword = document.getElementById("new-password").value;
         const confirmPassword = document.getElementById("confirm-new-password").value;
 
-        if (newPassword === confirmPassword) {
+        let valid = true;
+
+        if (!passwordRegex.test(newPassword)) {
+            passwordError.style.display = "block";
+            valid = false;
+        } else {
+            passwordError.style.display = "none";
+        }
+
+        if (newPassword !== confirmPassword) {
+            confirmPasswordError.style.display = "block";
+            valid = false;
+        } else {
+            confirmPasswordError.style.display = "none";
+        }
+
+        if (valid) {
             alert("Password reset successfully!");
             resetPasswordSection.style.display = "none";
             forgotPasswordPopup.style.display = "none";
-        } else {
-            alert("Passwords do not match!");
         }
     });
 });
 
-    </script>
+</script>
 </body>
 </html>

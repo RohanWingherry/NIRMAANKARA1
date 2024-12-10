@@ -250,38 +250,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 child.getAttribute("data-person") === personName
             );
 
-            if (!chatListItem) {
-                // Create a new <li> for the lead if not already present
-                chatListItem = document.createElement("li");
-                chatListItem.className = "chat-person";
-                chatListItem.setAttribute("data-person", personName);
-                chatListItem.setAttribute("data-img", personImg);
-
-                chatListItem.innerHTML = `
-                    <div class="persontext">
-                        <img src="${personImg}" alt="${personName}">
-                        <span>${personName}</span>
-                    </div>
-                    <div class="time">
-                        <span class="time-received">Just now</span>
-                    </div>
-                `;
-
-                // Prepend the new <li> to the chat list
-                chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
-
-                // Add click event to open chat for the new person
-                chatListItem.addEventListener("click", function () {
-                    openChatWindow(personName, personImg);
-                });
-            }
-
             // Open the chat window for the selected person
-            openChatWindow(personName, personImg);
+            openChatWindow(personName, personImg, chatListItem);
         });
     });
 
-    function openChatWindow(personName, personImg) {
+    function openChatWindow(personName, personImg, chatListItem) {
         // Update the chat window header
         document.getElementById("chat-person-name").innerText = personName;
         document.getElementById("chat-person-image").src = personImg;
@@ -303,16 +277,61 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
                 chatMessagesContainer.appendChild(messageContainer);
             });
-        } 
-        // else {
-        //     // Show "Start a new conversation..." if no messages exist
-        //     // chatMessagesContainer.innerHTML = `
-        //     //     // <div class="empty-message">Start a new conversation...</div>
-        //     // `;
-        // }
+        }
 
         // Show the chat window
         document.getElementById("chat-window").style.display = "block";
+
+        // Only add the person to the chat list when the first message is sent
+        if (!chatListItem) {
+            sendChatBtn.addEventListener("click", function onMessageSend() {
+                const userMessage = chatInput.value.trim();
+
+                if (userMessage) {
+                    // Add to chat messages data
+                    if (!chatMessagesData[personName]) {
+                        chatMessagesData[personName] = [];
+                    }
+
+                    chatMessagesData[personName].push({
+                        text: userMessage,
+                        time: "Just now", // Replace with a formatted timestamp if needed
+                        side: "right",
+                        profileImg: "../assets/profile-pic.png"
+                    });
+
+                    // Add new person to the chat list
+                    chatListItem = document.createElement("li");
+                    chatListItem.className = "chat-person";
+                    chatListItem.setAttribute("data-person", personName);
+                    chatListItem.setAttribute("data-img", personImg);
+
+                    chatListItem.innerHTML = `
+                        <div class="persontext">
+                            <img src="${personImg}" alt="${personName}">
+                            <span>${personName}</span>
+                        </div>
+                        <div class="time">
+                            <span class="time-received">Just now</span>
+                        </div>
+                    `;
+                    // Prepend the new <li> to the chat list
+                    chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
+
+                    // Add click event to open chat for the new person
+                    chatListItem.addEventListener("click", function () {
+                        openChatWindow(personName, personImg, chatListItem);
+                    });
+
+                    // Clear the input field and scroll to the bottom
+                    chatInput.value = "";
+                    chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+
+                    // Remove the event listener after the message is sent to prevent multiple additions
+                    sendChatBtn.removeEventListener("click", onMessageSend);
+                }
+            });
+        }
     }
 
     // Handle sending messages
@@ -322,10 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (userMessage) {
             const personName = document.getElementById("chat-person-name").innerText;
             const personImg = document.getElementById("chat-person-image").src;
-
-            // Remove "Start a new conversation..." if it exists
-            const emptyMessage = document.querySelector(".empty-message");
-            if (emptyMessage) emptyMessage.remove();
 
             // Create message element
             const messageContainer = document.createElement("div");
@@ -370,6 +385,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("chat-window").style.display = "none";
     });
 });
+
+
 
 
 
