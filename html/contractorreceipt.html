@@ -15,8 +15,6 @@
 
 </head>
 <body>
-    
- 
     <div class="navigation-bar">
         <div class="mob-hamberger">
             <div class="mobile-btn-main">
@@ -324,87 +322,59 @@
                 </div>
         
                 <div class="description">
-
-                    <div class="table-container">
-                        <div class="heading tableheading">ENTER LIST OF ITEMS :</div>
-
-                        <table id="descriptionTable">
-                            <thead>
-                                <tr>
-                                    <th><i class="fa-solid fa-building building"></i>ITEM</th>
-                                    <th><i class="fa-solid fa-bag-shopping bag"></i>₹Rs</th>
-                                    <th><i class="fa-solid fa-money-bill price"></i>Qty</th>
-                                    <th><i class="fa-solid fa-money-bill price"></i>Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Initially empty -->
-                                 <!-- <td><input type="text" placeholder="enter item">'</td>
-                                 <td><input type="number" placeholder="enter price" oninput="updateTotal(this)"></td>
-                                 <td><input type="number" placeholder="enter qty" oninput="updateTotal(this)"></td>
-                                 <td>₹0</td>
-                                 <td><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td> -->
-                            </tbody>
-                        </table>
-                        <button class="addbtn" onclick="addRow()">Add Row</button>
-                    
-                        <div class="thetotal">
-                            <div class="total-container">
-                                <div class="totals">
-                                    <div class="totals-row">
-                                        <div class="label">SUBTOTAL</div>
-                                        <div class="value" id="subtotal">₹0</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">DISCOUNT(%)</div>
-                                        <div class="value">
-                                            <input type="number" id="discountPercent" value="0" min="0" max="100" oninput="updateTotals()">
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">SGST(%)</div>
-                                        <div class="value">
-                                            <input type="number" id="sgst" value="0" min="0" max="100" oninput="updateTotals()">
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">SGST Amount</div>
-                                        <div class="value" id="sgstAmount">₹0</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">CGST(%)</div>
-                                        <div class="value">
-                                            <input type="number" id="cgst" value="0" min="0" max="100" oninput="updateTotals()">
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">CGST Amount</div>
-                                        <div class="value" id="cgstAmount">₹0</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">TOTAL</div>
-                                        <div class="value" id="total">₹0</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">DUE AMOUNT</div>
-                                        <div class="value" id="dueAmount">₹0</div>
-                                    </div>
-                                </div>
+                    <div class="invoice-details">
+                        <div class="invoice-fetching">
+                            <div class="invoice-number-details">
+                                <label for="invoice-number">Invoice Number:</label>
+                                <input type="number" id="invoice-number">
+                            </div>
+                            <div id="invoice-fetching-table-btn">
+                                <span>Fetch Invoice Details</span>
+                            </div>
+                        </div>
+                        <div class="invoice-table" id="invoice-table">
+                            <div class="table-container">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fa-solid fa-building building"></i>Item</th>
+                                            <th><i class="fa-solid fa-bag-shopping bag"></i>Qty</th>
+                                            <th><i class="fa-solid fa-money-bill price"></i>Price</th>
+                                            <th><i class="fa-solid fa-money-bill price"></i>Total</th>
+                                            <!-- <th></th> Empty header for delete button -->
+                                        </tr>
+                                    </thead>
+                                    <tbody id="item-rows">
+                                        <tr>
+                                            <td>Brick</td>
+                                            <td>5</td>
+                                            <td>50</td>
+                                            <td>250</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    
-        
-                    <div class="pay payment-container" id="paymentContainer">
-                        <div class="mod">
-                            <span class="label">Mode of Payment: <span class="required">*</span></span>
-                            <label>
-                                <input type="radio" name="paymentMode" value="Cash"> Cash
-                            </label>
-                            <label>
-                                <input type="radio" name="paymentMode" value="NEFT/RTGS"> NEFT/RTGS
-                            </label>
-                            <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
+                    <div class="grand-total">
+                        <div>Grand Total:</div>
+                        <div id="total-amount">&#8377;250</div>
+                    </div>
+                    <div>
+                        <div class="">
+                            
+                        </div>
+                        <div class="pay payment-container" id="paymentContainer">
+                            <div class="mod">
+                                <span class="label">Mode of Payment: <span class="required">*</span></span>
+                                <label>
+                                    <input type="radio" name="paymentMode" value="Cash"> Cash
+                                </label>
+                                <label>
+                                    <input type="radio" name="paymentMode" value="NEFT/RTGS"> NEFT/RTGS
+                                </label>
+                                <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
+                            </div>
                         </div>
                     </div>
         

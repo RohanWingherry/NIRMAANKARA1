@@ -200,8 +200,42 @@ tbody input{
 .description{
     margin-top: 20px;
 }
+.description .invoice-fetching{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.description .invoice-details{
+   
+}
+
+.description .invoice-details .invoice-number-details{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.description .invoice-details #invoice-fetching-table-btn{
+    background-color: green;
+    width: max-content;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.description .invoice-details .invoice-number-details>label{
+    font-size: 14px;
+    color: rgb(94, 94, 94);
+}
+.description .invoice-details .invoice-number-details #invoice-number{
+   padding: 2px;
+   outline: gray;
+}
+#invoice-table{
+    display: none;
+}
 .table-container {
-    
     max-width: 1200px;
     width: 100%;
     margin: auto;
@@ -209,7 +243,6 @@ tbody input{
     padding:0px 15px;
     border-radius: 8px;
     /* border: 1px solid gray; */
-    
     box-sizing: border-box;
 }
 
@@ -332,7 +365,17 @@ thead {
     width: 100%;
     box-sizing: border-box;
 }
-
+.description .grand-total{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.description .grand-total #total-amount{
+    font-weight: 500;
+}
 /* payment mod */
 
 .pay{
