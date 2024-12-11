@@ -1,5 +1,4 @@
 // Add new row to the table
-var rowCount=0;
 function addRow() {
     const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
     const newRow = table.insertRow();
@@ -24,7 +23,6 @@ function addRow() {
         if (confirmDelete) {
             deleteRow(this);
             alert("Successfully deleted the row");
-            rowCount=rowCount-1;
         }
     });
 
@@ -135,7 +133,7 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         allFilled = false;
     }
 
-    if (allFilled && rowCount>=1) {
+    if (allFilled) {
         alert('Invoice Submitted');
         window.location.href = "../html/contractorinvoicehistory.html";
     } else {
