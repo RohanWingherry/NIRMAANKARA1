@@ -326,7 +326,7 @@
                         <div class="invoice-fetching">
                             <div class="invoice-number-details">
                                 <label for="invoice-number">Invoice Number:</label>
-                                <input type="number" id="invoice-number">
+                                <input type="number" id="invoice-number" required>
                             </div>
                             <div id="invoice-fetching-table-btn">
                                 <span>Fetch Invoice Details</span>
@@ -361,9 +361,6 @@
                         <div id="total-amount">&#8377;250</div>
                     </div>
                     <div>
-                        <div class="">
-                            
-                        </div>
                         <div class="pay payment-container" id="paymentContainer">
                             <div class="mod">
                                 <span class="label">Mode of Payment: <span class="required">*</span></span>
@@ -375,6 +372,14 @@
                                 </label>
                                 <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
                             </div>
+                        </div>
+                        <div class="amount-paid">
+                            <label for="paid-amount">Amount Paid:</label>
+                            <input type="number" id="paid-amount">
+                        </div>
+                        <div class="amount-arrers">
+                            <label for="arrer-amount">Due Amount: </label>
+                            <input type="number" id="arrer-amount">
                         </div>
                     </div>
         

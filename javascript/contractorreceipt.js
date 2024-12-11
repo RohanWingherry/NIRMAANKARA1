@@ -88,7 +88,16 @@ const today = new Date().toISOString().split('T')[0];
 dateInput.value = today;
 dateInput.style.textAlign = 'center';
 
+
+
 document.getElementById("invoice-fetching-table-btn").addEventListener("click",()=>{
-    document.getElementById("invoice-table").style.display="block";
-    document.querySelector(".grand-total").style.display="flex"
+    const tableValue=document.getElementById("invoice-number").value;
+    if(tableValue)
+    {
+        document.getElementById("invoice-table").style.display="block";
+        document.querySelector(".grand-total").style.display="flex";
+    }
+    else{
+        alert("Enter the Invoice number");
+    }
 })

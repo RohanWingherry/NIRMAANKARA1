@@ -1,4 +1,3 @@
-var addingRowCount = 0;
 
 document.getElementById('addRowBtn').addEventListener('click', function() {
     var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
@@ -38,7 +37,6 @@ document.getElementById('addRowBtn').addEventListener('click', function() {
     cell8.innerHTML = `<input type="number" id="segments${uniquePrefix}" name="segments" placeholder="Enter no of Segments" required>`;
     cell9.innerHTML = `<span onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></span>`;
 
-    addingRowCount = addingRowCount + 1;
 });
 
 
@@ -77,7 +75,7 @@ function updateSerialNumbers() {
 }
 
 document.getElementById('submitBtn').addEventListener('click', function(event) {
-    if (validateForm()&&addingRowCount>=1) {
+    if (validateForm()) {
         alert("Successfully submitted the details")
         window.location.href="../html/contractorpurchaseorderhistory.html";
     }
