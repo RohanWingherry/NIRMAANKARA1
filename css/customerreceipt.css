@@ -370,7 +370,64 @@ thead {
         padding-right: 0%;
     }
 }
+.description .grand-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.description .grand-total #total-amount{
+    font-weight: 500;
+}
+/* payment mod */
+.payment-all-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.mod {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+    font-size: 14px;
+}
+.mod .label{
+    font-weight: bold;
+}
+.mod label{
+    font-size: 14px;
+}
 
+.payment-all-details .amount-paid, .payment-all-details .amount-arrers{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.payment-all-details .amount-paid>label,
+.payment-all-details .amount-arrers>label{
+    font-weight: bold;
+    font-size: 14px;
+}
+.payment-all-details .amount-paid #paid-amount,
+.payment-all-details .amount-arrers #arrer-amount{
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+}
 
 /* payment mod */
 

@@ -348,46 +348,29 @@
                             </table>
                             <!-- <button onclick="addRow()">Add Row</button> -->
         
-                            <div class="total-container">
-                                <div class="totals">
-                                    <div class="totals-row">
-                                        <div class="label" >SUBTOTAL</div>
-                                        <div class="value" id="subtotal">₹2450</div>
+                            <div class="grand-total">
+                                <div>Grand Total:</div>
+                                <div id="total-amount">&#8377;2550</div>
+                            </div>
+                            <div class="payment-all-details">
+                                <div class="pay">
+                                    <div class="mod">
+                                        <label>Mode of Payment : <span class="required">*</span></label>
+                                        <label>
+                                            <input type="radio" name="paymentMode" value="Cash" disabled> Cash
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="paymentMode" value="NEFT/RTGS" checked> NEFT/RTGS
+                                        </label>
                                     </div>
-                                    <div class="totals-row">
-                                        <div class="label">DISCOUNT(%)</div>
-                                        <div class="value">
-                                            <span id="discountPercent">1</span>
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">SGST(%)</div>
-                                        <div class="value">
-                                            <span id="sgst">10</span>
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">SGST Amount</div>
-                                        <div class="value" id="sgstAmount">₹50</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">CGST(%)</div>
-                                        <div class="value">
-                                            <span id="cgst">10</span>
-                                        </div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">CGST Amount</div>
-                                        <div class="value" id="cgstAmount">₹50</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">TOTAL</div>
-                                        <div class="value" id="total">₹2200</div>
-                                    </div>
-                                    <div class="totals-row">
-                                        <div class="label">DUE AMOUNT</div>
-                                        <div class="value" id="dueAmount">₹2200</div>
-                                    </div>
+                                </div>
+                                <div class="amount-paid">
+                                    <label for="paid-amount">Amount Paid:</label>
+                                    <input type="number" id="paid-amount" value="2550" disabled>
+                                </div>
+                                <div class="amount-arrers">
+                                    <label for="arrer-amount">Due Amount: </label>
+                                    <input type="number" id="arrer-amount" value="0" disabled>
                                 </div>
                             </div>
                         </div>
@@ -402,10 +385,6 @@
                         
                     <div class="Signature">
                         <div class="subsign">
-                            <div class="form1">
-                                <label for="client-signature">Client Signature<span class="required">*</span></label>
-                                <input type="text" id="client-signature" class="inputs" placeholder="Enter name" required disabled>
-                            </div>
                             <div class="form2">
                                 <label for="authorised-signature">Authorised Signature<span class="required">*</span></label>
                                 <input type="text" id="authorised-signature" value="Vijay" class="inputs" placeholder="Enter name" required disabled>

@@ -279,51 +279,64 @@ thead {
     justify-content: flex-end;
     padding-right: 5%;
 }
-.totals {
+.description .grand-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.description .grand-total #total-amount{
+    font-weight: 500;
+}
+/* payment mod */
+.payment-all-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
     margin-top: 20px;
+}
+.mod {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
-    width: 100%;
-    padding: 20px 50px;
-    background-color: #036d7a;
-    color: white;
-    border-radius: 8px;
-    width: max-content;
+    gap: 5px;
+    align-items: flex-start;
+    font-size: 14px;
 }
-
-.totals-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-    width: 100%;
-    max-width: 250px;
-    border-bottom: 1px solid white;
-    padding-bottom: 5px;
-}
-
-.label {
-    text-align: right;
-    margin-right: 10px;
+.mod .label{
+    font-weight: bold;
+    cursor: pointer;
     font-size: 14px;
 }
 
-.value {
+.payment-all-details .amount-paid, .payment-all-details .amount-arrers{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.payment-all-details .amount-paid>label,
+.payment-all-details .amount-arrers>label{
     font-weight: bold;
     font-size: 14px;
 }
-
-.totals-row input {
-    text-decoration: underline;
-    border: none;
+.payment-all-details .amount-paid #paid-amount,
+.payment-all-details .amount-arrers #arrer-amount{
+    padding: 5px;
     outline: none;
-    text-align: left;
-    padding: 2px 5px ;
     font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
 }
+
 
 /* payment mod */
 

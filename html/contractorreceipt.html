@@ -332,6 +332,8 @@
                                 <span>Fetch Invoice Details</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="all-invoice-fetching">
                         <div class="invoice-table" id="invoice-table">
                             <div class="table-container">
                                 <table class="table">
@@ -355,31 +357,31 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="grand-total">
-                        <div>Grand Total:</div>
-                        <div id="total-amount">&#8377;250</div>
-                    </div>
-                    <div>
-                        <div class="pay payment-container" id="paymentContainer">
-                            <div class="mod">
-                                <span class="label">Mode of Payment: <span class="required">*</span></span>
-                                <label>
-                                    <input type="radio" name="paymentMode" value="Cash"> Cash
-                                </label>
-                                <label>
-                                    <input type="radio" name="paymentMode" value="NEFT/RTGS"> NEFT/RTGS
-                                </label>
-                                <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
+                        <div class="grand-total">
+                            <div>Grand Total:</div>
+                            <div id="total-amount">&#8377;250</div>
+                        </div>
+                        <div class="payment-all-details">
+                            <div class="pay payment-container" id="paymentContainer">
+                                <div class="mod">
+                                    <span class="label">Mode of Payment: <span class="required">*</span></span>
+                                    <label>
+                                        <input type="radio" name="paymentMode" value="Cash"> Cash
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="paymentMode" value="NEFT/RTGS"> NEFT/RTGS
+                                    </label>
+                                    <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="amount-paid">
-                            <label for="paid-amount">Amount Paid:</label>
-                            <input type="number" id="paid-amount">
-                        </div>
-                        <div class="amount-arrers">
-                            <label for="arrer-amount">Due Amount: </label>
-                            <input type="number" id="arrer-amount">
+                            <div class="amount-paid">
+                                <label for="paid-amount">Amount Paid:</label>
+                                <input type="number" id="paid-amount">
+                            </div>
+                            <div class="amount-arrers">
+                                <label for="arrer-amount">Due Amount: </label>
+                                <input type="number" id="arrer-amount" disabled>
+                            </div>
                         </div>
                     </div>
         

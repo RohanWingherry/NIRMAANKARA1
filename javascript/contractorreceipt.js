@@ -57,15 +57,10 @@ document.getElementById('submitBtn').addEventListener('click', function() {
         setBorder(authorisedSignatureInput, true);
     }
 
-    // Validate table rows
-    if (!validateTableRows()) {
-        isValid = false;
-    }
 
     // Show alert and submit if valid
     if (isValid) {
         alert('Receipt Submitted');
-        // Redirect to the next page
         window.location.href = "../html/contractorreceipthistory.html";
     } else {
         alert('Please fill out all required fields correctly.');
@@ -94,10 +89,36 @@ document.getElementById("invoice-fetching-table-btn").addEventListener("click",(
     const tableValue=document.getElementById("invoice-number").value;
     if(tableValue)
     {
-        document.getElementById("invoice-table").style.display="block";
-        document.querySelector(".grand-total").style.display="flex";
+        document.querySelector(".all-invoice-fetching").style.display="block"
     }
     else{
         alert("Enter the Invoice number");
     }
 })
+
+ // Get elements
+const totalAmountElement = document.getElementById("total-amount");
+const paidAmountInput = document.getElementById('paid-amount');
+const dueAmountInput = document.getElementById('arrer-amount');
+const paymentError = document.getElementById('paymentError');
+
+// Extract the numeric value from the total amount (remove ₹ and parse as number)
+const totalAmount = parseFloat(totalAmountElement.textContent.replace('₹', '').trim());
+
+paidAmountInput.addEventListener('input', function() {
+    let paidAmount = parseFloat(paidAmountInput.value);
+
+    // If the paid amount exceeds the total amount, show error and reset
+    if (paidAmount > totalAmount) {
+        paidAmountInput.setCustomValidity("Amount paid cannot exceed total amount.");
+        paidAmountInput.reportValidity(); 
+        paidAmountInput.value = totalAmount;
+        paidAmount = totalAmount; 
+    } else {
+        paidAmountInput.setCustomValidity(""); 
+    }
+
+    // Calculate the due amount
+    const dueAmount = totalAmount - paidAmount;
+    dueAmountInput.value = dueAmount > 0 ? dueAmount : 0; 
+});

@@ -205,9 +205,6 @@ tbody input{
     align-items: center;
     gap: 10px;
 }
-.description .invoice-details{
-   
-}
 
 .description .invoice-details .invoice-number-details{
     display: flex;
@@ -232,9 +229,11 @@ tbody input{
    padding: 2px;
    outline: gray;
 }
-#invoice-table{
+
+.all-invoice-fetching{
     display: none;
 }
+
 .table-container {
     max-width: 1200px;
     width: 100%;
@@ -366,7 +365,7 @@ thead {
     box-sizing: border-box;
 }
 .description .grand-total{
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -377,7 +376,13 @@ thead {
     font-weight: 500;
 }
 /* payment mod */
-
+.payment-all-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 .pay{
     display: flex;
     justify-content: center;
@@ -396,18 +401,25 @@ thead {
 }
 .mod .label{
     font-weight: bold;
-}
-.mod label{
+    cursor: pointer;
     font-size: 14px;
 }
-.note{
+
+.payment-all-details .amount-paid, .payment-all-details .amount-arrers{
     display: flex;
-    justify-content: center;
-    width: 100%;
+    align-items: center;
+    gap: 5px;
 }
-.note textarea{
-    padding: 8px;
-    border-radius: 4px;
+.payment-all-details .amount-paid>label,
+.payment-all-details .amount-arrers>label{
+    font-weight: bold;
+    font-size: 14px;
+}
+.payment-all-details .amount-paid #paid-amount,
+.payment-all-details .amount-arrers #arrer-amount{
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
 }
 
 /* signature */ 
