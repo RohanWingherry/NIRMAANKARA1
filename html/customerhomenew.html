@@ -392,18 +392,36 @@
           </div>
 
           <div id="reset-password-section" style="display: none;">
-              <h3>Reset Password</h3>
-              <div class="reset-content">
-                  <input type="password" id="new-password" placeholder="New Password" class="input-field" />
-                  <span id="password-error" class="error-message" style="color: red; display: none;">Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@#$%^&+=!).</span>
-                  <input type="password" id="confirm-new-password" placeholder="Confirm Password" class="input-field" />
-                  <span id="confirm-password-error" class="error-message" style="color: red; display: none;">Passwords do not match!</span>
-                  <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
-              </div>
-          </div>
+            <h3>Reset Password</h3>
+            <div class="reset-content">
+                <div class="input-field">
+                    <input type="password" id="new-password" placeholder="New Password" />
+                    <i class="fas fa-eye toggle-password" data-target="new-password"></i>
+                </div>
+                <span id="password-error" class="error-message" style="display: none;">
+                    Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@#$%^&+=!).
+                </span>
+        
+                <div class="input-field">
+                    <input type="password" id="confirm-new-password" placeholder="Confirm Password" />
+                    <i class="fas fa-eye toggle-password" data-target="confirm-new-password"></i>
+                </div>
+                <span id="confirm-password-error" class="error-message" style="display: none;">Passwords do not match!</span>
+        
+                <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
+            </div>
+        </div>
+        
       </div>
     </div>
 
+    <div id="notification-popup" class="notification-popup" style="display: none;">
+      <div class="notification-box">
+          <p id="notification-message"></p>
+          <button id="notification-close-btn" class="sign-btn">OK</button>
+      </div>
+  </div>
+  
 
 
      <!-- Signup -->
@@ -1096,106 +1114,124 @@
     <script src="../javascript/loginpop.js"></script>
     <script src="../javascript/navbarfooter.js"></script>
     <script>
-   document.addEventListener("DOMContentLoaded", () => {
+//    document.addEventListener("DOMContentLoaded", () => {
   
-    const forgotPasswordLink = document.getElementById("forgot-password-link");
-    const forgotPasswordPopup = document.getElementById("forgot-password-popup");
-    const closeForgotPopup = document.getElementById("close-forgot-popup");
+//     const forgotPasswordLink = document.getElementById("forgot-password-link");
+//     const forgotPasswordPopup = document.getElementById("forgot-password-popup");
+//     const closeForgotPopup = document.getElementById("close-forgot-popup");
 
-    const sendOtpBtn = document.getElementById("send-otp-btn");
-    const otpSection = document.getElementById("otp-section");
-    const verifyOtpBtn = document.getElementById("verify-otp-btn");
-    const resetPasswordSection = document.getElementById("reset-password-section");
-    const resetPasswordBtn = document.getElementById("reset-password-btn");
+//     const sendOtpBtn = document.getElementById("send-otp-btn");
+//     const otpSection = document.getElementById("otp-section");
+//     const verifyOtpBtn = document.getElementById("verify-otp-btn");
+//     const resetPasswordSection = document.getElementById("reset-password-section");
+//     const resetPasswordBtn = document.getElementById("reset-password-btn");
 
-    const emailError = document.getElementById("email-error");
-    const otpError = document.getElementById("otp-error");
-    const otpSuccess = document.getElementById("otp-success");
-    const passwordError = document.getElementById("password-error");
-    const confirmPasswordError = document.getElementById("confirm-password-error");
+//     const emailError = document.getElementById("email-error");
+//     const otpError = document.getElementById("otp-error");
+//     const otpSuccess = document.getElementById("otp-success");
+//     const passwordError = document.getElementById("password-error");
+//     const confirmPasswordError = document.getElementById("confirm-password-error");
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
+//     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+//     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
 
-    const temporaryOtp = "123456"; // Predefined temporary OTP
+//     const temporaryOtp = "123456"; // Predefined temporary OTP
 
-    // Show Forgot Password Popup
-    forgotPasswordLink.addEventListener("click", () => {
-        forgotPasswordPopup.style.display = "flex";
-    });
+//     // Show Forgot Password Popup
+//     forgotPasswordLink.addEventListener("click", () => {
+//         forgotPasswordPopup.style.display = "flex";
+//     });
 
-    // Close Forgot Password Popup
-    closeForgotPopup.addEventListener("click", () => {
-        forgotPasswordPopup.style.display = "none";
-    });
+//     // Close Forgot Password Popup
+//     closeForgotPopup.addEventListener("click", () => {
+//         forgotPasswordPopup.style.display = "none";
+//     });
 
-    // Show OTP Section
-    sendOtpBtn.addEventListener("click", () => {
-        const emailInput = document.getElementById("forgot-email").value;
+//     // Show OTP Section
+//     sendOtpBtn.addEventListener("click", () => {
+//         const emailInput = document.getElementById("forgot-email").value;
 
-        if (emailRegex.test(emailInput)) {
-            emailError.style.display = "none";
-            alert(` OTP sent to your email`); // Simulated OTP sending
-            otpSection.style.display = "block";
+//         if (emailRegex.test(emailInput)) {
+//             emailError.style.display = "none";
+//             alert(` OTP sent to your email`); // Simulated OTP sending
+//             otpSection.style.display = "block";
+//         } else {
+//             emailError.style.display = "block";
+//         }
+//     });
+
+//     // Verify OTP
+//     // Verify OTP
+// verifyOtpBtn.addEventListener("click", () => {
+//     const enteredOtp = document.getElementById("otp-input").value;
+
+//     if (enteredOtp === temporaryOtp) {
+//         // Hide the OTP input and button
+//         otpError.style.display = "none";
+//         document.getElementById("otp-actions").style.display = "none";
+
+//         // Show success message
+//         otpSuccess.style.display = "block";
+
+//         // Optionally move to the next section
+//         setTimeout(() => {
+//             otpSuccess.style.display = "none";
+//             otpSection.style.display = "none";
+//             resetPasswordSection.style.display = "block";
+//         }, 2000); // Adjust timing as needed
+//     } else {
+//         // Show error message
+//         otpSuccess.style.display = "none";
+//         otpError.style.display = "block";
+//     }
+// });
+
+//     // Reset Password with Validation
+//     resetPasswordBtn.addEventListener("click", () => {
+//         const newPassword = document.getElementById("new-password").value;
+//         const confirmPassword = document.getElementById("confirm-new-password").value;
+
+//         let valid = true;
+
+//         if (!passwordRegex.test(newPassword)) {
+//             passwordError.style.display = "block";
+//             valid = false;
+//         } else {
+//             passwordError.style.display = "none";
+//         }
+
+//         if (newPassword !== confirmPassword) {
+//             confirmPasswordError.style.display = "block";
+//             valid = false;
+//         } else {
+//             confirmPasswordError.style.display = "none";
+//         }
+
+//         if (valid) {
+//             alert("Password reset successfully!");
+//             resetPasswordSection.style.display = "none";
+//             forgotPasswordPopup.style.display = "none";
+//         }
+//     });
+// });
+
+
+
+document.querySelectorAll('.toggle-password').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const target = document.getElementById(icon.dataset.target);
+        if (target.type === 'password') {
+            target.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
         } else {
-            emailError.style.display = "block";
+            target.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
         }
     });
-
-    // Verify OTP
-    // Verify OTP
-verifyOtpBtn.addEventListener("click", () => {
-    const enteredOtp = document.getElementById("otp-input").value;
-
-    if (enteredOtp === temporaryOtp) {
-        // Hide the OTP input and button
-        otpError.style.display = "none";
-        document.getElementById("otp-actions").style.display = "none";
-
-        // Show success message
-        otpSuccess.style.display = "block";
-
-        // Optionally move to the next section
-        setTimeout(() => {
-            otpSuccess.style.display = "none";
-            otpSection.style.display = "none";
-            resetPasswordSection.style.display = "block";
-        }, 2000); // Adjust timing as needed
-    } else {
-        // Show error message
-        otpSuccess.style.display = "none";
-        otpError.style.display = "block";
-    }
 });
 
-    // Reset Password with Validation
-    resetPasswordBtn.addEventListener("click", () => {
-        const newPassword = document.getElementById("new-password").value;
-        const confirmPassword = document.getElementById("confirm-new-password").value;
-
-        let valid = true;
-
-        if (!passwordRegex.test(newPassword)) {
-            passwordError.style.display = "block";
-            valid = false;
-        } else {
-            passwordError.style.display = "none";
-        }
-
-        if (newPassword !== confirmPassword) {
-            confirmPasswordError.style.display = "block";
-            valid = false;
-        } else {
-            confirmPasswordError.style.display = "none";
-        }
-
-        if (valid) {
-            alert("Password reset successfully!");
-            resetPasswordSection.style.display = "none";
-            forgotPasswordPopup.style.display = "none";
-        }
-    });
-});
 
 </script>
 </body>

@@ -291,3 +291,119 @@ const showPopup = document.querySelector('.show-popup');
 
 
 
+        document.addEventListener("DOMContentLoaded", () => {
+          const notificationPopup = document.getElementById("notification-popup");
+          const notificationMessage = document.getElementById("notification-message");
+          const notificationCloseBtn = document.getElementById("notification-close-btn");
+      
+          const showNotification = (message) => {
+              notificationMessage.textContent = message;
+              notificationPopup.style.display = "flex";
+          };
+      
+          const closeNotification = () => {
+              notificationPopup.style.display = "none";
+          };
+      
+          notificationCloseBtn.addEventListener("click", closeNotification);
+      
+          const forgotPasswordLink = document.getElementById("forgot-password-link");
+          const forgotPasswordPopup = document.getElementById("forgot-password-popup");
+          const closeForgotPopup = document.getElementById("close-forgot-popup");
+      
+          const sendOtpBtn = document.getElementById("send-otp-btn");
+          const otpSection = document.getElementById("otp-section");
+          const verifyOtpBtn = document.getElementById("verify-otp-btn");
+          const resetPasswordSection = document.getElementById("reset-password-section");
+          const resetPasswordBtn = document.getElementById("reset-password-btn");
+      
+          const emailError = document.getElementById("email-error");
+          const otpError = document.getElementById("otp-error");
+          const otpSuccess = document.getElementById("otp-success");
+          const passwordError = document.getElementById("password-error");
+          const confirmPasswordError = document.getElementById("confirm-password-error");
+      
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+          const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
+      
+          const temporaryOtp = "123456"; // Predefined temporary OTP
+      
+          // Show Forgot Password Popup
+          forgotPasswordLink.addEventListener("click", () => {
+              forgotPasswordPopup.style.display = "flex";
+          });
+      
+          // Close Forgot Password Popup
+          closeForgotPopup.addEventListener("click", () => {
+              forgotPasswordPopup.style.display = "none";
+          });
+      
+          // Show OTP Section
+          sendOtpBtn.addEventListener("click", () => {
+              const emailInput = document.getElementById("forgot-email").value;
+      
+              if (emailRegex.test(emailInput)) {
+                  emailError.style.display = "none";
+                  showNotification("OTP sent to your email.");
+                  otpSection.style.display = "block";
+              } else {
+                  emailError.style.display = "block";
+              }
+          });
+      
+          // Verify OTP
+          // Verify OTP
+      verifyOtpBtn.addEventListener("click", () => {
+          const enteredOtp = document.getElementById("otp-input").value;
+      
+          if (enteredOtp === temporaryOtp) {
+              otpError.style.display = "none";
+              document.getElementById("otp-actions").style.display = "none"; // Hide OTP actions (if applicable)
+              otpSuccess.style.display = "block";
+              otpSuccess.textContent = "OTP Verified ✔"; // Update success message with a green check
+              otpSuccess.style.color = "green"; // Make the text green
+      
+              sendOtpBtn.style.display = "none"; // Hide the "Send OTP" button
+      
+              showNotification("OTP verified successfully!");
+      
+              setTimeout(() => {
+                  otpSuccess.style.display = "none"; // Hide success message after a delay
+                  otpSection.style.display = "none";
+                  resetPasswordSection.style.display = "block";
+              }, 2000);
+          } else {
+              otpError.style.display = "block"; // Show OTP error
+              otpError.textContent = "Incorrect OTP. Please try again.";
+          }
+      });
+      
+          // Reset Password with Validation
+          resetPasswordBtn.addEventListener("click", () => {
+              const newPassword = document.getElementById("new-password").value;
+              const confirmPassword = document.getElementById("confirm-new-password").value;
+      
+              let valid = true;
+      
+              if (!passwordRegex.test(newPassword)) {
+                  passwordError.style.display = "block";
+                  valid = false;
+              } else {
+                  passwordError.style.display = "none";
+              }
+      
+              if (newPassword !== confirmPassword) {
+                  confirmPasswordError.style.display = "block";
+                  valid = false;
+              } else {
+                  confirmPasswordError.style.display = "none";
+              }
+      
+              if (valid) {
+                  showNotification("Password reset successfully!");
+                  resetPasswordSection.style.display = "none";
+                  forgotPasswordPopup.style.display = "none";
+              }
+          });
+      });
+      

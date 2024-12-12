@@ -322,12 +322,12 @@ form.sign-in-form {
 
 @media (max-width: 870px) {
   .container {
-    /* min-height: 800px; */
+    min-height: 800px;
     height: 100vh;
   }
   .signin-signup {
     width: 100%;
-    top: 95%;
+    top: 50%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
@@ -432,7 +432,17 @@ form.sign-in-form {
     padding: 0 1rem;
     height: 100%;
   }
-
+  .sign-up-form, .sign-in-form{
+    
+    padding: 0.1rem 1rem;
+    
+  }
+  .signin-signup {
+    width: 100%;
+    top: 80%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
+  }
   .image {
     /* display: none; */
     max-width: 40px;
@@ -539,4 +549,95 @@ form.sign-in-form {
     max-width: 120px;
     width: 100%;
   }
-  
+  .input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-field i.toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.input-field i.toggle-password:hover {
+    color: #00399d;
+}
+
+
+
+.notification-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.notification-box {
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  padding: 25px;
+  animation: slideIn 0.5s ease-out;
+}
+
+.notification-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+}
+
+#notification-close-btn {
+  padding: 4px 8px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#notification-close-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

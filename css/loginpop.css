@@ -30,11 +30,12 @@
         .popup-container {
             position: fixed;
             /* Ensure it covers the entire screen */
-            top: 50%;
+            top: 55%;
             left: 50%;
-            width: 96%;
-            /* max-height: 500px; */
-            height: 500px;
+            width: 98%;
+            /* min-height: 500px; */
+            max-height: 540px;
+            height: 100%;
             transform: translate(-50%,-50%);
             background: rgba(0, 0, 0, 0.6);
             /* Dark overlay */
@@ -95,17 +96,16 @@
         }
         @media (max-width:570px) {
             .popup-container {
-                top: 40%;
-                height: 400px;
-                /* height: 100%; */
+                top: 29%;
+                max-height: 400px;
+                height: 100%;
+                z-index: 99;
             }
         }
 
 
 
-        /* forget password */
       
-      /* General Styles for Forgot Password Popup */
 /* General Styles for Forgot Password Popup */
 .forgot-password-popup {
     position: fixed;
@@ -113,7 +113,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 500px;
-    width: 100%;
+    width: 90%;
     height: max-content;
     background: rgba(255, 255, 255, 0.95);
     padding: 20px;
@@ -212,7 +212,7 @@
     width: 100%;
     /* justify-content: space-between; */
     align-items: center;
-    gap: 0px;
+    gap: 10px;
 }
 .inputfototp{
     width: 100%;
