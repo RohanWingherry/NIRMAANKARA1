@@ -5,36 +5,338 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/contractorprofilenew.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    <div class="profile-sidebar">
-        <ul>
-            <li>
-                <span class="profile-sidebar-line line-finished"></span>
-                <span class="profile-txt profile-txt-finished">Personal Details</span>
-            </li>
-            <li>
-                <span class="profile-sidebar-line"></span>
-                <span class="profile-txt">Organisation Details</span>
-            </li>
-            <li>
-                <span class="profile-sidebar-line"></span>
-                <span class="profile-txt">Services</span>
-            </li>
-            <li>
-                <span class="profile-sidebar-line"></span>
-                <span class="profile-txt">Projects</span>
-            </li>
-            <li>
-                <span class="profile-sidebar-line"></span>
-                <span class="profile-txt">Payment</span>
-            </li>
-        </ul>
-    </div>
-    <div class="profile-all-details">
-        <div class="">
-
+    <div class="profile-new-maincontents">
+        <div class="profile-sidebar">
+            <ul>
+                <li>
+                    <span class="profile-sidebar-line "></span>
+                    <span class="profile-txt " id="personal-txt">Personal Details</span>
+                </li>
+                <li>
+                    <span class="profile-sidebar-line"></span>
+                    <span class="profile-txt" id="org-txt">Organisation Details</span>
+                </li>
+                <li>
+                    <span class="profile-sidebar-line"></span>
+                    <span class="profile-txt" id="projects-txt">Services and Projects</span>
+                    <span class="profile-sidebar-line"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="personal-all-details">
+            <div class="main-profile">
+                <h5>Profile photo</h5>
+                <div class="image">
+                    <img src="../assets/profile.jpg" id="personal-profile-img">
+                    <label for="personal-file-path">
+                        <span class="material-symbols-rounded">photo_camera</span>
+                    </label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="personal-file-path" class="file-path" style="display: none;">
+                    <button id="personal-delete-btn" style="display: none;"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+            <div class="personal-single">
+                <label for="contractor-name">Contractor Name:</label>
+                <input type="text" id="contractor-name" value="Vijay">
+            </div>
+            <div class="personal-single">
+                <label for="mobile-no">Mobile Number:</label>
+                <input type="number" id="mobile-no" value="9234567890">
+            </div>
+            <div class="personal-single">
+                <label for="email-id">Email Id:</label>
+                <input type="email" id="email-id" value="vijay@gmail.com">
+            </div>
+            <div class="personal-single">
+                <label for="work-exp">Work Experience:</label>
+                <input type="number" id="work-exp" placeholder="Enter Experience in Years">
+            </div>
+            <div class="personal-single">
+                <label for="aadhaar-number">Aadhaar Card Number:</label>
+                <input type="number" id="aadhaar-number" placeholder="Enter Aadhaar Card Number">
+            </div>
+            <div class="personal-single">
+                <label for="contractor-address">Address:</label>
+                <input type="text" id="contractor-address" placeholder="Enter Address">
+            </div>
+            <div class="personal-single">
+                <label for="contractor-state">State:</label>
+                <select id="contractor-state" name="contractor-state" required>
+                    <option value="" hidden>Select your State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chattisgarh">Chattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Harayana">Harayana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkand">Jharkand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharastra">Maharastra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+            <div class="personal-single">
+                <label for="response-time">Response Time:</label>
+                <select name="response-time" id="response-time">
+                    <option value="" hidden>Select Response Time</option>
+                    <option value="Less than 60 min">Less than 60 min</option>
+                    <option value="More than 60 min">More than 60 min</option>
+                </select>
+            </div>
+            <div class="personal-submit">
+                <span id="personal-submit-btn">Next</span>
+            </div>
+        </div>
+        <div class="organisation-all-details" id="organisation-all-details">
+            <div class="main-profile">
+                <h5>Organisation Logo</h5>
+                <div class="image">
+                    <img src="../assets/build.png" id="organisation-profile-img">
+                    <label for="organisation-file-path">
+                        <span class="material-symbols-rounded">photo_camera</span>
+                    </label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="organisation-file-path" class="file-path" style="display: none;">
+                    <button id="organisation-delete-btn" style="display: none;"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+            <div class="organisation-single">
+                <label for="org-name">Organisation Name:</label>
+                <input type="text" id="org-name" placeholder="Enter Organisation Name">
+            </div>
+            <div class="organisation-single">
+                <label for="gst-no">GST Number:</label>
+                <input type="text" id="gst-no" placeholder="Enter Mobile Number">
+            </div>
+            <div class="organisation-single">
+                <label for="working-from">Working Hours <span class="required-fields">*</span></label>
+                <div class="working">
+                    <input type="time" id="working-from" name="working-from" required>
+                    <input type="time" id="working-to" name="working-to"  required>
+                </div>
+            </div>
+            <div class="organisation-single">
+                <label for="org-address">Organisation Address:</label>
+                <input type="text" id="org-address" placeholder="Enter Organisation Address">
+            </div>
+            <div class="organisation-single">
+                <label for="org-state">State:</label>
+                <select id="org-state" name="org-state">
+                    <option value="" hidden>Select your State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chattisgarh">Chattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Harayana">Harayana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkand">Jharkand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharastra">Maharastra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+            <div class="organisation-single">
+                <label for="org-desc">Organisation Description:</label>
+                <input type="text" id="org-desc" placeholder="Enter Organisation Description">
+            </div>
+            <div class="organisation-submit">
+                <span id="org-submit-btn">Next</span>
+            </div>
+        </div>
+        <div class="project-all-details" id="project-all-details">
+            <div class="main-services">
+                <div class="main-service-heading1">Services</div>
+                <div class="main-construction-services">
+                    <div class="services-heading">Building & Renovation Services:</div>
+                    <div class="construction-related-services-list" id="construction-services-list">
+                        <div class="single-service">
+                            <span>Building Re-Modulation</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Independent House/ Villa</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Residential Apartment</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Serviced Apartment</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Industries</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Complex</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Commercial</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Farm House</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Venture Development</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                    </div>
+                    <div id="add-construction-service">Add More</div>
+                    <div id="construction-input-container" class="input-container" style="display:none;">
+                        <input type="text" id="construction-input" placeholder="Enter new service">
+                        <span id="add-construction-button">Add</span>
+                    </div>
+                </div>
+                
+                <div class="main-other-services">
+                    <div class="services-heading">Finishing & Maintenance Services:</div>
+                    <div class="other-related-services-list" id="other-services-list">
+                        <div class="single-service">
+                            <span>Electrical</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Plumbing</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Roofing</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Interiors</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Carpentry</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Painting</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Roofing</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Demolition</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Excavation</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                        <div class="single-service">
+                            <span>Roof top gardening</span>
+                            <span class="remove-service">&times;</span>
+                        </div>
+                    </div>
+                    <div id="add-other-service">Add More</div>
+                    <div id="other-input-container" class="input-container" style="display:none;">
+                        <input type="text" id="other-input" placeholder="Enter new service">
+                        <span id="add-other-button">Add</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="main-project">
+                <div class="add-project">
+                    <button class="openModalBtn" data-modal="modal-add-project">Add Project</button>
+                </div>
+                
+                <!-- Modal for adding project details -->
+                <div id="modal-add-project" class="modal">
+                    <div class="modal-content">
+                        <div class="close-modal-btn"><span class="close">&times;</span></div>
+                        <h3>Add Project Details</h3>
+                        <fieldset>
+                            <legend>Project Name</legend>
+                            <input type="text" id="project-name" placeholder="Enter Project Name...">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Project Location</legend>
+                            <input type="text" id="project-location" placeholder="Enter Project Location...">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Project Area Size (SFT)</legend>
+                            <input type="text" id="project-area" placeholder="Enter Project Area Size in SFT">
+                        </fieldset>
+                        <fieldset>
+                            <legend>Project Image</legend>
+                            <input type="file" id="project-image">
+                            <div class="image-preview">
+                                <img id="img-preview" src="" alt="Image Preview" style="display:none;">
+                                <span id="remove-image" class="remove-btn" style="display:none;">&times;</span>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Project Video</legend>
+                            <input type="file" id="project-video">
+                            <div class="video-preview">
+                                <video id="video-preview" controls style="display:none;"></video>
+                                <span id="remove-video" class="remove-btn" style="display:none;">&times;</span>
+                            </div>
+                        </fieldset>
+                        <button class="save-project">Save Project</button>
+                    </div>
+                </div>
+                
+                <!-- Display uploaded projects -->
+                <div id="main-upload"></div>
+        
+                <!-- submit block -->
+                <div class="next-block">
+                    <span id="form-submit">Submit</span>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="../javascript/contractorprofilenew.js"></script>
 </body>
 </html>
