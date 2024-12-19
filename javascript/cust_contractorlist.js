@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 var popup = document.getElementById("popup");
 popup.style.display = "none"; 
 
@@ -92,9 +122,9 @@ const form = document.getElementById("constructionForm");
 
         if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
             (nameType === "other" && !otherNameTypeInput.value.trim())) {
-            alert("Please fill in all required fields.");
+            showNotification("Please fill in all required fields.");
         } else {
-            alert("Form submitted successfully!");
+            showNotification("Form submitted successfully!");
             // Reset form or close modal logic here
             form.reset(); // Reset form fields
             // Close the modal (assuming you have a modal with id "myModal")
@@ -122,165 +152,34 @@ document.getElementById("chat-list-header").addEventListener("click", function()
 });
 
 // Add event listener to the add-person icon
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".add-person").addEventListener("click", function(event) {
-        event.stopPropagation(); // Prevent event bubbling
-        var contractorList = document.querySelector(".contractor-list");
-        contractorList.style.display = "block"; // Show the list
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    const chatListUl = document.querySelector("#chat-list-content ul");
+    const chatMessagesContainer = document.getElementById("chat-messages");
+    const chatInput = document.getElementById("chat-input");
+    const sendChatBtn = document.getElementById("send-chat-btn");
 
-    // Close contractor list when clicking outside of it
-    document.addEventListener("click", function(event) {
-        var contractorList = document.querySelector(".contractor-list");
-        if (contractorList.style.display === "block" && !contractorList.contains(event.target) && !event.target.matches('.add-person')) {
-            contractorList.style.display = "none"; // Hide the list
-        }
-    });
+    // Store chat messages for each person
+    const chatMessagesData = {};
 
-    // Prevent closing when clicking on the search input
-    document.getElementById("search").addEventListener("click", function(event) {
-        event.stopPropagation(); // Prevent click from closing the list
-        // Optionally, you can add your search functionality here
-        console.log("Search button clicked!");
-    });
-    
-    // Event listener to close the contractor-list when clicking outside of it
-    document.addEventListener("click", function(event) {
-        const contractorList = document.getElementById("contractor-list");
-        const searchButton = document.getElementById("search");
-        
-        if (!contractorList.contains(event.target) && !searchButton.contains(event.target)) {
-            contractorList.style.display = "none";  // Close the list
-        }
-    });
-    
+    let currentChatPerson = null; // Keep track of the currently active chat person
 
-    // Prevent closing when clicking on the contractor list itself
-    document.querySelector(".contractor-list").addEventListener("click", function(event) {
-        event.stopPropagation(); // Prevent closing the list when clicking inside
-    });
+    function openChatWindow(personName, personImg) {
+        // Update current chat person
+        currentChatPerson = { name: personName, img: personImg };
 
-    // Close contractor list when clicking the close icon
-    document.querySelector(".close-contractor").addEventListener("click", function() {
-        var contractorList = document.querySelector(".contractor-list");
-        contractorList.style.display = "none"; // Hide the list
-    });
-});
+        // Update chat window header
+        document.getElementById("chat-person-name").innerText = personName;
+        document.getElementById("chat-person-image").src = personImg;
 
+        // Clear chat messages and load stored messages
+        chatMessagesContainer.innerHTML = "";
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const chatPersons = document.querySelectorAll('.chat-person');
-    const chatMessagesContainer = document.getElementById('chat-messages');
-    const sendChatBtn = document.getElementById('send-chat-btn');
-    const chatInput = document.getElementById('chat-input');
-
-    // Sample message data for each person
-    const messagesData = {
-        'Person 1': [
-            { text: 'Any updates on interview schedules?', time: 'Today 9:38 am', side: 'left' },
-            { text: 'I will let you know soon.', time: 'Today 9:40 am', side: 'right' },
-            { text: 'Any updates on interview schedules?', time: 'Today 9:38 am', side: 'left' },
-            { text: 'I will let you know soon.', time: 'Today 9:40 am', side: 'right' },
-            { text: 'Any updates on interview schedules?', time: 'Today 9:38 am', side: 'left' },
-            { text: 'I will let you know soon.', time: 'Today 9:40 am', side: 'right' },
-            { text: 'Any updates on interview schedules?', time: 'Today 9:38 am', side: 'left' },
-            { text: 'I will let you know soon.', time: 'Today 9:40 am', side: 'right' }
-        ],
-        'Person 2': [
-            { text: 'How’s everything going?', time: 'Yesterday 10:00 am', side: 'left' },
-            { text: 'Pretty good, just busy.', time: 'Yesterday 10:05 am', side: 'right' }
-        ],
-        'Person 3': [
-            { text: 'Did you get the documents?', time: '2 days ago 3:00 pm', side: 'left' },
-            { text: 'Yes, I received them!', time: '2 days ago 3:05 pm', side: 'right' }
-        ],
-        'Person 4': [
-            { text: 'Let’s meet next week.', time: '3 days ago 11:00 am', side: 'left' },
-            { text: 'Sounds good!', time: '3 days ago 11:05 am', side: 'right' }
-        ],
-        'Person 5': [
-            { text: 'What are your plans for the weekend?', time: '15 Sept 10:00 am', side: 'left' },
-            { text: 'I might go hiking.', time: '15 Sept 10:05 am', side: 'right' }
-        ],
-        'Person 6': [
-            { text: 'Can we reschedule our meeting?', time: '19 Sept 1:00 pm', side: 'left' },
-            { text: 'Sure, let me know your available times.', time: '19 Sept 1:05 pm', side: 'right' }
-        ],
-        'Person 7': [
-            { text: 'Can we reschedule our meeting?', time: '19 Sept 1:00 pm', side: 'left' },
-            { text: 'Sure, let me know your available times.', time: '19 Sept 1:05 pm', side: 'right' }
-        ],
-        'Person 8': [
-            { text: 'Can we reschedule our meeting?', time: '19 Sept 1:00 pm', side: 'left' },
-            { text: 'Sure, let me know your available times.', time: '19 Sept 1:05 pm', side: 'right' }
-        ]
-        // Add more messages for other persons as needed
-    };
-
-    // Mapping of person names to their images
-    const personImages = {
-        'Person 1': '../assets/contractor.png',
-        'Person 2': '../assets/circle.png',
-        'Person 3': '../assets/buy.png',
-        'Person 4': '../assets/rental.png',
-        'Person 5': '../assets/rentor.png',
-        'Person 6': '../assets/sell.png',
-        'Person 7': '../assets/receipt.jpg',
-        'Person 8': '../assets/receipt.jpg',
-        'Person 9': '../assets/circle.png',
-
-    };
-
-    // Mapping of contractor names to their images
-    const contractorImages = {
-        'Contractor 1': '../assets/Aparna1.png',
-        'Contractor 2': '../assets/Aparna2.png',        
-        'Contractor 3': '../assets/Aparna3.png',
-        'Contractor 4': '../assets/Aparna4.png',        
-        'Contractor 5': '../assets/Aparna2.png',
-        'Contractor 6': '../assets/Aparna5.png',        
-        'Contractor 7': '../assets/Aparna5.png',
-        'Contractor 8': '../assets/Aparna5.png',        
-        'Contractor 9': '../assets/Aparna5.png',
-        // Additional contractors...
-    };
-    
-    // User's profile image (for right-side messages)
-    const userProfileImage = '../assets/profile-pic.png'; // Change to your user's profile image path
-    // Show menu on dots click
-    
-    
-    chatPersons.forEach(person => {
-        person.addEventListener('click', function () {
-            const personName = person.getAttribute('data-person');
-            let personImg;
-
-            // Check if the clicked person is a contractor or a user
-            if (contractorImages[personName]) {
-                personImg = contractorImages[personName]; // Get contractor image
-            } else if (personImages[personName]) {
-                personImg = personImages[personName]; // Get user image
-            } else {
-                console.error(`Image not found for ${personName}`);
-                return; // Exit if no image is found
-            }            
-            // Update chat window header with the selected person's info
-            document.getElementById('chat-person-name').innerText = personName;
-            document.getElementById('chat-person-image').src = personImg;
-
-            // Clear previous messages
-            chatMessagesContainer.innerHTML = '';
-
-            // Load messages for the selected person (if any)
-            const messages = messagesData[personName] || [];
-            messages.forEach(message => {
-                const messageContainer = document.createElement('div');
+        if (chatMessagesData[personName] && chatMessagesData[personName].length > 0) {
+            chatMessagesData[personName].forEach((message) => {
+                const messageContainer = document.createElement("div");
                 messageContainer.className = `message-container ${message.side}`;
-                const profilePic = message.side === 'left' ? personImg : userProfileImage;
-
                 messageContainer.innerHTML = `
-                    <img src="${profilePic}" alt="Profile" class="profile-pic">
+                    <img src="${message.profileImg}" alt="Profile" class="profile-pic">
                     <div>
                         <p class="message-text">${message.text}</p>
                         <span class="message-time">${message.time}</span>
@@ -288,168 +187,159 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 chatMessagesContainer.appendChild(messageContainer);
             });
+        }
 
-            // Show the chat window
-            document.getElementById('chat-window').style.display = 'block';
-        });
-    });
+        // Show chat window
+        document.getElementById("chat-window").style.display = "block";
 
-    
-    // Handle sending messages
-    sendChatBtn.addEventListener('click', function () {
-        const userMessage = chatInput.value.trim();
+        // Scroll to the bottom of chat messages
+        chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+    }
 
-        if (userMessage) {
-            const messageContainer = document.createElement('div');
-            messageContainer.className = 'message-container right';
+    function addToChatList(personName, personImg) {
+        // Check if the person is already in the chat list
+        let existingChatListItem = Array.from(chatListUl.children).find(
+            (child) => child.getAttribute("data-person") === personName
+        );
 
-            messageContainer.innerHTML = `
-                <img src="${userProfileImage}" alt="Profile" class="profile-pic">
-                <div>
-                    <p class="message-text">${userMessage}</p>
-                    <span class="message-time">Just now</span>
+        if (existingChatListItem) {
+            // Update "Just now" time and move to the top
+            existingChatListItem.querySelector(".time-received").innerText = "Just now";
+            moveToTopOfChatList(personName);
+        } else {
+            // Add a new chat list item
+            const chatListItem = document.createElement("li");
+            chatListItem.className = "chat-person";
+            chatListItem.setAttribute("data-person", personName);
+            chatListItem.setAttribute("data-img", personImg);
+
+            chatListItem.innerHTML = `
+                <div class="persontext">
+                    <img src="${personImg}" alt="${personName}">
+                    <span>${personName}</span>
+                </div>
+                <div class="time">
+                    <span class="time-received">Just now</span>
                 </div>
             `;
 
-            chatMessagesContainer.appendChild(messageContainer);
-            chatInput.value = ''; // Clear input field
-            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight; // Scroll to the bottom
+            // Add click event to open chat for the person
+            chatListItem.addEventListener("click", function () {
+                openChatWindow(personName, personImg);
+            });
+
+            // Prepend the new item to the chat list
+            chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
         }
-    });
-    
-    // Close chat window functionality
-    document.getElementById('close-chat').addEventListener('click', function () {
-        document.getElementById('chat-window').style.display = 'none';
-    });
+    }
 
-    // Close contractor list functionality
-    const closeButton = document.querySelector('.close-contractor');
-    const contractorList = document.querySelector('.contractor-list');
+    function moveToTopOfChatList(personName) {
+        const chatListItem = Array.from(chatListUl.children).find(
+            (child) => child.getAttribute("data-person") === personName
+        );
 
-    closeButton.addEventListener('click', function() {
-        contractorList.style.display = 'none'; 
-    });
+        if (chatListItem) {
+            chatListUl.removeChild(chatListItem);
+            chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
+        }
+    }
 
-//     const chatPersons = document.querySelectorAll('.chat-person'); // Select all chat persons
-// const chatMessagesContainer = document.getElementById('chat-messages'); // Your chat messages container
+    // Handle sending messages
+    sendChatBtn.addEventListener("click", function () {
+        const userMessage = chatInput.value.trim();
+        if (!userMessage || !currentChatPerson) return;
 
-chatPersons.forEach(person => {
-    const menu = person.querySelector('.menu');
-    const dotsIcon = person.querySelector('.dots');
+        const { name: personName, img: personImg } = currentChatPerson;
 
-    // Function to toggle menu
-    const toggleMenu = (event) => {
-        event.stopPropagation(); // Prevent event bubbling
-        // Hide other menus
-        document.querySelectorAll('.menu').forEach(m => {
-            if (m !== menu) m.style.display = 'none';
+        // Create and display the message
+        const messageContainer = document.createElement("div");
+        messageContainer.className = "message-container right";
+        messageContainer.innerHTML = `
+            <img src="../assets/profile-pic.png" alt="Profile" class="profile-pic">
+            <div>
+                <p class="message-text">${userMessage}</p>
+                <span class="message-time">Just now</span>
+            </div>
+        `;
+        chatMessagesContainer.appendChild(messageContainer);
+
+        // Save message to chatMessagesData
+        if (!chatMessagesData[personName]) {
+            chatMessagesData[personName] = [];
+        }
+        chatMessagesData[personName].push({
+            text: userMessage,
+            time: "Just now", // Replace with a formatted timestamp if needed
+            side: "right",
+            profileImg: "../assets/profile-pic.png",
         });
-        // Toggle the menu for the clicked person
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    };
 
-    // Dots icon click event
-    // dotsIcon.addEventListener('click', toggleMenu);
+        // Add to chat list or update its position
+        addToChatList(personName, personImg);
 
-    // Delete person from list
-    menu.querySelector('.delete-chat').addEventListener('click', function (event) {
-        event.stopPropagation(); // Prevent event bubbling
-        if (confirm("Do you want to delete?")) {
-            person.remove();
-            menu.style.display = 'none'; // Hide menu
-            chatMessagesContainer.innerHTML = ''; // Clear messages
-        }
-        document.getElementById('chat-window').style.display = 'none';
+        // Clear input and scroll to the bottom
+        chatInput.value = "";
+        chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
     });
 
+    // Chat person selection logic
+    document.querySelectorAll(".chat-customer").forEach((customerElement) => {
+        customerElement.addEventListener("click", function () {
+            const article = customerElement.closest(".lead-details");
+            const personName = article.querySelector(".lead-link").innerText.trim();
+            const personImg = article.querySelector(".profile-img img").src;
 
-    // Hide menus when clicking outside
-    document.addEventListener('click', function (event) {
-        document.querySelectorAll('.menu').forEach(m => m.style.display = 'none');
+            openChatWindow(personName, personImg);
+        });
     });
 
-    // Add click event to the person element to open the chat window
-    person.addEventListener('click', function () {
-        // Open chat window logic
-        const chatWindow = document.getElementById('chat-window');
-        chatWindow.style.display = 'block';
-        contractorList.style.display = 'none';
-        // Load messages for this person if necessary
+    document.querySelectorAll(".chatting.add-persons").forEach((chatButton) => {
+        chatButton.addEventListener("click", function () {
+            const contractorBox = chatButton.closest(".contractor-box");
+            const personName = contractorBox.querySelector(".profile-name").innerText.trim();
+            const personImg = contractorBox.querySelector(".profile-box img").src;
+
+            openChatWindow(personName, personImg);
+        });
     });
-});
 
-    
-    
-    
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const closeButton = document.querySelector('.close-contractor');
-    const contractorList = document.querySelector('.contractor-list');
-
-    closeButton.addEventListener('click', function() {
-        contractorList.style.display = 'none'; 
-    });
-    contractorList.addEventListener('click', function() {
-        contractorList.style.display = 'none';
-    })
-});
-
-// add=person
-document.querySelector(".add-person").addEventListener("click", function() {
-    document.querySelector(".contractor-list").style.display="block";
-    document.querySelector(".chat-window").style.display="none";
-})
-// message box code ends here
-
-const optionsDots = document.getElementById('options-dots');
+    // clear chat
+    const optionsDots = document.getElementById('options-dots');
 const dropdownMenu = document.getElementById('dropdown-menu');
 const clearChat = document.getElementById('clear-chat');
+const deletePopup = document.getElementById('deletePopup');
+const cancelDelete = document.getElementById('cancelDelete');
+const confirmDelete = document.getElementById('confirmDelete');
 
 optionsDots.addEventListener('click', () => {
     dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 });
 
 clearChat.addEventListener('click', () => {
-    const confirmation = confirm("Do you want to clear the chat?");
-    if (confirmation) {
-        const chatMessages = document.getElementById('chat-messages');
-        chatMessages.innerHTML = ''; // Clear all messages
-    }
+    deletePopup.style.display = 'block'; // Show the popup instead of confirm()
     dropdownMenu.style.display = 'none'; // Close dropdown
 });
 
-
-
-
-// Close dropdown if clicking outside
-document.addEventListener('click', (event) => {
-    if (!optionsDots.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.style.display = 'none';
-    }
+// Cancel delete action
+cancelDelete.addEventListener('click', () => {
+    deletePopup.style.display = 'none'; // Hide the popup
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Select all elements with the class "add-persons"
-//     const addPersonsElements = document.querySelectorAll('.add-persons');
-    
-//     // Select the contractor list by ID
-//     const contractorList = document.getElementById('contractor-list');
-    
-//     // Add event listener to each "Add Person" element
-//     addPersonsElements.forEach(function(element) {
-//       element.addEventListener('click', function() {
-//         // Get the current display style of the contractor list using getComputedStyle
-//         const currentDisplay = window.getComputedStyle(contractorList).display;
-  
-//         // Toggle visibility of the contractor list
-//         if (currentDisplay === 'none') {
-//           contractorList.style.display = 'block';  // Show the list
-//         } else {
-//           contractorList.style.display = 'none';  // Hide the list
-//         }
-//       });
-//     });
-//   });
-  
+// Confirm delete action
+confirmDelete.addEventListener('click', () => {
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = ''; // Clear all messages
+    deletePopup.style.display = 'none'; // Hide the popup
+});
+
+
+    // Close chat window
+    document.getElementById("close-chat").addEventListener("click", function () {
+        document.getElementById("chat-window").style.display = "none";
+    });
+});
+
+
+
+
   

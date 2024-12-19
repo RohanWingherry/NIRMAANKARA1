@@ -53,7 +53,7 @@ let oldMobile = document.getElementById('mob').value;
 
 function editField(field) {
     if (currentlyEditing && currentlyEditing !== field) {
-        alert("Click on edit again if finished editing or want to edit other field.");
+        showNotification("Click on edit again if finished editing or want to edit other field.");
         return;
     }
 
@@ -90,7 +90,7 @@ function checkEmailValidation() {
     const getOtpButton = document.getElementById('get-otp-email');
 
     if (emailInput === oldEmail) {
-        alert('This is your old email, please enter a new one.');
+        showNotification('This is your old email, please enter a new one.');
         getOtpButton.style.display = 'none';
         return;
     }
@@ -107,7 +107,7 @@ function checkMobileValidation() {
     const getOtpButton = document.getElementById('get-otp-mob');
 
     if (mobileInput === oldMobile) {
-        alert('This is your old mobile number, please enter a new one.');
+        showNotification('This is your old mobile number, please enter a new one.');
         getOtpButton.style.display = 'none';
         return;
     }
@@ -176,7 +176,7 @@ function stopOtpTimer(type) {
 function resendOtp(type) {
     otpResendTime = 60;
     startOtpTimer(type);
-    alert(`OTP for ${type} resent!`);
+    showNotification(`OTP for ${type} resent!`);
 }
 
 function verifyOtp(type) {
@@ -184,7 +184,7 @@ function verifyOtp(type) {
     let otpValue = otpField.value;
 
     if (otpValue === "123456") { 
-        alert(`${type.charAt(0).toUpperCase() + type.slice(1)} OTP verified successfully!`);
+        showNotification(`${type.charAt(0).toUpperCase() + type.slice(1)} OTP verified successfully!`);
         otpField.disabled = true;
 
         let newValue = document.getElementById(type).value;
@@ -192,7 +192,7 @@ function verifyOtp(type) {
         document.getElementById(`${type}-otp`).style.display = 'none';
         document.getElementById(`verify-${type}`).style.display = 'none';
     } else {
-        alert('Invalid OTP');
+        showNotification('Invalid OTP');
     }
 }
 
@@ -204,13 +204,14 @@ function saveChanges() {
     let location = document.getElementById("location").value;
     let userType = document.getElementById("usertype").value;
 
-    alert(`Changes Saved:
-    First Name: ${firstName}
-    Last Name: ${lastName}
-    Email: ${email}
-    Mobile: ${mobile}
-    Location: ${location}
-    User Type: ${userType}`);
+    showNotification(`Changes Saved:\n
+        First Name: ${firstName}\n
+        Last Name: ${lastName}\n
+        Email: ${email}\n
+        Mobile: ${mobile}\n
+        Location: ${location}\n
+        User Type: ${userType}`);
+        
 
     cancelEdit('fname');
     cancelEdit('lname');
@@ -262,18 +263,18 @@ function handleImageUpload(event) {
     const file = event.target.files[0];
     
     if (!file) {
-        alert('No file selected.');
+        showNotification('No file selected.');
         return;
     }
     
     const validTypes = ['image/jpeg', 'image/png'];
     if (!validTypes.includes(file.type)) {
-        alert('Invalid file type. Please upload a JPG, JPEG, or PNG file.');
+        showNotification('Invalid file type. Please upload a JPG, JPEG, or PNG file.');
         return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-        alert('File size exceeds the 5 MB limit. Please upload a smaller file.');
+        showNotification('File size exceeds the 5 MB limit. Please upload a smaller file.');
         return;
     }
 
@@ -287,7 +288,7 @@ function handleImageUpload(event) {
 
 function deleteImage() {
     if (profileImg.src === defaultImagePath) {
-        alert("No image is uploaded to delete.");
+        showNotification("No image is uploaded to delete.");
     } else {
         const confirmDelete = confirm("Are you sure you want to delete your profile image?");
         
@@ -296,9 +297,9 @@ function deleteImage() {
             
             showUploadOption();
 
-            alert("Profile image deleted successfully.");
+            showNotification("Profile image deleted successfully.");
         } else {
-            alert("Profile image deletion canceled.");
+            showNotification("Profile image deletion canceled.");
         }
     }
 }
@@ -359,6 +360,37 @@ function validateForm() {
     }
 
     errorMessage.textContent = "";
-    alert("Password changed successfully!");
+    showNotification("Password changed successfully!");
     return true; 
+}
+
+
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
 }

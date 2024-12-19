@@ -1,3 +1,32 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
 
 document.getElementById('addRowBtn').addEventListener('click', function() {
     var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
@@ -74,15 +103,39 @@ function updateSerialNumbers() {
     }
 }
 
-document.getElementById('submitBtn').addEventListener('click', function(event) {
-    if (validateForm()) {
-        alert("Successfully submitted the details")
-        window.location.href="../html/contractorpurchaseorderhistory.html";
-    }
-    else{
-        alert("Enter the customer id and also enter the procurement item list properly")
+let isCustomerFetched = false; // Flag to track if Customer ID is fetched
+
+// Fetch details button event
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value;
+    if (cust) {
+        document.querySelector(".main-client-det").style.display = "block";
+        isCustomerFetched = true; // Set flag to true when details are fetched
+    } else {
+        showNotification("Enter the Customer ID");
+        isCustomerFetched = false; // Reset flag if invalid
     }
 });
+
+// Submit button event
+document.getElementById("submitBtn").addEventListener("click", function(event) {
+    const cust = document.getElementById("customer-id").value;
+    const itemList = document.getElementById("procurement-item-list")?.value; // Assuming procurement list has an ID
+
+    if (validateForm() && cust && isCustomerFetched && itemList?.trim() !== "") {
+        showNotification("Successfully submitted the details");
+        window.location.href = "../html/contractorpurchaseorderhistory.html";
+    } else {
+        if (!cust || !isCustomerFetched) {
+            showNotification("Please enter and fetch the Customer ID.");
+        } else if (itemList?.trim() === "") {
+            showNotification("Please enter the procurement item list properly.");
+        } else {
+            showNotification("Enter the Customer ID and also complete the procurement item list properly.");
+        }
+    }
+});
+
 
 
 function validateForm() {
@@ -119,7 +172,7 @@ document.getElementById("fetch-details").addEventListener("click",()=>{
         document.querySelector(".main-client-det").style.display="block"
     }
     else{
-        alert("Enter the Customer-id")
+        showNotification("Enter the Customer-id")
     }
   })
   const dateInput = document.getElementById('dateInput');

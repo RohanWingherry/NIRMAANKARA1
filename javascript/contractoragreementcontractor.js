@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+  const notification = document.getElementById('customNotification');
+  const notificationMessage = document.getElementById('notificationMessage');
+  const okButton = document.getElementById('okButton');
+
+  notificationMessage.textContent = message;
+
+  // Add error class if the type is 'error'
+  if (type === 'error') {
+      notification.classList.add('error');
+  } else {
+      notification.classList.remove('error');
+  }
+
+  // Show the notification with a fade-in effect
+  notification.style.display = 'block';
+  setTimeout(() => {
+      notification.style.opacity = '1';  // Fade-in effect
+  }, 10);
+
+  // When "OK" button is clicked, hide the notification with a fade-out effect
+  okButton.addEventListener('click', function () {
+      notification.style.opacity = '0';  // Fade-out effect
+      setTimeout(() => {
+          notification.style.display = 'none';  // Ensure it's hidden after fading out
+      }, 500);  // Wait for the transition duration before hiding completely
+  });
+}
+
 let optionsButtons = document.querySelectorAll(".option-button");
 let advancedOptionButton = document.querySelectorAll(".adv-option-button");
 let fontName = document.getElementById("fontName");
@@ -44,7 +74,7 @@ const validateAndSubmit = (event) => {
   }
 
   if (!isFormValid) {
-    alert("Please fill out all required fields correctly.");
+    showNotification("Please fill out all required fields correctly.");
     return;
   }
 
@@ -54,16 +84,16 @@ const validateAndSubmit = (event) => {
   let secondPartySignature = document.getElementById('builder-signature').value.trim();
 
   if (wordCount < 80 || wordCount > 160) {
-    alert("The agreement text must be between 80 and 160 words.");
+    showNotification("The agreement text must be between 80 and 160 words.");
     return false;
   }
 
   if (!secondPartySignature) {
-    alert("Second party e-signature is mandatory.");
+    showNotification("Second party e-signature is mandatory.");
     return false;
   }
 
-  alert("Form is submitted successfully");
+  showNotification("Form is submitted successfully");
   window.location.href = "../html/contractoragreementhistory.html";
   return true;
 };
@@ -206,7 +236,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
   if (cust) {
     document.querySelector(".main-client-det").style.display = "block";
   } else {
-    alert("Enter the Customer-id");
+    showNotification("Enter the Customer-id");
   }
 });
 

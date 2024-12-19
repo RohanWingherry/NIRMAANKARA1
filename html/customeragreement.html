@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Agreement</title>
     <link rel="stylesheet" href="../css/customeragreement.css">
+    <link rel="stylesheet" href="../css/contractorhistory.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../assets/nirmankara-logo.png">
   
@@ -320,6 +321,12 @@
                     <input type="submit" id="submit-agreement" value="Agree">
                 </div>
             </form>
+            <!-- Add a unique notification container in your HTML -->
+            <div id="customNotification" class="customNotification" style="display:none;">
+                <div id="notificationMessage"></div>
+                <hr>
+                <button id="okButton" class="okButton">OK</button>
+            </div>
         </div>
      <!-- footer -->
      <div class="main-footer-box">

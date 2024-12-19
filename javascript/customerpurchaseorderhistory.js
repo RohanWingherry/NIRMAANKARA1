@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedRows.length > 0) {
                 showDeletePopup(selectedRows); // Pass selected rows to delete popup
             } else {
-                alert('Please select rows to delete'); // Notify if no rows are selected
+                showNotification('Please select rows to delete'); // Notify if no rows are selected
             }
         });
     }

@@ -1247,4 +1247,42 @@ button.prev:hover, button.next:hover {
     transform: scale(1.02);
   }
 
- 
+ /* notify or pop up */
+.customNotification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: rgb(0, 0, 0);
+  padding: 20px 10px;
+  border-radius: 12px;
+  max-width: 300px;
+  width: 100%;
+  font-size: 16px;
+  z-index: 9999;
+  display: none;
+  text-align: center;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  opacity: 0;  /* Set initial opacity to 0 for smooth fade-in */
+  transition: opacity 0.3s ease, transform 0.3s ease;  /* Add transition for opacity and transform */
+}
+
+#notificationMessage {
+  padding: 10px 5px;
+  margin-bottom: 20px;
+}
+
+.okButton {
+  background-color: #ffffff;
+  color: #4caf50;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.okButton:hover {
+  background-color: #f1f1f1;
+}

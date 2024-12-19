@@ -368,6 +368,23 @@
                     <button type="button" id="submitBtn">Submit</button>
                 </div>
             </div>
+            <!-- Add a unique notification container in your HTML -->
+            <div id="customNotification" class="customNotification" style="display:none;">
+                <div id="notificationMessage"></div>
+                <hr>
+                <button id="okButton" class="okButton">OK</button>
+            </div>
+            <!-- Delete Confirmation Popup -->
+            <div id="deletePopup" class="popup-overlay">
+                <div class="popup-content">
+                    <h3>Delete Confirmation</h3>
+                    <p>Are you sure you want to delete this row?</p>
+                    <div class="popup-actions">
+                        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+                        <button id="confirmDelete" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
         </div>
           <!-- footer -->
           <div class="main-footer-box">

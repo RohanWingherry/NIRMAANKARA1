@@ -1,4 +1,32 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
 
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     function updateSerialNumbers() {
@@ -64,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedRows.length > 0) {
                 showDeletePopup(selectedRows); // Pass selected rows to delete popup
             } else {
-                alert('Please select rows to delete'); // Notify if no rows are selected
+                showNotification('Please select rows to delete'); // Notify if no rows are selected
             }
         });
     }
@@ -107,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem('record', JSON.stringify(record));
                 window.location.href = '../html/contractorfollowupdate.html';
             } else {
-                alert('You cannot edit this row as the client status is neither "Accepted" nor "Rescheduled".');
+                showNotification('You cannot edit this row as the client status is neither "Accepted" nor "Rescheduled".');
             }
         });
     });

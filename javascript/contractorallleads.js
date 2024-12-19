@@ -92,11 +92,12 @@ function copyText() {
 
 // message box cod starts from here
 // Toggle main chat list (open/close)
-document.getElementById("chat-list-header").addEventListener("click", function () {
-    var content = document.getElementById("chat-list-content");
-    var arrow = document.getElementById("chat-list-arrow");
+// Add event listener to toggle the chat list
+const chatListHeader = document.getElementById("chat-list-header");
+chatListHeader.addEventListener("click", function () {
+    const content = document.getElementById("chat-list-content");
+    const arrow = document.getElementById("chat-list-arrow");
 
-    // Toggle chat list display
     if (content.style.display === "block") {
         content.style.display = "none";
         arrow.style.transform = "rotate(0deg)";
@@ -108,126 +109,6 @@ document.getElementById("chat-list-header").addEventListener("click", function (
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".add-person").addEventListener("click", function () {
-        document.querySelector(".chat-window").style.display = "none";
-    });
-
-    // Sample message data for each person
-    const messagesData = {
-        "Person 1": [
-            { text: "Any updates on interview schedules?", time: "Today 9:38 am", side: "left" },
-            { text: "I will let you know soon.", time: "Today 9:40 am", side: "right" }
-        ],
-        "Person 2": [
-            { text: "How’s everything going?", time: "Yesterday 10:00 am", side: "left" },
-            { text: "Pretty good, just busy.", time: "Yesterday 10:05 am", side: "right" }
-        ]
-        // Add more messages for other persons as needed
-    };
-
-    // Mapping of person names to their images
-    const personImages = {
-        "Person 1": "../assets/contractor.png",
-        "Person 2": "../assets/circle.png"
-    };
-
-    // User's profile image (for right-side messages)
-    const userProfileImage = "../assets/profile-pic.png";
-
-    const chatPersons = document.querySelectorAll(".chat-person");
-    const chatMessagesContainer = document.getElementById("chat-messages");
-    const sendChatBtn = document.getElementById("send-chat-btn");
-    const chatInput = document.getElementById("chat-input");
-
-    chatPersons.forEach((person) => {
-        person.addEventListener("click", function () {
-            const personName = person.getAttribute("data-person");
-            const personImg = personImages[personName];
-
-            // Update chat window header with the selected person's info
-            document.getElementById("chat-person-name").innerText = personName;
-            document.getElementById("chat-person-image").src = personImg;
-
-            // Clear previous messages
-            chatMessagesContainer.innerHTML = "";
-
-            // Load messages for the selected person (if any)
-            const messages = messagesData[personName] || [];
-            messages.forEach((message) => {
-                const messageContainer = document.createElement("div");
-                messageContainer.className = `message-container ${message.side}`;
-                const profilePic = message.side === "left" ? personImg : userProfileImage;
-
-                messageContainer.innerHTML = `
-                    <img src="${profilePic}" alt="Profile" class="profile-pic">
-                    <div>
-                        <p class="message-text">${message.text}</p>
-                        <span class="message-time">${message.time}</span>
-                    </div>
-                `;
-                chatMessagesContainer.appendChild(messageContainer);
-            });
-
-            // Show the chat window
-            document.getElementById("chat-window").style.display = "block";
-        });
-    });
-
-    // Handle sending messages
-    sendChatBtn.addEventListener("click", function () {
-        const userMessage = chatInput.value.trim();
-
-        if (userMessage) {
-            const messageContainer = document.createElement("div");
-            messageContainer.className = "message-container right";
-
-            messageContainer.innerHTML = `
-                <img src="${userProfileImage}" alt="Profile" class="profile-pic">
-                <div>
-                    <p class="message-text">${userMessage}</p>
-                    <span class="message-time">Just now</span>
-                </div>
-            `;
-
-            chatMessagesContainer.appendChild(messageContainer);
-            chatInput.value = ""; // Clear input field
-            chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight; // Scroll to the bottom
-        }
-    });
-
-    // Close chat window functionality
-    document.getElementById("close-chat").addEventListener("click", function () {
-        document.getElementById("chat-window").style.display = "none";
-    });
-});
-
-// Dropdown menu functionality
-const optionsDots = document.getElementById("options-dots");
-const dropdownMenu = document.getElementById("dropdown-menu");
-const clearChat = document.getElementById("clear-chat");
-
-optionsDots.addEventListener("click", () => {
-    dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
-});
-
-clearChat.addEventListener("click", () => {
-    const confirmation = confirm("Do you want to clear the chat?");
-    if (confirmation) {
-        const chatMessages = document.getElementById("chat-messages");
-        chatMessages.innerHTML = ""; // Clear all messages
-    }
-    dropdownMenu.style.display = "none"; // Close dropdown
-});
-
-// Close dropdown if clicking outside
-document.addEventListener("click", (event) => {
-    if (!optionsDots.contains(event.target) && !dropdownMenu.contains(event.target)) {
-        dropdownMenu.style.display = "none";
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
     const chatListUl = document.querySelector("#chat-list-content ul");
     const chatMessagesContainer = document.getElementById("chat-messages");
     const chatInput = document.getElementById("chat-input");
@@ -235,7 +116,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Store chat messages for each person
     const chatMessagesData = {};
+    let activeChatPerson = null; // Keep track of the currently active chat
 
+    // Event listener for customer chat initiation
     document.querySelectorAll(".chat-customer").forEach((customerElement) => {
         customerElement.addEventListener("click", function (event) {
             event.stopPropagation();
@@ -245,17 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const personName = article.querySelector(".lead-link").innerText.trim();
             const personImg = article.querySelector(".profile-img img").src;
 
-            // Check if the lead is already in the chat list
-            let chatListItem = Array.from(chatListUl.children).find((child) =>
-                child.getAttribute("data-person") === personName
-            );
-
             // Open the chat window for the selected person
-            openChatWindow(personName, personImg, chatListItem);
+            openChatWindow(personName, personImg);
         });
     });
 
-    function openChatWindow(personName, personImg, chatListItem) {
+    function openChatWindow(personName, personImg) {
+        activeChatPerson = personName; // Update the active chat person
+
         // Update the chat window header
         document.getElementById("chat-person-name").innerText = personName;
         document.getElementById("chat-person-image").src = personImg;
@@ -282,45 +162,60 @@ document.addEventListener("DOMContentLoaded", function () {
         // Show the chat window
         document.getElementById("chat-window").style.display = "block";
 
-        if (!chatListItem) {
-            addToChatList(personName, personImg);
-        }
-
         // Scroll to the bottom of the chat messages
         chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
     }
 
     function addToChatList(personName, personImg) {
-        const chatListItem = document.createElement("li");
-        chatListItem.className = "chat-person";
-        chatListItem.setAttribute("data-person", personName);
-        chatListItem.setAttribute("data-img", personImg);
+        // Check if the person is already in the chat list
+        let existingChatListItem = Array.from(chatListUl.children).find((child) =>
+            child.getAttribute("data-person") === personName
+        );
 
-        chatListItem.innerHTML = `
-            <div class="persontext">
-                <img src="${personImg}" alt="${personName}">
-                <span>${personName}</span>
-            </div>
-            <div class="time">
-                <span class="time-received">Just now</span>
-            </div>
-        `;
+        if (!existingChatListItem) {
+            // Add a new chat list item
+            const chatListItem = document.createElement("li");
+            chatListItem.className = "chat-person";
+            chatListItem.setAttribute("data-person", personName);
+            chatListItem.setAttribute("data-img", personImg);
 
-        // Prepend the new <li> to the chat list
-        chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
+            chatListItem.innerHTML = `
+                <div class="persontext">
+                    <img src="${personImg}" alt="${personName}">
+                    <span>${personName}</span>
+                </div>
+                <div class="time">
+                    <span class="time-received">Just now</span>
+                </div>
+            `;
 
-        // Add click event to open chat for the new person
-        chatListItem.addEventListener("click", function () {
-            openChatWindow(personName, personImg, chatListItem);
-        });
+            // Add click event to open chat for the new person
+            chatListItem.addEventListener("click", function () {
+                openChatWindow(personName, personImg);
+            });
+
+            // Append the new <li> to the chat list
+            chatListUl.appendChild(chatListItem);
+        }
+    }
+
+    function moveToTopOfChatList(personName) {
+        const chatListItem = Array.from(chatListUl.children).find(
+            (child) => child.getAttribute("data-person") === personName
+        );
+
+        if (chatListItem) {
+            chatListUl.removeChild(chatListItem);
+            chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
+        }
     }
 
     // Handle sending messages
     sendChatBtn.addEventListener("click", function () {
         const userMessage = chatInput.value.trim();
 
-        if (userMessage) {
-            const personName = document.getElementById("chat-person-name").innerText;
+        if (userMessage && activeChatPerson) {
+            const personName = activeChatPerson;
             const personImg = document.getElementById("chat-person-image").src;
 
             // Create message element
@@ -344,22 +239,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 text: userMessage,
                 time: "Just now", // Replace with a formatted timestamp if needed
                 side: "right",
-                profileImg: "../assets/profile-pic.png"
+                profileImg: "../assets/profile-pic.png",
             });
 
-            // Update the chat list time
-            let chatListItem = Array.from(chatListUl.children).find((child) =>
-                child.getAttribute("data-person") === personName
-            );
-            if (chatListItem) {
-                chatListItem.querySelector(".time-received").innerText = "Just now"; // Add dynamic time if needed
-
-                // Move the chatted person to the top of the list
-                chatListUl.removeChild(chatListItem);
-                chatListUl.insertBefore(chatListItem, chatListUl.firstChild);
-            } else {
-                addToChatList(personName, personImg);
-            }
+            // Add to chat list and move to top after sending the first message
+            addToChatList(personName, personImg);
+            moveToTopOfChatList(personName);
 
             // Clear the input field and scroll to the bottom
             chatInput.value = "";
@@ -370,8 +255,45 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close chat window functionality
     document.getElementById("close-chat").addEventListener("click", function () {
         document.getElementById("chat-window").style.display = "none";
+        activeChatPerson = null; // Clear the active chat person
+    });
+
+    // Dropdown menu functionality
+    const optionsDots = document.getElementById("options-dots");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const clearChat = document.getElementById("clear-chat");
+
+    optionsDots.addEventListener("click", () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    clearChat.addEventListener("click", () => {
+        const confirmation = confirm("Do you want to clear the chat?");
+        if (confirmation) {
+            const chatMessages = document.getElementById("chat-messages");
+            chatMessages.innerHTML = ""; // Clear all messages
+            const personName = document.getElementById("chat-person-name").innerText;
+            chatMessagesData[personName] = []; // Clear stored messages for the person
+        }
+        dropdownMenu.style.display = "none"; // Close dropdown
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener("click", (event) => {
+        if (!optionsDots.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.style.display = "none";
+        }
     });
 });
+
+
+
+
+
+
+
+
+
 
 
 

@@ -189,3 +189,148 @@ input.error {
 .form-field .time-format>div>div>select:hover{
     border: 1px solid rgb(0, 0, 0);
 }
+
+/* confirm pop up */
+/* Popup overlay */
+#submitPopup.popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Smooth opacity transition */
+  }
+  
+  /* Show the overlay */
+  #submitPopup.popup-overlay.show {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+  
+  #submitPopup.popup-overlay.hide {
+    animation: fadeOut 0.3s ease-in-out forwards;
+  }
+  
+  /* Popup content */
+  #submitPopup .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* Start small */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out; /* Smooth transform/opacity */
+  }
+  
+  /* Entry animation for content */
+  #submitPopup.popup-overlay.show .popup-content {
+    transform: translate(-50%, -50%) scale(1); /* Full size */
+    opacity: 1;
+    animation: scaleIn 0.3s ease-in-out forwards;
+  }
+  
+  /* Exit animation for content */
+  #submitPopup.popup-overlay.hide .popup-content {
+    transform: translate(-50%, -50%) scale(0.9); /* Shrink */
+    opacity: 0;
+    animation: scaleOut 0.3s ease-in-out forwards;
+  }
+  
+  /* Title and message */
+  #submitPopup .popup-content h3 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  #submitPopup .popup-content p {
+    margin: 0 0 20px;
+    color: #666;
+    font-size: 1rem;
+  }
+  
+  /* Popup actions */
+  #submitPopup .popup-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  #submitPopup .popup-actions .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  #submitPopup .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  #submitPopup .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  #submitPopup .btn:hover {
+    transform: translateY(-2px); /* Subtle hover animation */
+    background-color: #444;
+  }
+  
+  /* Keyframes for overlay fade */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  /* Keyframes for content scaling */
+  @keyframes scaleIn {
+    from {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scaleOut {
+    from {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+  }
+  
