@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 const openModalBtn = document.querySelector(".openModalBtn");
 const modal = document.getElementById("modal-add-project");
 const closeModalBtn = modal.querySelector(".close");
@@ -50,7 +80,7 @@ saveBtn.addEventListener("click", () => {
 
 openModalBtn.addEventListener("click", () => {
     if (projectCount >= maxProjects) {
-        alert("Upload limit exceeded. You cannot add more than 5 projects.");
+        showNotification("Upload limit exceeded. You cannot add more than 5 projects.");
     } else {
         // Clear all input fields and reset previews before opening the modal
         document.getElementById("project-name").value = "";
@@ -82,7 +112,7 @@ document.getElementById("project-image").addEventListener("change", function () 
         imgPreview.style.display = "block";
         removeImage.style.display = "block";
     } else {
-        alert("Please upload a valid image file.");
+        showNotification("Please upload a valid image file.");
         this.value = "";  // Clear the invalid file
     }
 });
@@ -103,7 +133,7 @@ document.getElementById("project-video").addEventListener("change", function () 
         vidPreview.style.display = "block";
         removeVideo.style.display = "block";
     } else {
-        alert("Please upload a valid video file.");
+        showNotification("Please upload a valid video file.");
         this.value = "";  // Clear the invalid file
     }
 });
@@ -175,7 +205,7 @@ saveProjectBtn.addEventListener("click", () => {
         document.getElementById("remove-video").style.display = "none";
 
     } else {
-        alert("Please fill in all details.");
+        showNotification("Please fill in all details.");
     }
 });
 

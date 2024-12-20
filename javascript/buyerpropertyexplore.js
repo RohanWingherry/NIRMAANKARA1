@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 let currentImageIndex = 0;
 const images = [
     "../assets/Aparna1.png",
@@ -36,10 +66,10 @@ likeBtns.forEach(likeBtn => {
         const icon = this.querySelector('.material-symbols-rounded');
         if (this.classList.contains('liked')) {
             icon.textContent = 'favorite';
-            alert("Added this to Shortlist");
+            showNotification("Added this to Shortlist");
         } else {
             icon.textContent = 'favorite_border';
-            alert("Removed from the Shortlist") 
+            showNotification("Removed from the Shortlist") 
         }
     });
 });
@@ -49,11 +79,11 @@ document.querySelectorAll('.bookmark').forEach(bookmark => {
         // Check if the bookmark is already active
         const isActive = this.classList.toggle('active');
 
-        // Show alert based on the state
+        // Show showNotification based on the state
         if (isActive) {
-            alert('Bookmarked!');
+            showNotification('Added to Shortlist!');
         } else {
-            alert('Bookmark removed!');
+            showNotification('Removed from Shortlist!');
         }
     });
 });
@@ -221,7 +251,7 @@ confirmReportButton.onclick = function() {
 
     // Send the reportData to your server or handle it as needed
     console.log("Reported Data:", reportData); // Replace with actual submission logic
-    alert("Thank you for reporting the issue!");
+    showNotification("Thank you for reporting the issue!");
 
     // Close the modal
     reportModal.style.display = "none";
@@ -237,7 +267,7 @@ window.onclick = function(event) {
 function copyToClipboard(inputField) {
     inputField.select();
     document.execCommand('copy');
-    alert('Copied: ' + inputField.value);
+    showNotification('Copied: ' + inputField.value);
 }
 
 // Copy functionality for each button
@@ -248,7 +278,7 @@ copyButtons.forEach((button, index) => {
         if (inputField) {
             copyToClipboard(inputField);
         } else {
-            alert('Input field not found.');
+            showNotification('Input field not found.');
         }
     });
 });

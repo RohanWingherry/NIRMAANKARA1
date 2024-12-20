@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 document.getElementById("cost").addEventListener('input', multiply);
 document.getElementById("all-area").addEventListener('input', multiply);
 document.getElementById("enter-cgst").addEventListener('input', addition);
@@ -43,10 +73,17 @@ const numberOfSlabs = document.getElementById("slab-number");
 
 function generateTable() {
     const customerId = document.getElementById("customer-id").value;
-    
-    // Check if customer ID is filled
+
+    // Check if Customer ID is entered
     if (!customerId) {
-        alert("Please enter the Customer ID before generating the table.");
+        showNotification("Please enter the Customer ID before generating the table.");
+        return;
+    }
+
+    // Check if Customer details have been fetched
+    const detailsVisible = document.querySelector(".main-client-det").style.display === "block";
+    if (!detailsVisible) {
+        showNotification("Please fetch the Customer details first.");
         return;
     }
 
@@ -63,7 +100,7 @@ function generateTable() {
     });
 
     if (!isFormValid) {
-        alert("Please fill out all required fields correctly.");
+        showNotification("Please fill out all required fields correctly.");
         return;
     }
 
@@ -114,6 +151,18 @@ function generateTable() {
     appendFinalRows(tableBody);
     updateTotalAmount();
 }
+
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const customerId = document.getElementById("customer-id").value;
+    if (customerId.trim()) {
+        document.querySelector(".main-client-det").style.display = "block";
+        showNotification("Customer details fetched successfully.");
+    } else {
+        showNotification("Enter the Customer ID.");
+    }
+});
+
+
 
 function createRow(schedule, displayPercentage, calcPercentage, isFirstRow, isNewRow) {
     const row = document.createElement('tr');
@@ -173,10 +222,33 @@ function createRow(schedule, displayPercentage, calcPercentage, isFirstRow, isNe
     return row;
 }
 
+// delete pop up
+// Global variable to store the row to be deleted temporarily
+let rowToDelete = null;
+
 function deleteRow(row) {
-    if (confirm("Are you sure you want to delete this row?")) {
+    // Store the row to be deleted in a global variable
+    rowToDelete = row;
+
+    // Show the delete confirmation popup
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('hide');
+    popup.classList.add('show');
+}
+
+// Attach event listeners for confirmation and cancellation
+document.getElementById('cancelDelete').addEventListener('click', () => {
+    // Hide the popup and reset the global variable
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('show');
+    popup.classList.add('hide');
+    rowToDelete = null;
+});
+
+document.getElementById('confirmDelete').addEventListener('click', () => {
+    if (rowToDelete) {
         const table = document.getElementById('dynamicTable');
-        const rowIndex = row.rowIndex;
+        const rowIndex = rowToDelete.rowIndex;
 
         if (rowIndex > 1) {
             const previousRow = table.rows[rowIndex - 1];
@@ -184,19 +256,25 @@ function deleteRow(row) {
                 const previousPercentageCell = previousRow.cells[1];
                 const previousAmountCell = previousRow.cells[2];
 
-                const currentPercentage = parseFloat(row.cells[1].innerText.replace('%', '').trim());
-                const currentAmount = parseFloat(row.cells[2].innerText.replace(/,/g, '').trim());
+                const currentPercentage = parseFloat(rowToDelete.cells[1].innerText.replace('%', '').trim());
+                const currentAmount = parseFloat(rowToDelete.cells[2].innerText.replace(/,/g, '').trim());
 
                 previousPercentageCell.innerText = (parseFloat(previousPercentageCell.innerText.replace('%', '').trim()) + currentPercentage).toFixed(1) + '%';
                 previousAmountCell.innerText = (parseFloat(previousAmountCell.innerText.replace(/,/g, '').trim()) + currentAmount).toLocaleString('en-IN');
             }
         }
 
-        row.remove();
+        rowToDelete.remove();
         updateTotalAmount();
+        showNotification("Successfully deleted the row");
     }
-    alert("Successfully deleted the row");
-}
+
+    // Hide the popup and reset the global variable
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('show');
+    popup.classList.add('hide');
+    rowToDelete = null;
+});
 function updateTotalAmount() {
     const tableBody = document.querySelector('#dynamicTable tbody');
     let totalAmount = 0;
@@ -319,18 +397,18 @@ function calculateCost() {
         const costPerArea = (budget / totalSlabArea).toFixed(2);
         document.getElementById('cost-per-area').innerText = costPerArea.toLocaleString('en-IN');
     } else {
-        alert("Total slab area must be greater than 0.");
+        showNotification("Total slab area must be greater than 0.");
     }
 }
 
-document.getElementById("fetch-details").addEventListener("click", () => {
-    const cust = document.getElementById("customer-id").value;
-    if (cust) {
-        document.querySelector(".main-client-det").style.display = "block";
-    } else {
-        alert("Enter the Customer ID");
-    }
-});
+// document.getElementById("fetch-details").addEventListener("click", () => {
+//     const cust = document.getElementById("customer-id").value;
+//     if (cust) {
+//         document.querySelector(".main-client-det").style.display = "block";
+//     } else {
+//         showNotification("Enter the Customer ID");
+//     }
+// });
 
 document.getElementById("main-submit").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -338,10 +416,10 @@ document.getElementById("main-submit").addEventListener("submit", function (even
     const quoteInput = document.getElementById("quote").value;
 
     if (quoteInput.trim() !== "") {
-        alert("Successfully submitted the quotation form");
+        showNotification("Successfully submitted the quotation form");
         window.location.href = "../html/contractorquotationhistory.html";
     } else {
-        alert("Please enter your e-signature before submitting.");
+        showNotification("Please enter your e-signature before submitting.");
     }
 });
 const dateInput = document.getElementById('dateInput');

@@ -100,12 +100,12 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
         document.getElementById('pincode-error').innerText = '';
     }
 
-    // If any field is invalid, show an alert
+    // If any field is invalid, show an showNotification
     if (!isValid) {
-        alert('Please fill out all fields correctly.');
+        showNotification('Please fill out all fields correctly.');
     } else {
         // If valid, you can handle form data here (e.g., submit via AJAX, or keep on the same page)
-        alert('Form submitted successfully!');
+        showNotification('Form submitted successfully!');
         // Optionally, you can submit the form data using fetch or AJAX if needed:
         // this.submit(); 
     }
@@ -120,7 +120,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
     const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i; // Allowed file extensions
 
     if (file && !allowedExtensions.exec(file.name)) {
-        alert('Invalid file type! Please upload a file in JPG, JPEG, or PNG format.');
+        showNotification('Invalid file type! Please upload a file in JPG, JPEG, or PNG format.');
         fileInput.value = ''; // Clear the input
         return false;
     }
@@ -139,7 +139,7 @@ document.getElementById('file-input').addEventListener('change', function(event)
 
 // Add event listener for the remove icon
 document.getElementById('remove-icon').addEventListener('click', function() {
-    // Show a confirmation alert
+    // Show a confirmation showNotification
     const confirmRemove = confirm('Are you sure you want to remove the uploaded image?');
     if (confirmRemove) {
         document.getElementById('file-input').value = ''; // Clear the file input
@@ -149,3 +149,32 @@ document.getElementById('remove-icon').addEventListener('click', function() {
     }
 });
 
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}

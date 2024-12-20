@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const maxFileSize = 5 * 1024 * 1024; // 5MB for images and videos
     const videoMaxFileSize = 5 * 1024 * 1024; // 5MB for individual videos
@@ -55,13 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle image files
     function handleImageFiles(files, index) {
         if (files.length > 1) {
-            alert('You can only upload one image per section.');
+            showNotification('You can only upload one image per section.');
             return;
         }
 
         Array.from(files).forEach(file => {
             if (file.size > maxFileSize) {
-                alert(`File size exceeds 5MB: ${file.name}`);
+                showNotification(`File size exceeds 5MB: ${file.name}`);
             } else if (file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/jpg') {
                 const img = document.createElement('img');
                 img.src = URL.createObjectURL(file);
@@ -69,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 filePreviews[index].innerHTML = '';
                 filePreviews[index].appendChild(img);
             } else {
-                alert('Only JPEG, PNG, and JPG image formats are allowed!');
+                showNotification('Only JPEG, PNG, and JPG image formats are allowed!');
             }
         });
     }
@@ -96,13 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle video files
     function handleVideoFiles(files, index) {
         if (files.length > 1) {
-            alert('You can only upload one video per section.');
+            showNotification('You can only upload one video per section.');
             return;
         }
 
         Array.from(files).forEach(file => {
             if (file.size > videoMaxFileSize) {
-                alert(`Video file size exceeds 5MB: ${file.name}`);
+                showNotification(`Video file size exceeds 5MB: ${file.name}`);
             } else if (file.type === 'video/mp4' || file.type === 'video/avi' || file.type === 'video/mov') {
                 const video = document.createElement('video');
                 video.src = URL.createObjectURL(file);
@@ -111,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoPreviews[index].innerHTML = '';
                 videoPreviews[index].appendChild(video);
             } else {
-                alert('Only MP4, AVI, and MOV video formats are allowed!');
+                showNotification('Only MP4, AVI, and MOV video formats are allowed!');
             }
         });
     }
@@ -159,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
             valid = false;
         }
 
-        // If validation fails, show alert with error message
+        // If validation fails, show showNotification with error message
         if (!valid) {
             event.preventDefault();
-            alert("Fill all the required fields and upload alteast one video and one image"); // Display all error messages at once
+            showNotification("Fill all the required fields and upload alteast one video and one image"); // Display all error messages at once
         }
         else{
-            alert("Form Submitted Successfully")
+            showNotification("Form Submitted Successfully")
             window.location.href="../html/contractorworkstatushistory.html"
         }
     });
@@ -175,7 +205,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
     if (cust) {
         document.querySelector(".main-client-det").style.display = "block";
     } else {
-        alert("Enter the Customer ID");
+        showNotification("Enter the Customer ID");
     }
 });
 const dateInput = document.getElementById('dateInput');

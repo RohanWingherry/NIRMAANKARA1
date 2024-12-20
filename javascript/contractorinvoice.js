@@ -1,3 +1,32 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
 // Add new row to the table
 function addRow() {
     const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
@@ -22,7 +51,7 @@ function addRow() {
         const confirmDelete = confirm("Are you sure you want to delete this row?");
         if (confirmDelete) {
             deleteRow(this);
-            alert("Successfully deleted the row");
+            showNotification("Successfully deleted the row");
         }
     });
 
@@ -103,19 +132,36 @@ document.getElementById('submitBtn').addEventListener('click', function () {
     var requiredInputs = document.querySelectorAll('input[required]');
     var allFilled = true;
 
+    // Variables for Customer ID validation
+    const customerID = document.getElementById("customer-id").value.trim();
+    const customerDetailsVisible = document.querySelector(".main-client-det").style.display === "block";
+
+    // Check Customer ID conditions
+    if (!customerID) {
+        showNotification("Please enter the Customer ID.");
+        allFilled = false;
+    } else if (!customerDetailsVisible) {
+        showNotification("Please fetch the Customer ID details.");
+        allFilled = false;
+    }
+
+    // Iterate over all required inputs for additional validations
     requiredInputs.forEach(function (input) {
         var errorMessage = document.getElementById(input.id + 'Error');
 
+        // Reset the input's border and hide any previous error messages
         input.style.border = '';
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
 
+        // Check if input value is empty
         if (input.value.trim() === '') {
             input.style.border = '1px solid red';
             allFilled = false;
         }
 
+        // Special validation for 'authorisedSignature'
         if (input.id === 'authorisedSignature') {
             var nameRegex = /^[A-Za-z][A-Za-z\s]*$/;
             if (!nameRegex.test(input.value.trim())) {
@@ -129,17 +175,56 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         }
     });
 
+    // Check table rows if validation is required for them
     if (!validateTableRows()) {
         allFilled = false;
     }
 
+    // Handle form submission based on validation
     if (allFilled) {
-        alert('Invoice Submitted');
+        showNotification('Invoice Submitted');
         window.location.href = "../html/contractorinvoicehistory.html";
     } else {
-        alert('Please fill out all required fields correctly.');
+        // Notify specifically for Customer ID if it is not valid
+        if (!customerID) {
+            showNotification("Please enter the Customer ID.");
+        } else if (!customerDetailsVisible) {
+            showNotification("Please fetch the Customer ID details.");
+        } else {
+            showNotification('Please fill out all required fields correctly.');
+        }
     }
 });
+
+// Event listener for fetching customer details
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value.trim();
+
+    // Validate if customer ID is entered
+    if (cust) {
+        // Fetch customer details based on customer ID (Add your fetch logic here)
+        fetchCustomerDetails(cust);
+
+        // Show customer details section
+        document.querySelector(".main-client-det").style.display = "block";
+
+        // Show success notification
+        showNotification("Customer details fetched successfully.");
+    } else {
+        // Show notification if customer ID is not entered
+        showNotification("Please enter the Customer ID.");
+    }
+});
+
+
+
+
+// Function to simulate fetching customer details
+// function fetchCustomerDetails(customerId) {
+//     // Simulate an API call or database query to fetch customer details
+//     console.log(`Fetching details for customer ID: ${customerId}`);
+//     // You can add actual fetching logic here as needed
+// }
 
 
 document.getElementById('authorisedSignature').addEventListener('input', function () {
@@ -160,7 +245,7 @@ document.getElementById("fetch-details").addEventListener("click",()=>{
         document.querySelector(".main-client-det").style.display="block"
     }
     else{
-        alert("Enter the Customer-id")
+        showNotification("Enter the Customer-id")
     }
   })
   const dateInput = document.getElementById('dateInput');

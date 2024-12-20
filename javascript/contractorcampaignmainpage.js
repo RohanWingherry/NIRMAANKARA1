@@ -1,3 +1,33 @@
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
+
 const imageUpload = document.getElementById('imageUpload');
 const videoUpload = document.getElementById('videoUpload');
 const imagePreview = document.getElementById('imagePreview');
@@ -12,7 +42,7 @@ imageUpload.addEventListener('change', function () {
     const totalImages = imagePreview.childElementCount + imageUpload.files.length;
 
     if (totalImages > maxImages) {
-        alert('You can upload a maximum of ${maxImages} images.');
+        showNotification(`You can upload a maximum of ${maxImages} images.`, 'error');
         imageUpload.value = ''; // Clear the input
         return;
     }
@@ -45,7 +75,7 @@ videoUpload.addEventListener('change', function () {
     const totalVideos = videoPreview.childElementCount + videoUpload.files.length;
 
     if (totalVideos > maxVideos) {
-        alert('You can upload a maximum of ${maxVideos} videos.');
+        showNotification(`You can upload a maximum of ${maxVideos} videos.`, 'error');
         videoUpload.value = ''; // Clear the input
         return;
     }
@@ -96,34 +126,37 @@ submitButton.addEventListener('click', function (event) {
     const totalVideos = videoPreview.childElementCount;
 
     if (totalImages === 0 && totalVideos === 0) {
-        alert('Please upload at least one image or video before submitting.');
+        showNotification('Please upload at least one image or video before submitting.', 'error');
         isValid = false;
     }
 
     if (isValid) {
-        alert('Submission Successful');
-        window.location.href="../html/contractorcampaignpackage.html"
-    }
-    else{
-        alert("Fill all the details")
+        showNotification('Submission Successful');
+        window.location.href = "../html/contractorcampaignpackage.html";
+    } else {
+        showNotification('Fill all the details', 'error');
     }
 });
+
 document.getElementById('proj-name').addEventListener('input', function(event) {
     let value = event.target.value;
-            value = value.replace(/[^a-zA-Z\s]/g, '');
+    value = value.replace(/[^a-zA-Z\s]/g, '');
 
-            if (value.startsWith(' ')) {
-                value = value.slice(1);
-            }
+    if (value.startsWith(' ')) {
+        value = value.slice(1);
+    }
 
-            event.target.value = value;
+    event.target.value = value;
 });
+
 document.getElementById('proj-loc').addEventListener('input', function(event) {
     event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
 });
+
 document.getElementById('project-cost').addEventListener('input', function(event) {
     event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });
+
 document.getElementById('proj-area').addEventListener('input', function(event) {
     event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });

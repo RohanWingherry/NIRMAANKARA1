@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 document.getElementById('orgDetailsForm').addEventListener('submit', function (event) {
     let isValid = true;
 
@@ -31,11 +61,11 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
 
     if (!isValid) {
         event.preventDefault();
-        alert("Please fill in the required fields correctly.");
+        showNotification("Please fill in the required fields correctly.");
     } else {
         event.preventDefault();
         addDataToTable();
-        alert("Your lead has been generated");
+        showNotification("Your lead has been generated");
     }
 });
 
@@ -182,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedRows.length > 0) {
                 showDeletePopup(selectedRows); // Pass selected rows to delete popup
             } else {
-                alert('Please select rows to delete'); // Notify if no rows are selected
+                showNotification('Please select rows to delete'); // Notify if no rows are selected
             }
         });
     }

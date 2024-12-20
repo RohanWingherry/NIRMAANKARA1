@@ -1,3 +1,34 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+ 
+
  // Function to show the relevant inputs based on the selected radio button
  function showInputs(mode) {
     // Hide all inputs
@@ -19,11 +50,25 @@
 }
 
 // Function to validate and submit the form
+let isDetailsFetched = false;  // To track if the customer details are fetched
+
 function submitForm() {
     let mode = document.querySelector('input[name="contactMode"]:checked');
-    
+    const cust = document.getElementById("customer-id").value; // Get the Customer ID value
+
+    // Ensure that the customer details have been fetched
+    if (!isDetailsFetched) {
+        showNotification("Please fetch the Customer details first");
+        return;
+    }
+
+    if (!cust) {
+        showNotification("Please enter the Customer ID");
+        return;
+    }
+
     if (!mode) {
-        alert('Please select a mode of contact');
+        showNotification('Please select a mode of contact');
         return;
     }
 
@@ -39,12 +84,42 @@ function submitForm() {
     }
 
     if (valid) {
-        alert('Form submitted successfully!');
+        // Show notification with delay for "Form submitted successfully!"
+        setTimeout(() => {
+            showNotification('Form submitted successfully!');
+        }, 3000); // Delay the "Form submitted successfully!" notification for 3 seconds
         window.location.href = '../html/contractorfollowuphistory.html';
     } else {
-        alert('Please fill in all the fields correctly');
+        showNotification('Please fill in all the fields correctly');
     }
 }
+
+// Customer ID fetch details
+document.getElementById("fetch-details").addEventListener("click", () => {
+    const cust = document.getElementById("customer-id").value;
+    if (cust) {
+        // Show the client details section
+        document.querySelector(".main-client-det").style.display = "block";
+        isDetailsFetched = true; // Mark details as fetched
+        showNotification("Customer details fetched successfully");
+    } else {
+        showNotification("Enter the Customer ID first");
+    }
+});
+
+// Disable the submit button until details are fetched
+document.getElementById("submit-button").disabled = true;  // Assuming your submit button has this ID
+
+// Enable the submit button after fetching details
+document.getElementById("fetch-details").addEventListener("click", () => {
+    if (isDetailsFetched) {
+        document.getElementById("submit-button").disabled = false;  // Enable the submit button
+    }
+});
+
+
+
+
 
 // Function to reset input borders to default
 function resetInputBorders() {
@@ -237,7 +312,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
     if (cust) {
         document.querySelector(".main-client-det").style.display = "block";
     } else {
-        alert("Enter the Customer ID");
+        showNotification("Enter the Customer ID");
     }
 });
 const dateInput = document.getElementById('dateInput');

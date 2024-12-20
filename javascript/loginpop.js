@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+  const notification = document.getElementById('customNotification');
+  const notificationMessage = document.getElementById('notificationMessage');
+  const okButton = document.getElementById('okButton');
+
+  notificationMessage.textContent = message;
+
+  // Add error class if the type is 'error'
+  if (type === 'error') {
+      notification.classList.add('error');
+  } else {
+      notification.classList.remove('error');
+  }
+
+  // Show the notification with a fade-in effect
+  notification.style.display = 'block';
+  setTimeout(() => {
+      notification.style.opacity = '1';  // Fade-in effect
+  }, 10);
+
+  // When "OK" button is clicked, hide the notification with a fade-out effect
+  okButton.addEventListener('click', function () {
+      notification.style.opacity = '0';  // Fade-out effect
+      setTimeout(() => {
+          notification.style.display = 'none';  // Ensure it's hidden after fading out
+      }, 500);  // Wait for the transition duration before hiding completely
+  });
+}
+
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
@@ -52,7 +82,7 @@ signInForm.addEventListener('submit', function (event) {
   }
 
   if (valid) {
-    alert("Sign In Successful");
+    showNotification("Sign In Successful");
   }
 });
 
@@ -135,7 +165,7 @@ signUpForm.addEventListener('submit', function (event) {
 
     // If both OTPs are verified, show success message
     if (emailVerified && mobileVerified) {
-      alert("Sign Up Successful");
+      showNotification("Sign Up Successful");
     }
   }
 });
@@ -218,7 +248,7 @@ function verifyOTP(type) {
 // Function to resend OTP
 function resendOTP(type) {
   const correctOTP = type === 'email' ? staticEmailOTP : staticMobileOTP;
-  alert(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent. `);
+  showNotification(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent. `);
 }
 
 // Function to show error (display error message outside input field)

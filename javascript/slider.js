@@ -339,26 +339,7 @@ nameTypeSelect.addEventListener("change", function () {
     }
 });
 
-// Handle form submission
-// form.addEventListener("submit", function (event) {
-//     event.preventDefault(); // Prevent form submission for validation
 
-//     const fullName = document.getElementById("fullName").value.trim();
-//     const phoneNumber = document.getElementById("phoneNumber").value.trim();
-//     const nameType = document.getElementById("nameType").value;
-//     const landSize = document.getElementById("landSize").value.trim();
-//     const landAddress = document.getElementById("landAddress").value.trim();
-
-//     if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
-//         (nameType === "other" && !otherNameTypeInput.value.trim())) {
-//         alert("Please fill in all required fields.");
-//     } else {
-//         alert("Get Quote Sent");
-//         // Reset form or close modal logic here
-//         form.reset(); // Reset form fields
-//         closePopup(); // Close the popup
-//     }
-// });
 
 
 function validateForm(event) {
@@ -380,14 +361,14 @@ function validateForm(event) {
     const phoneNumber = document.getElementById("phoneNumber").value.trim();
     const phoneRegex = /^[6-9]\d{9}$/;
     if (!phoneRegex.test(phoneNumber)) {
-        alert("Phone Number must be exactly 10 digits.");
+        showNotification("Phone Number must be exactly 10 digits.");
         return false;
     }
 
     // Land Size: Only positive numbers allowed
     const landSize = document.getElementById("landSize").value.trim();
     if (isNaN(landSize) || landSize <= 0) {
-        alert("Land Size must be a positive number.");
+        showNotification("Land Size must be a positive number.");
         return false;
     }
 
@@ -395,20 +376,20 @@ function validateForm(event) {
     const landAddress = document.getElementById("landAddress").value.trim();
     const addressRegex = /^[a-zA-Z0-9#\s]+$/;
     if (!addressRegex.test(landAddress)) {
-        alert("Address can only contain letters, numbers, spaces, and '#'.");
+        showNotification("Address can only contain letters, numbers, spaces, and '#'.");
         return false;
     }
 
     // Ensure Construction Type is selected
     const nameType = document.getElementById("nameType").value;
     if (nameType === "select") {
-        alert("Please select a Construction Type.");
+        showNotification("Please select a Construction Type.");
         return false;
     }
 
     // If all validations passed
     if (isValid) {
-        alert("Get quote sent successfully!");
+        showNotification("Get quote sent successfully!");
 
         // Reset the form
         document.getElementById("constructionForm").reset();
@@ -427,3 +408,32 @@ function closePopup() {
 }
 
 
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}

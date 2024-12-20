@@ -1,3 +1,33 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+
+    notificationMessage.textContent = message;
+
+    // Add error class if the type is 'error'
+    if (type === 'error') {
+        notification.classList.add('error');
+    } else {
+        notification.classList.remove('error');
+    }
+
+    // Show the notification with a fade-in effect
+    notification.style.display = 'block';
+    setTimeout(() => {
+        notification.style.opacity = '1';  // Fade-in effect
+    }, 10);
+
+    // When "OK" button is clicked, hide the notification with a fade-out effect
+    okButton.addEventListener('click', function () {
+        notification.style.opacity = '0';  // Fade-out effect
+        setTimeout(() => {
+            notification.style.display = 'none';  // Ensure it's hidden after fading out
+        }, 500);  // Wait for the transition duration before hiding completely
+    });
+}
+
 const profile = document.getElementById("toggleProfile");
 const profileview = document.querySelector(".main-profileview");
 
@@ -15,11 +45,11 @@ document.querySelectorAll('.bookmark').forEach(bookmark => {
         // Check if the bookmark is already active
         const isActive = this.classList.toggle('active');
 
-        // Show alert based on the state
+        // Show showNotification based on the state
         if (isActive) {
-            alert('Added to shortlist');
+            showNotification('Added to shortlist');
         } else {
-            alert('Removed from shortlist');
+            showNotification('Removed from shortlist');
         }
     });
 });
@@ -182,7 +212,7 @@ function updateStyles() {
 function copyToClipboard(inputField) {
     inputField.select();
     document.execCommand('copy');
-    alert('Copied: ' + inputField.value);
+    showNotification('Copied: ' + inputField.value);
 }
 
 // Copy functionality for each button
@@ -193,7 +223,7 @@ copyButtons.forEach((button, index) => {
         if (inputField) {
             copyToClipboard(inputField);
         } else {
-            alert('Input field not found.');
+            showNotification('Input field not found.');
         }
     });
 });
