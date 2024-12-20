@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+*{    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.main-service-prsonal{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.personal-info-container {
+    background-color: #fff;
+    border: 2px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 20px 50px;
+    width: 90%;
+    max-width: 750px;
+    border: 2px solid #DECDFA;
+    margin: 0px 20px;
+}
+.service-info-container{
+  background-color: #fff;
+  border: 2px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 20px 50px;
+  width: 80%;
+  max-width: 500px;
+  border: 2px solid #DECDFA;
+  margin: 0px 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+  
+.header h2 {
+    font-size: 18px;
+    color: #333;
+}
+  
+.header p {
+    font-size: 14px;
+    color: #888;
+}
+  
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+  
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+  
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+  
+.form-group label {
+    font-size: 14px;
+    color: #303030;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+  
+.form-group input, #contractor-address,#org-address,#org-desc{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+    background-color: #F9FAFB;
+    color: rgb(92, 92, 92);
+    resize: none;
+}
+  
+.form-group input:focus {
+    border-color: #7b61ff;
+}
+.personal-info-container .header>span{
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+/* Org */
+.organisation-info-container{
+  margin: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #DECDFA;
+  padding: 20px 50px;
+  border-radius: 10px;
+}
+.organisation-info-container .form{
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 8px;
+}
+.organisation-info-container .form .header{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.organisation-info-container .form .header>span{
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+}
+.main-profil-card{
+  background-color: #F9FAFB;
+  padding: 10px;
+  border-radius: 15px;
+}
+.profile-card {
+  width: 250px;
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #DECDFA;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.profile-card .image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid gray;
+  border-radius: 50%;
+}
+
+.profile-card .add-btn {
+  position: absolute;
+  bottom: -2px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.profile-card h3 {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.profile-card .tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile-card .tag {
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  position: relative;
+}
+
+.profile-card .tag .remove {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.profile-card input[type="file"] {
+  display: none;
+}
+ .form .header>span{
+  color: gray;
+}
+.form-group1 {
+    display: flex;
+    flex-direction: column;
+}
+  
+.form-group1 label {
+    font-size: 14px;
+    color: #303030;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+  
+.form-group1 input, #contractor-address,#org-address,#org-desc{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+    background-color: #F9FAFB;
+    color: rgb(92, 92, 92);
+    resize: none;
+}
+/* Srvics */
+.construction-related-services-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;  
+}
+.construction-related-services-list .single-service{
+    border: 1px solid grey;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: rgb(216, 216, 216);
+}
+.single-service>span:first-child{
+    font-size: 14px;
+}
+.construction-related-services-list .single-service .remove-service{
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+.main-construction-services #add-construction-service{
+    background-color: #D96F2C;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#add-construction-service{
+  font-size: 14px;
+  background-color: #D96F2C;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+ .input-container>input{
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+ .input-container>span{
+    background-color: #0B3A62;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  

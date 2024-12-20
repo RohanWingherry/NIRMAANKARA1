@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Info Form</title>
+  <link rel="stylesheet" href="../css/contractorprofilefilleddata.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <div class="organisation-info-container">
+    <div class="form">
+      <div class="header">
+        <h2>Organisation info</h2>
+        <span class="material-symbols-rounded" id="edit-icon1">edit_square</span>
+      </div>
+      <div class="form-group1">
+        <label for="org-name">Organisation name</label>
+        <input type="text" id="org-name" disabled placeholder="Gabriela Richardson">
+      </div>
+      <div class="form-group1">
+        <label for="org-gst">GST Number</label>
+        <input type="text" id="org-gst" disabled placeholder="22AAAAA0000A1Z5">
+      </div>
+      <div class="form-group1">
+        <label for="working-from">Working Hours <span class="required-fields">*</span></label>
+          <div class="working">
+            <input type="time" disabled id="working-from" name="working-from" value="09:00">
+            <input type="time" disabled id="working-to" name="working-to" value="17:00">
+          </div>
+      </div>
+      <div class="form-group1">
+        <label for="org-address">Address</label>
+        <textarea name="" id="org-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
+      </div>
+      <div class="form-group1">
+        <label for="org-desc">Description</label>
+        <textarea name="" id="org-desc" disabled cols="20"> involved in the planning, design, construction, and maintenance of buildings, infrastructure, and other projects, typically ensuring quality, safety, and timely completion.</textarea>
+      </div>
+    </div>
+    <div class="main-profil-card">
+      <div class="profile-card">
+        <h5>Organisation Logo</h5>
+        <div class="image-container">
+          <img src="../assets/logo.png" alt="Profile Picture" id="profile-image">
+          <label class="add-btn" for="file-input">+</label>
+          <input type="file" id="file-input" accept="image/*" onchange="updateImage(event)">
+        </div>
+        <h3>Yuktha Constructions</h3>
+      </div>
+    </div>
+  </div>
+  <div class="main-service-prsonal">
+    <div class="personal-info-container">
+      <div class="header">
+        <h2>Personal info</h2>
+        <span class="material-symbols-rounded">edit_square</span>
+  
+      </div>
+      <div class="form">
+        <div class="form-group">
+          <label for="full-name">Full name</label>
+          <input type="text" id="full-name" disabled placeholder="Gabriela Richardson">
+        </div>
+        <div class="form-group">
+          <label for="contr-email">Email</label>
+          <input type="email" id="contr-email" disabled placeholder="gabriela24@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="phone-number">Contact number</label>
+          <input type="text" id="phone-number" disabled placeholder="8123205422">
+        </div>
+        <div class="form-group">
+          <label for="work-exp">Work Experience</label>
+          <input type="text" id="work-exp" disabled value="2 Years">
+        </div>
+        <div class="form-group">
+          <label for="aadhaar-number">Aadhaar Number</label>
+          <input type="text" id="aadhaar-number" disabled value="308581475825">
+        </div>
+        <div class="form-group">
+          <label for="contractor-address">Address</label>
+          <textarea name="" id="contractor-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
+        </div>
+      </div>
+    </div>
+    <div class="service-info-container">
+      <div class="header">
+        <h2>Services</h2>
+        <div id="add-construction-service">+ Add More</div>
+        <div id="construction-input-container" class="input-container" style="display:none;">
+          <input type="text" id="construction-input" placeholder="Enter new service">
+          <span id="add-construction-button">Add</span>
+      </div>
+      </div>
+      <div class="Services-form">
+        <div class="construction-related-services-list" id="construction-services-list">
+          <div class="single-service">
+              <span>Building Re-Modulation</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Independent House/ Villa</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Residential Apartment</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Serviced Apartment</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Industries</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Complex</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Commercial</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Farm House</span>
+              <span class="remove-service">&times;</span>
+          </div>
+          <div class="single-service">
+              <span>Venture Development</span>
+              <span class="remove-service">&times;</span>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../javascript/contractorprofilefilleddata.js"></script>
+</html>
