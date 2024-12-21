@@ -28,35 +28,52 @@ function showNotification(message, type = 'success') {
     });
 }
 // Add new row to the table
-function addRow() {
-    const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow();
-    rowCount=rowCount+1;
-    
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
-    const cell4 = newRow.insertCell(3);
-    const cell5 = newRow.insertCell(4); // Add a cell for the delete button
+let rowToDelete = null;
 
-    cell1.innerHTML = '<input type="text" placeholder="enter item" class="enter-item" name="enter-item">';
-    cell2.innerHTML = '<input type="number" placeholder="enter price" class="enter-price" name="enter-price" oninput="updateTotal(this)">';
-    cell3.innerHTML = '<input type="number" placeholder="enter qty" class="enter-qty" name="enter-det" oninput="updateTotal(this)">';
-    cell4.innerHTML = '₹0';
-    cell5.innerHTML = '<button class="delete-row"><i class="fa-solid fa-trash"></i></button>'; // Add delete button
+        function addRow() {
+            const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td><input type="text" placeholder="enter item" class="enter-item" name="enter-item"></td>
+                <td><input type="number" placeholder="enter price" class="enter-price" name="enter-price"></td>
+                <td><input type="number" placeholder="enter qty" class="enter-qty" name="enter-det"></td>
+                <td>₹0</td>
+                <td><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td>
+            `;
 
-    // Add event listener to the delete button
-    cell5.querySelector('.delete-row').addEventListener('click', function() {
-        // Show a confirmation dialog before deletion
-        const confirmDelete = confirm("Are you sure you want to delete this row?");
-        if (confirmDelete) {
-            deleteRow(this);
-            showNotification("Successfully deleted the row");
+            newRow.querySelector('.delete-row').addEventListener('click', function () {
+                rowToDelete = this.closest('tr'); // Store the row to delete
+                showPopup(); // Show the confirmation popup
+            });
         }
-    });
 
-    updateTotals(); 
-}
+        // Popup logic
+        const popupOverlay = document.querySelector('.popup-overlay');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+
+        function showPopup() {
+            popupOverlay.classList.add('show');
+        }
+
+        function hidePopup() {
+            popupOverlay.classList.remove('show');
+        }
+
+        confirmDeleteBtn.addEventListener('click', function () {
+            if (rowToDelete) {
+                rowToDelete.remove();
+                rowToDelete = null;
+                hidePopup();
+                showNotification("Successfully deleted the row");
+            }
+        });
+
+        cancelDeleteBtn.addEventListener('click', hidePopup);
+
+        // function showNotification(message) {
+        //     showNotification("message"); // Replace with a custom notification if needed
+        // }
 
 // Validate table rows
 function validateTableRows() {

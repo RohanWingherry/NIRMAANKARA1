@@ -138,16 +138,55 @@ document.getElementById('file-input').addEventListener('change', function(event)
 });
 
 // Add event listener for the remove icon
-document.getElementById('remove-icon').addEventListener('click', function() {
-    // Show a confirmation showNotification
-    const confirmRemove = confirm('Are you sure you want to remove the uploaded image?');
-    if (confirmRemove) {
+document.getElementById('remove-icon').addEventListener('click', function () {
+    // Show custom confirmation popup
+    showRemoveImagePopup();
+});
+
+// Function to show the custom confirmation popup
+function showRemoveImagePopup() {
+    const popup = document.getElementById('deletePopup');
+    const popupMessage = popup.querySelector('.popup-content p');
+    const popupTitle = popup.querySelector('.popup-content h3');
+    const confirmButton = document.getElementById('confirmDelete');
+    const cancelButton = document.getElementById('cancelDelete');
+
+    // Customize popup text for image removal
+    popupTitle.textContent = 'Remove Image';
+    popupMessage.textContent = 'Are you sure you want to remove the uploaded image?';
+
+    // Show popup
+    popup.classList.remove('hide');
+    popup.classList.add('show');
+    popup.style.display = 'block';
+
+    // Confirm button action
+    confirmButton.onclick = function () {
         document.getElementById('file-input').value = ''; // Clear the file input
         document.getElementById('image-preview').style.backgroundImage = ''; // Clear the image preview
         document.getElementById('image-preview').innerHTML = '<i class="fa-solid fa-user user-icon"></i>'; // Show the user icon
-        this.style.display = 'none'; // Hide the remove icon
-    }
-});
+        document.getElementById('remove-icon').style.display = 'none'; // Hide the remove icon
+
+        hidePopup();
+    };
+
+    // Cancel button action
+    cancelButton.onclick = function () {
+        hidePopup();
+    };
+}
+
+// Function to hide the popup
+function hidePopup() {
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('show');
+    popup.classList.add('hide');
+
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 300); // Match CSS animation duration
+}
+
 
 // notification or pop up
 function showNotification(message, type = 'success') {

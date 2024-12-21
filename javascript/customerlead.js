@@ -100,6 +100,7 @@ document.getElementById('constructions').addEventListener('change', function () 
     }
 });
 
+// Function to add data to the table
 function addDataToTable() {
     const fullname = document.getElementById('fullname').value;
     const mob = document.getElementById('mob').value;
@@ -141,89 +142,80 @@ function addDataToTable() {
 
     updateSerialNumbers();
 
-
-
-// table
-
+    // Reset the form after adding a row
     document.getElementById('orgDetailsForm').reset();
 }
 
+// DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', () => {
+    let rowsToDelete = []; // Store rows pending deletion
+
+    // Function to update serial numbers dynamically
     function updateSerialNumbers() {
         document.querySelectorAll('.history-table tbody tr').forEach((row, index) => {
             row.querySelector('td').textContent = index + 1;
         });
     }
 
-    let rowsToDelete = []; // Track rows to be deleted
-
-    // Show the custom delete popup
+    // Show delete confirmation popup
     function showDeletePopup(rows) {
-        rowsToDelete = rows; // Save the rows reference
+        rowsToDelete = rows; // Save reference to rows
         const popup = document.getElementById('deletePopup');
-        popup.style.display = 'block'; // Ensure popup is displayed
-        popup.classList.remove('hide'); // Remove hide class
-        popup.classList.add('show'); // Add show class
+        popup.style.display = 'block';
+        popup.classList.remove('hide');
+        popup.classList.add('show');
     }
 
-    // Hide the custom delete popup
+    // Hide delete confirmation popup
     function hideDeletePopup() {
         const popup = document.getElementById('deletePopup');
-        popup.classList.remove('show'); // Remove show class
-        popup.classList.add('hide'); // Add hide class
+        popup.classList.remove('show');
+        popup.classList.add('hide');
 
-        // Delay removal to match exit animation duration
         setTimeout(() => {
             popup.style.display = 'none';
         }, 300); // Match CSS animation duration
     }
 
-    // Handle delete button click for each row
-    document.querySelectorAll('.delete-row').forEach(function (element) {
-        element.addEventListener('click', function () {
-            const row = this.closest('tr'); // Get the row to delete
-            showDeletePopup([row]); // Pass the row to the popup for deletion
-        });
+    // **Event Delegation for delete button click**
+    document.querySelector('.history-table tbody').addEventListener('click', function (event) {
+        if (event.target.classList.contains('delete-row')) {
+            const row = event.target.closest('tr'); // Get the specific row
+            showDeletePopup([row]); // Pass the row to delete popup
+        }
     });
 
-    // Handle delete confirmation
+    // Confirm Deletion
     document.getElementById('confirmDelete').addEventListener('click', function () {
         if (rowsToDelete.length > 0) {
-            rowsToDelete.forEach(row => row.remove()); // Remove selected rows
+            rowsToDelete.forEach(row => row.remove()); // Remove rows
             updateSerialNumbers(); // Update serial numbers
-            rowsToDelete = []; // Clear the reference
+            rowsToDelete = []; // Clear reference
         }
-        hideDeletePopup(); // Hide the popup after action
+        hideDeletePopup(); // Hide popup
     });
 
-    // Handle cancel action for delete
+    // Cancel Deletion
     document.getElementById('cancelDelete').addEventListener('click', function () {
-        rowsToDelete = []; // Clear the reference
-        hideDeletePopup(); // Hide the popup without making changes
+        rowsToDelete = []; // Clear reference
+        hideDeletePopup(); // Hide popup
     });
 
-    // Multi-delete functionality: delete multiple selected rows
+    // Multi-delete functionality
     const multiDeleteBtn = document.getElementById('multiDelete');
     if (multiDeleteBtn) {
         multiDeleteBtn.addEventListener('click', function () {
             const selectedRows = Array.from(document.querySelectorAll('.row-checkbox:checked'))
-                .map(checkbox => checkbox.closest('tr')); // Get rows for checked checkboxes
+                .map(checkbox => checkbox.closest('tr'));
 
             if (selectedRows.length > 0) {
-                showDeletePopup(selectedRows); // Pass selected rows to delete popup
+                showDeletePopup(selectedRows); // Show confirmation popup
             } else {
-                showNotification('Please select rows to delete'); // Notify if no rows are selected
+                showNotification('Please select rows to delete'); // Show notification if no rows selected
             }
         });
     }
 
-    // Update serial numbers initially
+    // Update serial numbers on initial load
     updateSerialNumbers();
-
-    // Handle "view" button click
-    // document.querySelectorAll('.edit-row').forEach(function(element) {
-    //     element.addEventListener('click', function() {
-    //         window.location.href = "../html/customerinvoice.html";
-    //     });
-    // });
 });

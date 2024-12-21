@@ -315,23 +315,58 @@ optionsDots.addEventListener('click', () => {
     dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
 });
 
-clearChat.addEventListener('click', () => {
-    deletePopup.style.display = 'block'; // Show the popup instead of confirm()
-    dropdownMenu.style.display = 'none'; // Close dropdown
+clearChat.addEventListener("click", () => {
+    showClearChatPopup();
 });
 
-// Cancel delete action
-cancelDelete.addEventListener('click', () => {
-    deletePopup.style.display = 'none'; // Hide the popup
-});
+// Function to show the custom confirmation popup for clearing chat
+function showClearChatPopup() {
+    const popup = document.getElementById('deletePopup');
+    const popupMessage = popup.querySelector('.popup-content p');
+    const popupTitle = popup.querySelector('.popup-content h3');
+    const confirmButton = document.getElementById('confirmDelete');
+    const cancelButton = document.getElementById('cancelDelete');
 
-// Confirm delete action
-confirmDelete.addEventListener('click', () => {
-    const chatMessages = document.getElementById('chat-messages');
-    chatMessages.innerHTML = ''; // Clear all messages
-    deletePopup.style.display = 'none'; // Hide the popup
-});
+    // Customize popup text for chat clearing
+    popupTitle.textContent = 'Clear Chat';
+    popupMessage.textContent = 'Do you want to clear the chat?';
 
+    // Show popup
+    popup.classList.remove('hide');
+    popup.classList.add('show');
+    popup.style.display = 'block';
+
+    // Confirm button action
+    confirmButton.onclick = function () {
+        const chatMessages = document.getElementById("chat-messages");
+        chatMessages.innerHTML = ""; // Clear all messages
+
+        const personName = document.getElementById("chat-person-name").innerText;
+        if (chatMessagesData && chatMessagesData[personName]) {
+            chatMessagesData[personName] = []; // Clear stored messages for the person
+        }
+
+        dropdownMenu.style.display = "none"; // Close dropdown
+        hidePopup();
+    };
+
+    // Cancel button action
+    cancelButton.onclick = function () {
+        dropdownMenu.style.display = "none"; // Close dropdown
+        hidePopup();
+    };
+}
+
+// Function to hide the popup
+function hidePopup() {
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('show');
+    popup.classList.add('hide');
+
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 300); // Match CSS animation duration
+}
 
     // Close chat window
     document.getElementById("close-chat").addEventListener("click", function () {

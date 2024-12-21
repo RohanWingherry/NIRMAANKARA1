@@ -144,6 +144,8 @@ document.getElementById("remove-video").addEventListener("click", function () {
     this.style.display = "none";
 });
 
+let rowToDelete = null; // Holds the reference to the project card to be deleted
+
 saveProjectBtn.addEventListener("click", () => {
     const projName = document.getElementById("project-name").value;
     const projLoc = document.getElementById("project-location").value;
@@ -172,13 +174,14 @@ saveProjectBtn.addEventListener("click", () => {
         // Add delete button
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete Project";
+        deleteBtn.classList.add("btn", "btn-danger");
 
         deleteBtn.addEventListener("click", () => {
-            const userConfirmed = confirm("Do you want to delete the project?");
-            if (userConfirmed) {
-                mainUpload.removeChild(projectCard);
-                projectCount--;
-            }
+            rowToDelete = projectCard; // Store the project card reference for deletion
+            
+            // Show the delete popup
+            const popup = document.getElementById('deletePopup');
+            popup.classList.add('show');
         });
 
         projectCard.appendChild(nameElem);
@@ -208,6 +211,29 @@ saveProjectBtn.addEventListener("click", () => {
         showNotification("Please fill in all details.");
     }
 });
+
+// Event listener for Confirm Delete button
+document.getElementById('confirmDelete').onclick = function () {
+    if (rowToDelete) {
+        mainUpload.removeChild(rowToDelete); // Remove the project card
+        rowToDelete = null; // Clear reference
+        projectCount--;
+    }
+    closePopup();
+};
+
+// Event listener for Cancel Delete button
+document.getElementById('cancelDelete').onclick = function () {
+    rowToDelete = null; // Clear reference
+    closePopup();
+};
+
+// Function to close the popup
+function closePopup() {
+    const popup = document.getElementById('deletePopup');
+    popup.classList.remove('show');
+}
+
 
 // Close modal when clicking outside of it
 window.addEventListener("click", (event) => {

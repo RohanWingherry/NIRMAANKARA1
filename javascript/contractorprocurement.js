@@ -84,24 +84,54 @@ function calculateTotalCost(element) {
 }
 
 
+// Store the row to delete when the popup is triggered
+let rowToDelete = null;
+
+// Function to show the delete confirmation popup
 function deleteRow(element) {
-    var row = element.parentElement.parentElement;
+    // Store the row to be deleted
+    rowToDelete = element.closest('tr'); // Find the row closest to the clicked delete button
     
-    var confirmDelete = confirm("Are you sure you want to delete this row?");
-    
-    if (confirmDelete) {
-        row.remove(); 
-        updateSerialNumbers();
-        addingRowCount=addingRowCount-1;
+    // Show the custom popup
+    const popup = document.getElementById('deletePopup');
+    popup.classList.add('show');
+    popup.style.opacity = '1';
+    popup.style.display = 'block';
+}
+
+// Event listener for the confirm delete button (set once)
+document.getElementById('confirmDelete').onclick = function() {
+    if (rowToDelete) {
+        rowToDelete.remove(); // Remove the row
+        updateSerialNumbers(); // Update serial numbers
+    }
+    closePopup();
+};
+
+// Event listener for the cancel button (set once)
+document.getElementById('cancelDelete').onclick = function() {
+    closePopup();
+};
+
+// Function to hide the popup with fade-out effect
+function closePopup() {
+    const popup = document.getElementById('deletePopup');
+    popup.style.opacity = '0';
+    setTimeout(() => {
+        popup.style.display = 'none'; // Ensure it's hidden after fading out
+    }, 100); // Match transition duration
+    showNotification("Row Deleted");
+}
+
+// Function to update serial numbers after row deletion
+function updateSerialNumbers() {
+    const table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
+    for (let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[0].innerText = i + 1; // Update the first cell with the serial number
     }
 }
 
-function updateSerialNumbers() {
-    var table = document.getElementById('itemTable').getElementsByTagName('tbody')[0];
-    for (var i = 0; i < table.rows.length; i++) {
-        table.rows[i].cells[0].innerText = i + 1;
-    }
-}
+
 
 let isCustomerFetched = false; // Flag to track if Customer ID is fetched
 

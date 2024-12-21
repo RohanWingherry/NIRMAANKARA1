@@ -268,15 +268,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     clearChat.addEventListener("click", () => {
-        const confirmation = confirm("Do you want to clear the chat?");
-        if (confirmation) {
+        showClearChatPopup();
+    });
+    
+    // Function to show the custom confirmation popup for clearing chat
+    function showClearChatPopup() {
+        const popup = document.getElementById('deletePopup');
+        const popupMessage = popup.querySelector('.popup-content p');
+        const popupTitle = popup.querySelector('.popup-content h3');
+        const confirmButton = document.getElementById('confirmDelete');
+        const cancelButton = document.getElementById('cancelDelete');
+    
+        // Customize popup text for chat clearing
+        popupTitle.textContent = 'Clear Chat';
+        popupMessage.textContent = 'Do you want to clear the chat?';
+    
+        // Show popup
+        popup.classList.remove('hide');
+        popup.classList.add('show');
+        popup.style.display = 'block';
+    
+        // Confirm button action
+        confirmButton.onclick = function () {
             const chatMessages = document.getElementById("chat-messages");
             chatMessages.innerHTML = ""; // Clear all messages
+    
             const personName = document.getElementById("chat-person-name").innerText;
-            chatMessagesData[personName] = []; // Clear stored messages for the person
-        }
-        dropdownMenu.style.display = "none"; // Close dropdown
-    });
+            if (chatMessagesData && chatMessagesData[personName]) {
+                chatMessagesData[personName] = []; // Clear stored messages for the person
+            }
+    
+            dropdownMenu.style.display = "none"; // Close dropdown
+            hidePopup();
+        };
+    
+        // Cancel button action
+        cancelButton.onclick = function () {
+            dropdownMenu.style.display = "none"; // Close dropdown
+            hidePopup();
+        };
+    }
+    
+    // Function to hide the popup
+    function hidePopup() {
+        const popup = document.getElementById('deletePopup');
+        popup.classList.remove('show');
+        popup.classList.add('hide');
+    
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 300); // Match CSS animation duration
+    }
+    
 
     // Close dropdown if clicking outside
     document.addEventListener("click", (event) => {
