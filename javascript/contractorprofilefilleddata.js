@@ -47,23 +47,27 @@ function updateImage(event) {
       }
   });
 
-  const editIcon = document.getElementById('edit-icon');
-  const inputs = document.querySelectorAll('.form-group input, .form-group textarea, #file-input');
-  
-  // Add click event listener to the edit icon
-  editIcon.addEventListener('click', () => {
-      // Toggle the disabled property on all the input elements
-      inputs.forEach(input => {
-          input.disabled = !input.disabled;
-      });
-  });
-  const editIcon1 = document.getElementById('edit-icon1');
-  const inputs1 = document.querySelectorAll('.form-group1 input, .form-group1textarea, #file-input');
-  
-  // Add click event listener to the edit icon
-  editIcon1.addEventListener('click', () => {
-      // Toggle the disabled property on all the input elements
-      inputs1.forEach(input => {
-          input.disabled = !input.disabled;
-      });
-  });
+ // Handle the first edit icon (organisation info)
+const editIcon = document.getElementById('edit-icon1');
+const inputs = document.querySelectorAll('.form-group1 input, .form-group1 textarea');
+
+editIcon.addEventListener('click', () => {
+    inputs.forEach(input => {
+        input.disabled = !input.disabled;
+    });
+    const fileInput = document.getElementById('file-input');
+    // Toggle the disabled property on the file input as well
+    fileInput.disabled = !fileInput.disabled;
+});
+
+// Handle the second edit icon (personal info)
+const editIcon2 = document.querySelector('.personal-info-container .header .material-symbols-rounded');
+const inputs2 = document.querySelectorAll('.personal-info-container .form-group input, .personal-info-container .form-group textarea');
+
+// Add click event listener to the edit icon for personal info
+editIcon2.addEventListener('click', () => {
+    // Toggle the disabled property on all input and textarea elements
+    inputs2.forEach(input => {
+        input.disabled = !input.disabled;
+    });
+});
