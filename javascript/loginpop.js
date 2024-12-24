@@ -28,6 +28,9 @@ function showNotification(message, type = 'success') {
   });
 }
 
+
+
+
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
@@ -39,7 +42,6 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
-
 
 // Get form elements
 const signInForm = document.getElementById('sign-in-form');
@@ -86,7 +88,33 @@ signInForm.addEventListener('submit', function (event) {
   }
 });
 
-// Sign Up Form Validation
+// Assuming the rest of your code is as before
+
+// Function to show the notification for successful registration
+// Function to show registration success notification and toggle to login view
+function showRegistrationSuccessNotification() {
+  const notificationPopup = document.getElementById("notification-popup");
+  const notificationMessage = document.getElementById("notification-message");
+  const notificationCloseBtn = document.getElementById("notification-close-btn");
+
+  // Set the message for the successful registration notification
+  notificationMessage.textContent = "Registration Successful!";
+
+  // Show the notification
+  notificationPopup.style.display = "flex";
+
+  // Add event listener for the "OK" button (close button)
+  notificationCloseBtn.addEventListener("click", function () {
+      // Hide the notification popup
+      notificationPopup.style.display = "none";
+
+      // Toggle to login view
+      const container = document.querySelector(".container");
+      container.classList.remove("sign-up-mode");
+  });
+}
+
+// Sign Up Form Validation (Including Registration Success Notification)
 signUpForm.addEventListener('submit', function (event) {
   event.preventDefault();
   const fullName = document.getElementById('full-name');
@@ -102,80 +130,98 @@ signUpForm.addEventListener('submit', function (event) {
 
   // Validate Full Name
   if (fullName.value.trim() === "") {
-    showError(fullName, 'Full Name is required');
-    valid = false;
+      showError(fullName, 'Full Name is required');
+      valid = false;
   }
 
   // Validate Email
   if (email.value.trim() === "") {
-    showError(email, 'Email is required');
-    valid = false;
+      showError(email, 'Email is required');
+      valid = false;
   } else if (!validateEmail(email.value.trim())) {
-    showError(email, 'Invalid Email. Please use a Gmail address.');
-    valid = false;
+      showError(email, 'Invalid Email. Please use a Gmail address.');
+      valid = false;
   }
 
   // Validate Mobile Number
   if (mobileNumber.value.trim() === "") {
-    showError(mobileNumber, 'Mobile Number is required');
-    valid = false;
+      showError(mobileNumber, 'Mobile Number is required');
+      valid = false;
   } else if (!validateMobileNumber(mobileNumber.value.trim())) {
-    showError(mobileNumber, 'Invalid Mobile Number');
-    valid = false;
+      showError(mobileNumber, 'Invalid Mobile Number');
+      valid = false;
   }
 
   // Validate Password
   if (password.value.trim() === "") {
-    showError(password, 'Password is required');
-    valid = false;
+      showError(password, 'Password is required');
+      valid = false;
   } else if (!validatePassword(password.value.trim())) {
-    showError(password, 'Password must contain 6 characters, at least one uppercase letter, one number, and one special character');
-    valid = false;
+      showError(password, 'Password must contain 6 characters, at least one uppercase letter, one number, and one special character');
+      valid = false;
   }
 
   // Validate Confirm Password
   if (confirmPassword.value.trim() === "") {
-    showError(confirmPassword, 'Confirm Password is required');
-    valid = false;
+      showError(confirmPassword, 'Confirm Password is required');
+      valid = false;
   } else if (password.value !== confirmPassword.value) {
-    showError(confirmPassword, 'Passwords do not match');
-    valid = false;
+      showError(confirmPassword, 'Passwords do not match');
+      valid = false;
   }
 
   // Validate Role Selection
   let roleSelected = false;
   roleInputs.forEach((role) => {
-    if (role.checked) {
-      roleSelected = true;
-    }
+      if (role.checked) {
+          roleSelected = true;
+      }
   });
 
   if (!roleSelected) {
-    const roleError = document.createElement('p');
-    // roleError.textContent = 'Please select a role to register';
-    roleError.classList.add('error-message');
-    document.querySelector('.radio-group').insertAdjacentElement('afterend', roleError);
-    valid = false;
+      const roleError = document.createElement('p');
+      roleError.classList.add('error-message');
+      document.querySelector('.radio-group').insertAdjacentElement('afterend', roleError);
+      valid = false;
   }
 
   if (valid) {
-    // Trigger OTP verification for email and mobile
-    if (!emailVerified) showOTPVerification('email');
-    if (!mobileVerified) showOTPVerification('mobile');
+      // Trigger OTP verification for email and mobile
+      if (!emailVerified) showOTPVerification('email');
+      if (!mobileVerified) showOTPVerification('mobile');
 
-    // If both OTPs are verified, show success message
-    if (emailVerified && mobileVerified) {
-      showNotification("Sign Up Successful");
-    }
+      // If both OTPs are verified, trigger the registration success notification
+      if (emailVerified && mobileVerified) {
+          showRegistrationSuccessNotification();  // Show success and redirect to login page
+      }
   }
 });
 
 
-// Function to show OTP verification process
+// Trigger OTP Verification Immediately on Valid Email or Mobile Input
+const emailInput = document.getElementById('sign-up-email');
+const mobileInput = document.getElementById('mobile-number');
+
+// Email OTP Trigger
+emailInput.addEventListener('blur', function () {
+  if (validateEmail(emailInput.value.trim()) && !emailVerified) {
+    showOTPVerification('email');
+    showNotification('OTP sent to your email');
+  }
+});
+
+// Mobile OTP Trigger
+mobileInput.addEventListener('blur', function () {
+  if (validateMobileNumber(mobileInput.value.trim()) && !mobileVerified) {
+    showOTPVerification('mobile');
+    showNotification('OTP sent to your mobile number');
+  }
+});
+
+// OTP Verification for Email and Mobile
 function showOTPVerification(type) {
   const containerId = type === 'email' ? 'email-otp-container' : 'mobile-otp-container';
   let container = document.getElementById(containerId);
-  
 
   if (!container) {
     // Create OTP input container
@@ -211,7 +257,7 @@ function showOTPVerification(type) {
     container.appendChild(resendButton);
 
     // Append the container to the form
-    const referenceField = type === 'email' ? document.getElementById('sign-up-email') : document.getElementById('mobile-number');
+    const referenceField = type === 'email' ? emailInput : mobileInput;
     referenceField.parentElement.insertAdjacentElement('afterend', container);
   }
 }
@@ -221,15 +267,16 @@ function verifyOTP(type) {
   const otpInputField = document.getElementById(`${type}-otp-input`);
   const enteredOTP = otpInputField.value.trim();
   const correctOTP = type === 'email' ? staticEmailOTP : staticMobileOTP;
-
   const container = document.getElementById(`${type}-otp-container`);
 
+  // Check if the entered OTP matches the static OTP
   if (enteredOTP === correctOTP) {
+    // Display success message
     const successMsg = document.createElement('p');
     successMsg.textContent = `${type === 'email' ? 'Email' : 'Mobile'} Verified Successfully!`;
     successMsg.classList.add('success-message');
 
-    // Remove OTP input and buttons
+    // Clear the OTP input and show success
     container.innerHTML = '';
     container.appendChild(successMsg);
 
@@ -241,14 +288,20 @@ function verifyOTP(type) {
       document.getElementById('sign-up-submit').removeAttribute('disabled');
     }
   } else {
-    showError(otpInputField, 'Incorrect OTP. Please try again.');
+    // Display error message below OTP input without removing it
+    let errorMsg = container.querySelector('.error-message');
+    if (!errorMsg) {
+      errorMsg = document.createElement('p');
+      errorMsg.classList.add('error-message');
+      container.appendChild(errorMsg);
+    }
+    errorMsg.textContent = 'Incorrect OTP. Please try again.';
   }
 }
 
-// Function to resend OTP
+// Resend OTP
 function resendOTP(type) {
-  const correctOTP = type === 'email' ? staticEmailOTP : staticMobileOTP;
-  showNotification(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent. `);
+  showNotification(`${type === 'email' ? 'Email' : 'Mobile'} OTP resent.`);
 }
 
 // Function to show error (display error message outside input field)
@@ -308,132 +361,248 @@ function validatePassword(password) {
   return regex.test(password);
 }
 
-
 const showPopup = document.querySelector('.show-popup');
-        const popupContainer = document.querySelector('.popup-container');
-        const closeBtn = document.querySelector('.close-btn');
-        showPopup.onclick = () => {
-            popupContainer.classList.add('active');
+const popupContainer = document.querySelector('.popup-container');
+const closeBtn = document.querySelector('.close-btn');
+showPopup.onclick = () => {
+  popupContainer.classList.add('active');
+}
+closeBtn.onclick = () => {
+  popupContainer.classList.remove('active');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const notificationPopup = document.getElementById("notification-popup");
+  const notificationMessage = document.getElementById("notification-message");
+  const notificationCloseBtn = document.getElementById("notification-close-btn");
+
+  const showNotification = (message) => {
+    notificationMessage.textContent = message;
+    notificationPopup.style.display = "flex";
+  };
+
+  const closeNotification = () => {
+    notificationPopup.style.display = "none";
+  };
+
+  notificationCloseBtn.addEventListener("click", closeNotification);
+
+  const forgotPasswordLink = document.getElementById("forgot-password-link");
+  const forgotPasswordPopup = document.getElementById("forgot-password-popup");
+  const closeForgotPopup = document.getElementById("close-forgot-popup");
+
+  const sendOtpBtn = document.getElementById("send-otp-btn");
+  const otpSection = document.getElementById("otp-section");
+  const otpInput = document.getElementById("otp-input");
+  const verifyOtpBtn = document.getElementById("verify-otp-btn");
+  const resetPasswordSection = document.getElementById("reset-password-section");
+  const resetPasswordBtn = document.getElementById("reset-password-btn");
+
+  const emailError = document.getElementById("email-error");
+  const otpError = document.getElementById("otp-error");
+  const passwordError = document.getElementById("password-error");
+  const confirmPasswordError = document.getElementById("confirm-password-error");
+
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
+
+  const temporaryOtp = "123456"; // Predefined temporary OTP
+
+  // Show Forgot Password Popup
+  forgotPasswordLink.addEventListener("click", () => {
+    forgotPasswordPopup.style.display = "flex";
+  });
+
+  // Close Forgot Password Popup
+  closeForgotPopup.addEventListener("click", () => {
+    forgotPasswordPopup.style.display = "none";
+  });
+
+  // Show OTP Section
+  sendOtpBtn.addEventListener("click", () => {
+    const emailInput = document.getElementById("forgot-email").value;
+
+    if (emailRegex.test(emailInput)) {
+      emailError.style.display = "none";
+      showNotification("OTP sent to your email.");
+      otpSection.style.display = "block";  // Show OTP section
+    } else {
+      emailError.style.display = "block";
+    }
+  });
+
+  // Verify OTP
+  verifyOtpBtn.addEventListener("click", () => {
+    const enteredOtp = otpInput.value;
+
+    if (enteredOtp === temporaryOtp) {
+        otpError.style.display = "none"; // Hide error message
+
+        // Hide the entire OTP section (input box and buttons)
+        otpSection.style.display = "none";
+
+        // Hide the Send OTP button
+        sendOtpBtn.style.display = "none";
+
+        // Show success message above the Reset Password section
+        const successMessage = document.createElement("span");
+        successMessage.textContent = "OTP verified successfully!";
+        successMessage.style.color = "green";
+        successMessage.style.fontWeight = "bold";
+        successMessage.style.marginBottom = "10px";
+
+        // Insert the success message above the Reset Password section
+        resetPasswordSection.parentElement.insertBefore(successMessage, resetPasswordSection);
+
+        // Show the Reset Password section
+        resetPasswordSection.style.display = "block";
+    } else {
+        otpError.style.display = "block"; // Show error message
+    }
+});
+
+
+
+
+  
+  // Reset Password
+  document.getElementById("reset-password-btn").addEventListener("click", () => {
+    const passwordInput = document.getElementById("new-password").value;
+    const confirmPasswordInput = document.getElementById("confirm-new-password").value;
+
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirm-password-error");
+
+    // Password validation regex: Minimum 6 characters, at least one uppercase letter, one number, and the special character '@'
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@]).{6,}$/;
+
+
+    // Reset error messages
+    passwordError.style.display = "none";
+    confirmPasswordError.style.display = "none";
+
+    let isValid = true;
+
+    // Validate new password
+    if (!passwordRegex.test(passwordInput)) {
+        passwordError.style.display = "block";
+        isValid = false;
+    }
+
+    // Validate confirm password
+    if (passwordInput !== confirmPasswordInput) {
+        confirmPasswordError.style.display = "block";
+        isValid = false;
+    }
+
+    // If validation passes, display success message
+    if (isValid) {
+        showNotification("Password reset successful!"); // Replace this with your success notification logic
+        document.getElementById("reset-password-section").style.display = "none"; // Hide the reset password section
+    }
+});
+resetPasswordBtn.addEventListener("click", () => {
+  const passwordInput = document.getElementById("new-password").value;
+  const confirmPasswordInput = document.getElementById("confirm-new-password").value;
+
+  // Validate passwords
+  if (passwordInput === confirmPasswordInput && passwordRegex.test(passwordInput)) {
+      // Hide errors and display success notification
+      passwordError.style.display = "none";
+      confirmPasswordError.style.display = "none";
+      showNotification("Password reset successful!");
+
+      // Close the popup
+      forgotPasswordPopup.style.display = "none";
+  } else {
+      // Show relevant errors
+      if (!passwordRegex.test(passwordInput)) passwordError.style.display = "block";
+      if (passwordInput !== confirmPasswordInput) confirmPasswordError.style.display = "block";
+  }
+});
+
+// Toggle password visibility
+document.querySelectorAll(".toggle-password").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+        const targetInput = document.getElementById(toggle.getAttribute("data-target"));
+        if (targetInput.type === "password") {
+            targetInput.type = "text";
+            toggle.classList.add("visible"); // Optional: Add a class for visible state styling
+        } else {
+            targetInput.type = "password";
+            toggle.classList.remove("visible");
         }
-        closeBtn.onclick = () => {
-            popupContainer.classList.remove('active');
+    });
+});
+
+
+// Toggle password visibility
+document.querySelectorAll(".toggle-password").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+        const targetInput = document.getElementById(toggle.getAttribute("data-target"));
+        if (targetInput.type === "password") {
+            targetInput.type = "text";
+            toggle.classList.add("visible"); // Optional: Add a class for visible state styling
+        } else {
+            targetInput.type = "password";
+            toggle.classList.remove("visible");
         }
+    });
+});
 
 
 
-        document.addEventListener("DOMContentLoaded", () => {
-          const notificationPopup = document.getElementById("notification-popup");
-          const notificationMessage = document.getElementById("notification-message");
-          const notificationCloseBtn = document.getElementById("notification-close-btn");
-      
-          const showNotification = (message) => {
-              notificationMessage.textContent = message;
-              notificationPopup.style.display = "flex";
-          };
-      
-          const closeNotification = () => {
-              notificationPopup.style.display = "none";
-          };
-      
-          notificationCloseBtn.addEventListener("click", closeNotification);
-      
-          const forgotPasswordLink = document.getElementById("forgot-password-link");
-          const forgotPasswordPopup = document.getElementById("forgot-password-popup");
-          const closeForgotPopup = document.getElementById("close-forgot-popup");
-      
-          const sendOtpBtn = document.getElementById("send-otp-btn");
-          const otpSection = document.getElementById("otp-section");
-          const verifyOtpBtn = document.getElementById("verify-otp-btn");
-          const resetPasswordSection = document.getElementById("reset-password-section");
-          const resetPasswordBtn = document.getElementById("reset-password-btn");
-      
-          const emailError = document.getElementById("email-error");
-          const otpError = document.getElementById("otp-error");
-          const otpSuccess = document.getElementById("otp-success");
-          const passwordError = document.getElementById("password-error");
-          const confirmPasswordError = document.getElementById("confirm-password-error");
-      
-          const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-          const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
-      
-          const temporaryOtp = "123456"; // Predefined temporary OTP
-      
-          // Show Forgot Password Popup
-          forgotPasswordLink.addEventListener("click", () => {
-              forgotPasswordPopup.style.display = "flex";
-          });
-      
-          // Close Forgot Password Popup
-          closeForgotPopup.addEventListener("click", () => {
-              forgotPasswordPopup.style.display = "none";
-          });
-      
-          // Show OTP Section
-          sendOtpBtn.addEventListener("click", () => {
-              const emailInput = document.getElementById("forgot-email").value;
-      
-              if (emailRegex.test(emailInput)) {
-                  emailError.style.display = "none";
-                  showNotification("OTP sent to your email.");
-                  otpSection.style.display = "block";
-              } else {
-                  emailError.style.display = "block";
-              }
-          });
-      
-          // Verify OTP
-          // Verify OTP
-      verifyOtpBtn.addEventListener("click", () => {
-          const enteredOtp = document.getElementById("otp-input").value;
-      
-          if (enteredOtp === temporaryOtp) {
-              otpError.style.display = "none";
-              document.getElementById("otp-actions").style.display = "none"; // Hide OTP actions (if applicable)
-              otpSuccess.style.display = "block";
-              otpSuccess.textContent = "OTP Verified ✔"; // Update success message with a green check
-              otpSuccess.style.color = "green"; // Make the text green
-      
-              sendOtpBtn.style.display = "none"; // Hide the "Send OTP" button
-      
-              showNotification("OTP verified successfully!");
-      
-              setTimeout(() => {
-                  otpSuccess.style.display = "none"; // Hide success message after a delay
-                  otpSection.style.display = "none";
-                  resetPasswordSection.style.display = "block";
-              }, 2000);
-          } else {
-              otpError.style.display = "block"; // Show OTP error
-              otpError.textContent = "Incorrect OTP. Please try again.";
-          }
+
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const loginTab = document.getElementById('login-tab');
+  const registerTab = document.getElementById('register-tab');
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  const otpForm = document.getElementById('otp-form');
+  const forgotPasswordForm = document.getElementById('forgot-password-form');
+  const forms = document.querySelectorAll('form');
+  const errorElements = document.querySelectorAll('.error'); // Assuming error messages have the 'error' class
+
+  function resetForms() {
+      forms.forEach(form => form.reset());
+      errorElements.forEach(error => error.style.display = 'none'); // Hide error messages
+  }
+
+  function resetPopups() {
+      // Assuming popups have a class '.popup' or specific identifiers
+      const popups = document.querySelectorAll('.popup');
+      popups.forEach(popup => popup.style.display = 'none'); // Hide popups if any
+  }
+
+  // Function to handle tab switching
+  function handleTabSwitch(activeForm, inactiveForm) {
+      resetForms();
+      resetPopups();
+      activeForm.classList.add('active');
+      inactiveForm.classList.remove('active');
+  }
+
+  // Event listeners for tab switching
+  loginTab.addEventListener('click', () => {
+      handleTabSwitch(loginForm, registerForm);
+  });
+
+  registerTab.addEventListener('click', () => {
+      handleTabSwitch(registerForm, loginForm);
+  });
+
+  // Handling form submission
+  document.querySelectorAll('.form button[type="submit"]').forEach(button => {
+      button.addEventListener('click', () => {
+          setTimeout(() => {
+              resetForms();
+              resetPopups();
+          }, 100);
       });
-      
-          // Reset Password with Validation
-          resetPasswordBtn.addEventListener("click", () => {
-              const newPassword = document.getElementById("new-password").value;
-              const confirmPassword = document.getElementById("confirm-new-password").value;
-      
-              let valid = true;
-      
-              if (!passwordRegex.test(newPassword)) {
-                  passwordError.style.display = "block";
-                  valid = false;
-              } else {
-                  passwordError.style.display = "none";
-              }
-      
-              if (newPassword !== confirmPassword) {
-                  confirmPasswordError.style.display = "block";
-                  valid = false;
-              } else {
-                  confirmPasswordError.style.display = "none";
-              }
-      
-              if (valid) {
-                  showNotification("Password reset successfully!");
-                  resetPasswordSection.style.display = "none";
-                  forgotPasswordPopup.style.display = "none";
-              }
-          });
-      });
-      
+  });
+});
+
+
