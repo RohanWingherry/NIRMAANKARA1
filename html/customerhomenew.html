@@ -249,54 +249,79 @@
 
     <!-- Signup  -->
     <div class="popup-container">
-        <div class="popup-box">
-            <button class="close-btn">&times;</button>
-            <!-- <h1>Popup Title</h1>
-            <p>This is the popup content.</p> -->
-            <div class="container">
-                <div class="forms-container">
-                  <div class="signin-signup">
-                    <!-- Sign In Form -->
-                    <form action="#" class="sign-in-form" id="sign-in-form">
-                      <h2 class="title">Login</h2>
-                      <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="sign-in-email" placeholder="Email or Mobile Number" />
-                      </div>
-                      <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="sign-in-password" placeholder="Password" />
-                      </div>
-                      
-                      <input type="submit" value="Login" class="sign-btn solid" />
-                      <p style="text-align: right; margin: 10px 0; color: blue; cursor: pointer;" id="forgot-password-link">
-                        Forgot Password?
-                    </p>
-                    </form>
-              
-                    <!-- Sign Up Form -->
-                    <form action="#" class="sign-up-form" id="sign-up-form">
+      <div class="popup-box">
+          <button class="close-btn">&times;</button>
+          <!-- <h1>Popup Title</h1>
+          <p>This is the popup content.</p> -->
+          <div class="container">
+              <div class="forms-container">
+                <div class="signin-signup">
+                  <!-- Sign In Form -->
+                  <form action="#" class="sign-in-form" id="sign-in-form">
+                    <h2 class="title">Login</h2>
+                    <div class="input-field">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="sign-in-email" placeholder="Email or Mobile Number" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" id="sign-in-password" placeholder="Password" />
+                      <i class="fas fa-eye toggle-password" id="toggle-password" style="cursor: pointer;"></i>
+                    </div>
+                    
+                    
+                    <input type="submit" value="Login" class="sign-btn solid" />
+                    <p style="text-align: right; margin: 10px 0; color: blue; cursor: pointer;" id="forgot-password-link">
+                      Forgot Password?
+                  </p>
+                  </form>
+            
+                  <!-- Sign Up Form -->
+                  <form action="#" class="sign-up-form" id="sign-up-form">
                       <h2 class="title">Register</h2>
+                      
                       <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" id="full-name" placeholder="Full Name" />
                       </div>
+                      
                       <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="sign-up-email" placeholder="Email" />
                       </div>
+                      
+                      <!-- Email OTP Verification -->
+                      <div class=" otp-section" id="email-otp-section">
+                        <input type="text" id="email-otp" placeholder="Enter Email OTP" maxlength="6" style="display: none;" />
+                        <button type="button" id="send-email-otp" class="otp-btn" style="display: none;">Send Email OTP</button>
+                        <button type="button" id="verify-email-otp" class="otp-btn" style="display: none;">Verify OTP</button>
+                      </div>
+                      
                       <div class="input-field">
                         <i class="fas fa-phone"></i>
                         <input type="tel" id="mobile-number" placeholder="Mobile Number" />
                       </div>
-                      <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="sign-up-password" placeholder="Password" />
+                      
+                      <!-- Mobile OTP Verification -->
+                      <div class=" otp-section" id="mobile-otp-section">
+                        <input type="text" id="mobile-otp" placeholder="Enter Mobile OTP" maxlength="6" style="display: none;" />
+                        <button type="button" id="send-mobile-otp" class="otp-btn" style="display: none;">Send Mobile OTP</button>
+                        <button type="button" id="verify-mobile-otp" class="otp-btn" style="display: none;">Verify OTP</button>
                       </div>
+                      
                       <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="confirm-password" placeholder="Confirm Password" />
-                      </div>
+                          <i class="fas fa-lock"></i>
+                          <input type="password" class="password-input" placeholder="Password" />
+                          <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
+                        </div>
+                        
+                        <div class="input-field">
+                          <i class="fas fa-lock"></i>
+                          <input type="password" class="password-input" placeholder="Confirm Password" />
+                          <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
+                        </div>
+                        
+                      
                       <div class="input-field forradio">
                         <p>Please select your role:</p>
                         <div class="radio-group">
@@ -316,105 +341,111 @@
                             <input type="radio" name="role" value="seller" id="role-seller" />
                             Seller
                           </div>   
+                          <div class="radio-content">
+                              <input type="radio" name="role" value="rentor" id="role-rentor" />
+                              Rentor
+                            </div>
                         </div>
                       </div>
                       
                       <input type="submit" class="sign-btn" value="Register" />
                     </form>
-                  </div>
-                </div>
-              
-                <div class="panels-container">
-                  <div class="panel left-panel">
                     
-                    <div class="content">
-                      <div class="content-box">
-                        <h3>WELCOME BACK!</h3>
-                        <img src="../assets/newlogo.png" class="image" alt="">
-                        <h3>NIRMAANKARA</h3>
-                      </div>
-                      <div class="content-box">
-                        <p>
-                          "Buy, Sell, Build, or Develop - Nirmaankara simplifies it all. Your trusted partner in real estate and construction"
-                        </p>
-                        <button class="transparent" id="sign-up-btn">
-                           Register
-                        </button>
-                      </div>
+                    
+                </div>
+              </div>
+            
+              <div class="panels-container">
+                <div class="panel left-panel">
+                  
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME BACK!</h3>
+                      <img src="../assets/newlogo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        "Buy, Sell, Build, or Develop - Nirmaankara simplifies it all. Your trusted partner in real estate and construction"
+                      </p>
+                      <button class="transparent" id="sign-up-btn">
+                         Register
+                      </button>
                     </div>
                   </div>
-              
-                  <div class="panel right-panel">
-                    <div class="content">
-                      <div class="content-box">
-                        <h3>WELCOME TO</h3>
-                        <img src="../assets/newlogo.png" class="image" alt="">
-                        <h3>NIRMAANKARA</h3>
-                      </div>
-                      <div class="content-box">
-                        <p>
-                          Your hub for construction and realestate, connecting landowners,contractors, buyers, and sellers with ease.
-                        </p>
-                        <button class="transparent" id="sign-in-btn">
-                          Login
-                        </button>
-                      </div>
+                </div>
+            
+                <div class="panel right-panel">
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME TO</h3>
+                      <img src="../assets/newlogo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        Your hub for construction and realestate, connecting landowners,contractors, buyers, and sellers with ease.
+                      </p>
+                      <button class="transparent" id="sign-in-btn">
+                        Login
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-        </div>
-    </div>
-    <!-- Forgot Password Popup -->
-    <div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
-      <div class="popup-box forgot-box">
-          <button class="close-btn" id="close-forgot-popup">&times;</button>
-          <h2>Forgot Password</h2>
-          <p>Enter your registered email:</p>
-          <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
-          <span id="email-error" class="error-message" style="color: red; display: none;">Please enter a valid Gmail address!</span>
-          <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
-
-          <div id="otp-section" style="display: none;">
-              <div class="otp-v">
-                  <div class="inputfototp">
-                      <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
-                  </div>
-
-                  <div id="otp-actions">
-                      <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
-                  </div>
-                  <div id="resend-otp" style="display: none;">
-                      <button id="resend-btn" class="resend-btn">Resend OTP</button>
-                  </div>
-              </div>
-              <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
-              <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
-          </div>
-
-          <div id="reset-password-section" style="display: none;">
-            <h3>Reset Password</h3>
-            <div class="reset-content">
-                <div class="input-field">
-                    <input type="password" id="new-password" placeholder="New Password" />
-                    <i class="fas fa-eye toggle-password" data-target="new-password"></i>
-                </div>
-                <span id="password-error" class="error-message" style="display: none;">
-                    Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).
-                </span>
-        
-                <div class="input-field">
-                    <input type="password" id="confirm-new-password" placeholder="Confirm Password" />
-                    <i class="fas fa-eye toggle-password" data-target="confirm-new-password"></i>
-                </div>
-                <span id="confirm-password-error" class="error-message" style="display: none;">Passwords do not match!</span>
-        
-                <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
             </div>
-        </div>
-        
       </div>
+  </div>
+  <!-- Forgot Password Popup -->
+  <div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
+    <div class="popup-box forgot-box">
+        <button class="close-btn" id="close-forgot-popup">&times;</button>
+        <h2>Forgot Password</h2>
+        <p>Enter your registered email:</p>
+        <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
+        <span id="email-error" class="error-message" style="color: red; display: none;">Please enter a valid Gmail address!</span>
+        <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
+
+        <div id="otp-section" style="display: none;">
+            <div class="otp-v">
+                <div class="inputfototp">
+                    <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
+                </div>
+
+                <div id="otp-actions">
+                    <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
+                </div>
+                <div id="resend-otp" style="display: none;">
+                    <button id="resend-btn" class="resend-btn">Resend OTP</button>
+                </div>
+            </div>
+            <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
+            <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
+        </div>
+
+        <div id="reset-password-section" style="display: none;">
+          <h3>Reset Password</h3>
+          <div class="reset-content">
+              <div class="input-field">
+                  <input type="password" id="new-password" placeholder="New Password" />
+                  <i class="fas fa-eye toggle-password" data-target="new-password"></i>
+              </div>
+              <span id="password-error" class="error-message" style="display: none;">
+                  Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).
+              </span>
+      
+              <div class="input-field">
+                  <input type="password" id="confirm-new-password" placeholder="Confirm Password" />
+                  <i class="fas fa-eye toggle-password" data-target="confirm-new-password"></i>
+              </div>
+              <span id="confirm-password-error" class="error-message" style="display: none;">Passwords do not match!</span>
+      
+              <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
+          </div>
+      </div>
+      
     </div>
+  </div>
 
     <div id="notification-popup" class="notification-popup" style="display: none;">
       <div class="notification-box">
@@ -1114,126 +1145,24 @@
      <!-- footer --> 
     <script src="../javascript/loginpop.js"></script>
     <script src="../javascript/navbarfooter.js"></script>
-    <script>
-//    document.addEventListener("DOMContentLoaded", () => {
-  
-//     const forgotPasswordLink = document.getElementById("forgot-password-link");
-//     const forgotPasswordPopup = document.getElementById("forgot-password-popup");
-//     const closeForgotPopup = document.getElementById("close-forgot-popup");
-
-//     const sendOtpBtn = document.getElementById("send-otp-btn");
-//     const otpSection = document.getElementById("otp-section");
-//     const verifyOtpBtn = document.getElementById("verify-otp-btn");
-//     const resetPasswordSection = document.getElementById("reset-password-section");
-//     const resetPasswordBtn = document.getElementById("reset-password-btn");
-
-//     const emailError = document.getElementById("email-error");
-//     const otpError = document.getElementById("otp-error");
-//     const otpSuccess = document.getElementById("otp-success");
-//     const passwordError = document.getElementById("password-error");
-//     const confirmPasswordError = document.getElementById("confirm-password-error");
-
-//     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-//     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
-
-//     const temporaryOtp = "123456"; // Predefined temporary OTP
-
-//     // Show Forgot Password Popup
-//     forgotPasswordLink.addEventListener("click", () => {
-//         forgotPasswordPopup.style.display = "flex";
-//     });
-
-//     // Close Forgot Password Popup
-//     closeForgotPopup.addEventListener("click", () => {
-//         forgotPasswordPopup.style.display = "none";
-//     });
-
-//     // Show OTP Section
-//     sendOtpBtn.addEventListener("click", () => {
-//         const emailInput = document.getElementById("forgot-email").value;
-
-//         if (emailRegex.test(emailInput)) {
-//             emailError.style.display = "none";
-//             alert(` OTP sent to your email`); // Simulated OTP sending
-//             otpSection.style.display = "block";
-//         } else {
-//             emailError.style.display = "block";
-//         }
-//     });
-
-//     // Verify OTP
-//     // Verify OTP
-// verifyOtpBtn.addEventListener("click", () => {
-//     const enteredOtp = document.getElementById("otp-input").value;
-
-//     if (enteredOtp === temporaryOtp) {
-//         // Hide the OTP input and button
-//         otpError.style.display = "none";
-//         document.getElementById("otp-actions").style.display = "none";
-
-//         // Show success message
-//         otpSuccess.style.display = "block";
-
-//         // Optionally move to the next section
-//         setTimeout(() => {
-//             otpSuccess.style.display = "none";
-//             otpSection.style.display = "none";
-//             resetPasswordSection.style.display = "block";
-//         }, 2000); // Adjust timing as needed
-//     } else {
-//         // Show error message
-//         otpSuccess.style.display = "none";
-//         otpError.style.display = "block";
-//     }
-// });
-
-//     // Reset Password with Validation
-//     resetPasswordBtn.addEventListener("click", () => {
-//         const newPassword = document.getElementById("new-password").value;
-//         const confirmPassword = document.getElementById("confirm-new-password").value;
-
-//         let valid = true;
-
-//         if (!passwordRegex.test(newPassword)) {
-//             passwordError.style.display = "block";
-//             valid = false;
-//         } else {
-//             passwordError.style.display = "none";
-//         }
-
-//         if (newPassword !== confirmPassword) {
-//             confirmPasswordError.style.display = "block";
-//             valid = false;
-//         } else {
-//             confirmPasswordError.style.display = "none";
-//         }
-
-//         if (valid) {
-//             alert("Password reset successfully!");
-//             resetPasswordSection.style.display = "none";
-//             forgotPasswordPopup.style.display = "none";
-//         }
-//     });
-// });
-
-
-
-// document.querySelectorAll('.toggle-password').forEach(icon => {
-//     icon.addEventListener('click', () => {
-//         const target = document.getElementById(icon.dataset.target);
-//         if (target.type === 'password') {
-//             target.type = 'text';
-//             icon.classList.remove('fa-eye');
-//             icon.classList.add('fa-eye-slash');
-//         } else {
-//             target.type = 'password';
-//             icon.classList.remove('fa-eye-slash');
-//             icon.classList.add('fa-eye');
-//         }
-//     });
-// });
-
-
-</script>
+    <script>// Loop through each password toggle icon
+      document.querySelectorAll('.toggle-password').forEach(icon => {
+        icon.addEventListener('click', () => {
+          // Get the password input field next to the clicked icon
+          const inputField = icon.previousElementSibling; // This assumes the <input> is immediately before the <i> icon
+      
+          // Check if the input field type is 'password' and toggle it
+          if (inputField.type === 'password') {
+            inputField.type = 'text';  // Show the password
+            icon.classList.remove('fa-eye');  // Remove the eye icon
+            icon.classList.add('fa-eye-slash');  // Add the eye-slash icon
+          } else {
+            inputField.type = 'password';  // Hide the password
+            icon.classList.remove('fa-eye-slash');  // Remove the eye-slash icon
+            icon.classList.add('fa-eye');  // Add the eye icon
+          }
+        });
+      });
+      </script>
 </body>
 </html>
