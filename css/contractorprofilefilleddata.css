@@ -320,6 +320,7 @@
 /* Projcts */
 .project-container-heading{
   padding: 0px 0px 0px 50px;
+  margin-bottom: 20px;
 }
 .project-container-heading>span{
   font-size: 20px;
@@ -584,6 +585,25 @@ transition: color 0.3s;
 }
 .desp .feature:hover{
   transform: scale(1.06);
+}
+.delete-btn{
+  border: none;
+  color: red;
+  cursor: pointer;
+}
+.main-add-projct{
+  width: 100%;
+  margin-top: 10px;
+}
+#addProjectBtn{
+  margin-left: 20px;
+  font-size: 14px;
+  background-color: #0B3A62;
+  width: max-content;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 

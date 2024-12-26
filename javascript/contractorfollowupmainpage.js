@@ -107,16 +107,6 @@ document.getElementById("fetch-details").addEventListener("click", () => {
     }
 });
 
-// Disable the submit button until details are fetched
-document.getElementById("submit-button").disabled = true;  // Assuming your submit button has this ID
-
-// Enable the submit button after fetching details
-document.getElementById("fetch-details").addEventListener("click", () => {
-    if (isDetailsFetched) {
-        document.getElementById("submit-button").disabled = false;  // Enable the submit button
-    }
-});
-
 
 
 
@@ -315,7 +305,3 @@ document.getElementById("fetch-details").addEventListener("click", () => {
         showNotification("Enter the Customer ID");
     }
 });
-const dateInput = document.getElementById('dateInput');
-const today = new Date().toISOString().split('T')[0]; 
-dateInput.value = today;
-dateInput.style.textAlign = 'center';

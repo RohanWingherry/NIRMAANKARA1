@@ -34,9 +34,9 @@ let rowToDelete = null;
             const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
             const newRow = table.insertRow();
             newRow.innerHTML = `
-                <td><input type="text" placeholder="enter item" class="enter-item" name="enter-item"></td>
-                <td><input type="number" placeholder="enter price" class="enter-price" name="enter-price"></td>
-                <td><input type="number" placeholder="enter qty" class="enter-qty" name="enter-det"></td>
+                <td><input type="text" placeholder="enter item" class="enter-item"  name="enter-item" ></td>
+                <td><input type="number" placeholder="enter price" class="enter-price" oninput="updateTotal(this)" name="enter-price"></td>
+                <td><input type="number" placeholder="enter qty" class="enter-qty" oninput="updateTotal(this)" name="enter-det"></td>
                 <td>₹0</td>
                 <td><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td>
             `;

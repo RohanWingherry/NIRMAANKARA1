@@ -114,3 +114,7 @@ function formatDateToDisplay(dateString) {
     const [year, month, day] = dateString.split("-");
     return `${day}-${month}-${year}`;
 }
+const dateInput = document.getElementById('date');
+const today = new Date().toISOString().split('T')[0]; 
+dateInput.value = today;
+
