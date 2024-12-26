@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nirmaankara</title>
     <link rel="stylesheet" href="../css/contractorliveprofile.css">
     <script src='https://cdn.plot.ly/plotly-2.32.0.min.js'></script>
 
@@ -283,7 +283,9 @@
                 </a>
             </div>
             <div class="main-aboutcompany">
-                <p>About Company</p>
+                <div class="about-container-heading">
+                    <span>About Company:</span>
+                 </div>
                 <div class="about-company">
                     <div class="company-details">
                         <section id="details">
@@ -298,145 +300,286 @@
                             <img src="../assets/logo.png" alt="">
                         </section>
                     </div>
-                    
-                    <!-- cibile Score -->
-                    <div id='myDiv'></div>
                 </div>
             </div>
             <div class="main-projects">
-                <p>Projects</p>
-                <div class="option">
-                    <p class="pic"><i class="fa-solid fa-images"></i>Photos</p>
-                    <p class="vid"><i class="fa-solid fa-circle-play"></i>Videos</p>
-                </div>
-                <div class="images">
-                    <div class="single-image">
-                        <img src="../assets/home.jpg" alt="">
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="single-image">
-                        <img src="../assets/home.jpg" alt="">
-                        <p>Sri Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="single-image">
-                        <img src="../assets/home.jpg" alt="">
-                        <p>Ram Nivas</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Bengaluru</p>
-                    </div>
-                    <div class="single-image">
-                        <img src="../assets/home.jpg" alt="">
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="see-more-images">
-                        <p>See More</p>
-                    </div>
-                    <div class="seemore">
-                        <div class="single-image">
-                            <img src="../assets/home.jpg" alt="">
-                            <p>Ganapati Nilaya</p>
-                            <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
+                <div class="projects-info-container">
+                    <div class="project-container-heading">
+                      <span>Projects:</span>
+                   </div>
+                    <div class="project-container" >
+                      <div class="project-box">
+                        <!-- slider for image and video -->
+                        <div class="slider-container">
+                            <button class="prev" onclick="prevSlide(this)">❮</button>
+                            <div class="content-slider">
+                                <div class="slide">
+                                    <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                                </div>
+                                <div class="slide">
+                                    <video src="../assets/car.mp4" controls></video>
+                                </div>
+                            </div>
+                            <button class="next" onclick="nextSlide(this)">❯</button>
                         </div>
-                    </div>
-                </div>
-                <div class="videos">
-                    <div class="single-video">
-                        <video src="../assets/home-video.mp4" controls></video>
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="single-video">
-                        <video src="../assets/home-video.mp4" controls></video>
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="single-video">
-                        <video src="../assets/home-video.mp4" controls></video>
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="single-video">
-                        <video src="../assets/home-video.mp4" controls></video>
-                        <p>Ganapati Nilaya</p>
-                        <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
-                    </div>
-                    <div class="see-more-videos">
-                        <p>See More</p>
-                    </div>
-                    <div class="seemorevideos">
-                        <div class="single-video">
-                            <video src="../assets/home-video.mp4" controls></video>
-                            <p>Ganapati Nilaya</p>
-                            <p><i class="fa-solid fa-location-arrow"></i>Hydreabad</p>
+                        <!-- end -->
+                        <div class="pro-box-descrp">
+                            <div class="project-name slide" data-likes="10">
+                                <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+                            </div>
+                            <div class="project-price">
+                                <div class="price">5000 SQFT</div>
+                            </div>
+                            <div class="project-address">
+                                <div class="pro-address">Puppalaguda, Hyderabad</div>
+                            </div>
                         </div>
+                      </div>
+                
+                      <div class="project-box">
+                        <!-- slider for image and video -->
+                        <div class="slider-container">
+                          <button class="prev" onclick="prevSlide(this)">❮</button>
+                          <div class="content-slider">
+                              <div class="slide">
+                                  <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/car.mp4" controls></video>
+                              </div>
+                              <!-- <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div> -->
+                          </div>
+                          <button class="next" onclick="nextSlide(this)">❯</button>
+                      </div>
+                         <!-- end -->
+                        <div class="pro-box-descrp">
+                          <div class="project-name slide" data-likes="10">
+                            <h4 class="pro-name">
+                              APARNA SAROVAR TOWERS</h4>
+                              <!-- <button class="like-button" onclick="likeSlide(event)">
+                                <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                              </button> -->
+                          </div>
+                          <!-- <div class="contractor-name">
+                            <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
+                            <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
+                          </div> -->
+                          <div class="project-price">
+                            <div class="price">5000 SQFT</div>
+                          </div>
+                          <div class="project-address">
+                            <div class="pro-address">Puppalaguda, Hyderabad</div>
+                          </div>
+                          <!-- Delete button -->
+                        </div>
+                      </div>
+                
+                      <div class="project-box">
+                        <!-- slider for image and video -->
+                        <div class="slider-container">
+                          <button class="prev" onclick="prevSlide(this)">❮</button>
+                          <div class="content-slider">
+                              <div class="slide">
+                                  <img src="../assets/green1.png" alt="Image 1">
+                              </div>
+                              
+                              <!-- <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div>-->
+                              <div class="slide">
+                                  <video src="../assets/car.mp4" controls></video>
+                              </div> 
+                          </div>
+                          <button class="next" onclick="nextSlide(this)">❯</button>
+                      </div>
+                         <!-- end -->
+                        <div class="pro-box-descrp">
+                          <div class="project-name slide" data-likes="10">
+                            <h4 class="pro-name">APARNA GREENSCAPES</h4>
+                            <!-- <button class="like-button" onclick="likeSlide(event)">
+                              <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                            </button> -->
+                          </div>
+                          <!-- <div class="contractor-name">
+                            <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : </h4>
+                            <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
+                          </div> -->
+                          <div class="project-price">
+                            <div class="price">5100 SQFT</div>
+                          </div>
+                          <div class="project-address">
+                            <div class="pro-address">Kompally, Hyderabad</div>
+                          </div>
+                        </div>
+                      </div>
+                
+                      <div class="project-box">
+                        <!-- slider for image and video -->
+                        <div class="slider-container">
+                          <button class="prev" onclick="prevSlide(this)">❮</button>
+                          <div class="content-slider">
+                              <div class="slide">
+                                  <img src="../assets/asbl.jpg" alt="Image 1">
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/car.mp4" controls></video>
+                              </div>
+                          </div>
+                          <button class="next" onclick="nextSlide(this)">❯</button>
+                      </div>
+                         <!-- end -->
+                        <div class="pro-box-descrp">
+                          <div class="project-name slide" data-likes="5">
+                            <h4 class="pro-name">ASBL Springs</h4>
+                            <!-- <button class="like-button" onclick="likeSlide(event)">
+                              <i class="fa-solid fa-heart"></i> <span class="like-count">5</span>
+                            </button> -->
+                          </div>
+                          <!-- <div class="contractor-name">
+                            <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
+                            <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
+                          </div> -->
+                          <div class="project-price">
+                            <div class="price">1500 SQFT</div>
+                          </div>
+                          <div class="project-address">
+                            <div class="pro-address">Pocharam, Hyderabad</div>
+                          </div>
+                        </div>
+                      </div>
+                
+                      <div class="project-box">
+                        <!-- slider for image and video -->
+                        <div class="slider-container">
+                          <button class="prev" onclick="prevSlide(this)">❮</button>
+                          <div class="content-slider">
+                              <div class="slide">
+                                  <img src="../assets/Sattva1.jpg" alt="Image 1">
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/Sattvavideo.mp4" controls></video>
+                              </div>
+                              <!-- <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div>
+                              <div class="slide">
+                                  <video src="../assets/.mp4" controls></video>
+                              </div> -->
+                          </div>
+                          <button class="next" onclick="nextSlide(this)">❯</button>
+                      </div>
+                         <!-- end -->
+                        <div class="pro-box-descrp">
+                          <div class="project-name slide" data-likes="10">
+                            <h4 class="pro-name">SATTVA PARK CUBIX</h4>
+                            <!-- <button class="like-button" onclick="likeSlide(event)">
+                              <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
+                            </button> -->
+                          </div>
+                          <!-- <div class="contractor-name">
+                            <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
+                            <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
+                          </div> -->
+                          <div class="project-price">
+                            <div class="price">1200 SQFT</div>
+                          </div>
+                          <div class="project-address">
+                            <div class="pro-address">Devanahalli, Bangalore North</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
             </div>
             <div class="main-services">
-                <p>Services</p>
-                <div>
-                    <div id="services">
-                        <section>
-                            <i class="fa-solid fa-building"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">BUILDING REMODULATION</label>
+                <div class="main-service-heading1">Services:</div>
+
+                <div class="sub-services">
+                    <div class="sub-main-services">
+                        <div class="main-construction-services">
+                            <div class="services-heading">Building & Renovation Services:</div>
+                            <div class="construction-related-services-list" id="construction-services-list">
+                                <div class="single-service">
+                                    <span>Building Re-Modulation</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Independent House/ Villa</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Residential Apartment</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Serviced Apartment</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Industries</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Complex</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Commercial</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Farm House</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Venture Development</span>
+                                </div>
                             </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-building"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">INDEPENDENT HOUSE/VILLA</label>
+                        </div>
+                    
+                        <div class="main-other-services">
+                            <div class="services-heading">Finishing & Maintenance Services:</div>
+                            <div class="other-related-services-list" id="other-services-list">
+                                <div class="single-service">
+                                    <span>Electrical</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Plumbing</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Roofing</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Interiors</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Carpentry</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Painting</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Roofing</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Demolition</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Excavation</span>
+                                </div>
+                                <div class="single-service">
+                                    <span>Roof top gardening</span>
+                                </div>
                             </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-building"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">RESENDITIAL APARTMENT</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-building"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">COMPLEX</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-charging-station"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">Electrical</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-faucet-drip"></i>
-                            <div class="checkoxes">
-                                <label for="plumbing">Plumbing</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-charging-station"></i>
-                            <div class="checkoxes">
-                                <label for="electrical">Electrical</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-house-laptop"></i>
-                            <div class="checkoxes">
-                                <label for="interiors">Interiors</label>
-                            </div>
-                        </section>
-                        <section>
-                            <i class="fa-solid fa-paint-roller"></i>
-                            <div class="checkoxes">
-                                <label for="painting">Painting</label>
-                            </div>
-                        </section>
+                        </div>
                     </div>
                 </div>
+                
             </div>
             <div class="main-review">
-                <p>Reviews</p>
+                <div class="review-container-heading">
+                    <span>Reviews:</span>
+                 </div>
                 <div>
                     <div id="section-review">
                         <form id="addreview">
@@ -573,7 +716,6 @@
     </div>
  </div>
  <!-- footer --> 
-    <script src="../javascript/sidenavbar.js"></script>
     <script src="../javascript/navbarfooterinner.js"></script>
     <script src="../javascript/contractorliveprofile.js"></script>
 </body>

@@ -99,14 +99,5 @@ function prevSlide(button) {
     showSlide(container, container.currentIndex - 1);
 }
 
-// Handle the like button functionality
-// Initialize like counts on page load based on data-likes attribute
 
-
-function deleteProject(button) {
-    // Find the parent project box element that contains the delete button
-    const projectBox = button.closest('.project-box');
-    // Remove the entire project box from the DOM
-    projectBox.remove();
-}
 

@@ -23,7 +23,7 @@ const service=document.querySelector(".service")
 const serviceBlock=document.querySelector(".main-services")
 service.addEventListener("click",(event)=>{
     event.preventDefault()
-    serviceBlock.style.display="block"
+    serviceBlock.style.display="flex"
     serviceBlock.scrollIntoView({behavior:"smooth"})
 })
 
@@ -35,104 +35,19 @@ reviews.addEventListener("click",(event)=>{
     reviewBlock.scrollIntoView({behavior:"smooth"})
 })
 
-//About Company
-document.addEventListener("DOMContentLoaded", ()=>{
-    var data = [
-        {
-            domain: { x: [0, 1], y: [0, 1] },
-            value: 823,
-            title: { text: "Cibile Score" },
-            type: "indicator",
-            mode: "gauge+number",
-            gauge: {
-                axis: { range: [0, 950] },
-                bar: { color: "black" },
-                steps: [
-                    { range: [0, 500], color: "red" },
-                    { range: [501, 699], color: "yellow" },
-                    { range: [700, 950], color: "green" }
-                ]
-            }
-        }
-    ];
-    
-    var layout = { 
-        width: 400, 
-        height: 300, 
-        margin: { t: 0, b: 0 },
-        annotations: [
-            {
-                x: 0.1,
-                y: 0.1,
-                xref: 'paper',
-                yref: 'paper',
-                text: 'Poor<br>0-500',
-                showarrow: false,
-                font: { size: 13, color: 'red' }
-            },
-            {
-                x: 0.43,
-                y: 0.1,
-                xref: 'paper',
-                yref: 'paper',
-                text: 'Average<br>501-699',
-                showarrow: false,
-                font: { size: 13, color: 'orange' }
-            },
-            {
-                x: 0.8,
-                y: 0.1,
-                xref: 'paper',
-                yref: 'paper',
-                text: 'Good<br>700-950',
-                showarrow: false,
-                font: { size: 13, color: 'green' }
-            }
-        ]
-    };
-     var config = {
-            displayModeBar: false 
-        };
-        
-        Plotly.newPlot('myDiv', data, layout, config);
+
+// Add remove functionality to each existing service (Building & Renovation Services)
+const constructionServices = document.querySelectorAll('.remove-service');
+constructionServices.forEach(service => {
+    service.addEventListener('click', removeService);
 });
 
-// Project
-const seeMore=document.querySelector(".seemore")
-const clickSee=document.querySelector(".see-more-images")
-clickSee.addEventListener("click",(event)=>{
-    event.preventDefault()
-    seeMore.style.display="block"
-    seeMore.scrollIntoView({behavior:"smooth"})
-})
+// Add remove functionality to each existing service (Finishing & Maintenance Services)
+const otherServices = document.querySelectorAll('.remove-service');
+otherServices.forEach(service => {
+    service.addEventListener('click', removeService);
+});
 
-const seeMoreV=document.querySelector(".seemorevideos")
-const clickSeeV=document.querySelector(".see-more-videos")
-clickSeeV.addEventListener("click",(event)=>{
-    event.preventDefault()
-    seeMoreV.style.display="block"
-    seeMoreV.scrollIntoView({behavior:"smooth"})
-})
-
-
-const imageblock=document.querySelector(".images")
-const pictext=document.querySelector(".pic")
-const vidtext=document.querySelector(".vid")
-const videoblock=document.querySelector(".videos")
-pictext.classList.add("active")
-videoblock.style.display="none"
-vidtext.addEventListener("click",()=>{
-    imageblock.style.display="none"
-    pictext.classList.remove("active")
-    vidtext.classList.add("active")
-    videoblock.style.display="flex"
-})
-pictext.addEventListener("click",()=>{
-    pictext.classList.add("active")
-    imageblock.style.display="flex"
-    vidtext.classList.remove("active")
-    videoblock.style.display="none"
-})
 
 //Review
 const review = document.getElementById("addreview");
@@ -251,4 +166,31 @@ document.getElementById('addreview').addEventListener('submit', function (event)
     });
     closeReview();
 });
+
+// Initialize the currentIndex for each slider container
+document.querySelectorAll('.slider-container').forEach(container => {
+    container.currentIndex = 0;
+});
+
+// Show a specific slide based on index
+function showSlide(container, index) {
+    const slider = container.querySelector('.content-slider');
+    const slides = slider.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    container.currentIndex = (index + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${container.currentIndex * 100}%)`;
+}
+
+// Go to the next slide
+function nextSlide(button) {
+    const container = button.closest('.slider-container');
+    showSlide(container, container.currentIndex + 1);
+}
+
+// Go to the previous slide
+function prevSlide(button) {
+    const container = button.closest('.slider-container');
+    showSlide(container, container.currentIndex - 1);
+}
 
