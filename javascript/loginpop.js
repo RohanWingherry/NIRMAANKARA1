@@ -20,10 +20,6 @@ const resetPasswordBtn = document.querySelector('#reset-password-btn');
 const notificationPopup = document.querySelector('#notification-popup');
 const notificationMessage = document.querySelector('#notification-message');
 const notificationCloseBtn = document.querySelector('#notification-close-btn');
-// const sendEmailOtpBtn = document.querySelector('#send-email-otp');
-// const sendMobileOtpBtn = document.querySelector('#send-mobile-otp');
-// const emailOtpInput = document.querySelector('#email-otp');
-// const mobileOtpInput = document.querySelector('#mobile-otp');
 
 // Utility Functions
 const showNotification = (message) => {
@@ -174,6 +170,7 @@ resetPasswordBtn.addEventListener('click', () => {
 });
 
 // DOM Elements
+
 const sendEmailOtpBtn = document.querySelector('#send-email-otp');
 const sendMobileOtpBtn = document.querySelector('#send-mobile-otp');
 const verifyEmailOtpBtn = document.querySelector('#verify-email-otp');
@@ -294,8 +291,8 @@ signUpForm.addEventListener('submit', (e) => {
     const email = document.querySelector('#sign-up-email').value.trim();
     const mobileNumber = document.querySelector('#mobile-number').value.trim();
     const password = document.querySelector('.password-input').value.trim();
-    const confirmPassword = document.querySelector('.password-input').value.trim();
-    const role = document.querySelector('input[name="role"]:checked');
+    const confirmPassword = document.querySelector('#confirm-password').value.trim(); // Fixed here
+    const role = document.querySelector('input[name="role"]:checked'); // Ensure role is selected
     
     const emailOtp = document.querySelector('#email-otp').value.trim();
     const mobileOtp = document.querySelector('#mobile-otp').value.trim();
@@ -348,7 +345,8 @@ signUpForm.addEventListener('submit', (e) => {
         showNotification('Please enter your password.');
         return;
     }
-  
+
+    // Validate Password Strength
     const passwordStrengthPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/;
     if (!passwordStrengthPattern.test(password)) {
         showNotification('Password must be at least 6 characters long, include 1 uppercase letter, 1 number, and 1 special character.');
@@ -356,6 +354,11 @@ signUpForm.addEventListener('submit', (e) => {
     }
 
     // Validate Confirm Password
+    if (!confirmPassword) {
+        showNotification('Please confirm your password.');
+        return;
+    }
+
     if (password !== confirmPassword) {
         showNotification('Passwords do not match.');
         return;
@@ -367,63 +370,52 @@ signUpForm.addEventListener('submit', (e) => {
         return;
     }
 
+    // Role-Based Navigation
+    let redirectUrl = '';
+    switch (role.value) {
+        case 'contractor':
+            showNotification('Registration successful! Redirecting to your homepage...');
+            redirectUrl = 'contractorshomepage.html';  // Adjust path
+            break;
+        case 'customer':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = 'customerhomepage.html';  // Adjust path
+            break;
+        case 'buyer':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = 'buyerhome.html';  // Adjust path
+            break;
+        case 'seller':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = '/dashboard/seller';  // Adjust path
+            break;
+        case 'renter':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = '/dashboard/rentor';  // Adjust path
+            break;
+        case 'tenant':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = '/dashboard/rentor';  // Adjust path
+            break;
+        case 'agent':
+            showNotification('Registration successful! Redirecting to your dashboard...');
+            redirectUrl = '/dashboard/rentor';  // Adjust path
+            break;
+        default:
+            showNotification('Something went wrong. Please try again.');
+            return;
+    }
+
+    // Show the success notification for 2 seconds before redirecting
+    setTimeout(() => {
+        window.location.href = redirectUrl;
+    }, 2000); // Delay of 2 seconds (2000 milliseconds)
+
     // If all validations pass, proceed with registration (e.g., show success or submit form)
     showNotification('Registration successful!');
 });
 
-// Function to show notifications (you can customize this based on your UI)
-// function showNotification(message) {
-//     alert(message);  // You can replace this with your custom notification handling method
-// }
 
-// OTP sending logic (simplified, replace with actual backend logic)
-document.querySelector('#send-email-otp').addEventListener('click', () => {
-    const email = document.querySelector('#sign-up-email').value.trim();
-    if (email) {
-        // Simulate sending OTP for email
-        document.querySelector('#verify-email-otp').style.display = 'inline';
-        document.querySelector('#email-otp').style.display = 'inline';
-        showNotification('OTP sent to your email!');
-    }
-});
-
-document.querySelector('#send-mobile-otp').addEventListener('click', () => {
-    const mobileNumber = document.querySelector('#mobile-number').value.trim();
-    if (mobileNumber) {
-        // Simulate sending OTP for mobile
-        document.querySelector('#verify-mobile-otp').style.display = 'inline';
-        document.querySelector('#mobile-otp').style.display = 'inline';
-        showNotification('OTP sent to your mobile!');
-    }
-});
-
-// OTP verification logic (simplified)
-document.querySelector('#verify-email-otp').addEventListener('click', () => {
-    const emailOtp = document.querySelector('#email-otp').value.trim();
-    if (emailOtp === "123456") {  // Replace with actual OTP validation logic
-        showNotification('Email OTP verified successfully!');
-    } else {
-        showNotification('Invalid Email OTP!');
-    }
-});
-
-document.querySelector('#verify-mobile-otp').addEventListener('click', () => {
-    const mobileOtp = document.querySelector('#mobile-otp').value.trim();
-    if (mobileOtp === "123456") {  // Replace with actual OTP validation logic
-        showNotification('Mobile OTP verified successfully!');
-    } else {
-        showNotification('Invalid Mobile OTP!');
-    }
-});
-
-
-// function showNotification(message) {
-//     alert(message);  // You can replace this with your custom notification handling method
-// }
-
-  
-  
-  
 
 
 // Sign-In Form Validation
@@ -461,39 +453,51 @@ signInForm.addEventListener('submit', (e) => {
     }
   
     showNotification('Login successful!');
+
+    // Close the popup container after successful login
+const popupContainer = document.querySelector('.popup-container');
+if (popupContainer) {
+  popupContainer.classList.remove('open', 'active');
+}
+
+// ...
+
+// Reopen the popup container
+const showPopupTriggers = document.querySelectorAll('.show-popup');
+showPopupTriggers.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    popupContainer.classList.add('open', 'active');
+  });
+});
+
+    
+    // Clear the form
+    signInForm.reset();
   });
   
-// Function to reset form fields
-function resetForm(form) {
-    form.reset(); // This will reset the values of all input fields to their default state
+// Example JavaScript code for resetting a form when popup is closed or toggled
+
+// const popupContainer = document.querySelector('.popup-container');
+const form = document.querySelector('.popup-form');
+const toggleButton = document.querySelector('.toggle-button');
+
+// Function to reset the form
+function resetForm() {
+  form.reset();
+}
+
+// Event listener for closing the popup
+popupContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('close-popup')) {
+    resetForm();
   }
-  
-  // Handle popup close
-  const closePopupBtn = document.querySelector('#close-popup-btn'); // Change selector as per your popup button
-  closePopupBtn.addEventListener('click', () => {
-    // Assuming `popup-container` is the class or ID of your popup container
-    const popupContainer = document.querySelector('.popup-container');
-    popupContainer.style.display = 'none'; // Hide the popup container
-    resetForm(signUpForm);  // Reset the sign-up form
-    resetForm(signInForm);  // Reset the sign-in form (in case you're switching forms)
-  });
-  
-  // Switch between login and registration forms
-  const switchToSignUpBtn = document.querySelector('#switch-to-sign-up');  // Button to switch to sign-up form
-  const switchToSignInBtn = document.querySelector('#switch-to-sign-in');  // Button to switch to sign-in form
-  
-  switchToSignUpBtn.addEventListener('click', () => {
-    resetForm(signInForm);  // Reset the sign-in form when switching
-    signUpForm.style.display = 'block';  // Show the sign-up form
-    signInForm.style.display = 'none';  // Hide the sign-in form
-  });
-  
-  switchToSignInBtn.addEventListener('click', () => {
-    resetForm(signUpForm);  // Reset the sign-up form when switching
-    signInForm.style.display = 'block';  // Show the sign-in form
-    signUpForm.style.display = 'none';  // Hide the sign-up form
-  });
-  
+});
+
+// Event listener for toggling between login and signup
+toggleButton.addEventListener('click', () => {
+  resetForm();
+});
+
 
 
 
