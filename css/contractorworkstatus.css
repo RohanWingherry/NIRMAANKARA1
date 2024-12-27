@@ -375,12 +375,12 @@
     display: block;
     margin: 10px auto;
 }
-img {
+#filePreview img {
     max-width: 100%;
     max-height: 150px;
     margin-top: 10px;
 }
-video {
+#videoPreview video {
     max-width: 100%;
     margin-top: 10px;
 }
