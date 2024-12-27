@@ -40,34 +40,94 @@ notificationCloseBtn.addEventListener('click', () => {
 // Toggle Login/Register Mode
 sign_up_btn.addEventListener('click', () => {
   container.classList.add('sign-up-mode');
+  forgotPasswordPopup.style.display = 'none';
+  resetForgotPasswordPopup();
+  resetForms();
 });
 
 sign_in_btn.addEventListener('click', () => {
   container.classList.remove('sign-up-mode');
+  forgotPasswordPopup.style.display = 'none';
+  resetForgotPasswordPopup();
+  resetForms();
 });
 
 // Show/Hide Main Popup
 showPopupTriggers.forEach(trigger => {
   trigger.addEventListener('click', () => {
     popupContainer.classList.add('open', 'active');
+    resetForms();
   });
 });
 
 // Close Popups (Main and Forgot Password)
+// Function to reset Forgot Password Popup
+function resetForgotPasswordPopup() {
+  otpSection.style.display = 'none';
+  resetPasswordSection.style.display = 'none';
+  forgotPasswordPopup.style.display = 'none';
+  forgotPasswordPopup.querySelector('form').reset(); // Reset form inputs
+  
+  // Reset custom state variables if any
+  currentStep = 'initial'; // Example step tracking
+}
+
+// Event listener for close buttons
 closeButtons.forEach(btn => {
   btn.addEventListener('click', (event) => {
     if (event.target.closest('#forgot-password-popup')) {
-      // Close only Forgot Password Popup
+      // Close and reset Forgot Password Popup
       forgotPasswordPopup.style.display = 'none';
+      resetForgotPasswordPopup();
     } else if (event.target.closest('.popup-container')) {
-      // Close Main Popup and other related popups
+      // Close Main Popup and reset all states
       popupContainer.classList.remove('open', 'active');
-      forgotPasswordPopup.style.display = 'none';
-      otpSection.style.display = 'none';
-      resetPasswordSection.style.display = 'none';
+      resetForgotPasswordPopup();
+      resetForms();
     }
   });
 });
+
+// Reset Forgot Password Popup Function
+function resetForgotPasswordPopup() {
+  // Reset Forgot Password Section
+  document.getElementById('forgot-email').value = '';
+  document.getElementById('email-error').style.display = 'none';
+
+  // Reset OTP Section
+  document.getElementById('otp-input').value = '';
+  document.getElementById('otp-section').style.display = 'none';
+  document.getElementById('resend-otp').style.display = 'none';
+  document.getElementById('otp-error').style.display = 'none';
+  document.getElementById('otp-success').style.display = 'none';
+
+  // Reset Reset Password Section
+  document.getElementById('new-password').value = '';
+  document.getElementById('confirm-new-password').value = '';
+  document.getElementById('password-error').style.display = 'none';
+  document.getElementById('confirm-password-error').style.display = 'none';
+  document.getElementById('reset-password-section').style.display = 'none';
+
+  // Reset Email OTP Section
+  document.getElementById('email-otp').value = '';
+  document.getElementById('email-otp').style.display = 'none';
+  document.getElementById('send-email-otp').style.display = 'none';
+  document.getElementById('verify-email-otp').style.display = 'none';
+
+  // Reset Mobile OTP Section
+  document.getElementById('mobile-otp').value = '';
+  document.getElementById('mobile-otp').style.display = 'none';
+  document.getElementById('send-mobile-otp').style.display = 'none';
+  document.getElementById('verify-mobile-otp').style.display = 'none';
+}
+
+// Reset Login and Register Forms
+function resetForms() {
+  const loginForm = document.getElementById('sign-in-form');
+  const registerForm = document.getElementById('sign-up-form');
+  if (loginForm) loginForm.reset();
+  if (registerForm) registerForm.reset();
+}
 
 // Close Popups when clicking outside
 popupContainer.addEventListener('click', (event) => {
@@ -453,6 +513,7 @@ signInForm.addEventListener('submit', (e) => {
     }
   
     showNotification('Login successful!');
+    document.querySelector('.nav-profile').innerHTML="Vijay";
 
     // Close the popup container after successful login
 const popupContainer = document.querySelector('.popup-container');
@@ -475,28 +536,7 @@ showPopupTriggers.forEach(trigger => {
     signInForm.reset();
   });
   
-// Example JavaScript code for resetting a form when popup is closed or toggled
 
-// const popupContainer = document.querySelector('.popup-container');
-const form = document.querySelector('.popup-form');
-const toggleButton = document.querySelector('.toggle-button');
-
-// Function to reset the form
-function resetForm() {
-  form.reset();
-}
-
-// Event listener for closing the popup
-popupContainer.addEventListener('click', (event) => {
-  if (event.target.classList.contains('close-popup')) {
-    resetForm();
-  }
-});
-
-// Event listener for toggling between login and signup
-toggleButton.addEventListener('click', () => {
-  resetForm();
-});
 
 
 
