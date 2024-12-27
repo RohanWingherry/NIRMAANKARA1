@@ -49,123 +49,121 @@ otherServices.forEach(service => {
 });
 
 
-//Review
 const review = document.getElementById("addreview");
+const cancelBtn = document.querySelector(".cancel");
+const allStars = document.querySelectorAll(".star .st");
+const ratingValue = document.getElementById("ratingvalue");
+const clickableSpans = document.querySelectorAll(".clickable-span");
+const selectedSpans = new Set();
+const reviewContainer = document.getElementById("reviews-container");
 
-function closeReview() {
-    review.style.display = 'flex';
+// Cancel review form
+function cancelReview() {
+    review.reset();
+    resetStars();
+    resetSpans();
+    document.getElementById("section-review").style.display = "none";
 }
-const cancel=document.querySelector(".cancel")
- cancel.addEventListener('click',(event)=>{
-    event.preventDefault()
-    review.style.display='none'
- })
 
-
-const allStars = document.querySelectorAll('.star .st');
-const ratingValue = document.getElementById('ratingvalue');
-allStars.forEach((item, idx) => {
-    item.addEventListener('click', function () {
-        let click = 0;
+// Star rating functionality
+allStars.forEach((star, idx) => {
+    star.addEventListener("click", function () {
         ratingValue.value = idx + 1;
-        allStars.forEach(i => {
-            // i.classList.replace('fa-solid', 'fa-regular');
-            i.classList.remove('active');
+        allStars.forEach((s, i) => {
+            s.classList.toggle("fa-solid", i <= idx);
+            s.classList.toggle("fa-regular", i > idx);
+            s.classList.toggle("active", i <= idx);
         });
-        for (let i = 0; i < allStars.length; i++)
-            if (i <= idx) {
-                // allStars[i].classList.replace('fa-regular', 'fa-solid');
-                allStars[i].classList.add('active');
-            } else {
-                allStars[i].style.setProperty('--i', click);
-                click++;
-            }
     });
 });
 
-const selectedSpans = new Set();
-const clickableSpans = document.querySelectorAll('.clickable-span');
+// Clickable spans for review types
 clickableSpans.forEach(span => {
-    span.addEventListener('click', function () {
+    span.addEventListener("click", function () {
         if (selectedSpans.has(this.innerText)) {
             selectedSpans.delete(this.innerText);
-            this.classList.remove('selected');
+            this.classList.remove("selected");
         } else {
             selectedSpans.add(this.innerText);
-            this.classList.add('selected');
+            this.classList.add("selected");
         }
     });
 });
 
-document.getElementById('addreview').addEventListener('submit', function (event) {
+// Submit review
+review.addEventListener("submit", function (event) {
     event.preventDefault();
-    const display = document.getElementById('rating-sections');
-    display.style.display = 'block';
 
-    const name = document.getElementById('commentername').value;
-    const comment = document.getElementById('reviewcomments').value;
-    const reviewContainer = document.getElementById('reviews-container');
+    const name = document.getElementById("commentername").value.trim();
+    const comment = document.getElementById("reviewcomments").value.trim();
+
+    if (!ratingValue.value) {
+        alert("Please select a star rating.");
+        return;
+    }
+
     const now = new Date();
     const date = now.toLocaleDateString();
     const time = now.toLocaleTimeString();
 
-    const newReview = document.createElement('div');
-    newReview.classList.add('review-item');
+    const newReview = document.createElement("section");
+    newReview.classList.add("review-item");
 
-    const reviewHeader = document.createElement('div');
-    reviewHeader.classList.add('review-header');
+    const dateandTime=`<div class="date">${date} ${time}</div>`;
+    const starRating = `
+        <div class="rating-done">
+            ${"<i class='fa-solid fa-star'></i>".repeat(ratingValue.value)}
+                        
 
-    const reviewerName = document.createElement('div');
-    reviewerName.classList.add('name');
-    reviewerName.textContent = name;
+        </div>
+    `;
 
-    const reviewDate = document.createElement('div');
-    reviewDate.classList.add('date');
-    reviewDate.textContent = `${date} ${time}`;
+    const selectedSpanContainer = `
+        <div class="selected-spans">
+            ${Array.from(selectedSpans).map(span => `<span>${span}</span>`).join("")}
+        </div>
+    `;
 
-    reviewHeader.appendChild(reviewerName);
-    reviewHeader.appendChild(reviewDate);
+    const reviewHeader = `
+        <div class="review-header">
+            <div class="name">Name:${name}</div>
+        </div>
+    `;
+    
+    const commentDone = `<div class="comment-done">${comment}</div>`;
+    
 
-    const StarRating = document.createElement('div');
-    StarRating.classList.add('rating-done');
-    let Stars = '';
-    for (let i = 0; i < ratingValue.value; i++) {
-        Stars += `<i class="fa-solid fa-star"></i>`;
-    }
-    StarRating.innerHTML = Stars;
-
-    const commentDone = document.createElement('div');
-    commentDone.classList.add('comment-done');
-    commentDone.textContent = comment;
-
-    const selectedSpanContainer = document.createElement('div');
-    selectedSpanContainer.classList.add('selected-spans');
-    selectedSpans.forEach(spanText => {
-        const spanItem = document.createElement('span');
-        spanItem.textContent = spanText;
-        selectedSpanContainer.appendChild(spanItem);
-    });
-
-    newReview.appendChild(reviewHeader);
-    newReview.appendChild(StarRating);
-    newReview.appendChild(commentDone);
-    newReview.appendChild(selectedSpanContainer);
-
+    newReview.innerHTML =  dateandTime+ starRating+ selectedSpanContainer +reviewHeader+ commentDone ;
     reviewContainer.appendChild(newReview);
 
-    document.getElementById('commentername').value = '';
-    document.getElementById('reviewcomments').value = '';
+    resetForm();
+});
+
+// Reset form
+function resetForm() {
+    review.reset();
+    resetStars();
+    resetSpans();
+    document.getElementById("section-review").style.display = "none";
+}
+
+// Reset stars
+function resetStars() {
     ratingValue.value = 0;
-    allStars.forEach(i => {
-        i.classList.replace('fa-solid', 'fa-regular');
-        i.classList.remove('active');
+    allStars.forEach(star => {
+        star.classList.replace("fa-solid", "fa-regular");
+        star.classList.remove("active");
     });
+}
+
+// Reset spans
+function resetSpans() {
     selectedSpans.clear();
     clickableSpans.forEach(span => {
-        span.classList.remove('selected');
+        span.classList.remove("selected");
     });
-    closeReview();
-});
+}
+
 
 // Initialize the currentIndex for each slider container
 document.querySelectorAll('.slider-container').forEach(container => {

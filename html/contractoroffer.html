@@ -10,152 +10,249 @@
 
     <!-- navlinks -->
     <link rel="stylesheet" href="../css/sidenavbar.css">
+    <link rel="stylesheet" href="../css/navbarfooter.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
-    <div class="navigation-bar">
-        <div class="mob-hamberger">
-            <div class="mobile-btn-main">
-                <i class="fa-solid fa-bars" id="mobile-btn"></i>
+    <!-- Top Nav Bar -->
+    <nav class="navigation-bar navbar-scrolled">
+        <div class="main-logo">
+            <img class="logo-img" src="../assets/newlogo.png" alt="">
+            <img class="name-img" src="../assets/name.png" alt="">
+        </div>
+        <div class="nav-sections">
+            <section class="single-section">
+                <div class="nav-contractor" onclick="window.location.href='../html/contractorprofilenew.html'">List Your Business</div>
+            </section>
+            <section class="single-section">
+                <div class="nav-builder">For Builder</div>
+            </section>
+            <secction class="single-section">
+                <div class="nav-postproperty">Post Property</div>
+            </secction>
+            <section class="single-section">
+                <div class="all-hover-heading" id="customer-hover-heading">
+                    <div class="nav-findcontractor">Find Contractor/ Builder</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+                <div class="all-hover" id="customer-hover">
+                  <div class="hover-content-main">
+                      <div class="hover-content">
+                          <div class="hover-heading">
+                              <span class="material-symbols-rounded" id="house">engineering</span>
+                              <div>GET CONTRACTORS BASED ON YOUR PROPERTY TYPE</div>
+                          </div>
+                          <div class="hover-tags">
+                              <ul>
+                                  <li><a href="">Building Remodulation</a></li>
+                                  <li><a href="">Independent House/ Villa</a></li>
+                                  <li><a href="">Residential Apartment</a></li>
+                                  <li><a href="">Serviced Apartment</a></li>
+                                  <li><a href="">Industry Complex</a></li>
+                                  <li><a href="">Commercial</a></li>
+                                  <li><a href="">Farm House</a></li>
+                                  <li><a href="">Venture Development</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading" id="buyer-hover-heading">
+                    <div class="nav-buyer">For Buyer</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+                <div class="all-hover" id="buyer-hover">
+                    <div class="hover-content-main">
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="house">house</span>
+                                <div>RESIDENTIAL</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li><a href="">Single-Family Home</a></li>
+                                    <li><a href="">Multi-Family Home</a></li>
+                                    <li><a href="">Townhouse</a></li>
+                                    <li><a href="">Duplex</a></li>
+                                    <li><a href="">Bungalow</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="apartment">apartment</span>
+                                <div>APARTMENT</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li><a href="">Furnished Apartment</a></li>
+                                    <li><a href="">Unfurnished Apartment</a></li>
+                                    <li><a href="">Studio Apartment</a></li>
+                                    <li><a href="">Duplex</a></li>
+                                    <li><a href="">Bungalow</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="storefront">storefront</span>
+                                <div>COMMERCIAL</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li><a href="">Office Spaces</a></li>
+                                    <li><a href="">Standalone Stores</a></li>
+                                    <li><a href="">Shopping Complex</a></li>
+                                    <li><a href="">Industrial Property</a></li>
+                                    <li><a href="">Hotels and Restaurants</a></li>
+                                    <li><a href="">Lodging</a></li>
+                                    <li><a href="">Healthcare Facilities</a></li>
+                                    <li><a href="">Infrastructure</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="houseboat">houseboat</span>
+                                <div>VILLAS</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li><a href="">Luxury Villa</a></li>
+                                    <li><a href="">Beach Villa</a></li>
+                                    <li><a href="">Modern Villa</a></li>
+                                    <li><a href="">Traditional Villa</a></li>
+                                    <li><a href="">Private Villa</a></li>
+                                    <li><a href="">Eco-Friendly Villa</a></li>
+                                    <li><a href="">Garden Villa</a></li>
+                                    <li><a href="">Pool Villa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="nature-people">nature_people</span>
+                                <div>LAND</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li><a href="">Residential Land</a></li>
+                                    <li><a href="">Commercial Land</a></li>
+                                    <li><a href="">Mixed used Land</a></li>
+                                    <li><a href="">Agricultural/ Farm Land</a></li>
+                                    <li><a href="">Industrial Land</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-agent">For Agent</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-tenants">For Tenants</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+        </div>
+        <div class="nav-main-profile">
+            <div id="nav-profile-heading">
+              <span class="nav-profile">Login</span>
+              <span class="material-symbols-rounded">keyboard_arrow_down</span>
+            </div>
+            <div class="nav-login-hover">
+              <div class="myactivity-heading">
+                <span id="myactivity-main-click">My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li id="search-activity">Search Activity</li>
+                  <li id="recently-browsed">Recently Browsed</li>
+                  <li id="shortlisted">Shortlisted</li>
+                  <li id="recently-contacted">Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-login show-popup">Login/ Register</div>
+            </div>
+            <div class="nav-logout-hover">
+              <div class="myactivity-heading">
+                <span>My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li>Search Activity</li>
+                  <li>Recently Browsed</li>
+                  <li>Shortlisted</li>
+                  <li>Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-change-user-type">Change User Type</div>
+              <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
             </div>
         </div>
-        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
-            <img src="../assets/nirmankara-logo.png" alt="">
-            <div>NIRMAANKARA</div>
+        <div class="main-menus">
+            <span class="material-symbols-rounded" id="menu">grid_view</span>
+            <div class="main-menu-contents">
+                <span class="close-menu" id="close-menu">×</span>
+                <div class="main-menu-login">
+                    <img src="../assets/profile.jpg" alt="">
+                    <span>LOGIN/ REGISTER</span>
+                </div>
+                <div class="menu-bar-allcontents">
+                    <div class="text-our-services">Our Services</div>
+                <div class="menu-other-services">
+                    <div>List Your Business</div>
+                    <div>For Builder</div>
+                    <div>Post Property</div>
+                </div>
+                <div class="text-our-services">Our Other Services</div>
+                <div class="menu-options">
+                    <ul>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>Find Contractor/ Builder</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Buyer</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Agent</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Tenants</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-other-options">
+                    <div>FAQ's</div>
+                    <div>About Us</div>
+                    <div>Contact Us</div>
+                </div>
+                </div>
+            </div>
+        </div> 
+    </nav>
+    <!-- Top nav bar -->
+    <div class="mob-hamberger">
+        <div class="mobile-btn-main">
+            <i class="fa-solid fa-bars" id="mobile-btn"></i>
         </div>
-        <div class="notify">
-            <i class="fa-regular fa-bell" id="bell"></i>
-            <div>
-                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
-            </div>
-        </div>
-    </div>
-    <div class="main-profileview">
-        <div class="profile-view">
-            <div class="profile">
-                <span><img src="../assets/profile-pic.png" alt=""></span>
-            </div>
-            <div class="manage">
-                <span>Manage Your Profile</span>
-            </div>
-            <span class="line"></span>
-            <div class="logout">
-                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
-            </div>
-        </div>
-    </div>
-    <div class="main-notification">
-        <div class="notification">
-            <div class="notify-heading">
-                <span>Notifications</span>
-            </div>
-            <div class="single-block" id="agreement-notification">
-                <div class="icon-block">
-                    <span class="red-dot"></span>
-                    <span class="material-symbols-outlined">handshake</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Agreement</span>
-                        <div>
-                            <span>Today</span>
-                            <span>5:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>Agreement is accepted by your customer.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-block">
-                <div class="icon-block">
-                    <span class="material-symbols-outlined">price_change</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Quotation</span>
-                        <div>
-                            <span>1 day ago</span>
-                            <span>5:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>Quotation is accepted by your customer.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-block">
-                <div class="icon-block">
-                    <span class="material-symbols-outlined">timer</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Follow up</span>
-                        <div>
-                            <span>2 days ago</span>
-                            <span>5:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>Your follow up has been scheduled! Thank You.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-block">
-                <div class="icon-block">
-                    <span class="material-symbols-outlined">groups</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Leads</span>
-                        <div>
-                            <span>5 days ago</span>
-                            <span>7:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>We have a new lead only for you! Hurry Up.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-block">
-                <div class="icon-block">
-                    <span class="material-symbols-outlined">campaign</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Campaign</span>
-                        <div>
-                            <span>5 days ago</span>
-                            <span>5:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>Your ads has been published, Thank you!.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="single-block">
-                <div class="icon-block">
-                    <span class="material-symbols-outlined">person</span>
-                </div>
-                <div class="notify-block">
-                    <div class="notify-block-head">
-                        <span class="notified-heading">Profile</span>
-                        <div>
-                            <span>8 days ago</span>
-                            <span>9:30AM</span>
-                        </div>
-                    </div>
-                    <div class="notify-block-body">
-                        <span>Congrulations, your profile has been updated successfully.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <div class="sidebar">
         <div class="top">
@@ -186,7 +283,7 @@
                     <span class="nav-item">Follow Up</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="../html/contractorquotation.html">
                     <span class="material-symbols-outlined">price_change</span>
                     <span class="nav-item">Quotation</span>
@@ -231,7 +328,7 @@
             <li>
                 <a href="../html/contractorrefer.html">
                     <span class="material-symbols-outlined">diversity_2</span>
-                    <span class="nav-item">Referral</span>
+                    <span class="nav-item">Referal</span>
                 </a>
             </li>
             <li id="present-active-page">
@@ -314,66 +411,71 @@
                                </div>
             </div>
         </div>
-          <!-- footer -->
-          <div class="main-footer-box">
-            <footer>
-                <section>
-                    <section class="social">
-                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
-                    <div>
-                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
-                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
-                        <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
-                        <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
-                    </div>
-                </section>
-                </section>
-                <section class="quick-links">
-                    <span>QUICK LINKS</span>
-                    <div>
-                        <a href="../html/contractorshomepage.html">List your Business</a>
-                        <a href="../html/customerhomepage.html">Develop your Land</a>
-                        <a href="">List your Land</a>
-                        <a href="">Post a Free Ad</a>
-                        <a href="../html/buyerhome.html">Buyer</a>
-      
-                    </div>
-                </section>
-                <section class="contact-info">
-                    <span>CONTACT INFO</span>
-                    <div>
-                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
-                        <span><b>Phone:</b> +91 9985752406</span>
-                        <span><b>Email:</b> nirmaankara@gmail.com</span>
-                    </div>
-                </section>
-                <section class="subscribe">
-                    <span>SUBSCRIBE TO OUR PORTAL</span>
-                    <div>
-                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
-                        <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
-                        </form>
-                    </div>
-                </section>
-            </footer>
-            <div class="copyright">
-                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
-                <div>
-                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
-                    <div></div>
-                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
-                    <div></div>
-                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
-                    <div></div>
-                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
-                </div>
-            </div>
-         </div>
-         <!-- footer --> 
-        
    </div>
+       <!-- footer -->
+  <div class="main-footer-box">
+    <footer>
+        <section>
+            <section class="social">
+                <span onclick="window.location.href='../html/nirmaankarahome.html'">
+                    <img src="../assets/newlogo.png" alt="">
+                    <img src="../assets/name.png" alt="">
+                </span>
+            <div>
+                <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+            </div>
+        </section>
+        </section>
+        <section class="quick-links">
+            <span>QUICK LINKS</span>
+            <div>
+                <a href="../html/contractorshomepage.html">List Your Business</a>
+                <a href="../html/customerhomepage.html">For Builder</a>
+                <a href="">Post Property</a>
+                <a href="">Find Contractor/ Builder</a>
+                <a href="">For Buyer</a>
+                <a href="../html/buyerhome.html">For Agent</a>
+                <a href="">For Tenants</a>
+
+            </div>
+        </section>
+        <section class="contact-info">
+            <span>CONTACT INFO</span>
+            <div>
+                <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                <span><b>Phone:</b> +91 9985752406</span>
+                <span><b>Email:</b> nirmaankara@gmail.com</span>
+            </div>
+        </section>
+        <section class="subscribe">
+            <span>SUBSCRIBE TO OUR PORTAL</span>
+            <div>
+                <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                <form>
+                  <input type="email" id="email-footer" placeholder="Enter email">
+                  <button class="fotbtn">&#8594;</button>
+              </form>
+            </div>
+        </section>
+    </footer>
+    <div class="copyright">
+        <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+        <div>
+            <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+            <div></div>
+            <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+            <div></div>
+            <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+            <div></div>
+            <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+        </div>
+    </div>
+ </div>
+ <!-- footer --> 
     <script src="../javascript/sidenavbar.js"></script>
+    <script src="../javascript/navbarfooterinner.js"></script>
 </body>
 </html>

@@ -305,3 +305,7 @@ document.getElementById("fetch-details").addEventListener("click", () => {
         showNotification("Enter the Customer ID");
     }
 });
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0]; 
+dateInput.value = today;
+dateInput.style.textAlign = 'center';

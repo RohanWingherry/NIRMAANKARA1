@@ -740,7 +740,7 @@
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
-    cursor:pointer;
+    cursor:not-allowed;
 }
 .btn.submit{
     background-color: blue;
@@ -757,7 +757,7 @@
     background-color: rgb(240, 239, 239);
 }
 .star .st{
-    cursor: pointer;
+    cursor: not-allowed;
 }
 .star .st.active{
     opacity: 0;
@@ -781,14 +781,13 @@
     transform: scale(1.2);
 }
 #rating-sections{
+    display: none;
     margin-top: 20px;
+   
     padding: 8px;
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     i{
       color: #f8d406;
       
@@ -809,19 +808,17 @@
     background-color: transparent;
     border: none;  
     outline: none;
+    cursor: not-allowed;
 }
 
 .review-item {
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   margin-bottom: 15px;
   padding: 10px;
-  background-color: white;
+  background-color: rgb(209, 243, 255);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
 }
 .review-header {
   display: flex;
@@ -831,7 +828,7 @@
 .review-header .name {
   font-weight: bold;
 }
-.review-item .date {
+.review-header .date {
   font-size: 12px;
   color: gray;
 }
@@ -864,7 +861,6 @@
     border: 1px solid black;
     padding: 5px;
     font-size: 13px;
-    cursor: pointer;
 }
 .review-type .selected{
     background-color: #286DB3;
