@@ -183,10 +183,10 @@
 /* form */
 .form-container {
     background-color: white;
-    padding: 20px;
+    padding: 20px 8px;
     border-radius: 10px;
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     font-size: 14px;
 }
 
@@ -294,4 +294,90 @@
 
 .okButton:hover {
     background-color: #f1f1f1;
+}
+
+
+.radio-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.radio-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    padding: 0px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Default colors for each button */
+.face-to-face {
+    background-color: #ffebcc; /* Light Orange */
+    border-color: #ffa726;
+}
+
+.cold-call {
+    background-color: #e3f2fd; /* Light Blue */
+    border-color: #64b5f6;
+}
+
+.email {
+    background-color: #f3e5f5; /* Light Purple */
+    border-color: #ba68c8;
+}
+
+/* Hover Effects */
+.face-to-face:hover {
+    background-color: #ffa726;
+    color: #fff;
+}
+
+.cold-call:hover {
+    background-color: #64b5f6;
+    color: #fff;
+}
+
+.email:hover {
+    background-color: #ba68c8;
+    color: #fff;
+}
+
+/* Hide Default Radio Button */
+.radio-button input[type="radio"] {
+    display: none;
+}
+
+/* Selected State Highlighting */
+.radio-button input[type="radio"]:checked + label,
+.radio-button:has(input[type="radio"]:checked) {
+    /* border: 2px solid #444;  */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    font-weight: bold;
+}
+
+/* Specific Background for Selected State */
+.face-to-face input[type="radio"]:checked + label,
+.face-to-face:has(input[type="radio"]:checked) {
+    background-color: #fb8c00;
+    color: white;
+}
+
+.cold-call input[type="radio"]:checked + label,
+.cold-call:has(input[type="radio"]:checked) {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.email input[type="radio"]:checked + label,
+.email:has(input[type="radio"]:checked) {
+    background-color: #8e24aa;
+    color: white;
 }

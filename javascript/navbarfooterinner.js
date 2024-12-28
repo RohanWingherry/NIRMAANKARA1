@@ -132,4 +132,11 @@
     window.location.href="../html/myactivityrecentlycontacted.html"
   })
   
-  
+  // logo 
+  document.querySelector('.main-logo').onclick = function() {
+    window.location.href = "Nimaankaramasterpage.html";
+};
+
+// document.querySelector('.nav-contractor').onclick = function() {
+//   window.location.href = "Nimaankaramasterpage.html";
+// };

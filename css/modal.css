@@ -53,6 +53,7 @@ form.sign-up-form {
 
 form.sign-in-form {
   z-index: 2;
+  overflow: hidden;
 }
 
 .title {
@@ -143,7 +144,16 @@ form.sign-in-form {
 }
 /* .forradio .radio-group{
 
+
 } */
+
+
+/* terms and cond */
+.terms-and-conditions{
+  font-size: 14px;
+  display: flex;
+  gap: 6px;
+}
 .social-text {
   padding: 0.7rem 0;
   font-size: 1rem;

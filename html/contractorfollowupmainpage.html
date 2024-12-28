@@ -420,17 +420,20 @@
                     <div class="prefered-type">Schedule an Appointment</div>
             
                     <div class="radio-buttons">
-                        <label for="faceToFace">
-                            <input type="radio" name="contactMode" value="faceToFace" id="faceToFace" onclick="showInputs('faceToFace')" autocomplete="off"> Face to Face
+                        <label for="faceToFace" class="radio-button face-to-face">
+                            <input type="radio" name="contactMode" value="faceToFace" id="faceToFace" onclick="showInputs('faceToFace')" autocomplete="off"> 
+                            Face to Face
                         </label>
-                        <label for="coldCall">
-                            <input type="radio" name="contactMode" value="coldCall" id="coldCall" onclick="showInputs('coldCall')" autocomplete="off"> Cold Call
+                        <label for="coldCall" class="radio-button cold-call">
+                            <input type="radio" name="contactMode" value="coldCall" id="coldCall" onclick="showInputs('coldCall')" autocomplete="off"> 
+                            Cold Call
                         </label>
-                        <label for="email">
-                            <input type="radio" name="contactMode" value="email" id="email" onclick="showInputs('email')" autocomplete="off"> Email
+                        <label for="email" class="radio-button email">
+                            <input type="radio" name="contactMode" value="email" id="email" onclick="showInputs('email')" autocomplete="off"> 
+                            Email
                         </label>
                     </div>
-            
+                 
                     <!-- Face to Face Inputs -->
                     <div id="faceToFaceInputs" class="inputs" style="display: none;">
                         <div>

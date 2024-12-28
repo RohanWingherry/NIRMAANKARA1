@@ -356,7 +356,9 @@ signUpForm.addEventListener('submit', (e) => {
     
     const emailOtp = document.querySelector('#email-otp').value.trim();
     const mobileOtp = document.querySelector('#mobile-otp').value.trim();
-  
+    // Validate Terms and Conditions
+    const termsCheckbox = document.querySelector('#terms-checkbox');
+    
     // Validate Full Name
     if (!fullName) {
         showNotification('Please enter your full name.');
@@ -465,7 +467,11 @@ signUpForm.addEventListener('submit', (e) => {
             showNotification('Something went wrong. Please try again.');
             return;
     }
-
+    
+    if (!termsCheckbox.checked) {
+      showNotification('You must accept the Terms and Conditions to register.');
+      return;
+  }
     // Show the success notification for 2 seconds before redirecting
     setTimeout(() => {
         window.location.href = redirectUrl;

@@ -281,7 +281,7 @@
     font-size: 14px;
   }
   .agreement-main .witness>span{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     padding: 6px;
     width: 450px;
@@ -292,6 +292,7 @@
     gap: 10px;
     margin: 0px 20px;
   }
+  
   .agreement-main .witness>ol>li>input{
     border: none;
     outline: none;
@@ -303,6 +304,42 @@
   .agreement-main .witness>ol>li>span{
     font-size: 14px;
   }
+  @media (max-width: 450px) {
+    .agreement-main .witness {
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 15px;
+    }
+
+    .agreement-main .witness > span {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .agreement-main .witness > ol {
+        margin: 0;
+    }
+
+    .agreement-main .witness > ol > li {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .agreement-main .witness > ol > li > input {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .agreement-main .witness > ol > li > span {
+        font-size: 14px;
+    }
+
+    .agreement-main .witness > ol > li::before {
+        position: static;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+}
   .agreement-main .samples{
     display: flex;
     align-items: center;

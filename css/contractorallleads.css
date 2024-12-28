@@ -127,30 +127,56 @@
     background-color: #EFF2F6;
     padding: 10px 15px;
 }
-.lead-details .lead-name{
+.lead-name{
+    display: flex;
+    justify-content: space-between;
+}
+.lead-details .lead-name .leadpart1{
     display: flex;
     align-items: center;
     gap: 6px;
 }
-.lead-name .profile-img{
+.lead-name .leadpart1 .profile-img{
     max-width: 50px;
     height: 50px;
     width: 100%;
     border: 2px solid rgb(163, 163, 163);
     border-radius: 50%;
 }
-.lead-name .profile-img img{
+.lead-name .leadpart1 .profile-img img{
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
 }
-.lead-details .lead-name>a{
+.lead-details .lead-name .leadpart1>a{
     text-decoration: none;
     font-size: 18px;
     font-weight: 700;
     color: #2E6C9A;
     font-family: "Saira", sans-serif;
+}
+.lead-name .leadpart2{
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 6px;
+    font-weight: 500;
+}
+.leadpart2 .cust-id{
+    color: #444;
+}
+.cust-id .idno{
+    color: #333;
+    font-weight: 600;
+}
+.lead-name .leadpart2 .btnfollow{
+    background-color: #2E6C9A;
+    border-radius: 4px;
+    padding: 3px 5px;
+    color: white;
+    text-decoration: none;
 }
 .lead-details .lead-project{
     display: flex;

@@ -453,9 +453,51 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="grand-total">
+                        <!-- <div class="grand-total">
                             <div>Grand Total:</div>
                             <div id="total-amount">&#8377;250</div>
+                        </div> -->
+                        <div class="total-container">
+                            <div class="totals">
+                                <div class="totals-row">
+                                    <div class="label">SUBTOTAL</div>
+                                    <div class="value" id="subtotal">₹2450</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">DISCOUNT(%)</div>
+                                    <div class="value">
+                                        <input type="number" id="discountPercent" value="10" oninput="updateTotals()">
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">SGST(%)</div>
+                                    <div class="value">
+                                        <input type="number" id="sgst" value="10" oninput="updateTotals()">
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">SGST Amount</div>
+                                    <div class="value" id="sgstAmount">₹50</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">CGST(%)</div>
+                                    <div class="value">
+                                        <input type="number" id="cgst" value="10" oninput="updateTotals()">
+                                    </div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">CGST Amount</div>
+                                    <div class="value" id="cgstAmount">₹50</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">TOTAL</div>
+                                    <div class="value" id="total">₹2200</div>
+                                </div>
+                                <div class="totals-row">
+                                    <div class="label">DUE AMOUNT</div>
+                                    <div class="value" id="dueAmount">₹2200</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="payment-all-details">
                             <div class="pay payment-container" id="paymentContainer">
@@ -470,14 +512,14 @@
                                     <span id="paymentError" class="error-message" style="color: red; display: none; font-size: 12px;">Please select a payment mode</span>
                                 </div>
                             </div>
-                            <div class="amount-paid">
+                            <!-- <div class="amount-paid">
                                 <label for="paid-amount">Amount Paid:</label>
                                 <input type="number" id="paid-amount">
                             </div>
                             <div class="amount-arrers">
                                 <label for="arrer-amount">Due Amount: </label>
                                 <input type="number" id="arrer-amount" disabled>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
         
