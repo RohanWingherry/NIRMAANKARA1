@@ -252,6 +252,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    
+
     // Close chat window functionality
     document.getElementById("close-chat").addEventListener("click", function () {
         document.getElementById("chat-window").style.display = "none";
