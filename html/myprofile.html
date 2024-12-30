@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirmaanakara</title>
+    <link rel="stylesheet" href="../css/profilebilling.css">
+    <link rel="stylesheet" href="../css/navbarfooter.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="shortcut icon" href="../assets/newlogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+        <!-- Top Nav Bar -->
+        <nav class="navigation-bar navbar-scrolled">
+            <div class="main-logo">
+                <img class="logo-img" src="../assets/newlogo.png" alt="">
+                <img class="name-img" src="../assets/name.png" alt="">
+            </div>
+            <div class="nav-sections">
+                <section class="single-section">
+                    <div class="nav-contractor" onclick="window.location.href='../html/contractorshomepage.html'">List Your Business</div>
+                </section>
+                <section class="single-section">
+                    <div class="nav-builder">For Builder</div>
+                </section>
+                <secction class="single-section">
+                    <div class="nav-postproperty">Post Property</div>
+                </secction>
+                <section class="single-section">
+                    <div class="all-hover-heading" id="customer-hover-heading">
+                        <div class="nav-findcontractor">Find Contractor/ Builder</div>
+                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                    </div>
+                    <div class="all-hover" id="customer-hover">
+                      <div class="hover-content-main">
+                          <div class="hover-content">
+                              <div class="hover-heading">
+                                  <span class="material-symbols-rounded" id="house">engineering</span>
+                                  <div>GET CONTRACTORS BASED ON YOUR PROPERTY TYPE</div>
+                              </div>
+                              <div class="hover-tags">
+                                  <ul>
+                                      <li><a href="">Building Remodulation</a></li>
+                                      <li><a href="">Independent House/ Villa</a></li>
+                                      <li><a href="">Residential Apartment</a></li>
+                                      <li><a href="">Serviced Apartment</a></li>
+                                      <li><a href="">Industry Complex</a></li>
+                                      <li><a href="">Commercial</a></li>
+                                      <li><a href="">Farm House</a></li>
+                                      <li><a href="">Venture Development</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </section>
+                <section class="single-section">
+                    <div class="all-hover-heading" id="buyer-hover-heading">
+                        <div class="nav-buyer">For Buyer</div>
+                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                    </div>
+                    <div class="all-hover" id="buyer-hover">
+                        <div class="hover-content-main">
+                            <div class="hover-content">
+                                <div class="hover-heading">
+                                    <span class="material-symbols-rounded" id="house">house</span>
+                                    <div>RESIDENTIAL</div>
+                                </div>
+                                <div class="hover-tags">
+                                    <ul>
+                                        <li><a href="">Single-Family Home</a></li>
+                                        <li><a href="">Multi-Family Home</a></li>
+                                        <li><a href="">Townhouse</a></li>
+                                        <li><a href="">Duplex</a></li>
+                                        <li><a href="">Bungalow</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hover-content">
+                                <div class="hover-heading">
+                                    <span class="material-symbols-rounded" id="apartment">apartment</span>
+                                    <div>APARTMENT</div>
+                                </div>
+                                <div class="hover-tags">
+                                    <ul>
+                                        <li><a href="">Furnished Apartment</a></li>
+                                        <li><a href="">Unfurnished Apartment</a></li>
+                                        <li><a href="">Studio Apartment</a></li>
+                                        <li><a href="">Duplex</a></li>
+                                        <li><a href="">Bungalow</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hover-content">
+                                <div class="hover-heading">
+                                    <span class="material-symbols-rounded" id="storefront">storefront</span>
+                                    <div>COMMERCIAL</div>
+                                </div>
+                                <div class="hover-tags">
+                                    <ul>
+                                        <li><a href="">Office Spaces</a></li>
+                                        <li><a href="">Standalone Stores</a></li>
+                                        <li><a href="">Shopping Complex</a></li>
+                                        <li><a href="">Industrial Property</a></li>
+                                        <li><a href="">Hotels and Restaurants</a></li>
+                                        <li><a href="">Lodging</a></li>
+                                        <li><a href="">Healthcare Facilities</a></li>
+                                        <li><a href="">Infrastructure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hover-content">
+                                <div class="hover-heading">
+                                    <span class="material-symbols-rounded" id="houseboat">houseboat</span>
+                                    <div>VILLAS</div>
+                                </div>
+                                <div class="hover-tags">
+                                    <ul>
+                                        <li><a href="">Luxury Villa</a></li>
+                                        <li><a href="">Beach Villa</a></li>
+                                        <li><a href="">Modern Villa</a></li>
+                                        <li><a href="">Traditional Villa</a></li>
+                                        <li><a href="">Private Villa</a></li>
+                                        <li><a href="">Eco-Friendly Villa</a></li>
+                                        <li><a href="">Garden Villa</a></li>
+                                        <li><a href="">Pool Villa</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="hover-content">
+                                <div class="hover-heading">
+                                    <span class="material-symbols-rounded" id="nature-people">nature_people</span>
+                                    <div>LAND</div>
+                                </div>
+                                <div class="hover-tags">
+                                    <ul>
+                                        <li><a href="">Residential Land</a></li>
+                                        <li><a href="">Commercial Land</a></li>
+                                        <li><a href="">Mixed used Land</a></li>
+                                        <li><a href="">Agricultural/ Farm Land</a></li>
+                                        <li><a href="">Industrial Land</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="single-section">
+                    <div class="all-hover-heading">
+                        <div class="nav-agent">For Agent</div>
+                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                    </div>
+                </section>
+                <section class="single-section">
+                    <div class="all-hover-heading">
+                        <div class="nav-tenants">For Tenants</div>
+                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                    </div>
+                </section>
+            </div>
+            <div class="nav-main-profile">
+                <div id="nav-profile-heading">
+                  <span class="nav-profile">Login</span>
+                  <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+                <div class="nav-login-hover">
+                  <div class="myactivity-heading">
+                    <span id="myactivity-main-click">My Activity</span>
+                    <span></span>
+                  </div>
+                  <div class="myactivity-list">
+                    <ul>
+                      <li id="search-activity">Search Activity</li>
+                      <li id="recently-browsed">Recently Browsed</li>
+                      <li id="shortlisted">Shortlisted</li>
+                      <li id="recently-contacted">Recently Contacted</li>
+                    </ul>
+                  </div>
+                  <div class="myactivity-login show-popup">Login/ Register</div>
+                </div>
+                <div class="nav-logout-hover">
+                  <div class="myactivity-heading">
+                    <span>My Activity</span>
+                    <span></span>
+                  </div>
+                  <div class="myactivity-list">
+                    <ul>
+                      <li>Search Activity</li>
+                      <li>Recently Browsed</li>
+                      <li>Shortlisted</li>
+                      <li>Recently Contacted</li>
+                    </ul>
+                  </div>
+                  <div class="myactivity-change-user-type">Change User Type</div>
+                  <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
+                </div>
+            </div>
+            <div class="main-menus">
+                <span class="material-symbols-rounded" id="menu">grid_view</span>
+                <div class="main-menu-contents">
+                    <span class="close-menu" id="close-menu">×</span>
+                    <div class="main-menu-login">
+                        <img src="../assets/profile.jpg" alt="">
+                        <span>LOGIN/ REGISTER</span>
+                    </div>
+                    <div class="menu-bar-allcontents">
+                        <div class="text-our-services">Our Services</div>
+                    <div class="menu-other-services">
+                        <div>List Your Business</div>
+                        <div>For Builder</div>
+                        <div>Post Property</div>
+                    </div>
+                    <div class="text-our-services">Our Other Services</div>
+                    <div class="menu-options">
+                        <ul>
+                            <li>
+                                <span class="material-symbols-rounded">arrow_right</span>
+                                <div>Find Contractor/ Builder</div>
+                            </li>
+                            <li>
+                                <span class="material-symbols-rounded">arrow_right</span>
+                                <div>For Buyer</div>
+                            </li>
+                            <li>
+                                <span class="material-symbols-rounded">arrow_right</span>
+                                <div>For Agent</div>
+                            </li>
+                            <li>
+                                <span class="material-symbols-rounded">arrow_right</span>
+                                <div>For Tenants</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menu-other-options">
+                        <div>FAQ's</div>
+                        <div>About Us</div>
+                        <div>Contact Us</div>
+                    </div>
+                    </div>
+                </div>
+            </div> 
+        </nav>
+    <div class="main-content">
+        <div class="main-profile">
+            <section class="tabbed-headings">
+                <div class="tab-head" id="profileTab">Profile</div>
+                <div class="tab-head" id="billingTab">Transaction</div>
+                <div class="tab-head" id="securityTab">Security</div>
+                <div class="tab-head" id="notificationTab">Notifications</div>
+            </section>
+            <section class="main-accountdetails" id="profileSection"> 
+                <div class="profile-part">
+                    <div class="profile-photo-part">
+                        <div class="profile-photo-box">
+                            <div class="profile-photo-head">
+                                Profile Picture
+                            </div>
+                            <div class="profile-photo-body">
+                                <div class="profile-photo-img">
+                                    <!-- Default profile picture -->
+                                    <img id="profile-img" src="../assets/profile.jpg" alt="Profile">
+                                </div>
+                                <div class="profile-photo-text">
+                                    JPG, JPEG, or PNG no larger than 5 MB
+                                </div>
+                                <div class="profile-photo-btn">
+                                    <!-- Hidden file input for changing the image -->
+                                    <input type="file" id="upload-input" accept="image/*" style="display:none;" onchange="handleImageUpload(event)">
+                                    
+                                    <!-- Change Image Button -->
+                                    <button id="change-btn" class="upload-image" onclick="document.getElementById('upload-input').click();">Change image</button>
+                                    
+                                    <!-- Delete Image Button -->
+                                    <button id="delete-btn" class="delete-img" onclick="deleteImage();">Delete image</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+            
+                    </div>
+                    
+                    <div class="profile-details-part">
+                        <div class="profile-details-box">
+                            <div class="profile-details-head">
+                                <div>Account Details</div>
+                                <!-- Edit Button -->
+                                <div class="edit-btn-container">
+                                    <span class="edit-btn" onclick="toggleEdit()">Edit</span>
+                                </div>
+                            </div>
+                            
+                            <div class="profile-details-body">
+                                <form action="" class="profile-update">
+                                    
+                                    <div class="form-group">
+                                        <div class="form-input">
+                                            <label for="fname">First Name</label>
+                                            <input type="text" id="fname" value="ABC" disabled>
+                                        </div>
+                                        <div class="form-input">
+                                            <label for="lname">Last Name</label>
+                                            <input type="text" id="lname" value="XYZ" disabled>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="form-input">
+                                            <label for="email">Email</label>
+                                            <input type="email" id="email" value="abc@gmail.com" disabled oninput="checkEmailValidation()">
+                                            <div id="otp-email-container" style="display: none;">
+                                                <button type="button" onclick="getOtp('email')" id="get-otp-email" style="display: none;">Get OTP</button>
+                                                <input type="text" id="email-otp" placeholder="Enter OTP" style="display: none; margin-bottom: 10px;" />
+                                                <button type="button" onclick="verifyOtp('email')" id="verify-email" style="display: none;">Verify OTP</button>
+                                                <div id="otp-timer-email" style="margin-left: 10px;">
+                                                    <span id="timer-email">60</span> seconds remaining
+                                                </div>
+                                                <button type="button" id="resend-email" onclick="resendOtp('email')" style="display: none;">Resend OTP</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-input">
+                                            <label for="mob">Mobile Number</label>
+                                            <input type="tel" id="mob" maxlength="10" oninput="restrictMobileInput(this)" value="9191919191" disabled>
+                                            <div id="otp-mob-container" style="display: none;">
+                                                <button type="button" onclick="getOtp('mob')" id="get-otp-mob" style="display: none;">Get OTP</button>
+                                                <input type="text" id="mob-otp" placeholder="Enter OTP" style="display: none; margin-bottom: 10px;" />
+                                                <button type="button" onclick="verifyOtp('mob')" id="verify-mob" style="display: none;">Verify OTP</button>
+                                                <div id="otp-timer-mob" style="margin-left: 10px;">
+                                                    <span id="timer-mob">60</span> seconds remaining
+                                                </div>
+                                                <button type="button" id="resend-mob" onclick="resendOtp('mob')" style="display: none;">Resend OTP</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="form-input">
+                                            <label for="location">Location</label>
+                                            <input type="text" id="location" value="ABC" disabled>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="smallpara">
+                                        (Click on Save Changes after editing the fields)
+                                    </div>
+                                    <div class="save-button">
+                                        <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+            <section class="main-billingdetails" id="billingSection">
+                <div class="current-plan">
+                    <article class="plan-cards current">
+                        <div class="plan-text-small">Current plan</div>
+                        <div class="plan-text-big">Premium</div>
+                    </article>
+                    <article class="plan-cards from">
+                        <div class="plan-text-small">Valid From</div>
+                        <div class="plan-text-big">20-12-2023</div>
+                    </article>
+                    <article class="plan-cards to">
+                        <div class="plan-text-small">Valid To</div>
+                        <div class="plan-text-big">20-12-2024</div>
+                    </article>
+                </div>
+                <div class="billingdetails">
+                    <div class="billing-head">
+                        <span>Transaction History</span>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#76859</td>
+                                <td>06-08-2024</td>
+                                <td>&#8377;2000</td>
+                                <td>Paid</td>
+                            </tr>
+                            <tr>
+                                <td>#76859</td>
+                                <td>06-08-2024</td>
+                                <td>&#8377;2000</td>
+                                <td>Paid</td>
+                            </tr>
+                            <tr>
+                                <td>#76859</td>
+                                <td>06-08-2024</td>
+                                <td>&#8377;2000</td>
+                                <td>Paid</td>
+                            </tr>
+                            <tr>
+                                <td>#76859</td>
+                                <td>06-08-2024</td>
+                                <td>&#8377;2000</td>
+                                <td>Paid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="main-securitydetails" id="securitySection">
+                <div class="security-part">
+                    <div class="change-password-part">
+                        <div class="change-password-box">
+                            <div class="password-head">
+                                Change Password
+                            </div>
+                            <div class="password-body">
+                                <form action="" class="pass-update" onsubmit="return validateForm()">
+                                    <div class="form-input">
+                                        <label for="curpass">Current Password</label>
+                                        <input type="text" id="curpass" placeholder="">
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="newpass">New Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" id="newpass" placeholder="Enter new password">
+                                            <span class="eye-icon" onclick="togglePassword('newpass')"><i class="fas fa-eye" id="eye-icon-newpass"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="conpass">Confirm Password</label>
+                                        <div class="password-wrapper">
+                                            <input type="password" id="conpass" placeholder="Confirm new password">
+                                            <span class="eye-icon" onclick="togglePassword('conpass')"><i class="fas fa-eye" id="eye-icon-conpass"></i></span>
+                                        </div>
+                                    </div>   
+                                    <div id="error-message" style="color: red; font-size: 12px;"></div>                     
+                                    <div class="save-button">
+                                        <button type="submit" class="save-btn">Save</button>
+                                    </div>
+                                </form>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delete-account-part">
+                        <div class="delete-account-box">
+                            <div class="delete-head">
+                                Delete Account
+                            </div>
+                            <div class="delete-body">
+                                <div class="delete-para">
+                                    Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, select the button below.
+                                </div>
+                                <div class="delete-account-btn">
+                                    <button class="del-acc-btn">I understand, delete my account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="main-notificationdetails" id="notificationSection">
+                <div>
+                    <div class="notificationdetails">
+                        <div class="email-notification">
+                            <div class="email-notify-head">
+                                <div>Email Notifications</div>
+                                <div class="toggle-container">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="toggle" checked />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="email-notify-body">
+                                <div class="email-detail">
+                                    <span>Default notification email</span>
+                                    <input type="text" value="name@example.com">
+                                </div>
+                                <div class="email-checkboxes">
+                                    <div class="checkbox-head">Choose which type of email you receive</div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch1">
+                                        <label for="ch1">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch2">
+                                        <label for="ch2">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch3">
+                                        <label for="ch3">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch4">
+                                        <label for="ch4">Changes made to account</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notificationdetails">
+                        <div class="email-notification">
+                            <div class="email-notify-head">
+                                <div>Push Notifications</div>
+                                <div class="toggle-container">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="toggle" checked />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="email-notify-body">
+                                <div class="email-detail">
+                                    <span>Default SMS number</span>
+                                    <input type="text" value="name@example.com">
+                                </div>
+                                <div class="email-checkboxes">
+                                    <div class="checkbox-head">Choose which type of push notifications you receive</div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch1">
+                                        <label for="ch1">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch2">
+                                        <label for="ch2">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch3">
+                                        <label for="ch3">Changes made to account</label>
+                                    </div>
+                                    <div class="single-checkbox">
+                                        <input type="checkbox" name="" id="ch4">
+                                        <label for="ch4">Changes made to account</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Add a unique notification container in your HTML -->
+            <div id="customNotification" class="customNotification" style="display:none;">
+                <div id="notificationMessage"></div>
+                <hr>
+                <button id="okButton" class="okButton">OK</button>
+            </div>
+        </div> 
+    </div>
+    <!-- footer -->
+    <div class="main-footer-box">
+        <footer>
+            <section>
+                <section class="social">
+                    <span onclick="window.location.href='../html/nirmaankarahome.html'">
+                        <img src="../assets/newlogo.png" alt="">
+                        <img src="../assets/name.png" alt="">
+                    </span>
+                <div>
+                    <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                    <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                    <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                    <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+                </div>
+            </section>
+            </section>
+            <section class="quick-links">
+                <span>QUICK LINKS</span>
+                <div>
+                    <a href="../html/contractorshomepage.html">List Your Business</a>
+                    <a href="../html/customerhomepage.html">For Builder</a>
+                    <a href="">Post Property</a>
+                    <a href="">Find Contractor/ Builder</a>
+                    <a href="">For Buyer</a>
+                    <a href="../html/buyerhome.html">For Agent</a>
+                    <a href="">For Tenants</a>
+  
+                </div>
+            </section>
+            <section class="contact-info">
+                <span>CONTACT INFO</span>
+                <div>
+                    <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                    <span><b>Phone:</b> +91 9985752406</span>
+                    <span><b>Email:</b> nirmaankara@gmail.com</span>
+                </div>
+            </section>
+            <section class="subscribe">
+                <span>SUBSCRIBE TO OUR PORTAL</span>
+                <div>
+                    <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                    <form>
+                      <input type="email" id="email-footer" placeholder="Enter email">
+                      <button class="fotbtn">&#8594;</button>
+                  </form>
+                </div>
+            </section>
+        </footer>
+        <div class="copyright">
+            <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+            <div>
+                <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+                <div></div>
+                <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+                <div></div>
+                <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+                <div></div>
+                <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+            </div>
+        </div>
+     </div>
+     <!-- footer -->    
+    <script src="../javascript/profilebilling.js"></script>
+    <script src="../javascript/navbarfooterinner.js"></script>
+</body>
+</html>

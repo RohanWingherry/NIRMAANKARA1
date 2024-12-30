@@ -8,7 +8,6 @@ btn.onclick = function() {
 
 mobileBtn.onclick = function() {
     toggleSidebar();
-    console.log("he")
 };
 
 function toggleSidebar() {
