@@ -41,6 +41,19 @@
     font-weight: 500;
     color: #515356;
 }
+.profile-details-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-details-head .edit-btn-container{
+    background-color: #0D6EFD;
+    color: white;
+    font-size: 13px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 2px;
+}
 .profile-photo-body{
     display: flex;
     flex-direction: column;
@@ -192,17 +205,7 @@
 .otp-group {
     margin-top: 20px;
 }
-#otp-mob-container{
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-}
-#get-otp-mob{
-    margin-top: 20px;
-}
-#verify-mob{
-    margin-top: 20px;
-}
+
 .smallpara{
     font-size: 12px;
     margin: 10px 0px;
@@ -210,7 +213,28 @@
 .password-wrapper {
     position: relative;
 }
+#get-otp-mob,#get-otp-email{
+    background-color: #D96F2C;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 
+}
+#verify-mob,#verify-email{
+    background-color: #0B3A62;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+#resend-email,#resend-mob{
+    background-color: #A5362B;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
 .eye-icon {
     position: absolute;
     right: 10px;
