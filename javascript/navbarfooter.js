@@ -137,4 +137,25 @@ window.onscroll = function() {
       menuContents.classList.remove('open');
   });
   
+  document.getElementById("myactivity-main-click").addEventListener("click",()=>{
+    window.location.href="../html/myactivityrecentsearch.html"
+  })
+  document.getElementById("search-activity").addEventListener("click",()=>{
+    window.location.href="../html/myactivityrecentsearch.html"
+  })
+  document.getElementById("recently-browsed").addEventListener("click",()=>{
+    window.location.href="../html/myactivityrecentlybrowsed.html"
+  })
+  document.getElementById("shortlisted").addEventListener("click",()=>{
+    window.location.href="../html/myactivityshortlisted.html"
+  })
+  document.getElementById("recently-contacted").addEventListener("click",()=>{
+    window.location.href="../html/myactivityrecentlycontacted.html"
+  })
+  
+  // logo 
+  document.querySelector('.main-logo').onclick = function() {
+    window.location.href = "Nimaankaramasterpage.html";
+};
+
   

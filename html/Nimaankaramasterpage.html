@@ -196,10 +196,54 @@
                   <li>Recently Contacted</li>
                 </ul>
               </div>
-              <div class="myactivity-change-user-type">Change User Type</div>
+              <div class="myactivity-change-user-type" id="changeUserTypeBtn">Change User Type</div>
               <div class="my-profile-link">My Profile</div>
               <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
             </div>
+        </div>
+         <!-- Modal for User Type Change -->
+        <div id="userTypeModal" class="modal">
+          <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h3>Change User Type</h3>
+          <form id="userTypeForm">
+              <div class="radio-buttons">
+              <label>
+                  <input type="radio" name="userType" value="buyer" /> Buyer
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="seller" /> Seller
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="agent" /> Agent
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="contractor" /> Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="find-contractor" /> Find Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="tenant" /> Tenant
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="renter" /> Renter
+              </label>
+              </div>
+              <button type="button" id="changeUserTypeButton">Change User Type</button>
+          </form>
+      
+          <!-- OTP Verification Section (Hidden initially) -->
+          <div id="otpSection" style="display: none;">
+              <p>OTP verification</p>
+              <label for="mobileNumber">Mobile Number: </label>
+              <span id="mobileNumber">8123205422</span>
+              <button id="editMobileBtn">Edit</button>
+              <br />
+              <input type="text" id="otpInput" placeholder="Enter OTP" />
+              <button id="verifyOtpBtn">Verify OTP</button>
+          </div>
+          </div>
         </div>
         <div class="main-menus">
             <span class="material-symbols-rounded" id="menu">grid_view</span>
@@ -207,7 +251,7 @@
                 <span class="close-menu" id="close-menu">×</span>
                 <div class="main-menu-login">
                     <img src="../assets/profile.jpg" alt="">
-                    <span>LOGIN/ REGISTER</span>
+                    <span id="sidebar-login">LOGIN/ REGISTER</span>
                 </div>
                 <div class="menu-bar-allcontents">
                     <div class="text-our-services">Our Services</div>
@@ -238,7 +282,7 @@
                     </ul>
                 </div>
                 <div class="menu-other-options">
-                    <div>FAQ's</div>
+                    <div >My Activity</div>
                     <div>About Us</div>
                     <div>Contact Us</div>
                 </div>

@@ -75,11 +75,10 @@ function toggleEdit() {
     editButton.textContent = currentlyEditing ? 'Cancel Edit' : 'Edit';
 
     if (currentlyEditing) {
-    document.querySelector(".edit-btn-container").style.backgroundColor = '#F42222';  // If it's "Cancel Edit", make the text red
+        document.querySelector(".edit-btn-container").style.backgroundColor = '#F42222';  // If it's "Cancel Edit", make the text red
     } else {
         document.querySelector(".edit-btn-container").style.backgroundColor = '#0D6EFD';  // If it's "Edit", make the text blue
     }
-
 
     // If we cancel the edit, stop any ongoing OTP timers and reset form
     if (!currentlyEditing) {
@@ -136,6 +135,11 @@ function getOtp(type) {
 
 // Start OTP countdown timer
 function startOtpTimer(type) {
+    if ((type === 'email' && isOtpVerifiedEmail) || (type === 'mob' && isOtpVerifiedMobile)) {
+        document.getElementById("otp-timer-mob").style.display="none"
+        return; // Skip starting the timer if OTP is already verified
+    }
+
     let timerDisplay, resendButton;
     if (type === 'email') {
         timerDisplay = document.getElementById('timer-email');
@@ -198,11 +202,17 @@ function verifyOtp(type) {
         // Mark OTP as verified
         if (type === 'email') {
             isOtpVerifiedEmail = true;
+            stopOtpTimer('email'); // Stop the email OTP timer
+            document.getElementById('timer-email').style.display = 'none'; // Hide the timer
+            document.getElementById('resend-email').style.display = 'none'; // Hide the resend button
         } else {
             isOtpVerifiedMobile = true;
+            stopOtpTimer('mob'); // Stop the mobile OTP timer
+            document.getElementById('timer-mob').style.display = 'none'; // Hide the timer
+            document.getElementById('resend-mob').style.display = 'none'; // Hide the resend button
         }
 
-        // Disable the OTP input and hide the verify button
+        // Hide the OTP input and verify button
         document.getElementById(`${type}-otp`).style.display = 'none';
         document.getElementById(`verify-${type}`).style.display = 'none';
     } else {
