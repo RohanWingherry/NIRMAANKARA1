@@ -1,3 +1,32 @@
+// notification or pop up
+function showNotification(message, type = 'success') {
+  const notification = document.getElementById('customNotification');
+  const notificationMessage = document.getElementById('notificationMessage');
+  const okButton = document.getElementById('okButton');
+
+  notificationMessage.textContent = message;
+
+  // Add error class if the type is 'error'
+  if (type === 'error') {
+      notification.classList.add('error');
+  } else {
+      notification.classList.remove('error');
+  }
+
+  // Show the notification with a fade-in effect
+  notification.style.display = 'block';
+  setTimeout(() => {
+      notification.style.opacity = '1';  // Fade-in effect
+  }, 10);
+
+  // When "OK" button is clicked, hide the notification with a fade-out effect
+  okButton.addEventListener('click', function () {
+      notification.style.opacity = '0';  // Fade-out effect
+      setTimeout(() => {
+          notification.style.display = 'none';  // Ensure it's hidden after fading out
+      }, 500);  // Wait for the transition duration before hiding completely
+  });
+}
 const menuItems = {
   org: document.getElementById("org-txt"),
   projects: document.getElementById("projects-txt"),
@@ -39,7 +68,7 @@ const isOrganisationDetailsComplete = () =>
 // Generalized navigation handler
 const handleNavigation = (targetDiv) => {
   if (targetDiv === menuItems.projects) {
-    alert("You can only access this section after completing organisation details.");
+    showNotification("You can only access this section after completing organisation details.");
   } else if (targetDiv === menuItems.org) {
     if (isPersonalDetailsComplete()) {
       document.querySelectorAll(
@@ -50,7 +79,7 @@ const handleNavigation = (targetDiv) => {
       document.querySelector(".organisation-all-details").style.display = "flex";
       organisationTxt.classList.add("profile-txt-finished");
     } else {
-      alert("Please complete all personal details before accessing organisation details.");
+      showNotification("Please complete all personal details before accessing organisation details.");
     }
   } else if (targetDiv === menuItems.personal) {
     document.querySelectorAll(
@@ -68,12 +97,12 @@ menuItems.org.addEventListener("click", () => {
   if (isPersonalDetailsComplete()) {
     handleNavigation(menuItems.org);
   } else {
-    alert("You need to fill out all personal details before accessing organisation details.");
+    showNotification("You need to fill out all personal details before accessing organisation details.");
   }
 });
 
 menuItems.projects.addEventListener("click", () => {
-  alert("You can only access this section after completing organisation details.");
+  showNotification("You can only access this section after completing organisation details.");
 });
 
 // Handle Next click on personal details
@@ -87,10 +116,10 @@ personalSubmitBtn.addEventListener("click", () => {
       handleNavigation(menuItems.org);
       document.getElementById("personal-txt").style.color = "green";
     } else {
-      alert("Please enter correct inputs before proceeding.");
+      showNotification("Please enter correct inputs before proceeding.");
     }
   } else {
-    alert("Please fill in all required fields before proceeding.");
+    showNotification("Please fill in all required fields before proceeding.");
   }
 });
 
@@ -108,11 +137,11 @@ orgSubmitBtn.addEventListener("click", () => {
       );
       document.querySelector(".project-all-details").style.display = "flex";
     } else {
-      alert("Please enter a valid 15-character GST number, starting with 2 digits followed by alphanumeric characters.");
+      showNotification("Please enter a valid 15-character GST number, starting with 2 digits followed by alphanumeric characters.");
       organisationTxt.classList.remove("profile-txt-finished");
     }
   } else {
-    alert("Please complete all fields in the organisation details to proceed.");
+    showNotification("Please complete all fields in the organisation details to proceed.");
     organisationTxt.classList.remove("profile-txt-finished");
   }
 });
@@ -139,7 +168,7 @@ const maxProjects = 5;
 // Open modal
 openModalBtn.addEventListener("click", () => {
   if (projectCount >= maxProjects) {
-    alert("Upload limit exceeded. You cannot add more than 5 projects.");
+    showNotification("Upload limit exceeded. You cannot add more than 5 projects.");
   } else {
     // Clear fields/reset previews
     document.getElementById("project-name").value = "";
@@ -172,7 +201,7 @@ document.getElementById("project-image").addEventListener("change", function () 
     imgPreview.style.display = "block";
     removeImage.style.display = "block";
   } else {
-    alert("Please upload a valid image file.");
+    showNotification("Please upload a valid image file.");
     this.value = "";
   }
 });
@@ -195,7 +224,7 @@ document.getElementById("project-video").addEventListener("change", function () 
     vidPreview.style.display = "block";
     removeVideo.style.display = "block";
   } else {
-    alert("Please upload a valid video file.");
+    showNotification("Please upload a valid video file.");
     this.value = "";
   }
 });
@@ -266,7 +295,7 @@ saveProjectBtn.addEventListener("click", () => {
     document.getElementById("video-preview").style.display = "none";
     document.getElementById("remove-video").style.display = "none";
   } else {
-    alert("Please fill in all details.");
+    showNotification("Please fill in all details.");
   }
 });
 
@@ -275,7 +304,7 @@ formSubmitBtn.addEventListener("click", () => {
   if (projectCount > 0) {
     window.location.href = "../html/contractorleadpackageplans.html";
   } else {
-    alert("Please upload at least one project before proceeding.");
+    showNotification("Please upload at least one project before proceeding.");
   }
 });
 

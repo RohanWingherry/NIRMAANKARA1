@@ -113,12 +113,16 @@ function resetForgotPasswordPopup() {
   document.getElementById('email-otp').style.display = 'none';
   document.getElementById('send-email-otp').style.display = 'none';
   document.getElementById('verify-email-otp').style.display = 'none';
+  document.getElementById('resend-email-otp').style.display = 'none';
+
 
   // Reset Mobile OTP Section
   document.getElementById('mobile-otp').value = '';
   document.getElementById('mobile-otp').style.display = 'none';
   document.getElementById('send-mobile-otp').style.display = 'none';
   document.getElementById('verify-mobile-otp').style.display = 'none';
+  document.getElementById('resend-mobile-otp').style.display = 'none';
+
 }
 
 // Reset Login and Register Forms
@@ -247,7 +251,37 @@ const mobileInput = document.querySelector('#mobile-number');
 // const showNotification = (message) => {
 //   alert(message); // Replace with a more user-friendly notification
 // };
+// Resend OTP Timer
+// Function to handle the resend timer
+const startResendTimer = (timerId, buttonId) => {
+  let countdown = 10; // Timer duration in seconds
+  const timerElement = document.querySelector(timerId);
+  const resendButton = document.querySelector(buttonId);
 
+  // Check if elements are correctly selected
+  if (!timerElement || !resendButton) {
+    console.error('Timer element or resend button not found.');
+    return;
+  }
+
+  // Disable the resend button and ensure the timer is visible
+  resendButton.disabled = true;
+  timerElement.style.display = 'inline'; // Ensure the timer is visible
+
+  const interval = setInterval(() => {
+    if (countdown <= 0) {
+      clearInterval(interval); // Stop the timer
+      timerElement.textContent = ''; // Clear the timer text
+      timerElement.style.display = 'none'; // Hide the timer element
+      resendButton.disabled = false; // Enable the resend button
+      resendButton.textContent = 'Resend OTP'; // Reset button text
+    } else {
+      timerElement.textContent = `Retry in ${countdown}s`; // Update timer text
+      resendButton.textContent = `Resend (${countdown}s)`; // Update button text
+      countdown--;
+    }
+  }, 1000);
+};
 // Email Input Listener - Show OTP section when valid email is entered
 emailInput.addEventListener('input', () => {
   const email = emailInput.value.trim();
@@ -290,8 +324,21 @@ sendEmailOtpBtn.addEventListener('click', () => {
   verifyEmailOtpBtn.style.display = 'inline-block';
   sendEmailOtpBtn.style.display = 'none';
   emailOtpSection.style.display = 'block'; // Show OTP section when OTP is sent
-});
 
+  // Start resend timer
+  const resendEmailOtpBtn = document.querySelector('#resend-email-otp');
+  resendEmailOtpBtn.style.display = 'inline-block';
+  resendEmailOtpBtn.disabled = true; // Disable initially
+  startResendTimer('#email-timer', '#resend-email-otp');
+});
+// Resend Email OTP
+document.querySelector('#resend-email-otp').addEventListener('click', () => {
+  emailOtp = '123456'; // Replace with actual OTP generation logic
+  showNotification('A new OTP has been sent to your email.');
+
+  // Restart timer
+  startResendTimer('#email-timer', '#resend-email-otp');
+});
 // Email OTP Verification
 verifyEmailOtpBtn.addEventListener('click', () => {
   const enteredOtp = emailOtpInput.value.trim();
@@ -324,8 +371,21 @@ sendMobileOtpBtn.addEventListener('click', () => {
   verifyMobileOtpBtn.style.display = 'inline-block';
   sendMobileOtpBtn.style.display = 'none';
   mobileOtpSection.style.display = 'block'; // Show OTP section when OTP is sent
-});
 
+  // Start resend timer
+  const resendMobileOtpBtn = document.querySelector('#resend-mobile-otp');
+  resendMobileOtpBtn.style.display = 'inline-block';
+  resendMobileOtpBtn.disabled = true; // Disable initially
+  startResendTimer('#mobile-timer', '#resend-mobile-otp');
+});
+// Resend Mobile OTP
+document.querySelector('#resend-mobile-otp').addEventListener('click', () => {
+  mobileOtp = '654321'; // Replace with actual OTP generation logic
+  showNotification('A new OTP has been sent to your mobile.');
+
+  // Restart timer
+  startResendTimer('#mobile-timer', '#resend-mobile-otp');
+});
 // Mobile OTP Verification
 verifyMobileOtpBtn.addEventListener('click', () => {
   const enteredOtp = mobileOtpInput.value.trim();
@@ -338,7 +398,11 @@ verifyMobileOtpBtn.addEventListener('click', () => {
     showNotification('Invalid OTP. Please try again.');
   }
 });
-
+// // Initialize timer on page load
+// window.addEventListener('DOMContentLoaded', () => {
+//   startResendTimer('#email-timer', '#resend-email-otp'); // For email
+//   startResendTimer('#mobile-timer', '#resend-mobile-otp'); // For mobile
+// });
 // Final Registration Form Validation
 
 
