@@ -174,6 +174,13 @@ customercontractorlinks.forEach(customercontractorlink => {
   
   })
 });
+const aboutUss=document.querySelectorAll(".about-us-sidebar")
+aboutUss.forEach(aboutUs => {
+  aboutUs.addEventListener("click",()=>{
+    window.location.href="../html/aboutus.html"
+
+  })
+});
 
 // Sidebar option
 
@@ -203,6 +210,7 @@ const errorMessages = document.getElementById('errorMessages');
 // Open the modal when clicking on the "Contact Us" link
 contactusLink.addEventListener('click', function() {
 contactModal.style.display = "block";
+menuContents.classList.remove('open');
 });
 
 // Close the modal when clicking on the close button (×)

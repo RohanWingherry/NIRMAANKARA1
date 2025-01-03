@@ -198,9 +198,13 @@ window.onscroll = function() {
     
     })
   });
-  document.getElementById("about-us").addEventListener("click",()=>{
-    window.location.href="../html/aboutus.html"
-  })
+  const aboutUss=document.querySelectorAll(".about-us-sidebar")
+  aboutUss.forEach(aboutUs => {
+    aboutUs.addEventListener("click",()=>{
+      window.location.href="../html/aboutus.html"
+
+    })
+  });
 
 // Sidebar option
 
