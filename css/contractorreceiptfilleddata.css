@@ -290,6 +290,68 @@ thead {
 .description .grand-total #total-amount{
     font-weight: 500;
 }
+
+.total-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+.totals {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #036d7a;
+    color: white;
+    border-radius: 8px;
+    width: max-content;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 250px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.label {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.totals-row input {
+    text-decoration: underline;
+    border: none;
+    outline: none;
+    text-align: left;
+    padding: 2px 5px ;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.description .grand-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+.description .grand-total #total-amount{
+    font-weight: 500;
+}
 /* payment mod */
 .payment-all-details{
     display: flex;

@@ -443,7 +443,48 @@
                                 </tbody>
                             </table>
                             <!-- <button onclick="addRow()">Add Row</button> -->
-        
+                            <div class="total-container">
+                                <div class="totals">
+                                    <div class="totals-row">
+                                        <div class="label">SUBTOTAL</div>
+                                        <div class="value" id="subtotal">₹2450</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">DISCOUNT(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="discountPercent" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">SGST(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="sgst" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">SGST Amount</div>
+                                        <div class="value" id="sgstAmount">₹50</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">CGST(%)</div>
+                                        <div class="value">
+                                            <input type="number" id="cgst" value="10" oninput="updateTotals()">
+                                        </div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">CGST Amount</div>
+                                        <div class="value" id="cgstAmount">₹50</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">TOTAL</div>
+                                        <div class="value" id="total">₹2200</div>
+                                    </div>
+                                    <div class="totals-row">
+                                        <div class="label">DUE AMOUNT</div>
+                                        <div class="value" id="dueAmount">₹2200</div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="grand-total">
                                 <div>Grand Total:</div>
                                 <div id="total-amount">&#8377;2550</div>
