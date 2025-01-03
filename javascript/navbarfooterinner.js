@@ -133,10 +133,10 @@
   })
   
   // logo 
-  document.querySelector('.main-logo').onclick = function() {
-    window.location.href = "Nimaankaramasterpage.html";
-};
-
-// document.querySelector('.nav-contractor').onclick = function() {
-//   window.location.href = "Nimaankaramasterpage.html";
-// };
+  const mainlogo=document.querySelectorAll('.main-logo');
+  mainlogo.forEach(mainlogosingle => {
+    mainlogosingle.addEventListener('click',()=>{
+        window.location.href = "Nimaankaramasterpage.html";
+    
+    })
+  });

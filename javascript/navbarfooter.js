@@ -160,9 +160,52 @@ window.onscroll = function() {
   })
   
   // logo 
-  document.querySelector('.main-logo').onclick = function() {
-    window.location.href = "Nimaankaramasterpage.html";
-};
+  const mainlogo=document.querySelectorAll('.main-logo');
+  mainlogo.forEach(mainlogosingle => {
+    mainlogosingle.addEventListener('click',()=>{
+        window.location.href = "Nimaankaramasterpage.html";
+    
+    })
+  });
+  // navigation for contractor
+  const contractorlinks=document.querySelectorAll('.contractornavigation');
+  contractorlinks.forEach(contractorlink => {
+    contractorlink.addEventListener('click',()=>{
+        window.location.href = "contractorshomepage.html";
+    
+    })
+  });
+  // navigation for buyer
+  const buyerlinks=document.querySelectorAll('.buyernavigation');
+  buyerlinks.forEach(buyerlink => {
+    buyerlink.addEventListener('click',()=>{
+        window.location.href = "buyerlist.html";
+    
+    })
+  });
+  // navigation for buyerhomenavigation
+  const buyerhomelinks=document.querySelectorAll('.buyerhomenavigation');
+  buyerhomelinks.forEach(buyerhomelink => {
+    buyerhomelink.addEventListener('click',()=>{
+      window.location.href = "buyerhome.html";
+      })
+      });
+  // navigation for customercontractornavigation
+  const customercontractorlinks=document.querySelectorAll('.customercontractornavigation');
+  customercontractorlinks.forEach(customercontractorlink => {
+    customercontractorlink.addEventListener('click',()=>{
+        window.location.href = "customercontractorlist.html";
+    
+    })
+  });
+  // navigation for customerhomenavigation
+  // const customerhomelinks=document.querySelectorAll('.customerhomenavigation');
+  // customerhomelinks.forEach(customercontractorlink => {
+  //   customercontractorlink.addEventListener('click',()=>{
+  //       window.location.href = "customerhomepage.html";
+    
+  //   })
+  // });
 
 // Sidebar option
 

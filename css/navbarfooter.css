@@ -919,6 +919,7 @@ footer{
     margin: none;
     padding: 5px;
     cursor: pointer;
+    color: black;
   }
   
   .copyright{
