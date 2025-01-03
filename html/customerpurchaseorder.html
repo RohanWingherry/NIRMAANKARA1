@@ -299,19 +299,19 @@
                         <h2>Contact Us</h2>
                         <form id="contactForm">
                             <label for="fullname">Full Name:</label>
-                            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" required>
+                            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" autocomplete="name" required>
                             
                             <label for="mobile">Mobile Number:</label>
-                            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" required>
+                            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" autocomplete="tel" required>
                             
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                            <input type="email" id="email" name="email" placeholder="Enter your Email" autocomplete="email" required>
                             
                             <label for="message">Message:</label>
                             <textarea id="message" name="message" placeholder="Enter Message" required></textarea>
                             <div id="errorMessages"></div>
                             <span id="sendButton">Send</span>
-                        </form>
+                        </form>                        
                     </div>
                 </div>
 
@@ -437,7 +437,7 @@
                                 <span>O-270920241</span>
                             </div>
                             <div class="client">
-                                <label for="quotation-date">Date:</label>
+                                <span>Date:</span>
                                 <span>30-09-2024</span>
                             </div>
                             <div class="client">
