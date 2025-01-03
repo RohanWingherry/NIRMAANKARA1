@@ -28,12 +28,12 @@ function showNotification(message, type = 'success') {
     });
 }
 
-var popup = document.getElementById("popup");
+var popup = document.getElementById("popup-enq");
 popup.style.display = "none"; 
 
-var closeBtn = document.getElementsByClassName("close")[0];
+var closeBtn1 = document.getElementsByClassName("close")[0];
 
-closeBtn.onclick = function() {
+closeBtn1.onclick = function() {
     popup.style.display = "none";
 }
 
