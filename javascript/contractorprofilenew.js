@@ -237,6 +237,11 @@ document.getElementById("remove-video").addEventListener("click", function () {
 });
 
 // Save Project logic
+// Save Project logic
+let isEditing = false;
+let currentEditingCard = null;
+
+// Save Project logic
 saveProjectBtn.addEventListener("click", () => {
   const projName = document.getElementById("project-name").value;
   const projLoc = document.getElementById("project-location").value;
@@ -244,60 +249,109 @@ saveProjectBtn.addEventListener("click", () => {
   const projImage = document.getElementById("project-image").files[0];
   const projVideo = document.getElementById("project-video").files[0];
 
-  if (projName && projLoc && projArea && projImage && projVideo && projectCount < maxProjects) {
-    const projectCard = document.createElement("div");
-    projectCard.className = "project-card";
+  if (projName && projLoc && projArea && (projImage || isEditing) && (projVideo || isEditing)) {
+    if (isEditing && currentEditingCard) {
+      // Update the existing project card
+      const nameElem = currentEditingCard.querySelector(".project-name");
+      const locElem = currentEditingCard.querySelector(".project-location");
+      const areaElem = currentEditingCard.querySelector(".project-area");
+      const imgElem = currentEditingCard.querySelector(".project-image");
+      const vidElem = currentEditingCard.querySelector(".project-video");
 
-    const nameElem = document.createElement("p");
-    nameElem.textContent = `Name: ${projName}`;
-    const locElem = document.createElement("p");
-    locElem.textContent = `Location: ${projLoc}`;
-    const areaElem = document.createElement("p");
-    areaElem.textContent = `Area: ${projArea}`;
+      nameElem.textContent = `Name: ${projName}`;
+      locElem.textContent = `Location: ${projLoc}`;
+      areaElem.textContent = `Area: ${projArea}`;
 
-    const imgElem = document.createElement("img");
-    imgElem.src = URL.createObjectURL(projImage);
-
-    const vidElem = document.createElement("video");
-    vidElem.src = URL.createObjectURL(projVideo);
-    vidElem.controls = true;
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete Project";
-
-    deleteBtn.addEventListener("click", () => {
-      const userConfirmed = confirm("Do you want to delete the project?");
-      if (userConfirmed) {
-        mainUpload.removeChild(projectCard);
-        projectCount--;
+      if (projImage) {
+        imgElem.src = URL.createObjectURL(projImage);
       }
-    });
+      if (projVideo) {
+        vidElem.src = URL.createObjectURL(projVideo);
+      }
 
-    projectCard.appendChild(nameElem);
-    projectCard.appendChild(locElem);
-    projectCard.appendChild(areaElem);
-    projectCard.appendChild(imgElem);
-    projectCard.appendChild(vidElem);
-    projectCard.appendChild(deleteBtn);
+      // Reset editing state
+      isEditing = false;
+      currentEditingCard = null;
+    } else {
+      // Create a new project card
+      const projectCard = document.createElement("div");
+      projectCard.className = "project-card";
 
-    mainUpload.appendChild(projectCard);
+      const nameElem = document.createElement("p");
+      nameElem.className = "project-name";
+      nameElem.textContent = `Name: ${projName}`;
 
-    projectCount++;
+      const locElem = document.createElement("p");
+      locElem.className = "project-location";
+      locElem.textContent = `Location: ${projLoc}`;
+
+      const areaElem = document.createElement("p");
+      areaElem.className = "project-area";
+      areaElem.textContent = `Area: ${projArea}`;
+
+      const imgElem = document.createElement("img");
+      imgElem.className = "project-image";
+      imgElem.src = URL.createObjectURL(projImage);
+
+      const vidElem = document.createElement("video");
+      vidElem.className = "project-video";
+      vidElem.src = URL.createObjectURL(projVideo);
+      vidElem.controls = true;
+
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "Edit Project";
+
+      // Edit project functionality
+      editBtn.addEventListener("click", () => {
+        isEditing = true;
+        currentEditingCard = projectCard;
+
+        // Pre-fill the form with current project details
+        document.getElementById("project-name").value = projName;
+        document.getElementById("project-location").value = projLoc;
+        document.getElementById("project-area").value = projArea;
+
+        const imgPreview = document.getElementById("img-preview");
+        imgPreview.src = imgElem.src;
+        imgPreview.style.display = "block";
+
+        const vidPreview = document.getElementById("video-preview");
+        vidPreview.src = vidElem.src;
+        vidPreview.style.display = "block";
+
+        modal.style.display = "block";
+      });
+
+      projectCard.appendChild(nameElem);
+      projectCard.appendChild(locElem);
+      projectCard.appendChild(areaElem);
+      projectCard.appendChild(imgElem);
+      projectCard.appendChild(vidElem);
+      projectCard.appendChild(editBtn);
+
+      mainUpload.appendChild(projectCard);
+
+      projectCount++;
+    }
+
     modal.style.display = "none";
 
+    // Reset form fields and previews
     document.getElementById("project-name").value = "";
     document.getElementById("project-location").value = "";
     document.getElementById("project-area").value = "";
     document.getElementById("project-image").value = "";
-    document.getElementById("project-video").value = "";
     document.getElementById("img-preview").style.display = "none";
     document.getElementById("remove-image").style.display = "none";
+    document.getElementById("project-video").value = "";
     document.getElementById("video-preview").style.display = "none";
     document.getElementById("remove-video").style.display = "none";
   } else {
     showNotification("Please fill in all details.");
   }
 });
+
+
 
 // Handle form submission
 formSubmitBtn.addEventListener("click", () => {

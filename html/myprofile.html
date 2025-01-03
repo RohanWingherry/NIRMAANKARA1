@@ -287,15 +287,12 @@
                         <div class="profile-details-box">
                             <div class="profile-details-head">
                                 <div>Account Details</div>
-                                <!-- Edit Button -->
                                 <div class="edit-btn-container">
-                                    <span class="edit-btn" onclick="toggleEdit()">Edit</span>
+                                    <span class="edit-btn" id="edit-btn" onclick="toggleEdit()">Edit</span>
                                 </div>
                             </div>
-                            
                             <div class="profile-details-body">
-                                <form action="" class="profile-update">
-                                    
+                                <form id="profile-update-form" class="profile-update" onsubmit="return saveChanges()">
                                     <div class="form-group">
                                         <div class="form-input">
                                             <label for="fname">First Name</label>
@@ -306,54 +303,46 @@
                                             <input type="text" id="lname" value="XYZ" disabled>
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group">
                                         <div class="form-input">
                                             <label for="email">Email</label>
-                                            <input type="email" id="email" value="abc@gmail.com" disabled oninput="checkEmailValidation()">
-                                            <div id="otp-email-container" style="display: none;">
-                                                <button type="button" onclick="getOtp('email')" id="get-otp-email" style="display: none;">Get OTP</button>
-                                                <input type="text" id="email-otp" placeholder="Enter OTP" style="display: none; margin-bottom: 10px;" />
-                                                <button type="button" onclick="verifyOtp('email')" id="verify-email" style="display: none;">Verify OTP</button>
-                                                <div id="otp-timer-email" style="margin-left: 10px;">
-                                                    <span id="timer-email">60</span> seconds remaining
-                                                </div>
-                                                <button type="button" id="resend-email" onclick="resendOtp('email')" style="display: none;">Resend OTP</button>
+                                            <input type="email" id="email" value="abc@gmail.com" disabled oninput="handleEmailChange()">
+                                            <div id="email-otp-container" class="otp-container" style="display: none;">
+                                                <button type="button" id="send-email-otp" onclick="requestEmailOtp()">Send OTP</button>
+                                                <input type="text" id="email-otp" placeholder="Enter OTP">
+                                                <button type="button" id="verify-email-otp" onclick="verifyEmailOtp()">Verify</button>
+                                                <button type="button" id="resend-email-otp" onclick="requestEmailOtp()" disabled>Resend OTP</button>
+                                                <span id="email-timer" class="timer"></span>
                                             </div>
                                         </div>
                                         <div class="form-input">
                                             <label for="mob">Mobile Number</label>
-                                            <input type="tel" id="mob" maxlength="10" oninput="restrictMobileInput(this)" value="9191919191" disabled>
-                                            <div id="otp-mob-container" style="display: none;">
-                                                <button type="button" onclick="getOtp('mob')" id="get-otp-mob" style="display: none;">Get OTP</button>
-                                                <input type="text" id="mob-otp" placeholder="Enter OTP" style="display: none; margin-bottom: 10px;" />
-                                                <button type="button" onclick="verifyOtp('mob')" id="verify-mob" style="display: none;">Verify OTP</button>
-                                                <div id="otp-timer-mob" style="margin-left: 10px;">
-                                                    <span id="timer-mob">60</span> seconds remaining
-                                                </div>
-                                                <button type="button" id="resend-mob" onclick="resendOtp('mob')" style="display: none;">Resend OTP</button>
+                                            <input type="tel" id="mob" maxlength="10" value="9191919191" disabled oninput="handleMobileChange()">
+                                            <div id="mob-otp-container" class="otp-container" style="display: none;">
+                                                <button type="button" id="send-mob-otp" onclick="requestMobileOtp()">Send OTP</button>
+                                                <input type="text" id="mob-otp" placeholder="Enter OTP">
+                                                <button type="button" id="verify-mob-otp" onclick="verifyMobileOtp()">Verify</button>
+                                                <button type="button" id="resend-mob-otp" onclick="requestMobileOtp()" disabled>Resend OTP</button>
+                                                <span id="mob-timer" class="timer"></span>
                                             </div>
                                         </div>
-                                        
                                     </div>
-                                    
                                     <div class="form-group">
                                         <div class="form-input">
                                             <label for="location">Location</label>
                                             <input type="text" id="location" value="ABC" disabled>
                                         </div>
                                     </div>
-                    
-                                    <div class="smallpara">
-                                        (Click on Save Changes after editing the fields)
-                                    </div>
+                                    <div class="smallpara">(Click on Save Changes after editing the fields)</div>
                                     <div class="save-button">
-                                        <button type="button" class="save-btn" onclick="saveChanges()">Save Changes</button>
+                                        <button type="submit" class="save-btn" disabled>Save Changes</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                    
+                    
                     
                 </div>
             </section>
