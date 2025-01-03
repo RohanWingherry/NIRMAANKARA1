@@ -198,14 +198,9 @@ window.onscroll = function() {
     
     })
   });
-  // navigation for customerhomenavigation
-  // const customerhomelinks=document.querySelectorAll('.customerhomenavigation');
-  // customerhomelinks.forEach(customercontractorlink => {
-  //   customercontractorlink.addEventListener('click',()=>{
-  //       window.location.href = "customerhomepage.html";
-    
-  //   })
-  // });
+  document.getElementById("about-us").addEventListener("click",()=>{
+    window.location.href="../html/aboutus.html"
+  })
 
 // Sidebar option
 
@@ -235,6 +230,7 @@ const errorMessages = document.getElementById('errorMessages');
 // Open the modal when clicking on the "Contact Us" link
 contactusLink.addEventListener('click', function() {
   contactModal.style.display = "block";
+  menuContents.classList.remove('open');
 });
 
 // Close the modal when clicking on the close button (×)
