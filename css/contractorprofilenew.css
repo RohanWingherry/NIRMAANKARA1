@@ -296,6 +296,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    gap: 10px;
 }
 .project-card {
     width: 300px;
@@ -326,7 +327,7 @@
     cursor: pointer;
 }
 /* Modal Styling */
-.modal {
+.modal-forproject {
     display: none;
     position: fixed;
     z-index: 1;
@@ -336,24 +337,32 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-   
+    
+    /* Center the modal using flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.modal-content {
+.modal-forproject .modal-content {
+    margin-top: 20px;
     background-color: #fefefe;
-    margin: 3% auto;
     padding: 20px 25px;
     border-radius: 10px;
     width: 90%;
     max-width: 800px;
+    max-height: 90vh;  /* Limit max height to 90% of the viewport height */
+    overflow-y: auto;  /* Enable vertical scrolling if content overflows */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+
 @media (max-width:790px){
-    .modal-content{
+    /* .modal-forproject .modal-content{
         margin: 20% auto;
-    }
+    } */
 }
-.modal-content h3{
+.modal-forproject .modal-content h3{
     font-weight: 500;
     margin-bottom: 15px;
     padding-bottom: 2px;
@@ -371,20 +380,20 @@
     text-align: right;
     width: 100%;
 }
-.modal-content fieldset {
+.modal-forproject .modal-content fieldset {
     margin-bottom: 10px;
     border-radius: 6px;
 }
-fieldset legend{
+.modal-forproject fieldset legend{
     font-size: 14px;
     margin-left: 10px;
     padding: 2px;
 }
-fieldset input{
+.modal-forproject fieldset input{
     font-size: 14px;
 }
-.modal-content input[type="text"],
-.modal-content input[type="file"] {
+.modal-forproject .modal-content input[type="text"],
+.modal-forproject .modal-content input[type="file"] {
     width: 100%;
     padding: 8px 10px;
     margin-top: 0px;
@@ -393,7 +402,7 @@ fieldset input{
     outline: none;
 }
 
-.modal-content button {
+.modal-forproject .modal-content button {
     width: 100%;
     padding: 10px;
     border: none;
@@ -413,9 +422,9 @@ fieldset input{
     align-items: center;
 }
 .image-preview img{
-    max-width: 700px;
+    max-width: 400px;
     width: 100%;
-    max-height: 500px;
+    max-height: 400px;
     height: 100%;
     object-fit: contain;
     padding: 10px;
@@ -424,11 +433,11 @@ fieldset input{
 
 }
 .video-preview video{
-    max-width: 700px;
+    max-width: 400px;
     width: 100%;
     padding: 10px;
     padding-bottom: 20px;
-    max-height: 500px;
+    max-height: 400px;
     height: 100%;
     object-fit: contain;
     border-radius: 4px;
@@ -458,11 +467,11 @@ fieldset input{
 }
 
 .project-card img, .project-card video{
-    max-width: 380px;
+    max-width: 400px;
     width: 100%;
     max-height: 250px;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .project-card button {
     background-color: #f44336;
@@ -481,7 +490,7 @@ fieldset input{
 }
 .project-all-details .main-services{
     max-width: 1100px;
-    width: 100%;    border: 1px solid red;
+    width: 100%;   
 
     display: flex;
     flex-direction: column;
