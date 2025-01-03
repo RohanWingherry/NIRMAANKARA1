@@ -528,3 +528,216 @@ transition: color 0.3s;
 .desp .feature:hover{
   transform: scale(1.06);
 }
+/* pop up modal */
+/* Popup container */
+.popup {
+  display: none; 
+  position: fixed;
+  z-index: 9; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup content */
+.popup-content {
+  border: 1px solid gainsboro;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  background-color: #F7F8FA;
+  margin:12% auto 3% auto; 
+  padding: 20px 0px;
+  border: 1px solid #888;
+  width: 95%; 
+  max-width: 800px;
+  text-align: center;
+  border-radius: 10px;
+}
+@media (max-width:769px) {
+  .popup-content{margin: 20% auto 0% auto; 
+  }
+}
+.popup-content .hr{
+  margin: 20px auto;
+  width: 95%;
+  
+}
+.hr hr{
+  border: 1px solid #808080;
+}
+.contractor-pop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.contractor-pop img{
+  max-width: 60px;
+  width: 100%;
+  height: max-content;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 50%;
+}
+.contractor-pop #contractorName{
+  font-size: 16px;
+  font-weight: 500;
+}
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+
+  margin-right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* get quote / enquire */
+#constructionForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+#constructionForm .form-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0px 10px;
+}
+#constructionForm .input-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  border: 1px solid #3d4e70;
+  max-width: 350px;
+  width: 100%;
+  padding: 10px 1px;
+  border-radius:50px ;
+  
+}
+.input-box:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.input-box input{
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: #3d4e70;
+}
+.input-box span{
+  color: #3d4e70;
+}
+#constructionForm .input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between elements */
+  position: relative;
+  padding-left: 15px;
+}
+
+#constructionForm  .input-box select,
+#constructionForm  .input-box input {
+  padding:5px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#constructionForm  .input-box input {
+  border: none;
+}
+#constructionForm  .input-box select{
+  padding-right: 0px;
+}
+#constructionForm  .form-group .sel-dif{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left:  32px;
+
+}
+#constructionForm  .input-box select{
+  text-align: left;
+  outline: none;
+  border: none;
+}
+#constructionForm  .input-box .material-symbols-outlined {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+
+#otherNameType {
+  margin-top: 0px;
+}
+option{
+  color: #3d4e70;
+  font-weight: 500;
+
+}
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
+}
+#constructionForm  .input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjust gap between elements */
+}
+
+#constructionForm  input, #constructionForm  select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%; /* Ensure full width */
+  max-width: 200px; /* Optional: Set a max width */
+}
+
+#otherNameType {
+  width: 100%; /* Ensures input width matches the select width */
+  max-width: 200px; /* Set the max width */
+  transition: width 0.3s ease; /* Smooth transition */
+  border-radius: 50px;
+}
+
+.material-symbols-outlined {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.submit{
+  background-color: #147695;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 50px;
+  transition: all 0.1s ease-in-out;
+}
+.submit:hover{
+  transform: scale(1.02);
+}
+
+/* pop close  */
