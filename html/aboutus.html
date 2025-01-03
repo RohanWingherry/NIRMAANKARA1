@@ -3,9 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - Nirmaankara</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=REM:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;  
+            line-height: 1.6;
+        }
+        .about-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.about-image .img1{
+    max-height: 70px;
+    max-width: 80px;
+    width: 100%;
+}
+.about-image .img2{
+  max-height: 60px;
+  max-width: 450px;
+  width: 100%;
+}
+        .aboutuspart h1, .aboutuspart h2, .aboutuspart h3 {
+            color: #333;
+        }
+
+        .container-forabout {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-header {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .about-header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .about-header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        /* .about-text, .about-image {
+            flex: 1;
+            min-width: 300px;
+        } */
+
+        .about-text {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .about-text h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .about-image img {
+            width: 100%;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Services Section */
+        .services {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        .service-card p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+            background: #d8e8ff;
+            padding: 50px 20px;
+            border-radius: 12px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;        }
+
+        .why-choose h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .why-choose ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose li {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+            }
+
+            .about-header h1 {
+                font-size: 2.2em;
+            }
+
+            .services h2, .why-choose h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>ABOUT US</h2>
+    <div class="aboutuspart">
+        <header class="about-header">
+            <h1>About Us</h1>
+            <p>Connecting Landowners, Contractors, Buyers, and Sellers</p>
+        </header>
+    
+        <section class="container-forabout about-section">
+            <div class="about-text">
+                <h2>Welcome to Nirmaankara</h2>
+                <p>We bridge the gap between landowners, contractors, buyers, and sellers, offering a seamless and efficient solution to meet all your construction and property needs. From buying your dream property to managing construction projects, we ensure a hassle-free experience.</p>
+            </div>
+            <div class="about-image">
+                <img class="img1" src="../assets/newlogo.png" alt="">
+                <img class="img2" src="../assets/name.png" alt="">
+            </div>
+        </section>
+    
+        <section class="container-forabout services">
+            <h2>Our Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>List Your Business</h3>
+                    <p>Grow your business by showcasing your expertise and services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Develop Your Land</h3>
+                    <p>Connect with trusted contractors for seamless development.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Buyer</h3>
+                    <p>Find your dream property with ease.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Seller</h3>
+                    <p>List your property for sale or lease efficiently.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="container-forabout why-choose">
+            <h2>Why Choose Nirmaankara?</h2>
+            <ul>
+                <li><strong>Convenience:</strong> All services under one roof.</li>
+                <li><strong>Trustworthy Network:</strong> Verified contractors and professionals.</li>
+                <li><strong>Comprehensive Tools:</strong> Track projects efficiently.</li>
+                <li><strong>User-Friendly Interface:</strong> Easy and intuitive experience.</li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
+
