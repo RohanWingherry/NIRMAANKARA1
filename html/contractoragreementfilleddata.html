@@ -17,238 +17,309 @@
 
 </head>
 <body>
-         <!-- Top Nav Bar -->
-         <nav class="navigation-bar navbar-scrolled">
-            <div class="main-logo">
-                <img class="logo-img" src="../assets/newlogo.png" alt="">
-                <img class="name-img" src="../assets/name.png" alt="">
-            </div>
-            <div class="nav-sections">
-                <section class="single-section">
-                    <div class="nav-contractor" onclick="window.location.href='../html/contractorshomepage.html'">List Your Business</div>
-                </section>
-                <section class="single-section">
-                    <div class="nav-builder">For Builder</div>
-                </section>
-                <secction class="single-section">
-                    <div class="nav-postproperty">Post Property</div>
-                </secction>
-                <section class="single-section">
-                    <div class="all-hover-heading" id="customer-hover-heading">
-                        <div class="nav-findcontractor">Find Contractor/ Builder</div>
-                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
-                    </div>
-                    <div class="all-hover" id="customer-hover">
-                      <div class="hover-content-main">
-                          <div class="hover-content">
-                              <div class="hover-heading">
-                                  <span class="material-symbols-rounded" id="house">engineering</span>
-                                  <div>GET CONTRACTORS BASED ON YOUR PROPERTY TYPE</div>
-                              </div>
-                              <div class="hover-tags">
-                                  <ul>
-                                      <li><a href="">Building Remodulation</a></li>
-                                      <li><a href="">Independent House/ Villa</a></li>
-                                      <li><a href="">Residential Apartment</a></li>
-                                      <li><a href="">Serviced Apartment</a></li>
-                                      <li><a href="">Industry Complex</a></li>
-                                      <li><a href="">Commercial</a></li>
-                                      <li><a href="">Farm House</a></li>
-                                      <li><a href="">Venture Development</a></li>
-                                  </ul>
-                              </div>
+     <!-- Top Nav Bar -->
+     <nav class="navigation-bar navbar-scrolled">
+        <div class="main-logo">
+            <img class="logo-img" src="../assets/newlogo.png" alt="">
+            <img class="name-img" src="../assets/name.png" alt="">
+        </div>
+        <div class="nav-sections">
+            <section class="single-section">
+                <div class="nav-contractor contractornavigation">List Your Business</div>
+            </section>
+            <section class="single-section">
+                <div class="nav-builder buildernavigation">For Builder</div>
+            </section>
+            <secction class="single-section">
+                <div class="nav-postproperty">Post Property</div>
+            </secction>
+            <section class="single-section">
+                <div class="all-hover-heading" id="customer-hover-heading">
+                    <div class="nav-findcontractor customercontractornavigation">Find Contractor/ Builder</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+                <div class="all-hover" id="customer-hover">
+                  <div class="hover-content-main">
+                      <div class="hover-content">
+                          <div class="hover-heading">
+                              <span class="material-symbols-rounded" id="house">engineering</span>
+                              <div onclick="window.location.href = '../html/customercontractorlist.html'">GET CONTRACTORS BASED ON YOUR PROPERTY TYPE</div>
+                          </div>
+                          <div class="hover-tags">
+                              <ul>
+                                  <li><a href="#" class="customercontractornavigation">Building Remodulation</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Independent House/ Villa</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Residential Apartment</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Serviced Apartment</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Industry Complex</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Commercial</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Farm House</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Venture Development</a></li>
+                              </ul>
                           </div>
                       </div>
-                    </div>
-                </section>
-                <section class="single-section">
-                    <div class="all-hover-heading" id="buyer-hover-heading">
-                        <div class="nav-buyer">For Buyer</div>
-                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
-                    </div>
-                    <div class="all-hover" id="buyer-hover">
-                        <div class="hover-content-main">
-                            <div class="hover-content">
-                                <div class="hover-heading">
-                                    <span class="material-symbols-rounded" id="house">house</span>
-                                    <div>RESIDENTIAL</div>
-                                </div>
-                                <div class="hover-tags">
-                                    <ul>
-                                        <li><a href="">Single-Family Home</a></li>
-                                        <li><a href="">Multi-Family Home</a></li>
-                                        <li><a href="">Townhouse</a></li>
-                                        <li><a href="">Duplex</a></li>
-                                        <li><a href="">Bungalow</a></li>
-                                    </ul>
-                                </div>
+                  </div>
+                </div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading" id="buyer-hover-heading">
+                    <div class="nav-buyer buyerhomenavigation">For Buyer</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+                <div class="all-hover" id="buyer-hover">
+                    <div class="hover-content-main">
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="house">house</span>
+                                <div class="buyernavigation">RESIDENTIAL</div>
                             </div>
-                            <div class="hover-content">
-                                <div class="hover-heading">
-                                    <span class="material-symbols-rounded" id="apartment">apartment</span>
-                                    <div>APARTMENT</div>
-                                </div>
-                                <div class="hover-tags">
-                                    <ul>
-                                        <li><a href="">Furnished Apartment</a></li>
-                                        <li><a href="">Unfurnished Apartment</a></li>
-                                        <li><a href="">Studio Apartment</a></li>
-                                        <li><a href="">Duplex</a></li>
-                                        <li><a href="">Bungalow</a></li>
-                                    </ul>
-                                </div>
+                            <div class="hover-tags ">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Single-Family Home</a></li>
+                                    <li class="buyernavigation"><a href="#">Multi-Family Home</a></li>
+                                    <li class="buyernavigation"><a href="#">Townhouse</a></li>
+                                    <li class="buyernavigation"><a href="#">Duplex</a></li>
+                                    <li class="buyernavigation"><a href="#">Bungalow</a></li>
+                                </ul>
                             </div>
-                            <div class="hover-content">
-                                <div class="hover-heading">
-                                    <span class="material-symbols-rounded" id="storefront">storefront</span>
-                                    <div>COMMERCIAL</div>
-                                </div>
-                                <div class="hover-tags">
-                                    <ul>
-                                        <li><a href="">Office Spaces</a></li>
-                                        <li><a href="">Standalone Stores</a></li>
-                                        <li><a href="">Shopping Complex</a></li>
-                                        <li><a href="">Industrial Property</a></li>
-                                        <li><a href="">Hotels and Restaurants</a></li>
-                                        <li><a href="">Lodging</a></li>
-                                        <li><a href="">Healthcare Facilities</a></li>
-                                        <li><a href="">Infrastructure</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="apartment">apartment</span>
+                                <div class="buyernavigation">APARTMENT</div>
                             </div>
-                            <div class="hover-content">
-                                <div class="hover-heading">
-                                    <span class="material-symbols-rounded" id="houseboat">houseboat</span>
-                                    <div>VILLAS</div>
-                                </div>
-                                <div class="hover-tags">
-                                    <ul>
-                                        <li><a href="">Luxury Villa</a></li>
-                                        <li><a href="">Beach Villa</a></li>
-                                        <li><a href="">Modern Villa</a></li>
-                                        <li><a href="">Traditional Villa</a></li>
-                                        <li><a href="">Private Villa</a></li>
-                                        <li><a href="">Eco-Friendly Villa</a></li>
-                                        <li><a href="">Garden Villa</a></li>
-                                        <li><a href="">Pool Villa</a></li>
-                                    </ul>
-                                </div>
+                            <div class="hover-tags ">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Furnished Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Unfurnished Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Studio Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Duplex</a></li>
+                                    <li class="buyernavigation"><a href="#">Bungalow</a></li>
+                                </ul>
                             </div>
-                            <div class="hover-content">
-                                <div class="hover-heading">
-                                    <span class="material-symbols-rounded" id="nature-people">nature_people</span>
-                                    <div>LAND</div>
-                                </div>
-                                <div class="hover-tags">
-                                    <ul>
-                                        <li><a href="">Residential Land</a></li>
-                                        <li><a href="">Commercial Land</a></li>
-                                        <li><a href="">Mixed used Land</a></li>
-                                        <li><a href="">Agricultural/ Farm Land</a></li>
-                                        <li><a href="">Industrial Land</a></li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="storefront">storefront</span>
+                                <div class="buyernavigation">COMMERCIAL</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Office Spaces</a></li>
+                                    <li class="buyernavigation"><a href="#">Standalone Stores</a></li>
+                                    <li class="buyernavigation"><a href="#">Shopping Complex</a></li>
+                                    <li class="buyernavigation"><a href="#">Industrial Property</a></li>
+                                    <li class="buyernavigation"><a href="#">Hotels and Restaurants</a></li>
+                                    <li class="buyernavigation"><a href="#">Lodging</a></li>
+                                    <li class="buyernavigation"><a href="#">Healthcare Facilities</a></li>
+                                    <li class="buyernavigation"><a href="#">Infrastructure</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="houseboat">houseboat</span>
+                                <div class="buyernavigation">VILLAS</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Luxury Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Beach Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Modern Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Traditional Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Private Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Eco-Friendly Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Garden Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Pool Villa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="nature-people">nature_people</span>
+                                <div class="buyernavigation">LAND</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Residential Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Commercial Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Mixed used Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Agricultural/ Farm Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Industrial Land</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </section>
-                
-                <section class="single-section">
-                    <div class="all-hover-heading">
-                        <div class="nav-agent">For Agent</div>
-                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
-                    </div>
-                </section>
-                <section class="single-section">
-                    <div class="all-hover-heading">
-                        <div class="nav-tenants">For Tenants</div>
-                        <span class="material-symbols-rounded">keyboard_arrow_down</span>
-                    </div>
-                </section>
+                </div>
+            </section>
+            
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-agent">For Agent</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-tenants">For Tenants</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+        </div>
+        <div class="nav-main-profile">
+            <div id="nav-profile-heading">
+              <span class="nav-profile">Login</span>
+              <span class="material-symbols-rounded">keyboard_arrow_down</span>
             </div>
-            <div class="nav-main-profile">
-                <div id="nav-profile-heading">
-                  <span class="nav-profile">Login</span>
-                  <span class="material-symbols-rounded">keyboard_arrow_down</span>
-                </div>
-                <div class="nav-login-hover">
-                  <div class="myactivity-heading">
-                    <span id="myactivity-main-click">My Activity</span>
-                    <span></span>
-                  </div>
-                  <div class="myactivity-list">
-                    <ul>
-                      <li id="search-activity">Search Activity</li>
-                      <li id="recently-browsed">Recently Browsed</li>
-                      <li id="shortlisted">Shortlisted</li>
-                      <li id="recently-contacted">Recently Contacted</li>
-                    </ul>
-                  </div>
-                  <div class="myactivity-login show-popup">Login/ Register</div>
-                </div>
-                <div class="nav-logout-hover">
-                  <div class="myactivity-heading">
-                    <span>My Activity</span>
-                    <span></span>
-                  </div>
-                  <div class="myactivity-list">
-                    <ul>
-                      <li>Search Activity</li>
-                      <li>Recently Browsed</li>
-                      <li>Shortlisted</li>
-                      <li>Recently Contacted</li>
-                    </ul>
-                  </div>
-                  <div class="myactivity-change-user-type">Change User Type</div>
-                  <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
-                </div>
+            <div class="nav-login-hover">
+              <div class="myactivity-heading">
+                <span id="myactivity-main-click" class="my-activity-main-click">My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li id="search-activity">Search Activity</li>
+                  <li id="recently-browsed">Recently Browsed</li>
+                  <li id="shortlisted">Shortlisted</li>
+                  <li id="recently-contacted">Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-login show-popup">Login/ Register</div>
             </div>
-            <div class="main-menus">
-                <span class="material-symbols-rounded" id="menu">grid_view</span>
-                <div class="main-menu-contents">
-                    <span class="close-menu" id="close-menu">×</span>
-                    <div class="main-menu-login">
-                        <img src="../assets/profile.jpg" alt="">
-                        <span>LOGIN/ REGISTER</span>
-                    </div>
-                    <div class="menu-bar-allcontents">
-                        <div class="text-our-services">Our Services</div>
-                    <div class="menu-other-services">
-                        <div>List Your Business</div>
-                        <div>For Builder</div>
-                        <div>Post Property</div>
-                    </div>
-                    <div class="text-our-services">Our Other Services</div>
-                    <div class="menu-options">
-                        <ul>
-                            <li>
-                                <span class="material-symbols-rounded">arrow_right</span>
-                                <div>Find Contractor/ Builder</div>
-                            </li>
-                            <li>
-                                <span class="material-symbols-rounded">arrow_right</span>
-                                <div>For Buyer</div>
-                            </li>
-                            <li>
-                                <span class="material-symbols-rounded">arrow_right</span>
-                                <div>For Agent</div>
-                            </li>
-                            <li>
-                                <span class="material-symbols-rounded">arrow_right</span>
-                                <div>For Tenants</div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="menu-other-options">
-                        <div>FAQ's</div>
-                        <div>About Us</div>
-                        <div>Contact Us</div>
-                    </div>
+            <div class="nav-logout-hover">
+              <div class="myactivity-heading">
+                <span>My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li>Search Activity</li>
+                  <li>Recently Browsed</li>
+                  <li>Shortlisted</li>
+                  <li>Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-change-user-type" id="changeUserTypeBtn">Change User Type</div>
+              <div class="my-profile-link">My Profile</div>
+              <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
+            </div>
+        </div>
+         <!-- Modal for User Type Change -->
+        <div id="userTypeModal" class="modal">
+          <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h3>Change User Type</h3>
+          <form id="userTypeForm">
+              <div class="radio-buttons">
+              <label>
+                  <input type="radio" name="userType" value="Buyer" checked /> Buyer
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Seller" /> Seller
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Agent" /> Agent
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Contractor" /> Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Find-contractor" /> Find Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Tenant" /> Tenant
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Renter" /> Renter
+              </label>
+              </div>
+              <button type="button" id="changeUserTypeButton" class="change-usertype-popup">Change User Type</button>
+          </form>
+      
+          <!-- OTP Verification Section (Hidden initially) -->
+          <div id="otpSection" style="display: none;">
+              <p>OTP verification</p>
+              <label for="mobileNumber">Mobile Number: </label>
+              <span id="mobileNumber">8123205422</span>
+              <button id="editMobileBtn">Edit</button>
+              <br />
+              <input type="text" id="otpInput" placeholder="Enter OTP" />
+              <button id="verifyOtpBtn">Verify OTP</button>
+          </div>
+          </div>
+        </div>
+        <div class="main-menus">
+            <span class="material-symbols-rounded" id="menu">grid_view</span>
+            <div class="main-menu-contents">
+                <span class="close-menu" id="close-menu">×</span>
+                <div class="main-menu-login">
+                    <img src="../assets/profile.jpg" alt="">
+                    <span id="sidebar-login">LOGIN/ REGISTER</span>
+                </div>
+                <div  id="change-user-type-side" class="change-usertype-popup">Change User Type</div>
+                <div class="menu-bar-allcontents">
+                    <div class="text-our-services">Our Services</div>
+                <div class="menu-other-services">
+                    <div class="contractornavigation">List Your Business</div>
+                    <div>For Builder</div>
+                    <div>Post Property</div>
+                </div>
+                <div class="text-our-services">Our Other Services</div>
+                <div class="menu-options">
+                    <ul>
+                        <li class="customercontractornavigation">
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div >Find Contractor/ Builder</div>
+                        </li>
+                        <li class="buyerhomenavigation">
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Buyer</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Agent</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Tenants</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-other-options">
+                    <div class="my-activity-main-click">My Activity</div>
+                    <div id="about-us">About Us</div>
+                    <div id="contactus-link">Contact Us</div>
+                </div>
+                <div id="myactivity-logout-side"><span class="material-symbols-rounded">logout</span>Logout</div>
+                </div>
+
+                <!-- Contact Us Modal -->
+                <div id="contactModal" class="contactus-modal">
+                    <div class="contactus-modal-content">
+                        <div class="close-contactus">&times;</div>
+                        <h2>Contact Us</h2>
+                        <form id="contactForm">
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" required>
+                            
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" required>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                            
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" placeholder="Enter Message" required></textarea>
+                            <div id="errorMessages"></div>
+                            <span id="sendButton">Send</span>
+                        </form>
                     </div>
                 </div>
-            </div> 
-        </nav>
-        <!-- Top nav bar -->
+
+            </div>
+        </div> 
+    </nav>
+    <!-- Top nav bar -->
         <div class="mob-hamberger">
             <div class="mobile-btn-main">
                 <i class="fa-solid fa-bars" id="mobile-btn"></i>
