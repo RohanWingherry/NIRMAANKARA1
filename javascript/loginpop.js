@@ -584,6 +584,9 @@ signInForm.addEventListener('submit', (e) => {
   
     showNotification('Login successful!');
     document.querySelector('.nav-profile').innerHTML="Vijay";
+    document.getElementById("sidebar-login").innerHTML="Vijay";
+    document.getElementById("change-user-type-side").style.display="block";
+    document.getElementById("myactivity-logout-side").style.opacity='1';
 
     // Close the popup container after successful login
 const popupContainer = document.querySelector('.popup-container');

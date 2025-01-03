@@ -170,15 +170,15 @@
             </div>
             <div class="nav-login-hover">
               <div class="myactivity-heading">
-                <span>My Activity</span>
+                <span id="myactivity-main-click" class="my-activity-main-click">My Activity</span>
                 <span></span>
               </div>
               <div class="myactivity-list">
                 <ul>
-                  <li>Search Activity</li>
-                  <li>Recently Browsed</li>
-                  <li>Shortlisted</li>
-                  <li>Recently Contacted</li>
+                  <li id="search-activity">Search Activity</li>
+                  <li id="recently-browsed">Recently Browsed</li>
+                  <li id="shortlisted">Shortlisted</li>
+                  <li id="recently-contacted">Recently Contacted</li>
                 </ul>
               </div>
               <div class="myactivity-login show-popup">Login/ Register</div>
@@ -209,28 +209,28 @@
           <form id="userTypeForm">
               <div class="radio-buttons">
               <label>
-                  <input type="radio" name="userType" value="buyer" /> Buyer
+                  <input type="radio" name="userType" value="Buyer" checked /> Buyer
               </label>
               <label>
-                  <input type="radio" name="userType" value="seller" /> Seller
+                  <input type="radio" name="userType" value="Seller" /> Seller
               </label>
               <label>
-                  <input type="radio" name="userType" value="agent" /> Agent
+                  <input type="radio" name="userType" value="Agent" /> Agent
               </label>
               <label>
-                  <input type="radio" name="userType" value="contractor" /> Contractor
+                  <input type="radio" name="userType" value="Contractor" /> Contractor
               </label>
               <label>
-                  <input type="radio" name="userType" value="find-contractor" /> Find Contractor
+                  <input type="radio" name="userType" value="Find-contractor" /> Find Contractor
               </label>
               <label>
-                  <input type="radio" name="userType" value="tenant" /> Tenant
+                  <input type="radio" name="userType" value="Tenant" /> Tenant
               </label>
               <label>
-                  <input type="radio" name="userType" value="renter" /> Renter
+                  <input type="radio" name="userType" value="Renter" /> Renter
               </label>
               </div>
-              <button type="button" id="changeUserTypeButton">Change User Type</button>
+              <button type="button" id="changeUserTypeButton" class="change-usertype-popup">Change User Type</button>
           </form>
       
           <!-- OTP Verification Section (Hidden initially) -->
@@ -251,8 +251,9 @@
                 <span class="close-menu" id="close-menu">×</span>
                 <div class="main-menu-login">
                     <img src="../assets/profile.jpg" alt="">
-                    <span id="sidebar-login" class="show-popup">LOGIN/ REGISTER</span>
+                    <span id="sidebar-login">LOGIN/ REGISTER</span>
                 </div>
+                <div  id="change-user-type-side" class="change-usertype-popup">Change User Type</div>
                 <div class="menu-bar-allcontents">
                     <div class="text-our-services">Our Services</div>
                 <div class="menu-other-services">
@@ -282,11 +283,36 @@
                     </ul>
                 </div>
                 <div class="menu-other-options">
-                    <div >My Activity</div>
+                    <div class="my-activity-main-click">My Activity</div>
                     <div>About Us</div>
-                    <div>Contact Us</div>
+                    <div id="contactus-link">Contact Us</div>
                 </div>
+                <div id="myactivity-logout-side"><span class="material-symbols-rounded">logout</span>Logout</div>
                 </div>
+
+                <!-- Contact Us Modal -->
+                <div id="contactModal" class="contactus-modal">
+                    <div class="contactus-modal-content">
+                        <div class="close-contactus">&times;</div>
+                        <h2>Contact Us</h2>
+                        <form id="contactForm">
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" required>
+                            
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" required>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                            
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" placeholder="Enter Message" required></textarea>
+                            <div id="errorMessages"></div>
+                            <span id="sendButton">Send</span>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div> 
     </nav>

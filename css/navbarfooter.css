@@ -456,13 +456,15 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
@@ -561,7 +563,7 @@ button:hover {
   top: 0;
   right: -300px;
   width: 300px;
-  height: 100%;
+  height: 100vh;
   background-color: #F9F9FA;
   transition: right 0.6s ease;
   z-index: 99;
@@ -599,6 +601,13 @@ button:hover {
   cursor: pointer;
   font-size: 16px;
   color: rgb(73, 73, 73);
+}
+.main-menu-contents #change-user-type-side{
+  display: none;
+  padding: 0px 10px;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
 }
 .main-menu-contents .menu-other-services{
   display: flex;
@@ -663,11 +672,106 @@ button:hover {
   border-bottom: 2px solid rgb(214, 214, 214);
   font-size: 16px;
   font-weight: 500;
-  padding: 10px;
+  padding: 5px 10px;
   color: rgb(71, 71, 71);
   text-align: center;
   cursor: pointer;
 
+}
+.main-menu-contents #myactivity-logout-side{
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.main-menu-contents #myactivity-logout-side .material-symbols-rounded{
+  font-size: 18px;
+}
+/* Modal Styles */
+.contactus-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+}
+
+.contactus-modal-content {
+  background-color: #F9F9FA;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.close-contactus {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  text-align: end;
+}
+
+.close-contactus:hover,
+.close-contactus:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.contactus-modal-content h2{
+  position: relative;
+  bottom: 20px;
+  padding: 0px 10px;
+}
+/* Form Styles */
+#contactForm{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 20px;
+  padding: 0px 10px;
+}
+#contactForm label {
+  margin: 10px 0 5px;
+  font-weight: 500;
+  color: rgb(54, 54, 54);
+}
+
+#contactForm input, #contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+}
+
+#sendButton {
+  background-color: #D96F2C;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+  width: max-content;
+  border-radius: 5px;
+}
+
+#sendButton:hover {
+  background-color: #b35c26;
+}
+#errorMessages{
+  color: red;
+  font-size: 10px;
 }
 
 /* End main nav bar */

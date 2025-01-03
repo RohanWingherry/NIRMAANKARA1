@@ -137,6 +137,12 @@ window.onscroll = function() {
       menuContents.classList.remove('open');
   });
   
+  const myActivity=document.querySelectorAll(".my-activity-main-click");
+  myActivity.forEach(myActivitysingle => {
+    myActivitysingle.addEventListener("click",()=>{
+      window.location.href="../html/myactivityrecentsearch.html"
+    })
+  });
   document.getElementById("myactivity-main-click").addEventListener("click",()=>{
     window.location.href="../html/myactivityrecentsearch.html"
   })
@@ -157,5 +163,96 @@ window.onscroll = function() {
   document.querySelector('.main-logo').onclick = function() {
     window.location.href = "Nimaankaramasterpage.html";
 };
+
+// Sidebar option
+
+document.getElementById('sidebar-login').addEventListener('click', function() {
+  const spanElement = this;
+
+  // Check if the text content is 'Login'
+  if (spanElement.textContent === 'LOGIN/ REGISTER') {
+    // Directly open the popup when 'Login' is clicked
+    popupContainer.classList.add('open', 'active');
+    resetForms();
+    menuContents.classList.remove('open');
+  } else {
+    // Redirect to 'myprofile.html' when text content is not 'Login'
+    window.location.href = "../html/myprofile.html";
+    menuContents.classList.remove('open');
+  }
+});
+
+// Get the modal and the button
+const contactModal = document.getElementById('contactModal');
+const contactusLink = document.getElementById('contactus-link');
+const closeBtn = document.getElementsByClassName('close-contactus')[0];
+const sendButton = document.getElementById('sendButton');
+const errorMessages = document.getElementById('errorMessages');
+
+// Open the modal when clicking on the "Contact Us" link
+contactusLink.addEventListener('click', function() {
+  contactModal.style.display = "block";
+});
+
+// Close the modal when clicking on the close button (×)
+closeBtn.addEventListener('click', function() {
+  contactModal.style.display = "none";
+});
+
+// Close the modal if clicked outside the modal content
+window.addEventListener('click', function(event) {
+  if (event.target == contactModal) {
+    contactModal.style.display = "none";
+  }
+});
+
+// Form validation before submission
+sendButton.addEventListener('click', function() {
+  menuContents.classList.remove('open');
+  const fullname = document.getElementById('fullname').value;
+  const mobile = document.getElementById('mobile').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  
+  let errors = [];
+  
+  // Check for empty fields
+  if (!fullname || !mobile || !email || !message) {
+    errors.push("All fields are mandatory.");
+  }
+
+  // Validate mobile number (only 10 digits)
+  const mobileRegex = /^[0-9]{10}$/;
+  if (!mobileRegex.test(mobile)) {
+    errors.push("Mobile number must be exactly 10 digits.");
+  }
+  
+  // If there are errors, show them, otherwise submit and close the modal
+  if (errors.length > 0) {
+    errorMessages.innerHTML = errors.join('<br>');
+  } else {
+    showNotification('Details Sent Successfully');
+    contactModal.style.display = "none";
+  }
+});
+document.getElementById('fullname').addEventListener('input', function(event) {
+  let value = event.target.value;
+  value = value.replace(/[^a-zA-Z\s]/g, '');
+
+  if (value.startsWith(' ')) {
+      value = value.slice(1);
+  }
+
+  event.target.value = value;
+});
+document.getElementById('mobile').addEventListener('input', function(event) {
+  event.target.value = event.target.value.replace(/[^0-9]/g, '');
+});
+
+
+
+
+
+
 
   
