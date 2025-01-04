@@ -54,16 +54,21 @@ const validateAndSubmit = (event) => {
   let isFormValid = true;
 
   requiredInputs.forEach(input => {
-    input.style.border = ""; // Reset border style
+    input.style.border = ""; 
+
+    if (["email-footer", "fullname", "mobile", "email"].includes(input.id)) {
+      return;
+    }
+
     if (input.value.trim() === "") {
       isFormValid = false;
-      input.style.border = "1px solid red"; 
+      input.style.border = "1px solid red";
     }
   });
 
   if (!customerIdInput.value.trim()) {
     isFormValid = false;
-    customerIdInput.style.border = "1px solid red"; 
+    customerIdInput.style.border = "1px solid red";
   }
 
   if (!isFormValid) {
@@ -87,9 +92,16 @@ const validateAndSubmit = (event) => {
   }
 
   showNotification("Form is submitted successfully");
-  window.location.href = "../html/contractoragreementhistory.html";
+
+  // Add a 5-second delay before navigating to the next page
+  setTimeout(() => {
+    window.location.href = "../html/contractoragreementhistory.html";
+  }, 2000);
+
   return true;
 };
+
+
 
 document.querySelector('.submittion span').addEventListener('click', validateAndSubmit);
 
