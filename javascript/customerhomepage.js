@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // cahtbot code start
 // chatbot toggle
 const chatbotToggler = document.querySelector(".chatbot-toggler");
-const closeBtn = document.querySelector(".close-btn");
+const closeBtns = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");

@@ -32,7 +32,7 @@ document.getElementById('orgDetailsForm').addEventListener('submit', function (e
     let isValid = true;
 
     const fields = [
-        'fullname',
+        'fullnamelead',
         'mob',
         'constructions',
         'size',
@@ -102,7 +102,7 @@ document.getElementById('constructions').addEventListener('change', function () 
 
 // Function to add data to the table
 function addDataToTable() {
-    const fullname = document.getElementById('fullname').value;
+    const fullnamelead = document.getElementById('fullnamelead').value;
     const mob = document.getElementById('mob').value;
     const constructionType = document.getElementById('constructions').value;
     const size = document.getElementById('size').value;
@@ -128,7 +128,7 @@ function addDataToTable() {
         <td></td>
         <td>${formattedTableDate}</td>
         <td>${leadId}</td>
-        <td>${fullname}</td>
+        <td>${fullnamelead}</td>
         <td>${mob}</td>
         <td>${constructionTypeToDisplay}</td>
         <td>${size} SFT</td>
