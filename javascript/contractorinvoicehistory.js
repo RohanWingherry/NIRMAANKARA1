@@ -1,4 +1,28 @@
-
+function showNotification(message, type = 'success') {
+    const notification = document.getElementById('customNotification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const okButton = document.getElementById('okButton');
+  
+    notificationMessage.textContent = message;
+  
+    if (type === 'error') {
+      notification.classList.add('error');
+    } else {
+      notification.classList.remove('error');
+    }
+  
+    notification.style.display = 'block';
+    setTimeout(() => {
+      notification.style.opacity = '1';
+    }, 10);
+  
+    okButton.addEventListener('click', function () {
+      notification.style.opacity = '0';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 500);
+    });
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
     function updateSerialNumbers() {
@@ -85,4 +109,52 @@ document.querySelectorAll('.edit-row').forEach(function(element) {
     element.addEventListener('click', function() {
         window.location.href="../html/contractorinvoicefilleddata.html";
     });
+});
+
+document.getElementById('search').addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the default behavior of the anchor tag
+    
+    // Retrieve date values
+    const fromDateValue = document.getElementById('fromdate').value;
+    const toDateValue = document.getElementById('todate').value;
+
+    if (!fromDateValue || !toDateValue) {
+        showNotification('Please select both From Date and To Date.');
+        return;
+    }
+
+    const fromDate = new Date(fromDateValue);
+    const toDate = new Date(toDateValue);
+
+    // Ensure valid date range
+    if (fromDate > toDate) {
+        showNotification('From Date cannot be after To Date. Please select a valid range.');
+        return;
+    }
+
+    // Get all table rows
+    const rows = document.querySelectorAll('.history-table tbody tr');
+
+    let found = false; // To track if any rows match the filter
+
+    rows.forEach(row => {
+        const dateCell = row.children[1]?.textContent.trim(); // Safely access the date cell
+        if (!dateCell) return; // Skip if the date cell is missing
+
+        // Convert table date to valid format (assuming DD-MM-YYYY)
+        const [day, month, year] = dateCell.split('-');
+        const rowDate = new Date(`${year}-${month}-${day}`); // Convert to YYYY-MM-DD format
+
+        // Check if rowDate falls within the range
+        if (rowDate >= fromDate && rowDate <= toDate) {
+            row.style.display = ''; // Show the row
+            found = true;
+        } else {
+            row.style.display = 'none'; // Hide the row
+        }
+    });
+
+    if (!found) {
+        showNotification('No rows match the selected date range.');
+    }
 });

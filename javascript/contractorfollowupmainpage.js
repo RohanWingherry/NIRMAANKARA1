@@ -85,10 +85,11 @@ function submitForm() {
 
     if (valid) {
         // Show notification with delay for "Form submitted successfully!"
+        showNotification('Form submitted successfully!');
         setTimeout(() => {
-            showNotification('Form submitted successfully!');
-        }, 3000); // Delay the "Form submitted successfully!" notification for 3 seconds
-        window.location.href = '../html/contractorfollowuphistory.html';
+            window.location.href = '../html/contractorfollowuphistory.html';
+        }, 2000);
+        
     } else {
         showNotification('Please fill in all the fields correctly');
     }
@@ -206,7 +207,7 @@ document.getElementById('purpose').addEventListener('input', function(event) {
 
 // Validation for Cold Call
 function validateColdCall() {
-    let mobileNumber = document.getElementById('mobileNumber');
+    let mobileNumber = document.getElementById('mobileNumber-follow');
     let callPurpose = document.getElementById('callPurpose');
     let callingDate = document.getElementById('callingDate');
     let callingHour = document.getElementById('callingHour');
@@ -244,7 +245,7 @@ function validateColdCall() {
 
     return valid;
 }
-document.getElementById('mobileNumber').addEventListener('input', function(event) {
+document.getElementById('mobileNumber-follow').addEventListener('input', function(event) {
     event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });
 document.getElementById('callPurpose').addEventListener('input', function(event) {

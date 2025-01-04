@@ -1,4 +1,15 @@
-// notification or pop up
+// Function to generate a unique ID based on a counter (1-digit prefix)
+let idCounter = 1;
+
+function generateUniqueId() {
+    const uniqueId = `row-${idCounter}`;
+    idCounter = (idCounter % 9) + 1;  // Keep the prefix between 1 and 9
+    return uniqueId;  // Generates a unique ID with a 1-digit prefix
+}
+
+let rowToDelete = null;
+
+// Show notification or pop-up
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('customNotification');
     const notificationMessage = document.getElementById('notificationMessage');
@@ -27,79 +38,58 @@ function showNotification(message, type = 'success') {
         }, 500);  // Wait for the transition duration before hiding completely
     });
 }
-// Add new row to the table
-let rowToDelete = null;
 
-        function addRow() {
-            const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
-            newRow.innerHTML = `
-                <td><input type="text" placeholder="enter item" class="enter-item"  name="enter-item" ></td>
-                <td><input type="number" placeholder="enter price" class="enter-price" oninput="updateTotal(this)" name="enter-price"></td>
-                <td><input type="number" placeholder="enter qty" class="enter-qty" oninput="updateTotal(this)" name="enter-det"></td>
-                <td>₹0</td>
-                <td><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td>
-            `;
+// Add a new row to the table
+function addRow() {
+    const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
+    
+    // Generate a unique ID for the row
+    const uniqueId = generateUniqueId();
 
-            newRow.querySelector('.delete-row').addEventListener('click', function () {
-                rowToDelete = this.closest('tr'); // Store the row to delete
-                showPopup(); // Show the confirmation popup
-            });
-        }
+    // Insert row with unique IDs for each input field
+    newRow.innerHTML = `
+        <td><input type="text" placeholder="enter item" class="enter-item" name="enter-item-${uniqueId}" id="item-${uniqueId}"></td>
+        <td><input type="number" placeholder="enter price" class="enter-price" oninput="updateTotal(this)" name="enter-price-${uniqueId}" id="price-${uniqueId}"></td>
+        <td><input type="number" placeholder="enter qty" class="enter-qty" oninput="updateTotal(this)" name="enter-qty-${uniqueId}" id="qty-${uniqueId}"></td>
+        <td>₹0</td>
+        <td><button class="delete-row"><i class="fa-solid fa-trash"></i></button></td>
+    `;
 
-        // Popup logic
-        const popupOverlay = document.querySelector('.popup-overlay');
-        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
-        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+    // Set the row's unique ID
+    newRow.id = uniqueId;
 
-        function showPopup() {
-            popupOverlay.classList.add('show');
-        }
-
-        function hidePopup() {
-            popupOverlay.classList.remove('show');
-        }
-
-        confirmDeleteBtn.addEventListener('click', function () {
-            if (rowToDelete) {
-                rowToDelete.remove();
-                rowToDelete = null;
-                hidePopup();
-                showNotification("Successfully deleted the row");
-            }
-        });
-
-        cancelDeleteBtn.addEventListener('click', hidePopup);
-
-        // function showNotification(message) {
-        //     showNotification("message"); // Replace with a custom notification if needed
-        // }
-
-// Validate table rows
-function validateTableRows() {
-    const rows = document.querySelectorAll('#descriptionTable tbody tr');
-    let isValid = true;
-
-    rows.forEach(row => {
-        const itemInput = row.cells[0].querySelector('input');
-        const priceInput = row.cells[1].querySelector('input');
-        const qtyInput = row.cells[2].querySelector('input');
-
-        if (!itemInput.value.trim() || !priceInput.value.trim() || !qtyInput.value.trim()) {
-            itemInput.style.border = '1px solid red';
-            priceInput.style.border = '1px solid red';
-            qtyInput.style.border = '1px solid red';
-            isValid = false;
-        } else {
-            itemInput.style.border = '';
-            priceInput.style.border = '';
-            qtyInput.style.border = '';
-        }
+    newRow.querySelector('.delete-row').addEventListener('click', function () {
+        rowToDelete = this.closest('tr'); // Store the row to delete
+        showPopup(); // Show the confirmation popup
     });
-
-    return isValid;
 }
 
+// Popup logic
+const popupOverlay = document.querySelector('.popup-overlay');
+const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+
+function showPopup() {
+    popupOverlay.classList.add('show');
+}
+
+function hidePopup() {
+    popupOverlay.classList.remove('show');
+}
+
+confirmDeleteBtn.addEventListener('click', function () {
+    if (rowToDelete) {
+        rowToDelete.remove();
+        rowToDelete = null;
+        hidePopup();
+        showNotification("Successfully deleted the row");
+    }
+});
+
+cancelDeleteBtn.addEventListener('click', hidePopup);
+
+// Function to update the total for each row based on the input values
 function updateTotal(input) {
     const row = input.parentElement.parentElement;
     const price = parseFloat(row.cells[1].getElementsByTagName('input')[0].value) || 0;
@@ -112,6 +102,7 @@ function updateTotal(input) {
     updateTotals();
 }
 
+// Function to update the overall totals (subtotal, discount, etc.)
 function updateTotals() {
     const table = document.getElementById('descriptionTable').getElementsByTagName('tbody')[0];
     let subtotal = 0;
@@ -138,10 +129,29 @@ function updateTotals() {
     document.getElementById('dueAmount').innerText = `₹${total.toFixed(2)}`;
 }
 
-function deleteRow(button) {
-    const row = button.parentElement.parentElement;
-    row.remove();
-    updateTotals();
+// Validate table rows for any missing values
+function validateTableRows() {
+    const rows = document.querySelectorAll('#descriptionTable tbody tr');
+    let isValid = true;
+
+    rows.forEach(row => {
+        const itemInput = row.cells[0].querySelector('input');
+        const priceInput = row.cells[1].querySelector('input');
+        const qtyInput = row.cells[2].querySelector('input');
+
+        if (!itemInput.value.trim() || !priceInput.value.trim() || !qtyInput.value.trim()) {
+            itemInput.style.border = '1px solid red';
+            priceInput.style.border = '1px solid red';
+            qtyInput.style.border = '1px solid red';
+            isValid = false;
+        } else {
+            itemInput.style.border = '';
+            priceInput.style.border = '';
+            qtyInput.style.border = '';
+        }
+    });
+
+    return isValid;
 }
 
 // Form validation on submit
@@ -149,11 +159,9 @@ document.getElementById('submitBtn').addEventListener('click', function () {
     var requiredInputs = document.querySelectorAll('input[required]');
     var allFilled = true;
 
-    // Variables for Customer ID validation
     const customerID = document.getElementById("customer-id").value.trim();
     const customerDetailsVisible = document.querySelector(".main-client-det").style.display === "block";
 
-    // Check Customer ID conditions
     if (!customerID) {
         showNotification("Please enter the Customer ID.");
         allFilled = false;
@@ -162,23 +170,19 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         allFilled = false;
     }
 
-    // Iterate over all required inputs for additional validations
     requiredInputs.forEach(function (input) {
         var errorMessage = document.getElementById(input.id + 'Error');
 
-        // Reset the input's border and hide any previous error messages
         input.style.border = '';
         if (errorMessage) {
             errorMessage.style.display = 'none';
         }
 
-        // Check if input value is empty
         if (input.value.trim() === '') {
             input.style.border = '1px solid red';
             allFilled = false;
         }
 
-        // Special validation for 'authorisedSignature'
         if (input.id === 'authorisedSignature') {
             var nameRegex = /^[A-Za-z][A-Za-z\s]*$/;
             if (!nameRegex.test(input.value.trim())) {
@@ -192,17 +196,14 @@ document.getElementById('submitBtn').addEventListener('click', function () {
         }
     });
 
-    // Check table rows if validation is required for them
     if (!validateTableRows()) {
         allFilled = false;
     }
 
-    // Handle form submission based on validation
     if (allFilled) {
         showNotification('Invoice Submitted');
         window.location.href = "../html/contractorinvoicehistory.html";
     } else {
-        // Notify specifically for Customer ID if it is not valid
         if (!customerID) {
             showNotification("Please enter the Customer ID.");
         } else if (!customerDetailsVisible) {
@@ -217,56 +218,30 @@ document.getElementById('submitBtn').addEventListener('click', function () {
 document.getElementById("fetch-details").addEventListener("click", () => {
     const cust = document.getElementById("customer-id").value.trim();
 
-    // Validate if customer ID is entered
     if (cust) {
-        // Fetch customer details based on customer ID (Add your fetch logic here)
         fetchCustomerDetails(cust);
-
-        // Show customer details section
         document.querySelector(".main-client-det").style.display = "block";
-
-        // Show success notification
         showNotification("Customer details fetched successfully.");
     } else {
-        // Show notification if customer ID is not entered
         showNotification("Please enter the Customer ID.");
     }
 });
 
+// Function to simulate fetching customer details (you can replace it with actual fetching logic)
+function fetchCustomerDetails(customerId) {
+    console.log(`Fetching details for customer ID: ${customerId}`);
+}
 
+// Format the date input to today's date
+const dateInput = document.getElementById('dateInput');
+const today = new Date().toISOString().split('T')[0];
+dateInput.value = today;
+dateInput.style.textAlign = 'center';
 
-
-// Function to simulate fetching customer details
-// function fetchCustomerDetails(customerId) {
-//     // Simulate an API call or database query to fetch customer details
-//     console.log(`Fetching details for customer ID: ${customerId}`);
-//     // You can add actual fetching logic here as needed
-// }
-
-
+// Clean up 'authorisedSignature' input field
 document.getElementById('authorisedSignature').addEventListener('input', function () {
-    // Remove any leading spaces
-    let value = this.value.trimStart(); // Removes leading spaces
-
+    let value = this.value.trimStart();
     value = value.replace(/[^A-Za-z\s]/g, '');
-
-    // Remove multiple spaces between words and ensure only single spaces
     value = value.replace(/\s{2,}/g, ' ');
-
-    // Update the input value with the cleaned value
     this.value = value;
 });
-document.getElementById("fetch-details").addEventListener("click",()=>{
-    const cust=document.getElementById("customer-id").value
-    if(cust){
-        document.querySelector(".main-client-det").style.display="block"
-    }
-    else{
-        showNotification("Enter the Customer-id")
-    }
-  })
-  const dateInput = document.getElementById('dateInput');
-  const today = new Date().toISOString().split('T')[0]; 
-  dateInput.value = today;
-  dateInput.style.textAlign='center'
-

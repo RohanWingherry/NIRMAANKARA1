@@ -93,6 +93,11 @@ function generateTable() {
     requiredInputs.forEach(input => {
         input.style.border = "";
 
+        // Skip validation for email, mobile, and fullname fields
+        if (input.id === 'email' || input.id === 'mobile' || input.id === 'fullname' || input.id ==='email-footer') {
+            return;
+        }
+
         if (input.value.trim() === "" && input.id !== 'quote') {
             isFormValid = false;
             input.style.border = "1px solid red";

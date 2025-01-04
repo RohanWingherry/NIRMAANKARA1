@@ -344,6 +344,7 @@ input[type="text"] {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    color: black;
  }
 .history-table tbody #payment-status{
     display: flex;
