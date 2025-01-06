@@ -1,5 +1,5 @@
 // notification or pop up
-function showNotification(message, type = 'success') {
+function showNotifications(message, type = 'success') {
     const notification = document.getElementById('customNotification');
     const notificationMessage = document.getElementById('notificationMessage');
     const okButton = document.getElementById('okButton');
@@ -122,9 +122,9 @@ const form = document.getElementById("constructionForm");
 
         if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
             (nameType === "other" && !otherNameTypeInput.value.trim())) {
-            showNotification("Please fill in all required fields.");
+            showNotifications("Please fill in all required fields.");
         } else {
-            showNotification("Form submitted successfully!");
+            showNotifications("Form submitted successfully!");
             // Reset form or close modal logic here
             form.reset(); // Reset form fields
             // Close the modal (assuming you have a modal with id "myModal")
