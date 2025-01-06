@@ -147,7 +147,7 @@ mainlogo.forEach(mainlogosingle => {
 const contractorlinks=document.querySelectorAll('.contractornavigation');
 contractorlinks.forEach(contractorlink => {
   contractorlink.addEventListener('click',()=>{
-      window.location.href = "contractorshomepage.html";
+      window.location.href = "../html/contractorshomepage.html";
   
   })
 });
@@ -155,7 +155,7 @@ contractorlinks.forEach(contractorlink => {
 const buyerlinks=document.querySelectorAll('.buyernavigation');
 buyerlinks.forEach(buyerlink => {
   buyerlink.addEventListener('click',()=>{
-      window.location.href = "buyerlist.html";
+      window.location.href = "../html/buyerlist.html";
   
   })
 });
@@ -163,14 +163,14 @@ buyerlinks.forEach(buyerlink => {
 const buyerhomelinks=document.querySelectorAll('.buyerhomenavigation');
 buyerhomelinks.forEach(buyerhomelink => {
   buyerhomelink.addEventListener('click',()=>{
-    window.location.href = "buyerhome.html";
+    window.location.href = "../html/buyerhome.html";
     })
     });
 // navigation for customercontractornavigation
 const customercontractorlinks=document.querySelectorAll('.customercontractornavigation');
 customercontractorlinks.forEach(customercontractorlink => {
   customercontractorlink.addEventListener('click',()=>{
-      window.location.href = "customercontractorlist.html";
+      window.location.href = "../html/customercontractorlist.html";
   
   })
 });
