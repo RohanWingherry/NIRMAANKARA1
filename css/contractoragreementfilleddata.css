@@ -197,3 +197,15 @@
 .agreement-main .witnesss{
     font-size: 15px;
 }
+.agreement-main #agree-witness{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+.agreement-main #agree-witness>span{
+    max-width: 435px;
+    width: 100%;
+
+}

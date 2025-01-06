@@ -197,6 +197,11 @@
 .agreement-main .witnesss{
     font-size: 15px;
 }
+.agreement-main .agreement .submit{
+    max-width: 435px;
+    width: 100%;
+    margin-top: 5px;
+}
 .agreement-main .agreement .submit>input{
     background-color: #008994;
     padding: 5px 10px;
@@ -204,4 +209,13 @@
     border-radius: 4px;
     border: none;
     cursor: pointer;
+}
+.agreement-main #agreementForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.agreement-main #agreementForm>span{
+    max-width: 435px;
+    width: 100%;
 }
