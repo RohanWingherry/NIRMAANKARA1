@@ -6,12 +6,12 @@ submitButton.addEventListener("click", () => {
     if (emailInput.value === "") {
         showNotification("Please enter your email");
     } else {
-        window.location.href = "verifyemail.html";
+        window.location.href = "../html/verifyemail.html";
     }
 });
 
 backToLogin.addEventListener("click", () => {
-    window.location.href = "login.html";
+    window.location.href = "../html/login.html";
 });
 
 // notification or pop up

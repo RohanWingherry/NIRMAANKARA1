@@ -6,10 +6,10 @@ verifyButton.addEventListener("click", () => {
     if (codeInput.value === "") {
         alert("Please enter the verification code.");
     } else {
-        window.location.href = "setpassword.html";
+        window.location.href = "../html/setpassword.html";
     }
 });
 
 backButton.addEventListener("click", () => {
-    window.location.href = "login.html";
+    window.location.href = "../html/login.html";
 });

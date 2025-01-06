@@ -139,7 +139,7 @@ document.getElementById("recently-contacted").addEventListener("click",()=>{
 const mainlogo=document.querySelectorAll('.main-logo');
 mainlogo.forEach(mainlogosingle => {
   mainlogosingle.addEventListener('click',()=>{
-      window.location.href = "Nimaankaramasterpage.html";
+      window.location.href = "../html/Nimaankaramasterpage.html";
   
   })
 });

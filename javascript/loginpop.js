@@ -501,15 +501,15 @@ signUpForm.addEventListener('submit', (e) => {
     switch (role.value) {
         case 'contractor':
             showNotification('Registration successful! Redirecting to your homepage...');
-            redirectUrl = 'contractorshomepage.html';  // Adjust path
+            redirectUrl = '../html/contractorshomepage.html';  // Adjust path
             break;
         case 'customer':
             showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = 'customerhomepage.html';  // Adjust path
+            redirectUrl = '../html/customerhomepage.html';  // Adjust path
             break;
         case 'buyer':
             showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = 'buyerhome.html';  // Adjust path
+            redirectUrl = '../html/buyerhome.html';  // Adjust path
             break;
         case 'seller':
             showNotification('Registration successful! Redirecting to your dashboard...');
