@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-const propertyItems = document.querySelectorAll('.property-names,#my-location,.searchicon');
+const propertyItems = document.querySelectorAll('.property-names,.searchicon');
 
 propertyItems.forEach(item => {
     item.addEventListener('click', () => {

@@ -15,11 +15,14 @@
 #back-arrow>span{
     cursor: pointer;
 }
+
 .main-main-buyer{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 65px;
+  /* overflow: hidden; */
 }
 /* Buyer list */
 .main-buyerlist{
@@ -34,7 +37,7 @@
 }
 .main-buyerlist .buyerlist{
   position: absolute;
-  top: 5px;
+  top: 65px;
   right: 80px;
   display: flex;
   flex-direction: column;
@@ -42,10 +45,27 @@
   gap: 10px;
   height: 580px;
  overflow-y: auto;
+ overflow-x: hidden;
 }
-.main-buyerlist .buyerlist::-webkit-scrollbar{
-  display: none;
+.main-buyerlist .buyerlist::-webkit-scrollbar {
+  width: 4px; /* Small width for vertical scrollbar */
+  height: 4px; /* Small height for horizontal scrollbar */
 }
+
+.main-buyerlist .buyerlist::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.main-buyerlist .buyerlist::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker color on hover */
+}
+
+.main-buyerlist .buyerlist::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
 .main-buyerlist .buyerlist>div{
   gap: 20px;
   display: flex;
@@ -428,12 +448,12 @@ input[type="text"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 15px;
+  padding: 20px 5px;
   border-bottom: 1px solid rgb(199, 199, 199);
   position: sticky;
   top: 0px;
   background-color: white;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 .main-filter .filter-head #filter{
   font-size: 18px;

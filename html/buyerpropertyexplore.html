@@ -5,747 +5,1050 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Explore</title>
     <link rel="shortcut icon" href="../assets/nirmankara-logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/sidenavbar.css">
     <link rel="stylesheet" href="../css/buyerpropertyexplore.css">
+    <link rel="stylesheet" href="../css/navbarfooter.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="navigation-bar">
-        <div class="logo" onclick="window.location.href='../html/nirmaankarahome.html'">
-            <img src="../assets/nirmankara-logo.png" alt="">
-            <div>NIRMAANKARA</div>
+    <!-- Top Nav Bar -->
+    <nav class="navigation-bar navbar-scrolled">
+        <div class="main-logo">
+            <img class="logo-img" src="../assets/newlogo.png" alt="">
+            <img class="name-img" src="../assets/name.png" alt="">
         </div>
-        <div class="notify">
-            <div class="shortlisted">
-                <span class="material-symbols-rounded like-btn">favorite</span>
-                <span>Shortlisted</span>
-            </div>
-            <div>
-                <img src="../assets/profile-pic.png" alt="" id="toggleProfile">
-            </div>
-        </div>
-    </div>
-    <div class="main-profileview">
-        <div class="profile-view">
-            <div class="profile">
-                <span><img src="../assets/profile-pic.png" alt=""></span>
-            </div>
-            <div class="manage">
-                <span>Manage Your Profile</span>
-            </div>
-            <span class="line"></span>
-            <div class="logout">
-                <span><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</span>
-            </div>
-        </div>
-    </div>
-    <div class="main-content-buyer">
-        <div id="back-arrow">
-            <span class="material-symbols-rounded" onclick="window.location.href='../html/buyerlist.html'">keyboard_backspace</span>
-        </div>
-        <div class="main-scroll">
-            <div class="link-scroll">
-                <ul>
-                    <li><a href="#overview-part">OVERVIEW</a></li>
-                    <li><a href="#more-details-part">MORE DETAILS</a></li>
-                    <li><a href="#local-insights-part">LOCAL INSIGHTS</a></li>
-                    <li><a href="#recommendations-part">RECOMMENDATIONS</a></li>
-                    <li><a href="#review-part">REVIEWS</a></li>
-                </ul>
-            </div>
-        </div>
-        <div id="reportModal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <h2 class="report-head">Report Property</h2>
-                <p>Please select the reason for reporting this property:</p>
-                
-                <div class="check">
-                    <label><input type="checkbox" value="Duplicate Property"> Duplicate Property</label>
-                    <label><input type="checkbox" value="Fake Listing"> Fake Listing</label>
-                    <label><input type="checkbox" value="Sold"> Sold</label>
-                    <label><input type="checkbox" value="Not Approved"> Not Approved</label>
-                    <label><input type="checkbox" value="Illegal Listing"> Illegal Listing</label>
+        <div class="nav-sections">
+            <section class="single-section">
+                <div class="nav-contractor contractornavigation">List Your Business</div>
+            </section>
+            <section class="single-section">
+                <div class="nav-builder buildernavigation">For Builder</div>
+            </section>
+            <secction class="single-section">
+                <div class="nav-postproperty">Post Property</div>
+            </secction>
+            <section class="single-section">
+                <div class="all-hover-heading" id="customer-hover-heading">
+                    <div class="nav-findcontractor customercontractornavigation">Find Contractor/ Builder</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
                 </div>
-                
-                <p>If you have any additional issues to report, please describe them below:</p>
-                <textarea id="issueDescription" rows="4" placeholder="Enter details about the issue..."></textarea>
-                
-                <div>
-                    <button id="confirmReport">Report</button>
-                    <button id="cancelReport">Cancel</button>
+                <div class="all-hover" id="customer-hover">
+                  <div class="hover-content-main">
+                      <div class="hover-content">
+                          <div class="hover-heading">
+                              <span class="material-symbols-rounded" id="house">engineering</span>
+                              <div onclick="window.location.href = '../html/customercontractorlist.html'">GET CONTRACTORS BASED ON YOUR PROPERTY TYPE</div>
+                          </div>
+                          <div class="hover-tags">
+                              <ul>
+                                  <li><a href="#" class="customercontractornavigation">Building Remodulation</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Independent House/ Villa</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Residential Apartment</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Serviced Apartment</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Industry Complex</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Commercial</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Farm House</a></li>
+                                  <li><a href="#" class="customercontractornavigation">Venture Development</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="scroll-part">
-            <div id="overview-part" class="section-part">
-                <div class="headandreport">
-                    <div class="overview-heading">OVERVIEW</div>
-                    <div class="report" id="reportButton">Report</div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading" id="buyer-hover-heading">
+                    <div class="nav-buyer buyerhomenavigation">For Buyer</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
                 </div>
-                <div class="explore">
-                    <div class="left">
-                        <div class="image-section">
-                            <div class="main-image">
-                                <img src="../assets/Aparna1.png" alt="Main Image" id="main-img">
-                                
-                                <!-- Navigation Arrows -->
-                                <button class="prev-btn" onclick="prevImage()">&#10094;</button>
-                                <button class="next-btn" onclick="nextImage()">&#10095;</button>
+                <div class="all-hover" id="buyer-hover">
+                    <div class="hover-content-main">
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="house">house</span>
+                                <div class="buyernavigation">RESIDENTIAL</div>
                             </div>
-                            <div class="next-images">
-                                <div class="next">
-                                    <img src="../assets/Aparna2.png" alt="Image 2" onclick="changeImage('../assets/Aparna2.png')">
-                                </div>
-                                <div class="next">
-                                    <img src="../assets/Aparna3.png" alt="Image 3" onclick="changeImage('../assets/Aparna3.png')">
-                                </div>
-                                <div class="next">
-                                    <img src="../assets/Aparna4.png" alt="Image 4" onclick="changeImage('../assets/Aparna4.png')">
-                                </div>
+                            <div class="hover-tags ">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Single-Family Home</a></li>
+                                    <li class="buyernavigation"><a href="#">Multi-Family Home</a></li>
+                                    <li class="buyernavigation"><a href="#">Townhouse</a></li>
+                                    <li class="buyernavigation"><a href="#">Duplex</a></li>
+                                    <li class="buyernavigation"><a href="#">Bungalow</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="apartment">apartment</span>
+                                <div class="buyernavigation">APARTMENT</div>
+                            </div>
+                            <div class="hover-tags ">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Furnished Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Unfurnished Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Studio Apartment</a></li>
+                                    <li class="buyernavigation"><a href="#">Duplex</a></li>
+                                    <li class="buyernavigation"><a href="#">Bungalow</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="storefront">storefront</span>
+                                <div class="buyernavigation">COMMERCIAL</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Office Spaces</a></li>
+                                    <li class="buyernavigation"><a href="#">Standalone Stores</a></li>
+                                    <li class="buyernavigation"><a href="#">Shopping Complex</a></li>
+                                    <li class="buyernavigation"><a href="#">Industrial Property</a></li>
+                                    <li class="buyernavigation"><a href="#">Hotels and Restaurants</a></li>
+                                    <li class="buyernavigation"><a href="#">Lodging</a></li>
+                                    <li class="buyernavigation"><a href="#">Healthcare Facilities</a></li>
+                                    <li class="buyernavigation"><a href="#">Infrastructure</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="houseboat">houseboat</span>
+                                <div class="buyernavigation">VILLAS</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Luxury Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Beach Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Modern Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Traditional Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Private Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Eco-Friendly Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Garden Villa</a></li>
+                                    <li class="buyernavigation"><a href="#">Pool Villa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hover-content">
+                            <div class="hover-heading">
+                                <span class="material-symbols-rounded" id="nature-people">nature_people</span>
+                                <div class="buyernavigation">LAND</div>
+                            </div>
+                            <div class="hover-tags">
+                                <ul>
+                                    <li class="buyernavigation"><a href="#">Residential Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Commercial Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Mixed used Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Agricultural/ Farm Land</a></li>
+                                    <li class="buyernavigation"><a href="#">Industrial Land</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
             
-                    <div class="right">
-                        <div class="details-section">
-                            <div class="header-section">
-                                <div class="building-heading">
-                                    <div class="building-name">Aparna </div>
-                                    <div class="book-share">
-                                        <div class="book">
-                                            <button class="like-btn not-liked">
-                                                <span class="material-symbols-rounded">favorite</span>                            
-                                            </button>
-                                        </div>
-                                        <div class="share" id="shareButton">
-                                            <span class="material-symbols-rounded">ios_share</span>
-                                            <span>Share</span>
-                                        </div>
-                                        <div class="modal-content1" id="modalContent">
-                                            <div class="social-group">
-                                                <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                                <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                                <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                                <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                                <div class="copy-content">
-                                                    <input type="text" id="inputField1" value="https://google.com" />
-                                                    <button class="copyButton">Copy</button>
-                                                </div>
-                                                <span class="close" id="closeModal">&times;</span>
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                </div>
-                                <div class="building-price">
-                                    <div class="price">₹ 1.2 Cr</div> <hr>
-                                    <div class="price-unit">2,800 sqft</div> <hr>
-                                    <div class="typeof">3BHK</div>
-                                </div>
-                                <hr>
-                                <div class="building-deatils">
-                                    <div class="posted bd"><span class="material-symbols-rounded">post_add</span><div class="post-text texted">Posted On: 08/10/2024</div></div> <hr>
-                                    <div class="constructed bd"><span class="material-symbols-rounded">construction</span><div class="constructed-text texted">Constructed Year: 2018</div></div> <hr>
-                                    <div class="available bd"><span class="material-symbols-rounded">event_available</span><div class="avaliable-text texted">Immediate Available: <div class="yesno">Yes</div></div></div>
-                                </div>
-                            </div>
-                            <div class="highlights">
-                                <div class="highlight-head">Highlights: </div>
-                                <div class="highlight">
-                                    <div class="highlight-text">Gated Society</div>
-                                    <div class="highlight-text">Near Airport</div>
-                                </div>
-                            </div>
-                            <div class="overview-section">
-                                <div class="box-head">Property Overview</div>
-                                <div class="overview-grid">
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">bed</span>
-                                        <span>3 Bedroom</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">shower</span>
-                                        <span>2 Washroom</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">table_restaurant</span>
-                                        <span>1 Dining Hall</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">balcony</span>
-                                        <span>2 balcony</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">temple_hindu</span>
-                                        <span>1 Pooja Room</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">floor</span>
-                                        <span>3 Floor</span>
-                                    </div>
-                                </div>
-                            </div>
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-agent">For Agent</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+            <section class="single-section">
+                <div class="all-hover-heading">
+                    <div class="nav-tenants">For Tenants</div>
+                    <span class="material-symbols-rounded">keyboard_arrow_down</span>
+                </div>
+            </section>
+        </div>
+        <div class="nav-main-profile">
+            <div id="nav-profile-heading">
+              <span class="nav-profile">Login</span>
+              <span class="material-symbols-rounded">keyboard_arrow_down</span>
+            </div>
+            <div class="nav-login-hover">
+              <div class="myactivity-heading">
+                <span id="myactivity-main-click" class="my-activity-main-click">My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li id="search-activity">Search Activity</li>
+                  <li id="recently-browsed">Recently Browsed</li>
+                  <li id="shortlisted">Shortlisted</li>
+                  <li id="recently-contacted">Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-login show-popup">Login/ Register</div>
+            </div>
+            <div class="nav-logout-hover">
+              <div class="myactivity-heading">
+                <span>My Activity</span>
+                <span></span>
+              </div>
+              <div class="myactivity-list">
+                <ul>
+                  <li>Search Activity</li>
+                  <li>Recently Browsed</li>
+                  <li>Shortlisted</li>
+                  <li>Recently Contacted</li>
+                </ul>
+              </div>
+              <div class="myactivity-change-user-type" id="changeUserTypeBtn">Change User Type</div>
+              <div class="my-profile-link">My Profile</div>
+              <div class="myactivity-logout"><span class="material-symbols-rounded">logout</span>Logout</div>
+            </div>
+        </div>
+         <!-- Modal for User Type Change -->
+        <div id="userTypeModal" class="modal">
+          <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <h3>Change User Type</h3>
+          <form id="userTypeForm">
+              <div class="radio-buttons">
+              <label>
+                  <input type="radio" name="userType" value="Buyer" checked /> Buyer
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Seller" /> Seller
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Agent" /> Agent
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Contractor" /> Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Find-contractor" /> Find Contractor
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Tenant" /> Tenant
+              </label>
+              <label>
+                  <input type="radio" name="userType" value="Renter" /> Renter
+              </label>
+              </div>
+              <button type="button" id="changeUserTypeButton" class="change-usertype-popup">Change User Type</button>
+          </form>
+      
+          <!-- OTP Verification Section (Hidden initially) -->
+          <div id="otpSection" style="display: none;">
+              <p>OTP verification</p>
+              <span>Mobile Number: </span>
+              <span id="mobileNumber">8123205422</span>
+              <button id="editMobileBtn">Edit</button>
+              <br />
+              <input type="text" id="otpInput" placeholder="Enter OTP" />
+              <button id="verifyOtpBtn">Verify OTP</button>
+          </div>
+          </div>
+        </div>
+        <div class="main-menus">
+            <span class="material-symbols-rounded" id="menu">grid_view</span>
+            <div class="main-menu-contents">
+                <span class="close-menu" id="close-menu">×</span>
+                <div class="main-menu-login">
+                    <img src="../assets/profile.jpg" alt="">
+                    <span id="sidebar-login">LOGIN/ REGISTER</span>
+                </div>
+                <div  id="change-user-type-side" class="change-usertype-popup">Change User Type</div>
+                <div class="menu-bar-allcontents">
+                    <div class="text-our-services">Our Services</div>
+                <div class="menu-other-services">
+                    <div class="contractornavigation">List Your Business</div>
+                    <div>For Builder</div>
+                    <div>Post Property</div>
+                </div>
+                <div class="text-our-services">Our Other Services</div>
+                <div class="menu-options">
+                    <ul>
+                        <li class="customercontractornavigation">
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div >Find Contractor/ Builder</div>
+                        </li>
+                        <li class="buyerhomenavigation">
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Buyer</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Agent</div>
+                        </li>
+                        <li>
+                            <span class="material-symbols-rounded">arrow_right</span>
+                            <div>For Tenants</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-other-options">
+                    <div class="my-activity-main-click">My Activity</div>
+                    <div class="about-us-sidebar">About Us</div>
+                    <div id="contactus-link">Contact Us</div>
+                </div>
+                <div id="myactivity-logout-side"><span class="material-symbols-rounded">logout</span>Logout</div>
+                </div>
+
+                <!-- Contact Us Modal -->
+                <div id="contactModal" class="contactus-modal">
+                    <div class="contactus-modal-content">
+                        <div class="close-contactus">&times;</div>
+                        <h2>Contact Us</h2>
+                        <form id="contactForm">
+                            <label for="fullname">Full Name:</label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Enter your Full Name" required>
                             
-                            <div class="overview-section">
-                                <div class="box-head">Amenities & Property Features</div>
-                                <div class="overview-grid">
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">local_parking</span>
-                                        <span>Parking</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">pool</span>
-                                        <span>Swimming Pool</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">fitness_center</span>
-                                        <span>Gym</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">sports_and_outdoors</span>
-                                        <span>playground</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">water</span>
-                                        <span>Water</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">wifi</span>
-                                        <span>Internet</span>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <!-- <div class="overview-section">
-                                <div class="box-head">Neighborhood Features</div>
-                                <div class="overview-grid">
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">nature_people</span>
-                                        <span>Park</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">school</span>
-                                        <span>School</span>
-                                    </div>
-                                    <div class="overview-item">
-                                        <span class="material-symbols-rounded">shopping_cart</span>
-                                        <span>Shopping</span>
-                                    </div>
-                                </div>
-                            </div> -->
-                        </div>
+                            <label for="mobile">Mobile Number:</label>
+                            <input type="text" id="mobile" name="mobile" placeholder="Enter your Mobile Number" required>
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                            
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" placeholder="Enter Message" required></textarea>
+                            <div id="errorMessages"></div>
+                            <span id="sendButton">Send</span>
+                        </form>
                     </div>
                 </div>
-                <div class="interested"><div class="interest-text">"Found the one? Reach out to the owner - simply click </div><div class="interest-btn" onclick="window.location.href='buyergetintouch.html'">Interested</div></div>
+
             </div>
-        
-            <div id="more-details-part" class="section-part">
-                <div class="overview-heading">MORE DETAILS</div>
-                <div class="explore">
-                    <div class="left">
-                        <div class="more-details-box">
-                            <div class="detail-upper">
-                                <div class="detail">
-                                    <div class="detail-type">Price Breakup :</div><div class="ans">₹ 1.2 Cr</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Booking Amount :</div><div class="ans">₹ 25.0 Lac</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Direction of the property :</div><div class="ans">east facing</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Pet Policy :</div><div class="ans">Pets Allowed (with deposit)</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Visitors parking :</div><div class="ans">yes</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Surveillance cameras :</div><div class="ans">yes</div>
-                                </div>
-                                <div class="detail">
-                                    <div class="detail-type">Club house/community centre :</div><div class="ans">yes</div>
-                                </div>
-                                <div class="description-text">
-                                    <div class="descp-head">Description</div>
-                                    <p>Aparna Sarovar Zenith’s ready to move in 2, 3, and 4 BHK under-construction Gated Community Apartments in Nallagandla on Sale by Aparna Constructions. Nallagandla is one of the fast-developing areas of Hyderabad with close proximity to Gachibowli, the Financial District, and HiTech City.</p> 
-                                </div>
-                            </div>
-                        </div>
+        </div> 
+    </nav>
+    <!-- Top nav bar -->
+    <div class="main-content-buyer">
+        <div class="main-content">
+            <div id="back-arrow">
+                <span class="material-symbols-rounded" onclick="window.location.href='../html/buyerlist.html'">keyboard_backspace</span>
+            </div>
+            <div class="main-scroll">
+                <div class="link-scroll">
+                    <ul>
+                        <li><a href="#overview-part">OVERVIEW</a></li>
+                        <li><a href="#more-details-part">MORE DETAILS</a></li>
+                        <li><a href="#local-insights-part">LOCAL INSIGHTS</a></li>
+                        <li><a href="#recommendations-part">RECOMMENDATIONS</a></li>
+                        <li><a href="#review-part">REVIEWS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="reportModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2 class="report-head">Report Property</h2>
+                    <p>Please select the reason for reporting this property:</p>
+                    
+                    <div class="check">
+                        <label><input type="checkbox" value="Duplicate Property"> Duplicate Property</label>
+                        <label><input type="checkbox" value="Fake Listing"> Fake Listing</label>
+                        <label><input type="checkbox" value="Sold"> Sold</label>
+                        <label><input type="checkbox" value="Not Approved"> Not Approved</label>
+                        <label><input type="checkbox" value="Illegal Listing"> Illegal Listing</label>
                     </div>
-                    <div class="right">
-                        <div class="address-section">
-                            <div class="address-text">
-                                Address: Kanchi Gachibowli Road, Nallagandla, Serilingampally, Hyderabad, Telangana 500019
-                            </div>
-                            <div class="map-location">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8677298675616!2d78.30951387390789!3d17.466043800536873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb92df17d7857f%3A0xb2ece2980e72a9cb!2sAparna%20Sarovar%20Zenith!5e0!3m2!1sen!2sin!4v1729857469705!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                        </div>
+                    
+                    <p>If you have any additional issues to report, please describe them below:</p>
+                    <textarea id="issueDescription" rows="4" placeholder="Enter details about the issue..."></textarea>
+                    
+                    <div>
+                        <button id="confirmReport">Report</button>
+                        <button id="cancelReport">Cancel</button>
                     </div>
                 </div>
             </div>
-        
-            <div id="local-insights-part" class="section-part">
-                <div class="overview-heading">LOCAL INSIGHTS</div>
-                <div class="local">
-                    <div class="totalinsights">All these features available within 5kms from our property</div>
-                    <div class="listofinsights">
-                            <div class="insights">
-                                <div class="insight-head">Vibrant Community:</div>
-                                <div class="insight-ans"> <div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Convenient Amenities:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Educational Institutions:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Public Transport:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Recreational Spaces:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Cultural Attractions:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/no.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Safety and Security:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
-                            </div>
-                            <div class="insights">
-                                <div class="insight-head">Healthcare Facilities:</div>
-                                <div class="insight-ans"><div class="insight-img"><img src="../assets/no.png" alt=""></div></div>
-                            </div>
+    
+            <div class="scroll-part">
+                <div id="overview-part" class="section-part">
+                    <div class="headandreport">
+                        <div class="overview-heading">OVERVIEW</div>
+                        <div class="report" id="reportButton">Report</div>
                     </div>
-                </div>
-            </div>
-        
-            <div id="recommendations-part" class="section-part">
-                <div class="overview-heading">RECOMMENDATIONS</div>
-                <div class="slider">
-                    <button class="slider-buttons leftside" onclick="moveSlide(-1)">&#10094;</button>
-                    <div class="buyerlist">
-                        <article class="singleproperty">
-                            <div class="imageview">
-                                <img src="../assets/marine1.jpg" alt="">
-                            </div>
-                            <div class="property-desc">
-                                <div class="prop-icons">
-                                    <div class="available">
-                                        <span>Available</span>
+                    <div class="explore">
+                        <div class="left">
+                            <div class="image-section">
+                                <div class="main-image">
+                                    <img src="../assets/Aparna1.png" alt="Main Image" id="main-img">
+                                    
+                                    <!-- Navigation Arrows -->
+                                    <button class="prev-btn" onclick="prevImage()">&#10094;</button>
+                                    <button class="next-btn" onclick="nextImage()">&#10095;</button>
+                                </div>
+                                <div class="next-images">
+                                    <div class="next">
+                                        <img src="../assets/Aparna2.png" alt="Image 2" onclick="changeImage('../assets/Aparna2.png')">
                                     </div>
-                                    <div class="main-share">
-                                        <div class="bookmark">
-                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                    <div class="next">
+                                        <img src="../assets/Aparna3.png" alt="Image 3" onclick="changeImage('../assets/Aparna3.png')">
+                                    </div>
+                                    <div class="next">
+                                        <img src="../assets/Aparna4.png" alt="Image 4" onclick="changeImage('../assets/Aparna4.png')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="right">
+                            <div class="details-section">
+                                <div class="header-section">
+                                    <div class="building-heading">
+                                        <div class="building-name">Aparna </div>
+                                        <div class="book-share">
+                                            <div class="book">
+                                                <button class="like-btn not-liked">
+                                                    <span class="material-symbols-rounded">favorite</span>                            
+                                                </button>
+                                            </div>
+                                            <div class="share" id="shareButton">
+                                                <span class="material-symbols-rounded">ios_share</span>
+                                                <span>Share</span>
+                                            </div>
+                                            <div class="modal-content1" id="modalContent">
+                                                <div class="social-group">
+                                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
+                                                    <div class="copy-content">
+                                                        <input type="text" id="inputField1" value="https://google.com" />
+                                                        <button class="copyButton">Copy</button>
+                                                    </div>
+                                                    <span class="close" id="closeModal">&times;</span>
+                                                </div>
+                                            </div>                                    
+                                        </div>
+                                    </div>
+                                    <div class="building-price">
+                                        <div class="price">₹ 1.2 Cr</div> <hr>
+                                        <div class="price-unit">2,800 sqft</div> <hr>
+                                        <div class="typeof">3BHK</div>
+                                    </div>
+                                    <hr>
+                                    <div class="building-deatils">
+                                        <div class="posted bd"><span class="material-symbols-rounded">post_add</span><div class="post-text texted">Posted On: 08/10/2024</div></div> <hr>
+                                        <div class="constructed bd"><span class="material-symbols-rounded">construction</span><div class="constructed-text texted">Constructed Year: 2018</div></div> <hr>
+                                        <div class="available bd"><span class="material-symbols-rounded">event_available</span><div class="avaliable-text texted">Immediate Available: <div class="yesno">Yes</div></div></div>
+                                    </div>
+                                </div>
+                                <div class="highlights">
+                                    <div class="highlight-head">Highlights: </div>
+                                    <div class="highlight">
+                                        <div class="highlight-text">Gated Society</div>
+                                        <div class="highlight-text">Near Airport</div>
+                                    </div>
+                                </div>
+                                <div class="overview-section">
+                                    <div class="box-head">Property Overview</div>
+                                    <div class="overview-grid">
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">bed</span>
+                                            <span>3 Bedroom</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">shower</span>
+                                            <span>2 Washroom</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">table_restaurant</span>
+                                            <span>1 Dining Hall</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">balcony</span>
+                                            <span>2 balcony</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">temple_hindu</span>
+                                            <span>1 Pooja Room</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">floor</span>
+                                            <span>3 Floor</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="prop-head">
-                                    <span>Vijay Residential</span>
-                                    <span id="line"></span>
-                                    <span>2BHK</span>
+                                
+                                <div class="overview-section">
+                                    <div class="box-head">Amenities & Property Features</div>
+                                    <div class="overview-grid">
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">local_parking</span>
+                                            <span>Parking</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">pool</span>
+                                            <span>Swimming Pool</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">fitness_center</span>
+                                            <span>Gym</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">sports_and_outdoors</span>
+                                            <span>playground</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">water</span>
+                                            <span>Water</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">wifi</span>
+                                            <span>Internet</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="prop-addr">
-                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+            
+                                <!-- <div class="overview-section">
+                                    <div class="box-head">Neighborhood Features</div>
+                                    <div class="overview-grid">
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">nature_people</span>
+                                            <span>Park</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">school</span>
+                                            <span>School</span>
+                                        </div>
+                                        <div class="overview-item">
+                                            <span class="material-symbols-rounded">shopping_cart</span>
+                                            <span>Shopping</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="interested"><div class="interest-text">"Found the one? Reach out to the owner - simply click </div><div class="interest-btn" onclick="window.location.href='buyergetintouch.html'">Interested</div></div>
+                </div>
+            
+                <div id="more-details-part" class="section-part">
+                    <div class="overview-heading">MORE DETAILS</div>
+                    <div class="explore">
+                        <div class="left">
+                            <div class="more-details-box">
+                                <div class="detail-upper">
+                                    <div class="detail">
+                                        <div class="detail-type">Price Breakup :</div><div class="ans">₹ 1.2 Cr</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Booking Amount :</div><div class="ans">₹ 25.0 Lac</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Direction of the property :</div><div class="ans">east facing</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Pet Policy :</div><div class="ans">Pets Allowed (with deposit)</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Visitors parking :</div><div class="ans">yes</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Surveillance cameras :</div><div class="ans">yes</div>
+                                    </div>
+                                    <div class="detail">
+                                        <div class="detail-type">Club house/community centre :</div><div class="ans">yes</div>
+                                    </div>
+                                    <div class="description-text">
+                                        <div class="descp-head">Description</div>
+                                        <p>Aparna Sarovar Zenith’s ready to move in 2, 3, and 4 BHK under-construction Gated Community Apartments in Nallagandla on Sale by Aparna Constructions. Nallagandla is one of the fast-developing areas of Hyderabad with close proximity to Gachibowli, the Financial District, and HiTech City.</p> 
+                                    </div>
                                 </div>
-                                <div class="prop-price-sqrt">
-                                    <div class="sub">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="address-section">
+                                <div class="address-text">
+                                    Address: Kanchi Gachibowli Road, Nallagandla, Serilingampally, Hyderabad, Telangana 500019
+                                </div>
+                                <div class="map-location">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8677298675616!2d78.30951387390789!3d17.466043800536873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb92df17d7857f%3A0xb2ece2980e72a9cb!2sAparna%20Sarovar%20Zenith!5e0!3m2!1sen!2sin!4v1729857469705!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div id="local-insights-part" class="section-part">
+                    <div class="overview-heading">LOCAL INSIGHTS</div>
+                    <div class="local">
+                        <div class="totalinsights">All these features available within 5kms from our property</div>
+                        <div class="listofinsights">
+                                <div class="insights">
+                                    <div class="insight-head">Vibrant Community:</div>
+                                    <div class="insight-ans"> <div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Convenient Amenities:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Educational Institutions:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Public Transport:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Recreational Spaces:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Cultural Attractions:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/no.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Safety and Security:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/yes.png" alt=""></div></div>
+                                </div>
+                                <div class="insights">
+                                    <div class="insight-head">Healthcare Facilities:</div>
+                                    <div class="insight-ans"><div class="insight-img"><img src="../assets/no.png" alt=""></div></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div id="recommendations-part" class="section-part">
+                    <div class="overview-heading">RECOMMENDATIONS</div>
+                    <div class="slider">
+                        <button class="slider-buttons leftside" onclick="moveSlide(-1)">&#10094;</button>
+                        <div class="buyerlist">
+                            <article class="singleproperty">
+                                <div class="imageview">
+                                    <img src="../assets/marine1.jpg" alt="">
+                                </div>
+                                <div class="property-desc">
+                                    <div class="prop-icons">
+                                        <div class="available">
+                                            <span>Available</span>
+                                        </div>
+                                        <div class="main-share">
+                                            <div class="bookmark">
+                                                <span class="material-symbols-rounded like-btn">favorite</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prop-head">
+                                        <span>Vijay Residential</span>
+                                        <span id="line"></span>
+                                        <span>2BHK</span>
+                                    </div>
+                                    <div class="prop-addr">
+                                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                                    </div>
+                                    <div class="prop-price-sqrt">
+                                        <div class="sub">
+                                            <div class="single-prop-det price">
+                                            <span class="heading">Price: </span>
+                                            <span class="material-symbols-rounded">currency_rupee</span>
+                                            <span>50 L</span>
+                                            </div>
+                                            <div class="single-prop-det area">
+                                                <span class="heading">Area: </span>
+                                                <span>200 Sqft</span>
+                                            </div>
+                                        </div>
+                                        <div class="single-prop-det feature">
+                                            <span class="heading">Features: </span>
+                                            <span>Gym, Internet</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="prop-explore">
+                                        <div class="prop-posted">
+                                            <span>Posted On: 15/08/2024</span>
+                                        </div>
+                                        <div class="exp">
+                                            <span class="material-symbols-rounded">travel_explore</span>
+                                            <span>Explore</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="singleproperty">
+                                <div class="imageview">
+                                    <img src="../assets/green2.png" alt="">
+                                </div>
+                                <div class="property-desc">
+                                    <div class="prop-icons">
+                                        <div class="available">
+                                            <span>Available</span>
+                                        </div>
+                                        <div class="main-share">
+                                            <div class="bookmark">
+                                                <span class="material-symbols-rounded like-btn">favorite</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="prop-head">
+                                        <span>Vijay Residential</span>
+                                        <span id="line"></span>
+                                        <span>2BHK</span>
+                                    </div>
+                                    <div class="prop-addr">
+                                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                                    </div>
+                                    <div class="prop-price-sqrt">
                                         <div class="single-prop-det price">
-                                        <span class="heading">Price: </span>
-                                        <span class="material-symbols-rounded">currency_rupee</span>
-                                        <span>50 L</span>
+                                            <span class="heading">Price: </span>
+                                            <span class="material-symbols-rounded">currency_rupee</span>
+                                            <span>50 L</span>
                                         </div>
                                         <div class="single-prop-det area">
                                             <span class="heading">Area: </span>
                                             <span>200 Sqft</span>
                                         </div>
+                                        <div class="single-prop-det feature">
+                                            <span class="heading">Features: </span>
+                                            <span>Gym, Internet</span>
+                                        </div>
                                     </div>
-                                    <div class="single-prop-det feature">
-                                        <span class="heading">Features: </span>
-                                        <span>Gym, Internet</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="prop-explore">
-                                    <div class="prop-posted">
-                                        <span>Posted On: 15/08/2024</span>
-                                    </div>
-                                    <div class="exp">
-                                        <span class="material-symbols-rounded">travel_explore</span>
-                                        <span>Explore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="singleproperty">
-                            <div class="imageview">
-                                <img src="../assets/green2.png" alt="">
-                            </div>
-                            <div class="property-desc">
-                                <div class="prop-icons">
-                                    <div class="available">
-                                        <span>Available</span>
-                                    </div>
-                                    <div class="main-share">
-                                        <div class="bookmark">
-                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                    
+                                    <div class="prop-explore">
+                                        <div class="prop-posted">
+                                            <span>Posted On: 15/08/2024</span>
+                                        </div>
+                                        <div class="exp">
+                                            <span class="material-symbols-rounded">travel_explore</span>
+                                            <span>Explore</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="prop-head">
-                                    <span>Vijay Residential</span>
-                                    <span id="line"></span>
-                                    <span>2BHK</span>
+                            </article>
+                            <article class="singleproperty">
+                                <div class="imageview">
+                                    <img src="../assets/AparnaSarovar1.png" alt="">
                                 </div>
-                                <div class="prop-addr">
-                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                                </div>
-                                <div class="prop-price-sqrt">
-                                    <div class="single-prop-det price">
-                                        <span class="heading">Price: </span>
-                                        <span class="material-symbols-rounded">currency_rupee</span>
-                                        <span>50 L</span>
+                                <div class="property-desc">
+                                    <div class="prop-icons">
+                                        <div class="available">
+                                            <span>Available</span>
+                                        </div>
+                                        <div class="main-share">
+                                            <div class="bookmark">
+                                                <span class="material-symbols-rounded like-btn">favorite</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="single-prop-det area">
-                                        <span class="heading">Area: </span>
-                                        <span>200 Sqft</span>
+                                    <div class="prop-head">
+                                        <span>Vijay Residential</span>
+                                        <span id="line"></span>
+                                        <span>2BHK</span>
                                     </div>
-                                    <div class="single-prop-det feature">
-                                        <span class="heading">Features: </span>
-                                        <span>Gym, Internet</span>
+                                    <div class="prop-addr">
+                                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                     </div>
-                                </div>
-                                
-                                <div class="prop-explore">
-                                    <div class="prop-posted">
-                                        <span>Posted On: 15/08/2024</span>
+                                    <div class="prop-price-sqrt">
+                                        <div class="single-prop-det price">
+                                            <span class="heading">Price: </span>
+                                            <span class="material-symbols-rounded">currency_rupee</span>
+                                            <span>50 L</span>
+                                        </div>
+                                        <div class="single-prop-det area">
+                                            <span class="heading">Area: </span>
+                                            <span>200 Sqft</span>
+                                        </div>
+                                        <div class="single-prop-det feature">
+                                            <span class="heading">Features: </span>
+                                            <span>Gym, Internet</span>
+                                        </div>
                                     </div>
-                                    <div class="exp">
-                                        <span class="material-symbols-rounded">travel_explore</span>
-                                        <span>Explore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="singleproperty">
-                            <div class="imageview">
-                                <img src="../assets/AparnaSarovar1.png" alt="">
-                            </div>
-                            <div class="property-desc">
-                                <div class="prop-icons">
-                                    <div class="available">
-                                        <span>Available</span>
-                                    </div>
-                                    <div class="main-share">
-                                        <div class="bookmark">
-                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                    
+                                    <div class="prop-explore">
+                                        <div class="prop-posted">
+                                            <span>Posted On: 15/08/2024</span>
+                                        </div>
+                                        <div class="exp">
+                                            <span class="material-symbols-rounded">travel_explore</span>
+                                            <span>Explore</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="prop-head">
-                                    <span>Vijay Residential</span>
-                                    <span id="line"></span>
-                                    <span>2BHK</span>
+                            </article>
+                            <article class="singleproperty">
+                                <div class="imageview">
+                                    <img src="../assets/cust1.jpeg" alt="">
                                 </div>
-                                <div class="prop-addr">
-                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                                </div>
-                                <div class="prop-price-sqrt">
-                                    <div class="single-prop-det price">
-                                        <span class="heading">Price: </span>
-                                        <span class="material-symbols-rounded">currency_rupee</span>
-                                        <span>50 L</span>
+                                <div class="property-desc">
+                                    <div class="prop-icons">
+                                        <div class="available">
+                                            <span>Available</span>
+                                        </div>
+                                        <div class="main-share">
+                                            <div class="bookmark">
+                                                <span class="material-symbols-rounded like-btn">favorite</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="single-prop-det area">
-                                        <span class="heading">Area: </span>
-                                        <span>200 Sqft</span>
+                                    <div class="prop-head">
+                                        <span>Vijay Residential</span>
+                                        <span id="line"></span>
+                                        <span>2BHK</span>
                                     </div>
-                                    <div class="single-prop-det feature">
-                                        <span class="heading">Features: </span>
-                                        <span>Gym, Internet</span>
+                                    <div class="prop-addr">
+                                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                     </div>
-                                </div>
-                                
-                                <div class="prop-explore">
-                                    <div class="prop-posted">
-                                        <span>Posted On: 15/08/2024</span>
+                                    <div class="prop-price-sqrt">
+                                        <div class="single-prop-det price">
+                                            <span class="heading">Price: </span>
+                                            <span class="material-symbols-rounded">currency_rupee</span>
+                                            <span>50 L</span>
+                                        </div>
+                                        <div class="single-prop-det area">
+                                            <span class="heading">Area: </span>
+                                            <span>200 Sqft</span>
+                                        </div>
+                                        <div class="single-prop-det feature">
+                                            <span class="heading">Features: </span>
+                                            <span>Gym, Internet</span>
+                                        </div>
                                     </div>
-                                    <div class="exp">
-                                        <span class="material-symbols-rounded">travel_explore</span>
-                                        <span>Explore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="singleproperty">
-                            <div class="imageview">
-                                <img src="../assets/cust1.jpeg" alt="">
-                            </div>
-                            <div class="property-desc">
-                                <div class="prop-icons">
-                                    <div class="available">
-                                        <span>Available</span>
-                                    </div>
-                                    <div class="main-share">
-                                        <div class="bookmark">
-                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                    
+                                    <div class="prop-explore">
+                                        <div class="prop-posted">
+                                            <span>Posted On: 15/08/2024</span>
+                                        </div>
+                                        <div class="exp">
+                                            <span class="material-symbols-rounded">travel_explore</span>
+                                            <span>Explore</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="prop-head">
-                                    <span>Vijay Residential</span>
-                                    <span id="line"></span>
-                                    <span>2BHK</span>
+                            </article>
+                            <article class="singleproperty">
+                                <div class="imageview">
+                                    <img src="../assets/Aparna1.png" alt="">
                                 </div>
-                                <div class="prop-addr">
-                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                                </div>
-                                <div class="prop-price-sqrt">
-                                    <div class="single-prop-det price">
-                                        <span class="heading">Price: </span>
-                                        <span class="material-symbols-rounded">currency_rupee</span>
-                                        <span>50 L</span>
+                                <div class="property-desc">
+                                    <div class="prop-icons">
+                                        <div class="available">
+                                            <span>Available</span>
+                                        </div>
+                                        <div class="main-share">
+                                            <div class="bookmark">
+                                                <span class="material-symbols-rounded like-btn">favorite</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="single-prop-det area">
-                                        <span class="heading">Area: </span>
-                                        <span>200 Sqft</span>
+                                    <div class="prop-head">
+                                        <span>Vijay Residential</span>
+                                        <span id="line"></span>
+                                        <span>2BHK</span>
                                     </div>
-                                    <div class="single-prop-det feature">
-                                        <span class="heading">Features: </span>
-                                        <span>Gym, Internet</span>
+                                    <div class="prop-addr">
+                                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
                                     </div>
-                                </div>
-                                
-                                <div class="prop-explore">
-                                    <div class="prop-posted">
-                                        <span>Posted On: 15/08/2024</span>
+                                    <div class="prop-price-sqrt">
+                                        <div class="single-prop-det price">
+                                            <span class="heading">Price: </span>
+                                            <span class="material-symbols-rounded">currency_rupee</span>
+                                            <span>50 L</span>
+                                        </div>
+                                        <div class="single-prop-det area">
+                                            <span class="heading">Area: </span>
+                                            <span>200 Sqft</span>
+                                        </div>
+                                        <div class="single-prop-det feature">
+                                            <span class="heading">Features: </span>
+                                            <span>Gym, Internet</span>
+                                        </div>
                                     </div>
-                                    <div class="exp">
-                                        <span class="material-symbols-rounded">travel_explore</span>
-                                        <span>Explore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="singleproperty">
-                            <div class="imageview">
-                                <img src="../assets/Aparna1.png" alt="">
-                            </div>
-                            <div class="property-desc">
-                                <div class="prop-icons">
-                                    <div class="available">
-                                        <span>Available</span>
-                                    </div>
-                                    <div class="main-share">
-                                        <div class="bookmark">
-                                            <span class="material-symbols-rounded like-btn">favorite</span>
+                                    
+                                    <div class="prop-explore">
+                                        <div class="prop-posted">
+                                            <span>Posted On: 15/08/2024</span>
+                                        </div>
+                                        <div class="exp">
+                                            <span class="material-symbols-rounded">travel_explore</span>
+                                            <span>Explore</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="prop-head">
-                                    <span>Vijay Residential</span>
-                                    <span id="line"></span>
-                                    <span>2BHK</span>
-                                </div>
-                                <div class="prop-addr">
-                                    <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                                </div>
-                                <div class="prop-price-sqrt">
-                                    <div class="single-prop-det price">
-                                        <span class="heading">Price: </span>
-                                        <span class="material-symbols-rounded">currency_rupee</span>
-                                        <span>50 L</span>
-                                    </div>
-                                    <div class="single-prop-det area">
-                                        <span class="heading">Area: </span>
-                                        <span>200 Sqft</span>
-                                    </div>
-                                    <div class="single-prop-det feature">
-                                        <span class="heading">Features: </span>
-                                        <span>Gym, Internet</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="prop-explore">
-                                    <div class="prop-posted">
-                                        <span>Posted On: 15/08/2024</span>
-                                    </div>
-                                    <div class="exp">
-                                        <span class="material-symbols-rounded">travel_explore</span>
-                                        <span>Explore</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
+                        <button class="slider-buttons rightside" onclick="moveSlide(1)">&#10095;</button>
                     </div>
-                    <button class="slider-buttons rightside" onclick="moveSlide(1)">&#10095;</button>
+                    
                 </div>
-                
-            </div>
-        
-            <div id="review-part" class="section-part">
-                <div class="overview-heading">REVIEWS</div>
-               
-               <div class="reviews-section">
-                <div class="review-summary">
-                    <div class="total-reviews reviewbox">
-                        <h2>10.0k</h2>
-                        <p>Growth in reviews on this year</p>
-                        <span class="growth">21% <span>▲</span></span>
-                    </div> <hr class="hor">
-                    <div class="average-rating reviewbox">
-                        <h2>4.0</h2>
-                        <div class="stars">
-                            ★★★★☆
-                        </div>
-                        <p>Average rating on this year</p>
-                    </div> <hr class="hor">
-                    <div class="review-breakdown reviewbox">
-                        <div class="bar"><span>★ 5</span><div style="width: 70%"></div><span>2.0k</span></div>
-                        <div class="bar"><span>★ 4</span><div style="width: 40%"></div><span>1.0k</span></div>
-                        <div class="bar"><span>★ 3</span><div style="width: 20%"></div><span>500</span></div>
-                        <div class="bar"><span>★ 2</span><div style="width: 10%"></div><span>200</span></div>
-                        <div class="bar"><span>★ 1</span><div style="width: 5%"></div><span>0k</span></div>
-                    </div>
-                </div>
-                
-                <div class="review-form">
-                    <h2>Add Your Review</h2>
-                    <form id="addReviewForm">
-                        <div class="rating">
-                            <label for="stars">Rating:</label>
-                            <select id="stars" name="stars" required>
-                                <option value="5">★★★★★</option>
-                                <option value="4">★★★★☆</option>
-                                <option value="3">★★★☆☆</option>
-                                <option value="2">★★☆☆☆</option>
-                                <option value="1">★☆☆☆☆</option>
-                            </select>
-                        </div>
-                        <div class="textarea">
-                            <label for="reviewText">Your Review:</label>
-                            <textarea id="reviewText" name="reviewText" rows="4" required></textarea>
-                        </div>
-                        <button type="submit">Submit Review</button>
-                    </form>
-                </div>
-                <div class="reviewlist" id="reviewList">
-                    <!-- Existing reviews -->
-                    <div class="review">
-                        <div class="profile">
-                            <img src="../assets/profile-pic.png" alt="Profile Image">
-                            <div class="profile-details">
-                                <h3>Towhidur Rahman</h3>
-                                <p>Total Review: <strong>4</strong></p>
-                            </div>
-                        </div>
-                        <div class="review-content">
-                            <div class="review-header">
-                                <div class="stars">★★★★☆</div>
-                                <p>24-10-2022</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt soluta quod deleniti placeat in necessitatibus rerum, esse sed aspernatur ab suscipit. Earum, repudiandae nam temporibus sed doloremque qui minima debitis.</p>
-                        </div>
-                    </div>
             
-                    <div class="review">
-                        <div class="profile">
-                            <img src="../assets/profile-pic.png" alt="Profile Image">
-                            <div class="profile-details">
-                                <h3>Robbin hood</h3>
-                                <p>Total Review: <strong>2</strong></p>
+                <div id="review-part" class="section-part">
+                    <div class="overview-heading">REVIEWS</div>
+                   
+                   <div class="reviews-section">
+                    <div class="review-summary">
+                        <div class="total-reviews reviewbox">
+                            <h2>10.0k</h2>
+                            <p>Growth in reviews on this year</p>
+                            <span class="growth">21% <span>▲</span></span>
+                        </div> <hr class="hor">
+                        <div class="average-rating reviewbox">
+                            <h2>4.0</h2>
+                            <div class="stars">
+                                ★★★★☆
                             </div>
+                            <p>Average rating on this year</p>
+                        </div> <hr class="hor">
+                        <div class="review-breakdown reviewbox">
+                            <div class="bar"><span>★ 5</span><div style="width: 70%"></div><span>2.0k</span></div>
+                            <div class="bar"><span>★ 4</span><div style="width: 40%"></div><span>1.0k</span></div>
+                            <div class="bar"><span>★ 3</span><div style="width: 20%"></div><span>500</span></div>
+                            <div class="bar"><span>★ 2</span><div style="width: 10%"></div><span>200</span></div>
+                            <div class="bar"><span>★ 1</span><div style="width: 5%"></div><span>0k</span></div>
                         </div>
-                        <div class="review-content">
-                            <div class="review-header">
-                                <div class="stars">★★★★☆</div>
-                                <p>24-10-2022</p>
+                    </div>
+                    
+                    <div class="review-form">
+                        <h2>Add Your Review</h2>
+                        <form id="addReviewForm">
+                            <div class="rating">
+                                <label for="stars">Rating:</label>
+                                <select id="stars" name="stars" required>
+                                    <option value="5">★★★★★</option>
+                                    <option value="4">★★★★☆</option>
+                                    <option value="3">★★★☆☆</option>
+                                    <option value="2">★★☆☆☆</option>
+                                    <option value="1">★☆☆☆☆</option>
+                                </select>
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto praesentium aut totam illo itaque velit possimus. Maiores, totam eligendi. Alias illo ad error. Quasi odio, eaque velit eos nulla atque.</p>
-                        </div>
-                    </div>
-                </div>
-               </div> 
-                
-            </div>
-        </div>
-        <!-- Add a unique notification container in your HTML -->
-        <div id="customNotification" class="customNotification" style="display:none;">
-            <div id="notificationMessage"></div>
-            <hr>
-            <button id="okButton" class="okButton">OK</button>
-        </div>
-        <!-- footer -->
-        <div class="main-footer-box">
-            <footer>
-                <section>
-                    <section class="social">
-                    <span onclick="window.location.href='../html/nirmaankarahome.html'">NIRMAANKARA</span>
-                    <div>
-                        <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
-                        <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
-                        <div><i class="fa-brands fa-square-x-twitter"></i></div>
-                        <div><i class="fa-brands fa-square-instagram"></i></div>
-                    </div>
-                </section>
-                </section>
-                <section class="quick-links">
-                    <span>QUICK LINKS</span>
-                    <div>
-                        <a href="../html/contractorshomepage.html">List your Business</a>
-                        <a href="../html/customerprofile.html">Develop your Land</a>
-                        <a href="">List your Land</a>
-                        <a href="">Post a Free Ad</a>
-                        <a href="../html/buyerhome.html">Buyer</a>
-      
-                    </div>
-                </section>
-                <section class="contact-info">
-                    <span>CONTACT INFO</span>
-                    <div>
-                        <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
-                        <span><b>Phone:</b> +91 9985752406</span>
-                        <span><b>Email:</b> nirmaankara@gmail.com</span>
-                    </div>
-                </section>
-                <section class="subscribe">
-                    <span>SUBSCRIBE TO OUR PORTAL</span>
-                    <div>
-                        <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
-                        <form>
-                            <input type="email" placeholder="Your Email" >
-                            <button type="submit" class="fotbtn">&#8594;</button>
+                            <div class="textarea">
+                                <label for="reviewText">Your Review:</label>
+                                <textarea id="reviewText" name="reviewText" rows="4" required></textarea>
+                            </div>
+                            <button type="submit">Submit Review</button>
                         </form>
                     </div>
-                </section>
-            </footer>
-            <div class="copyright">
-                <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES</span></span>
-                <div>
-                    <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
-                    <div></div>
-                    <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
-                    <div></div>
-                    <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
-                    <div></div>
-                    <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+                    <div class="reviewlist" id="reviewList">
+                        <!-- Existing reviews -->
+                        <div class="review">
+                            <div class="profile">
+                                <img src="../assets/profile-pic.png" alt="Profile Image">
+                                <div class="profile-details">
+                                    <h3>Towhidur Rahman</h3>
+                                    <p>Total Review: <strong>4</strong></p>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <div class="review-header">
+                                    <div class="stars">★★★★☆</div>
+                                    <p>24-10-2022</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt soluta quod deleniti placeat in necessitatibus rerum, esse sed aspernatur ab suscipit. Earum, repudiandae nam temporibus sed doloremque qui minima debitis.</p>
+                            </div>
+                        </div>
+                
+                        <div class="review">
+                            <div class="profile">
+                                <img src="../assets/profile-pic.png" alt="Profile Image">
+                                <div class="profile-details">
+                                    <h3>Robbin hood</h3>
+                                    <p>Total Review: <strong>2</strong></p>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <div class="review-header">
+                                    <div class="stars">★★★★☆</div>
+                                    <p>24-10-2022</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto praesentium aut totam illo itaque velit possimus. Maiores, totam eligendi. Alias illo ad error. Quasi odio, eaque velit eos nulla atque.</p>
+                            </div>
+                        </div>
+                    </div>
+                   </div> 
+                    
                 </div>
             </div>
-         </div>
-         <!-- footer --> 
+            <!-- Add a unique notification container in your HTML -->
+            <div id="customNotification" class="customNotification" style="display:none;">
+                <div id="notificationMessage"></div>
+                <hr>
+                <button id="okButton" class="okButton">OK</button>
+            </div>
+        </div>
+        
     </div>
-    
-    <script src="../javascript/sidenavbar.js"></script>
+        <!-- footer -->
+<div class="main-footer-box">
+    <footer>
+        <section>
+            <section class="social">
+                <span class="main-logo">
+                    <img src="../assets/newlogo.png" alt="">
+                    <img src="../assets/name.png" alt="">
+                </span>
+            <div>
+                <div onclick="window.location.href='https://www.facebook.com/profile.php?id=61565117408742'"><i class="fa-brands fa-square-facebook"></i></div>
+                <div onclick="window.location.href='https://www.youtube.com/@Nirmaankara'"><i class="fa-brands fa-youtube"></i></div>
+                <div onclick="window.location.href='https://x.com/nirmaankara'"> <i class="fa-brands fa-square-x-twitter"></i></div>
+                <div onclick="window.location.href='https://www.instagram.com/nirmaankara/'"> <i class="fa-brands fa-square-instagram"></i></div>
+            </div>
+        </section>
+        </section>
+        <section class="quick-links">
+            <span>QUICK LINKS</span>
+            <div>
+                <a href="#" class="contractornavigation">List Your Business</a>
+                <a href="../html/customerhomepage.html">For Builder</a>
+                <a href="#">Post Property</a>
+                <a href="#" class="customercontractornavigation">Find Contractor/ Builder</a>
+                <a href="#" class="buyerhomenavigation">For Buyer</a>
+                <a href="#">For Agent</a>
+                <a href="">For Tenants</a>
+
+            </div>
+        </section>
+        <section class="contact-info">
+            <span>CONTACT INFO</span>
+            <div>
+                <span><b>Address:</b> Tirumala Resenditial Flats, Near Yousufguda Check Post, Hyderabad, 500045</span>
+                <span><b>Phone:</b> +91 9985752406</span>
+                <span><b>Email:</b> nirmaankara@gmail.com</span>
+            </div>
+        </section>
+        <section class="subscribe">
+            <span>SUBSCRIBE TO OUR PORTAL</span>
+            <div>
+                <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
+                <form>
+                  <input type="email" id="email-footer" placeholder="Enter email">
+                  <button class="fotbtn">&#8594;</button>
+              </form>
+            </div>
+        </section>
+    </footer>
+    <div class="copyright">
+        <span>Copyright &copy; 2024 NIRMAANKARA |  Designed by <span class="wing" onclick="window.location.href='https://wingherry.com/'">WINGHERRY TECHNOLOGIES PVT. LTD.</span></span>
+        <div>
+            <span onclick="window.location.href='../html/termsandconditions.html'">Terms and Conditions</span> 
+            <div></div>
+            <span onclick="window.location.href='../html/privacypolicy.html'">Privacy Policy</span>
+            <div></div>
+            <span onclick="window.location.href='../html/cancellation.html'">Cancellation Policy</span>
+            <div></div>
+            <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
+        </div>
+    </div>
+ </div>
+<!-- footer --> 
     <script src="../javascript/buyerpropertyexplore.js"></script>
+    <script src="../javascript/navbarfooterinner.js"></script>
+    <script src="../javascript/logoutoptions.js"></script>
+        <script>// Loop through each password toggle icon
+            document.querySelectorAll('.toggle-password').forEach(icon => {
+              icon.addEventListener('click', () => {
+                // Get the password input field next to the clicked icon
+                const inputField = icon.previousElementSibling; // This assumes the <input> is immediately before the <i> icon
+            
+                // Check if the input field type is 'password' and toggle it
+                if (inputField.type === 'password') {
+                  inputField.type = 'text';  // Show the password
+                  icon.classList.remove('fa-eye');  // Remove the eye icon
+                  icon.classList.add('fa-eye-slash');  // Add the eye-slash icon
+                } else {
+                  inputField.type = 'password';  // Hide the password
+                  icon.classList.remove('fa-eye-slash');  // Remove the eye-slash icon
+                  icon.classList.add('fa-eye');  // Add the eye icon
+                }
+              });
+            });
+            
+            
+            </script>
 </body>
 </html>

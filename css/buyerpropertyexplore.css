@@ -5,6 +5,9 @@
     font-family: "Roboto", sans-serif;
     scroll-behavior: smooth;
 }
+.main-content-buyer{
+    top: 65px;
+}
 #back-arrow{
     position: fixed;
     top: 93px;

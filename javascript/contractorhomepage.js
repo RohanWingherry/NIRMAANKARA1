@@ -244,78 +244,85 @@ document.addEventListener('DOMContentLoaded', function () {
     chatPersons.forEach(person => {
         const menu = person.querySelector('.menu');
         const dotsIcon = person.querySelector('.dots');
-
-        // Function to toggle menu
-        const toggleMenu = (event) => {
-            event.stopPropagation(); // Prevent event bubbling
-            // Hide other menus
-            document.querySelectorAll('.menu').forEach(m => {
-                if (m !== menu) m.style.display = 'none';
-            });
-            // Toggle the menu for the clicked person
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        };
-
-        // Dots icon click event
-        dotsIcon.addEventListener('click', toggleMenu);
-
-        // Delete person from list
-        menu.querySelector('.delete-chat').addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent event bubbling
-            showDeleteChatPopup();
-        });
-        
-        // Function to show the custom confirmation popup for deleting chat
-        function showDeleteChatPopup() {
-            const popup = document.getElementById('deletePopup');
-            const popupMessage = popup.querySelector('.popup-content p');
-            const popupTitle = popup.querySelector('.popup-content h3');
-            const confirmButton = document.getElementById('confirmDelete');
-            const cancelButton = document.getElementById('cancelDelete');
-        
-            // Customize popup text for chat deletion
-            popupTitle.textContent = 'Delete Chat';
-            popupMessage.textContent = 'Do you want to delete this chat?';
-        
-            // Show popup
-            popup.classList.remove('hide');
-            popup.classList.add('show');
-            popup.style.display = 'block';
-        
-            // Confirm button action for deleting chat
-            confirmButton.onclick = function () {
-                person.remove(); // Remove from chat list
-                menu.style.display = 'none'; // Hide menu
-                chatMessagesContainer.innerHTML = ''; // Clear messages
-                document.getElementById('chat-window').style.display = 'none'; // Close chat window
-        
-                hidePopup();
+    
+        // Check if elements exist before adding event listeners
+        if (menu && dotsIcon) {
+    
+            // Function to toggle menu
+            const toggleMenu = (event) => {
+                event.stopPropagation(); // Prevent event bubbling
+                // Hide other menus
+                document.querySelectorAll('.menu').forEach(m => {
+                    if (m !== menu) m.style.display = 'none';
+                });
+                // Toggle the menu for the clicked person
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
             };
-        
-            // Cancel button action
-            cancelButton.onclick = function () {
-                menu.style.display = 'none'; // Hide menu
-                hidePopup();
-            };
+    
+            // Dots icon click event
+            dotsIcon.addEventListener('click', toggleMenu);
+    
+            // Delete person from list
+            const deleteButton = menu.querySelector('.delete-chat');
+            if (deleteButton) {
+                deleteButton.addEventListener('click', function (event) {
+                    event.stopPropagation(); // Prevent event bubbling
+                    showDeleteChatPopup();
+                });
+            }
+    
+            // Function to show the custom confirmation popup for deleting chat
+            function showDeleteChatPopup() {
+                const popup = document.getElementById('deletePopup');
+                const popupMessage = popup.querySelector('.popup-content p');
+                const popupTitle = popup.querySelector('.popup-content h3');
+                const confirmButton = document.getElementById('confirmDelete');
+                const cancelButton = document.getElementById('cancelDelete');
+    
+                // Customize popup text for chat deletion
+                popupTitle.textContent = 'Delete Chat';
+                popupMessage.textContent = 'Do you want to delete this chat?';
+    
+                // Show popup
+                popup.classList.remove('hide');
+                popup.classList.add('show');
+                popup.style.display = 'block';
+    
+                // Confirm button action for deleting chat
+                confirmButton.onclick = function () {
+                    person.remove(); // Remove from chat list
+                    menu.style.display = 'none'; // Hide menu
+                    chatMessagesContainer.innerHTML = ''; // Clear messages
+                    document.getElementById('chat-window').style.display = 'none'; // Close chat window
+    
+                    hidePopup();
+                };
+    
+                // Cancel button action
+                cancelButton.onclick = function () {
+                    menu.style.display = 'none'; // Hide menu
+                    hidePopup();
+                };
+            }
+    
+            // Function to hide the popup
+            function hidePopup() {
+                const popup = document.getElementById('deletePopup');
+                popup.classList.remove('show');
+                popup.classList.add('hide');
+    
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 300); // Match CSS animation duration
+            }
+    
         }
-        
-        // Function to hide the popup
-        function hidePopup() {
-            const popup = document.getElementById('deletePopup');
-            popup.classList.remove('show');
-            popup.classList.add('hide');
-        
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 300); // Match CSS animation duration
-        }
-        
-
+    
         // Hide menus when clicking outside
         document.addEventListener('click', function () {
             document.querySelectorAll('.menu').forEach(m => m.style.display = 'none');
         });
-
+    
         // Add click event to the person element to open the chat window
         person.addEventListener('click', function () {
             // Open chat window logic
@@ -323,6 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chatWindow.style.display = 'block';
         });
     });
+    
 
     // Close chat window functionality
     document.getElementById('close-chat').addEventListener('click', function (event) {
@@ -417,9 +425,9 @@ function clearChatMessages() {
 }
 
 // Function to delete a row (example)
-function deleteRow() {
-    console.log('Row deleted'); // Replace with actual logic to delete a row
-}
+// function deleteRow() {
+//     console.log('Row deleted'); // Replace with actual logic to delete a row
+// }
 
 // Attach event listener to "Clear Chat" button
 document.getElementById('clear-chat').addEventListener('click', function () {

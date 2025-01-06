@@ -1,5 +1,5 @@
 // notification or pop up
-function showNotification(message, type = 'success') {
+function shownotifications(message, type = 'success') {
     const notification = document.getElementById('customNotification');
     const notificationMessage = document.getElementById('notificationMessage');
     const okButton = document.getElementById('okButton');
@@ -28,28 +28,28 @@ function showNotification(message, type = 'success') {
     });
 }
 
-const profile = document.getElementById("toggleProfile");
-const profileview = document.querySelector(".main-profileview");
+// const profile = document.getElementById("toggleProfile");
+// const profileview = document.querySelector(".main-profileview");
 
-profile.addEventListener("click", () => {
-    // Toggle the display of the profile view
-    if (profileview.style.display === "none" || profileview.style.display === "") {
-        profileview.style.display = "block";
-    } else {
-        profileview.style.display = "none";
-    }
-});
+// profile.addEventListener("click", () => {
+//     // Toggle the display of the profile view
+//     if (profileview.style.display === "none" || profileview.style.display === "") {
+//         profileview.style.display = "block";
+//     } else {
+//         profileview.style.display = "none";
+//     }
+// });
 // like
 document.querySelectorAll('.bookmark').forEach(bookmark => {
     bookmark.addEventListener('click', function() {
         // Check if the bookmark is already active
         const isActive = this.classList.toggle('active');
 
-        // Show showNotification based on the state
+        // Show shownotifications based on the state
         if (isActive) {
-            showNotification('Added to shortlist');
+            shownotifications('Added to shortlist');
         } else {
-            showNotification('Removed from shortlist');
+            shownotifications('Removed from shortlist');
         }
     });
 });
@@ -212,7 +212,7 @@ function updateStyles() {
 function copyToClipboard(inputField) {
     inputField.select();
     document.execCommand('copy');
-    showNotification('Copied: ' + inputField.value);
+    shownotifications('Copied: ' + inputField.value);
 }
 
 // Copy functionality for each button
@@ -223,7 +223,7 @@ copyButtons.forEach((button, index) => {
         if (inputField) {
             copyToClipboard(inputField);
         } else {
-            showNotification('Input field not found.');
+            shownotifications('Input field not found.');
         }
     });
 });
@@ -231,7 +231,7 @@ copyButtons.forEach((button, index) => {
 // Share button functionality
 const shareButtons = document.querySelectorAll('.share');
 const modals = document.querySelectorAll('.modal-content');
-const closeButtons = document.querySelectorAll('.close');
+const closeButtonss = document.querySelectorAll('.close');
 
 shareButtons.forEach((button, index) => {
     button.addEventListener('click', function() {
@@ -240,15 +240,15 @@ shareButtons.forEach((button, index) => {
     });
 });
 
-closeButtons.forEach((button, index) => {
+closeButtonss.forEach((button, index) => {
     button.addEventListener('click', function() {
         const modal = modals[index];
         modal.classList.remove('show'); // Hide the corresponding modal
     });
 });
-document.querySelector(".shortlisted").addEventListener("click",()=>{
-    window.location.href="../html/buyershorlisted.html"
-})
+// document.querySelector(".shortlisted").addEventListener("click",()=>{
+//     window.location.href="../html/buyershorlisted.html"
+// })
 const allExplore=document.querySelectorAll(".exp")
 
 allExplore.forEach(explore => {

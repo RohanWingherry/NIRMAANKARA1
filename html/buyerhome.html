@@ -14,10 +14,10 @@
   </head>
     <body>
      <!-- Top Nav Bar -->
-     <nav class="navigation-bar navbar-scrolled">
+    <nav class="navigation-bar">
         <div class="main-logo">
             <img class="logo-img" src="../assets/newlogo.png" alt="">
-            <img class="name-img" src="../assets/name.png" alt="">
+            <img class="name-img" src="../assets/whitename.png" alt="">
         </div>
         <div class="nav-sections">
             <section class="single-section">
@@ -316,234 +316,237 @@
         </div> 
     </nav>
     <!-- Top nav bar -->
+
     <!-- Signup  -->
     <div class="popup-container">
-        <div class="popup-box">
-            <button class="close-btn">&times;</button>
-            <!-- <h1>Popup Title</h1>
-            <p>This is the popup content.</p> -->
-            <div class="container">
-                <div class="forms-container">
-                  <div class="signin-signup">
-                    <!-- Sign In Form -->
-                    <form action="#" class="sign-in-form" id="sign-in-form">
-                      <h2 class="title">Login</h2>
+      <div class="popup-box">
+          <button class="close-btn">&times;</button>
+          <!-- <h1>Popup Title</h1>
+          <p>This is the popup content.</p> -->
+          <div class="container">
+              <div class="forms-container">
+                <div class="signin-signup">
+                  <!-- Sign In Form -->
+                  <form action="#" class="sign-in-form" id="sign-in-form">
+                    <h2 class="title">Login</h2>
+                    <div class="input-field">
+                      <i class="fas fa-user"></i>
+                      <input type="text" id="sign-in-email" placeholder="Email or Mobile Number" />
+                    </div>
+                    <div class="input-field">
+                      <i class="fas fa-lock"></i>
+                      <input type="password" id="sign-in-password" placeholder="Password" />
+                      <i class="fas fa-eye toggle-password" id="toggle-password" style="cursor: pointer;"></i>
+                    </div>
+                    
+                    
+                    <input type="submit" value="Login" id="sign-btn-log" class="sign-btn solid" />
+                    <p style="text-align: right; margin: 10px 0; color: blue; cursor: pointer;" id="forgot-password-link">
+                      Forgot Password?
+                  </p>
+                  </form>
+            
+                  <!-- Sign Up Form -->
+                  <form action="#" class="sign-up-form" id="sign-up-form">
+                      <h2 class="title">Register</h2>
+                      
                       <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="sign-in-email" placeholder="Email or Mobile Number" />
+                        <input type="text" id="full-name" placeholder="Full Name" />
                       </div>
+                      
                       <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="sign-in-password" placeholder="Password" />
-                        <i class="fas fa-eye toggle-password" id="toggle-password" style="cursor: pointer;"></i>
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="sign-up-email" placeholder="Email" />
                       </div>
                       
+                      <!-- Email OTP Verification -->
+                      <div class="otp-section" id="email-otp-section">
+                        <div class="otp-input-group">
+                          <input type="text" id="email-otp" placeholder="Enter Email OTP" maxlength="6" class="otp-input" style="display: none;" />
+                          <button type="button" id="send-email-otp" class="otp-btn" style="display: none;">Send Email OTP</button>
+                          <button type="button" id="verify-email-otp" class="otp-btn" style="display: none;">Verify</button>
+                          <button type="button" id="resend-email-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="email-timer">60</span>s)</button>
+                        </div>
+                      </div>
                       
-                      <input type="submit" value="Login" id="sign-btn-log" class="sign-btn solid" />
-                      <p style="text-align: right; margin: 10px 0; color: blue; cursor: pointer;" id="forgot-password-link">
-                        Forgot Password?
-                    </p>
+                      <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="mobile-number" placeholder="Mobile Number" />
+                      </div>
+                      
+                      <!-- Mobile OTP Verification -->
+                      <div class=" otp-section" id="mobile-otp-section">
+                        <div class="otp-input-group">
+                          <input type="text" id="mobile-otp" placeholder="Enter Mobile OTP" maxlength="6" class="otp-input" style="display: none;" />
+                          <button type="button" id="send-mobile-otp" class="otp-btn" style="display: none;">Send Mobile OTP</button>
+                          <button type="button" id="verify-mobile-otp" class="otp-btn" style="display: none;">Verify</button>
+                          <button type="button" id="resend-mobile-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="mobile-timer">60</span>s)</button>
+                        </div>
+                      </div>
+                      
+                      <div class="input-field">
+                          <i class="fas fa-lock"></i>
+                          <input type="password" class="password-input" id="password-input" placeholder="Password" />
+                          <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
+                        </div>
+                        
+                        <div class="input-field">
+                          <i class="fas fa-lock"></i>
+                          <input type="password" class="password-input" id="confirm-password" placeholder="Confirm Password" />
+                          <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
+                        </div>
+                        
+                      
+                      <div class="input-field forradio">
+                        <p>Please select your role:</p>
+                        <div class="radio-group">
+                          <div class="radio-content">
+                            <input type="radio" name="role" value="contractor" id="role-contractor" />
+                            Contractor
+                          </div>
+                          <div class="radio-content">
+                            <input type="radio" name="role" value="customer" id="role-customer" />
+                            Customer
+                          </div>
+                          <div class="radio-content">
+                            <input type="radio" name="role" value="buyer" id="role-buyer" />
+                            Buyer
+                          </div>
+                          <div class="radio-content">
+                            <input type="radio" name="role" value="seller" id="role-seller" />
+                            Seller
+                          </div>   
+                          <div class="radio-content">
+                              <input type="radio" name="role" value="renter" id="role-renter" />
+                              Renter
+                            </div>
+                          <div class="radio-content">
+                              <input type="radio" name="role" value="tenant" id="role-tenant" />
+                              Tenant
+                          </div>
+                          <div class="radio-content">
+                            <input type="radio" name="role" value="agent" id="role-agent" />
+                            Agent
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Terms and Conditions -->
+                      <div class="terms-and-conditions">
+                        <input type="checkbox" id="terms-checkbox"  />
+                        <label for="terms-checkbox">
+                          I accept the <a href="#" target="_blank">Terms and Conditions</a>.
+                        </label>
+                      </div>
+                      <input type="submit" class="sign-btn" id="sign-btn-reg" value="Register" />
                     </form>
-              
-                    <!-- Sign Up Form -->
-                    <form action="#" class="sign-up-form" id="sign-up-form">
-                        <h2 class="title">Register</h2>
-                        
-                        <div class="input-field">
-                          <i class="fas fa-user"></i>
-                          <input type="text" id="full-name" placeholder="Full Name" />
-                        </div>
-                        
-                        <div class="input-field">
-                          <i class="fas fa-envelope"></i>
-                          <input type="email" id="sign-up-email" placeholder="Email" />
-                        </div>
-                        
-                        <!-- Email OTP Verification -->
-                        <div class="otp-section" id="email-otp-section">
-                          <div class="otp-input-group">
-                            <input type="text" id="email-otp" placeholder="Enter Email OTP" maxlength="6" class="otp-input" style="display: none;" />
-                            <button type="button" id="send-email-otp" class="otp-btn" style="display: none;">Send Email OTP</button>
-                            <button type="button" id="verify-email-otp" class="otp-btn" style="display: none;">Verify</button>
-                            <button type="button" id="resend-email-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="email-timer">60</span>s)</button>
-                          </div>
-                        </div>
-                        
-                        <div class="input-field">
-                          <i class="fas fa-phone"></i>
-                          <input type="tel" id="mobile-number" placeholder="Mobile Number" />
-                        </div>
-                        
-                        <!-- Mobile OTP Verification -->
-                        <div class=" otp-section" id="mobile-otp-section">
-                          <div class="otp-input-group">
-                            <input type="text" id="mobile-otp" placeholder="Enter Mobile OTP" maxlength="6" class="otp-input" style="display: none;" />
-                            <button type="button" id="send-mobile-otp" class="otp-btn" style="display: none;">Send Mobile OTP</button>
-                            <button type="button" id="verify-mobile-otp" class="otp-btn" style="display: none;">Verify</button>
-                            <button type="button" id="resend-mobile-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="mobile-timer">60</span>s)</button>
-                          </div>
-                        </div>
-                        
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" class="password-input" id="password-input" placeholder="Password" />
-                            <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
-                          </div>
-                          
-                          <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" class="password-input" id="confirm-password" placeholder="Confirm Password" />
-                            <i class="fas fa-eye toggle-password" style="cursor: pointer;"></i>
-                          </div>
-                          
-                        
-                        <div class="input-field forradio">
-                          <p>Please select your role:</p>
-                          <div class="radio-group">
-                            <div class="radio-content">
-                              <input type="radio" name="role" value="contractor" id="role-contractor" />
-                              Contractor
-                            </div>
-                            <div class="radio-content">
-                              <input type="radio" name="role" value="customer" id="role-customer" />
-                              Customer
-                            </div>
-                            <div class="radio-content">
-                              <input type="radio" name="role" value="buyer" id="role-buyer" />
-                              Buyer
-                            </div>
-                            <div class="radio-content">
-                              <input type="radio" name="role" value="seller" id="role-seller" />
-                              Seller
-                            </div>   
-                            <div class="radio-content">
-                                <input type="radio" name="role" value="renter" id="role-renter" />
-                                Renter
-                              </div>
-                            <div class="radio-content">
-                                <input type="radio" name="role" value="tenant" id="role-tenant" />
-                                Tenant
-                            </div>
-                            <div class="radio-content">
-                              <input type="radio" name="role" value="agent" id="role-agent" />
-                              Agent
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Terms and Conditions -->
-                        <div class="terms-and-conditions">
-                          <input type="checkbox" id="terms-checkbox"  />
-                          <label for="terms-checkbox">
-                            I accept the <a href="#" target="_blank">Terms and Conditions</a>.
-                          </label>
-                        </div>
-                        <input type="submit" class="sign-btn" id="sign-btn-reg" value="Register" />
-                      </form>
-                      
-                      
-                  </div>
-                </div>
-              
-                <div class="panels-container">
-                  <div class="panel left-panel">
                     
-                    <div class="content">
-                      <div class="content-box">
-                        <h3>WELCOME BACK!</h3>
-                        <img src="../assets/newlogo.png" class="image" alt="">
-                        <h3>NIRMAANKARA</h3>
-                      </div>
-                      <div class="content-box">
-                        <p>
-                          "Buy, Sell, Build, or Develop - Nirmaankara simplifies it all. Your trusted partner in real estate and construction"
-                        </p>
-                        <button class="transparent" id="sign-up-btn">
-                           Register
-                        </button>
-                      </div>
+                    
+                </div>
+              </div>
+            
+              <div class="panels-container">
+                <div class="panel left-panel">
+                  
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME BACK!</h3>
+                      <img src="../assets/newlogo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        "Buy, Sell, Build, or Develop - Nirmaankara simplifies it all. Your trusted partner in real estate and construction"
+                      </p>
+                      <button class="transparent" id="sign-up-btn">
+                         Register
+                      </button>
                     </div>
                   </div>
-              
-                  <div class="panel right-panel">
-                    <div class="content">
-                      <div class="content-box">
-                        <h3>WELCOME TO</h3>
-                        <img src="../assets/newlogo.png" class="image" alt="">
-                        <h3>NIRMAANKARA</h3>
-                      </div>
-                      <div class="content-box">
-                        <p>
-                          Your hub for construction and realestate, connecting landowners,contractors, buyers, and sellers with ease.
-                        </p>
-                        <button class="transparent" id="sign-in-btn">
-                          Login
-                        </button>
-                      </div>
+                </div>
+            
+                <div class="panel right-panel">
+                  <div class="content">
+                    <div class="content-box">
+                      <h3>WELCOME TO</h3>
+                      <img src="../assets/newlogo.png" class="image" alt="">
+                      <h3>NIRMAANKARA</h3>
+                    </div>
+                    <div class="content-box">
+                      <p>
+                        Your hub for construction and realestate, connecting landowners,contractors, buyers, and sellers with ease.
+                      </p>
+                      <button class="transparent" id="sign-in-btn">
+                        Login
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-        </div>
-    </div>
-    <!-- Forgot Password Popup -->
-    <div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
-      <div class="popup-box forgot-box">
-          <button class="close-btn" id="close-forgot-popup">&times;</button>
-          <h2>Forgot Password</h2>
-          <p>Enter your registered email:</p>
-          <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
-          <span id="email-error" class="error-message" style="color: red; display: none;">Please enter a valid Gmail address!</span>
-          <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
-  
-          <div id="otp-section" style="display: none;">
-              <div class="otp-v">
-                  <div class="inputfototp">
-                      <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
-                  </div>
-  
-                  <div id="otp-actions">
-                      <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
-                  </div>
-                  <div id="resend-otp" style="display: none;">
-                      <button id="resend-btn" class="resend-btn">Resend</button>
-                  </div>
-              </div>
-              <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
-              <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
-          </div>
-  
-          <div id="reset-password-section" style="display: none;">
-            <h3>Reset Password</h3>
-            <div class="reset-content">
-                <div class="input-field">
-                    <input type="password" id="new-password" placeholder="New Password" />
-                    <i class="fas fa-eye toggle-password" data-target="new-password"></i>
-                </div>
-                <span id="password-error" class="error-message" style="display: none;">
-                    Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).
-                </span>
-        
-                <div class="input-field">
-                    <input type="password" id="confirm-new-password" placeholder="Confirm Password" />
-                    <i class="fas fa-eye toggle-password" data-target="confirm-new-password"></i>
-                </div>
-                <span id="confirm-password-error" class="error-message" style="display: none;">Passwords do not match!</span>
-        
-                <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
             </div>
-        </div>
-        
       </div>
-    </div>
-  
-      <div id="notification-popup" class="notification-popup" style="display: none;">
-        <div class="notification-box">
-            <p id="notification-message"></p>
-            <button id="notification-close-btn" class="sign-btn">OK</button>
-        </div>
-    </div>
+  </div>
+  <!-- Forgot Password Popup -->
+  <div id="forgot-password-popup" class="forgot-password-popup" style="display: none;">
+    <div class="popup-box forgot-box">
+        <button class="close-btn" id="close-forgot-popup">&times;</button>
+        <h2>Forgot Password</h2>
+        <p>Enter your registered email:</p>
+        <input type="email" id="forgot-email" placeholder="Email" class="input-field" />
+        <span id="email-error" class="error-message" style="color: red; display: none;">Please enter a valid Gmail address!</span>
+        <button id="send-otp-btn" class="sign-btn-forget">Send OTP</button>
 
-       <!-- Signup -->
+        <div id="otp-section" style="display: none;">
+            <div class="otp-v">
+                <div class="inputfototp">
+                    <input type="text" id="otp-input" placeholder="OTP" maxlength="6" class="input-field" />
+                </div>
+
+                <div id="otp-actions">
+                    <button id="verify-otp-btn" class="sign-btn-forget">Verify OTP</button>
+                </div>
+                <div id="resend-otp" style="display: none;">
+                    <button id="resend-btn" class="resend-btn">Resend</button>
+                </div>
+            </div>
+            <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
+            <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
+        </div>
+
+        <div id="reset-password-section" style="display: none;">
+          <h3>Reset Password</h3>
+          <div class="reset-content">
+              <div class="input-field">
+                  <input type="password" id="new-password" placeholder="New Password" />
+                  <i class="fas fa-eye toggle-password" data-target="new-password"></i>
+              </div>
+              <span id="password-error" class="error-message" style="display: none;">
+                  Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).
+              </span>
+      
+              <div class="input-field">
+                  <input type="password" id="confirm-new-password" placeholder="Confirm Password" />
+                  <i class="fas fa-eye toggle-password" data-target="confirm-new-password"></i>
+              </div>
+              <span id="confirm-password-error" class="error-message" style="display: none;">Passwords do not match!</span>
+      
+              <button id="reset-password-btn" class="sign-btn-forget">Reset Password</button>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+
+    <div id="notification-popup" class="notification-popup" style="display: none;">
+      <div class="notification-box">
+          <p id="notification-message"></p>
+          <button id="notification-close-btn" class="sign-btn">OK</button>
+      </div>
+  </div>
+  
+
+
+     <!-- Signup -->
 
     <!-- main contents -->
     <div class="main-content-buyer">
@@ -968,7 +971,7 @@
         <footer>
             <section>
                 <section class="social">
-                    <span onclick="window.location.href='../html/nirmaankarahome.html'">
+                    <span class="main-logo">
                         <img src="../assets/newlogo.png" alt="">
                         <img src="../assets/name.png" alt="">
                     </span>
@@ -983,12 +986,12 @@
             <section class="quick-links">
                 <span>QUICK LINKS</span>
                 <div>
-                    <a href="../html/contractorshomepage.html">List Your Business</a>
+                    <a href="#" class="contractornavigation">List Your Business</a>
                     <a href="../html/customerhomepage.html">For Builder</a>
-                    <a href="">Post Property</a>
-                    <a href="">Find Contractor/ Builder</a>
-                    <a href="">For Buyer</a>
-                    <a href="../html/buyerhome.html">For Agent</a>
+                    <a href="#">Post Property</a>
+                    <a href="#" class="customercontractornavigation">Find Contractor/ Builder</a>
+                    <a href="#" class="buyerhomenavigation">For Buyer</a>
+                    <a href="#">For Agent</a>
                     <a href="">For Tenants</a>
   
                 </div>
@@ -1006,7 +1009,7 @@
                 <div>
                     <span>Subscribe to our portal to stay up-to-date with the latest trends in the industry</span>
                     <form>
-                      <input type="email" id="email-footer" placeholder="Enter email">
+                      <input type="email" id="email-footer" placeholder="Enter email" required>
                       <button class="fotbtn">&#8594;</button>
                   </form>
                 </div>
@@ -1024,11 +1027,12 @@
                 <span onclick="window.location.href='../html/referralpolicy.html'">Referral Policy</span>
             </div>
         </div>
-    </div>
-     <!-- footer --> 
+     </div>
+     <!-- footer -->  
     <script src="../javascript/buyerhome.js"></script>
-    <script src="../javascript/navbarfooter.js"></script>
+    <script src="../javascript/navbarfooterinner.js"></script>
     <script src="../javascript/loginpop.js"></script>
+    
         <script src="../javascript/logoutoptions.js"></script>
         <script>// Loop through each password toggle icon
             document.querySelectorAll('.toggle-password').forEach(icon => {
