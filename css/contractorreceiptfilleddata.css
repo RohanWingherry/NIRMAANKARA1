@@ -387,16 +387,10 @@ thead {
     align-items: center;
     gap: 5px;
 }
-.payment-all-details .amount-paid>label,
-.payment-all-details .amount-arrers>label{
-    font-weight: bold;
-    font-size: 14px;
-}
-.payment-all-details .amount-paid #paid-amount,
-.payment-all-details .amount-arrers #arrer-amount{
-    padding: 5px;
-    outline: none;
-    font-size: 14px;
+.payment-all-details span,
+.payment-all-details span{
+    font-weight: 500;
+    font-size: 16px;
 }
 
 

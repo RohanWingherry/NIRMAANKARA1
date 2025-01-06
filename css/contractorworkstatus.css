@@ -317,7 +317,9 @@
     align-items: center;
     flex-direction: column;
 }
-
+.uplod-box video{
+    width: 100%;
+}
 .drop-area {
     border: 2px dashed #007BFF;
     border-radius: 5px;
