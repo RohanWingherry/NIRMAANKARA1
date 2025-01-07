@@ -31,7 +31,7 @@
 .searching-tabs{
     width: 80%;
     position: relative;
-    top: 100px;
+    top: 0px;
     display: flex;
     gap: 2px;
 }
@@ -60,7 +60,7 @@
     backdrop-filter: blur(2px);
     border-radius: 0px 10px 10px 10px;
     position: relative;
-    top: 100px;
+    top: 0px;
 }
 .searching::placeholder {
   color: rgba(255, 255, 255, 0.7);
