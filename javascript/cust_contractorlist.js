@@ -377,4 +377,226 @@ function hidePopup() {
 
 
 
-  
+//   // Event listener for Apply Filter button
+// document.getElementById('applyFilterBtn').addEventListener('click', applyFilters);
+// document.getElementById('filterToggle').addEventListener('click', resetFilters);
+
+// // Apply filters dynamically
+// function applyFilters() {
+//     const contractorList = document.querySelectorAll('.contractor-box');
+//     const contractorContainer = document.querySelector('.list');
+
+//     // Collect selected filter values
+//     const selectedRatings = getCheckedValues('rating'); // ["5", "4"]
+//     const selectedLocations = getCheckedValues('location'); // ["Hyderabad"]
+//     const selectedServices = getCheckedValues('service'); // ["Construction", "Renovation"]
+//     const selectedExperience = getCheckedRadioValue('experience'); // "1-3", "10+"
+
+//     // Filter contractors dynamically
+//     const filteredContractors = Array.from(contractorList).filter(contractor => {
+//         const matchesRating = selectedRatings.length === 0 || checkRating(contractor, selectedRatings);
+//         const matchesLocation = selectedLocations.length === 0 || checkLocation(contractor, selectedLocations);
+//         const matchesService = selectedServices.length === 0 || checkService(contractor, selectedServices);
+//         const matchesExperience = !selectedExperience || checkExperience(contractor, selectedExperience);
+
+//         return matchesRating && matchesLocation && matchesService && matchesExperience;
+//     });
+
+//     // Clear and update contractor container
+//     contractorContainer.innerHTML = '';
+//     if (filteredContractors.length > 0) {
+//         filteredContractors.forEach(contractor => contractorContainer.appendChild(contractor));
+//     } else {
+//         contractorContainer.innerHTML = `<div class="no-results">No results found</div>`;
+//     }
+
+//     reinitializeEventListeners(); // Reattach event listeners if necessary
+// }
+
+// // Helper: Get checked checkbox values
+// function getCheckedValues(name) {
+//     return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+//         .map(input => input.value);
+// }
+
+// // Helper: Get checked radio button value
+// function getCheckedRadioValue(name) {
+//     const checkedRadio = document.querySelector(`input[name="${name}"]:checked`);
+//     return checkedRadio ? checkedRadio.value : null;
+// }
+
+// // Check contractor matches rating
+// function checkRating(contractor, selectedRatings) {
+//     const ratingText = contractor.querySelector('.star')?.textContent.trim();
+//     const rating = ratingText ? parseFloat(ratingText) : 0;
+//     return selectedRatings.some(selected => rating >= parseFloat(selected));
+// }
+
+// // Check contractor matches location
+// function checkLocation(contractor, selectedLocations) {
+//     const locationText = contractor.querySelector('.org-location')?.textContent.trim();
+//     return selectedLocations.some(selected => locationText.includes(selected));
+// }
+
+// // Check contractor matches service
+// function checkService(contractor, selectedServices) {
+//     const services = Array.from(contractor.querySelectorAll('.ser-text')).map(el => el.textContent.trim());
+//     return selectedServices.some(selected => services.includes(selected));
+// }
+
+// // Check contractor matches experience
+// function checkExperience(contractor, selectedExperience) {
+//     const experienceText = contractor.querySelector('.response')?.textContent.trim();
+//     const experienceMatch = experienceText.match(/(\d+)\+/); // Extract years of experience
+//     const experience = experienceMatch ? parseInt(experienceMatch[1]) : 0;
+
+//     switch (selectedExperience) {
+//         case '1-3': return experience >= 1 && experience <= 3;
+//         case '3-5': return experience >= 3 && experience <= 5;
+//         case '5-10': return experience >= 5 && experience <= 10;
+//         case '10+': return experience > 10;
+//         default: return true;
+//     }
+// }
+
+// // Reset filters and reapply defaults
+// function resetFilters() {
+//     document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+//         input.checked = false;
+//     });
+//     applyFilters(); // Refresh contractor list
+// }
+
+// // Ensure event listeners remain active after DOM changes
+// function reinitializeEventListeners() {
+//     document.getElementById('applyFilterBtn').removeEventListener('click', applyFilters);
+//     document.getElementById('applyFilterBtn').addEventListener('click', applyFilters);
+// }
+
+
+// Function to apply filters
+// function applyFilters() {
+//     const selectedRatings = [...document.querySelectorAll('input[name="rating"]:checked')].map(el => parseFloat(el.value));
+//     const selectedLocations = [...document.querySelectorAll('input[name="location"]:checked')].map(el => el.value);
+//     const selectedServices = [...document.querySelectorAll('input[name="service"]:checked')].map(el => el.value);
+//     const selectedExperience = document.querySelector('input[name="experience"]:checked')?.value;
+
+//     // Get all contractor boxes
+//     const contractorBoxes = document.querySelectorAll('.contractor-box');
+
+//     contractorBoxes.forEach(box => {
+//         let isVisible = true;
+
+//         // Filter by Rating
+//         if (selectedRatings.length > 0) {
+//             const ratingText = box.querySelector('.rating .star').textContent;
+//             const rating = parseFloat(ratingText.match(/(\d+(\.\d+)?)/)[0]);
+//             isVisible = selectedRatings.some(r => rating >= r) && isVisible;
+//         }
+
+//         // Filter by Location
+//         if (selectedLocations.length > 0) {
+//             const locationText = box.querySelector('.org-location').textContent.toLowerCase();
+//             isVisible = selectedLocations.some(location => locationText.includes(location.toLowerCase())) && isVisible;
+//         }
+
+//         // Filter by Services
+//         if (selectedServices.length > 0) {
+//             const servicesText = [...box.querySelectorAll('.ser-text')].map(el => el.textContent.toLowerCase());
+//             isVisible = selectedServices.some(service => servicesText.includes(service.toLowerCase())) && isVisible;
+//         }
+
+//         // Filter by Experience
+//         if (selectedExperience) {
+//             const expText = box.querySelector('.mid-side .response:nth-child(1)').textContent;
+//             const expMatch = expText.match(/(\d+)/);
+//             const experience = expMatch ? parseInt(expMatch[0]) : 0;
+//             const [minExp, maxExp] = selectedExperience.split('-').map(Number);
+//             if (maxExp) {
+//                 isVisible = (experience >= minExp && experience <= maxExp) && isVisible;
+//             } else {
+//                 isVisible = experience >= minExp && isVisible;
+//             }
+//         }
+
+//         // Show or Hide the contractor box based on filters
+//         box.style.display = isVisible ? '' : 'none';
+//     });
+// }
+
+// // Event Listener for Apply Button
+// document.getElementById('applyFilterBtn').addEventListener('click', applyFilters);
+
+
+// Function to apply filters
+function applyFilters() {
+    const selectedRatings = [...document.querySelectorAll('input[name="rating"]:checked')].map(el => parseFloat(el.value));
+    const selectedLocations = [...document.querySelectorAll('input[name="location"]:checked')].map(el => el.value);
+    const selectedServices = [...document.querySelectorAll('input[name="service"]:checked')].map(el => el.value);
+    const selectedExperience = document.querySelector('input[name="experience"]:checked')?.value;
+
+    // Get all contractor boxes
+    const contractorBoxes = document.querySelectorAll('.contractor-box');
+    let visibleCount = 0;
+
+    contractorBoxes.forEach(box => {
+        let isVisible = true;
+
+        // Filter by Rating
+        if (selectedRatings.length > 0) {
+            const ratingText = box.querySelector('.rating .star').textContent;
+            const rating = parseFloat(ratingText.match(/(\d+(\.\d+)?)/)[0]);
+            isVisible = selectedRatings.some(r => rating >= r) && isVisible;
+        }
+
+        // Filter by Location
+        if (selectedLocations.length > 0) {
+            const locationText = box.querySelector('.org-location').textContent.toLowerCase();
+            isVisible = selectedLocations.some(location => locationText.includes(location.toLowerCase())) && isVisible;
+        }
+
+        // Filter by Services
+        if (selectedServices.length > 0) {
+            const servicesText = [...box.querySelectorAll('.ser-text')].map(el => el.textContent.toLowerCase());
+            isVisible = selectedServices.some(service => servicesText.includes(service.toLowerCase())) && isVisible;
+        }
+
+        // Filter by Experience
+        if (selectedExperience) {
+            const expText = box.querySelector('.mid-side .response:nth-child(1)').textContent;
+            const expMatch = expText.match(/(\d+)/);
+            const experience = expMatch ? parseInt(expMatch[0]) : 0;
+            const [minExp, maxExp] = selectedExperience.split('-').map(Number);
+            if (maxExp) {
+                isVisible = (experience >= minExp && experience <= maxExp) && isVisible;
+            } else {
+                isVisible = experience >= minExp && isVisible;
+            }
+        }
+
+        // Show or Hide the contractor box based on filters
+        if (isVisible) {
+            box.style.display = '';
+            visibleCount++;
+        } else {
+            box.style.display = 'none';
+        }
+    });
+
+    // Display 'No Results Found' if no contractors match the filters
+    let noResultElement = document.getElementById('noResults');
+    if (!noResultElement) {
+        noResultElement = document.createElement('div');
+        noResultElement.id = 'noResults';
+        noResultElement.style.textAlign = 'center';
+        noResultElement.style.fontSize = '18px';
+        noResultElement.style.fontWeight = 'bold';
+        noResultElement.style.marginTop = '20px';
+        noResultElement.textContent = 'No results found';
+        document.querySelector('.list').appendChild(noResultElement);
+    }
+    noResultElement.style.display = visibleCount === 0 ? '' : 'none';
+}
+
+// Event Listener for Apply Button
+document.getElementById('applyFilterBtn').addEventListener('click', applyFilters);
