@@ -313,356 +313,368 @@
             </div> 
         </nav>
         <!-- Top nav bar -->
-    <div class="main-recent-search">
-        <!-- Tabs -->
-    <div class="tabs">
-        <span class="tab" onclick="window.location.href='../html/myactivityrecentsearch.html'">Search Activity</span>
-        <span class="tab" onclick="window.location.href='../html/myactivityrecentlybrowsed.html'">Recently Browsed</span>
-        <span class="tab active">Shortlisted</span>
-        <span class="tab" onclick="window.location.href='../html/myactivityrecentlycontacted.html'">Recently Contacted</span>
-    </div>
-
-    <!-- Recent Searches Section -->
-    <div class="recent-searches">
-        <!-- Date Section -->
-        <h2>Shortlisted Properties</h2>
-        <div class="properties">
-            <article class="singleproperty">
-                <div class="imageview">
-                    <img src="../assets/marine1.jpg" alt="">
-                </div>
-                <div class="property-desc">
-                    <div class="prop-icons">
-                        <div class="available">
-                            <span>Available</span>
-                        </div>
-                        <div class="main-share">
-                            <div class="bookmark" onclick="hideProperty(this)">
-                                <span class="material-symbols-rounded like-btn">favorite</span>
-                            </div>
-                            <div class="share" data-modal="modalContent1">
-                                <span class="material-symbols-rounded">ios_share</span>
-                                <span>Share</span>
-                            </div>
-                            <div class="modal-content" id="modalContent1">
-                                <div class="social-group">
-                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                    <div class="copy-content">
-                                        <input type="text" id="inputField1" value="https://google.com" />
-                                        <button class="copyButton" >Copy</button>
-                                    </div>
-                                    <span class="close">&times;</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prop-head">
-                        <span>Vijay Residential</span>
-                        <span id="line"></span>
-                        <span>2BHK</span>
-                    </div>
-                    <div class="prop-addr">
-                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                    </div>
-                    <div class="prop-price-sqrt">
-                        <div class="single-prop-det price">
-                            <span class="heading">Price: </span>
-                            <span class="material-symbols-rounded">currency_rupee</span>
-                            <span>50 L</span>
-                        </div>
-                        <div class="single-prop-det area">
-                            <span class="heading">Area: </span>
-                            <span>200 Sqft</span>
-                        </div>
-                        <div class="single-prop-det feature">
-                            <span class="heading">Features: </span>
-                            <span>Gym, Internet</span>
-                        </div>
-                    </div>
-                    <div class="prop-explore">
-                        <div class="prop-posted">
-                            <span>Posted On: 15/08/2024</span>
-                        </div>
-                        <div class="exp">
-                            <span class="material-symbols-rounded">travel_explore</span>
-                            <span>Explore</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="singleproperty">
-                <div class="imageview">
-                    <img src="../assets/green2.png" alt="">
-                </div>
-                <div class="property-desc">
-                    <div class="prop-icons">
-                        <div class="available">
-                            <span>Available</span>
-                        </div>
-                        <div class="main-share">
-                            <div class="bookmark" onclick="hideProperty(this)">
-                                <span class="material-symbols-rounded like-btn">favorite</span>
-                            </div>
-                            <div class="share" data-modal="modalContent2">
-                                <span class="material-symbols-rounded">ios_share</span>
-                                <span>Share</span>
-                            </div>
-                            <div class="modal-content" id="modalContent2">
-                                <div class="social-group">
-                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                    <div class="copy-content">
-                                        <input type="text" id="inputField2" value="https://google.com" />
-                                        <button class="copyButton">Copy</button>
-                                    </div>
-                                    <span class="close">&times;</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prop-head">
-                        <span>Vijay Residential</span>
-                        <span id="line"></span>
-                        <span>2BHK</span>
-                    </div>
-                    <div class="prop-addr">
-                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                    </div>
-                    <div class="prop-price-sqrt">
-                        <div class="single-prop-det price">
-                            <span class="heading">Price: </span>
-                            <span class="material-symbols-rounded">currency_rupee</span>
-                            <span>50 L</span>
-                        </div>
-                        <div class="single-prop-det area">
-                            <span class="heading">Area: </span>
-                            <span>200 Sqft</span>
-                        </div>
-                        <div class="single-prop-det feature">
-                            <span class="heading">Features: </span>
-                            <span>Gym, Internet</span>
-                        </div>
-                    </div>
-                    <div class="prop-explore">
-                        <div class="prop-posted">
-                            <span>Posted On: 15/08/2024</span>
-                        </div>
-                        <div class="exp">
-                            <span class="material-symbols-rounded">travel_explore</span>
-                            <span>Explore</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="singleproperty">
-                <div class="imageview">
-                    <img src="../assets/Aparna1.png" alt="">
-                </div>
-                <div class="property-desc">
-                    <div class="prop-icons">
-                        <div class="available">
-                            <span>Available</span>
-                        </div>
-                        <div class="main-share">
-                            <div class="bookmark"onclick="hideProperty(this)">
-                                <span class="material-symbols-rounded like-btn">favorite</span>
-                            </div>
-                            <div class="share" data-modal="modalContent3">
-                                <span class="material-symbols-rounded">ios_share</span>
-                                <span>Share</span>
-                            </div>
-                            <div class="modal-content" id="modalContent3">
-                                <div class="social-group">
-                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                    <div class="copy-content">
-                                        <input type="text"id="inputField3" value="https://google.com" />
-                                        <button class="copyButton">Copy</button>
-                                    </div>
-                                    <span class="close">&times;</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prop-head">
-                        <span>Vijay Residential</span>
-                        <span id="line"></span>
-                        <span>2BHK</span>
-                    </div>
-                    <div class="prop-addr">
-                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                    </div>
-                    <div class="prop-price-sqrt">
-                        <div class="single-prop-det price">
-                            <span class="heading">Price: </span>
-                            <span class="material-symbols-rounded">currency_rupee</span>
-                            <span>50 L</span>
-                        </div>
-                        <div class="single-prop-det area">
-                            <span class="heading">Area: </span>
-                            <span>200 Sqft</span>
-                        </div>
-                        <div class="single-prop-det feature">
-                            <span class="heading">Features: </span>
-                            <span>Gym, Internet</span>
-                        </div>
-                    </div>
-                    <div class="prop-explore">
-                        <div class="prop-posted">
-                            <span>Posted On: 15/08/2024</span>
-                        </div>
-                        <div class="exp">
-                            <span class="material-symbols-rounded">travel_explore</span>
-                            <span>Explore</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="singleproperty">
-                <div class="imageview">
-                    <img src="../assets/green2.png" alt="">
-                </div>
-                <div class="property-desc">
-                    <div class="prop-icons">
-                        <div class="available">
-                            <span>Available</span>
-                        </div>
-                        <div class="main-share">
-                            <div class="bookmark"onclick="hideProperty(this)">
-                                <span class="material-symbols-rounded like-btn">favorite</span>
-                            </div>
-                            <div class="share" data-modal="modalContent2">
-                                <span class="material-symbols-rounded">ios_share</span>
-                                <span>Share</span>
-                            </div>
-                            <div class="modal-content" id="modalContent2">
-                                <div class="social-group">
-                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                    <div class="copy-content">
-                                        <input type="text" id="inputField4" value="https://google.com" />
-                                        <button class="copyButton">Copy</button>
-                                    </div>
-                                    <span class="close">&times;</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prop-head">
-                        <span>Vijay Residential</span>
-                        <span id="line"></span>
-                        <span>2BHK</span>
-                    </div>
-                    <div class="prop-addr">
-                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                    </div>
-                    <div class="prop-price-sqrt">
-                        <div class="single-prop-det price">
-                            <span class="heading">Price: </span>
-                            <span class="material-symbols-rounded">currency_rupee</span>
-                            <span>50 L</span>
-                        </div>
-                        <div class="single-prop-det area">
-                            <span class="heading">Area: </span>
-                            <span>200 Sqft</span>
-                        </div>
-                        <div class="single-prop-det feature">
-                            <span class="heading">Features: </span>
-                            <span>Gym, Internet</span>
-                        </div>
-                    </div>
-                    <div class="prop-explore">
-                        <div class="prop-posted">
-                            <span>Posted On: 15/08/2024</span>
-                        </div>
-                        <div class="exp">
-                            <span class="material-symbols-rounded">travel_explore</span>
-                            <span>Explore</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <article class="singleproperty">
-                <div class="imageview">
-                    <img src="../assets/AparnaSarovar3.png" alt="">
-                </div>
-                <div class="property-desc">
-                    <div class="prop-icons">
-                        <div class="available">
-                            <span>Available</span>
-                        </div>
-                        <div class="main-share">
-                            <div class="bookmark" onclick="hideProperty(this)">
-                                <span class="material-symbols-rounded like-btn">favorite</span>
-                            </div>
-                            <div class="share" data-modal="modalContent2">
-                                <span class="material-symbols-rounded">ios_share</span>
-                                <span>Share</span>
-                            </div>
-                            <div class="modal-content" id="modalContent2">
-                                <div class="social-group">
-                                    <span class="social" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                                    <span class="social" id="facebook"><i class="fa-brands fa-facebook-f"></i></span>
-                                    <span class="social" id="twitter"><i class="fa-brands fa-x-twitter"></i></span>
-                                    <span class="social" id="insta"><i class="fa-brands fa-instagram"></i></span>
-                                    <div class="copy-content">
-                                        <input type="text" id="inputField5" value="https://google.com" />
-                                        <button class="copyButton">Copy</button>
-                                    </div>
-                                    <span class="close">&times;</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="prop-head">
-                        <span>Vijay Residential</span>
-                        <span id="line"></span>
-                        <span>2BHK</span>
-                    </div>
-                    <div class="prop-addr">
-                        <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
-                    </div>
-                    <div class="prop-price-sqrt">
-                        <div class="single-prop-det price">
-                            <span class="heading">Price: </span>
-                            <span class="material-symbols-rounded">currency_rupee</span>
-                            <span>50 L</span>
-                        </div>
-                        <div class="single-prop-det area">
-                            <span class="heading">Area: </span>
-                            <span>200 Sqft</span>
-                        </div>
-                        <div class="single-prop-det feature">
-                            <span class="heading">Features: </span>
-                            <span>Gym, Internet</span>
-                        </div>
-                    </div>
-                    <div class="prop-explore">
-                        <div class="prop-posted">
-                            <span>Posted On: 15/08/2024</span>
-                        </div>
-                        <div class="exp">
-                            <span class="material-symbols-rounded">travel_explore</span>
-                            <span>Explore</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
+    <div class="main-content">
+        <div class="main-recent-search">
+            <!-- Tabs -->
+        <div class="tabs">
+            <span class="tab" onclick="window.location.href='../html/myactivityrecentsearch.html'">Search Activity</span>
+            <span class="tab" onclick="window.location.href='../html/myactivityrecentlybrowsed.html'">Recently Browsed</span>
+            <span class="tab active">Shortlisted</span>
+            <span class="tab" onclick="window.location.href='../html/myactivityrecentlycontacted.html'">Recently Contacted</span>
         </div>
-
-        <!-- Date Section -->
-        <h2>Shortlisted Rental House</h2>
-        <div class="no-recent">No Shortlisted Houses</div>
-    </div>
+    
+        <!-- Recent Searches Section -->
+        <div class="recent-searches">
+            <!-- Date Section -->
+            <h2>Shortlisted Properties</h2>
+            <div class="properties">
+                <article class="singleproperty">
+                    <div class="imageview">
+                        <img src="../assets/marine1.jpg" alt="">
+                    </div>
+                    <div class="property-desc">
+                        <div class="prop-icons">
+                            <div class="available">
+                                <span>Available</span>
+                            </div>
+                            <div class="main-share">
+                                <div class="bookmark" onclick="hideProperty(this)">
+                                    <span class="material-symbols-rounded like-btn">favorite</span>
+                                </div>
+                                <div class="share" data-modal="modalContent1">
+                                    <span class="material-symbols-rounded">ios_share</span>
+                                    <span>Share</span>
+                                </div>
+                                <div class="share-modal-content" id="share-modalContent1">
+                                    <div class="share-social-group">
+                                        <span class="share-social" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                        <span class="share-social" id="share-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                        <span class="share-social" id="share-twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                        <span class="share-social" id="share-insta"><i class="fa-brands fa-instagram"></i></span>
+                                        <div class="share-copy-content">
+                                            <input type="text" id="share-inputField1" value="https://google.com" />
+                                            <button class="share-copyButton">Copy</button>
+                                        </div>
+                                        <span class="share-close">&times;</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="prop-head">
+                            <span>Vijay Residential</span>
+                            <span id="line"></span>
+                            <span>2BHK</span>
+                        </div>
+                        <div class="prop-addr">
+                            <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                        </div>
+                        <div class="prop-price-sqrt">
+                            <div class="single-prop-det price">
+                                <span class="heading">Price: </span>
+                                <span class="material-symbols-rounded">currency_rupee</span>
+                                <span>50 L</span>
+                            </div>
+                            <div class="single-prop-det area">
+                                <span class="heading">Area: </span>
+                                <span>200 Sqft</span>
+                            </div>
+                            <div class="single-prop-det feature">
+                                <span class="heading">Features: </span>
+                                <span>Gym, Internet</span>
+                            </div>
+                        </div>
+                        <div class="prop-explore">
+                            <div class="prop-posted">
+                                <span>Posted On: 15/08/2024</span>
+                            </div>
+                            <div class="exp">
+                                <span class="material-symbols-rounded">travel_explore</span>
+                                <span>Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="singleproperty">
+                    <div class="imageview">
+                        <img src="../assets/green2.png" alt="">
+                    </div>
+                    <div class="property-desc">
+                        <div class="prop-icons">
+                            <div class="available">
+                                <span>Available</span>
+                            </div>
+                            <div class="main-share">
+                                <div class="bookmark" onclick="hideProperty(this)">
+                                    <span class="material-symbols-rounded like-btn">favorite</span>
+                                </div>
+                                <div class="share" data-modal="modalContent2">
+                                    <span class="material-symbols-rounded">ios_share</span>
+                                    <span>Share</span>
+                                </div>
+                                <div class="share-modal-content" id="share-modalContent1">
+                                    <div class="share-social-group">
+                                        <span class="share-social" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                        <span class="share-social" id="share-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                        <span class="share-social" id="share-twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                        <span class="share-social" id="share-insta"><i class="fa-brands fa-instagram"></i></span>
+                                        <div class="share-copy-content">
+                                            <input type="text" id="share-inputField2" value="https://google.com" />
+                                            <button class="share-copyButton">Copy</button>
+                                        </div>
+                                        <span class="share-close">&times;</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="prop-head">
+                            <span>Vijay Residential</span>
+                            <span id="line"></span>
+                            <span>2BHK</span>
+                        </div>
+                        <div class="prop-addr">
+                            <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                        </div>
+                        <div class="prop-price-sqrt">
+                            <div class="single-prop-det price">
+                                <span class="heading">Price: </span>
+                                <span class="material-symbols-rounded">currency_rupee</span>
+                                <span>50 L</span>
+                            </div>
+                            <div class="single-prop-det area">
+                                <span class="heading">Area: </span>
+                                <span>200 Sqft</span>
+                            </div>
+                            <div class="single-prop-det feature">
+                                <span class="heading">Features: </span>
+                                <span>Gym, Internet</span>
+                            </div>
+                        </div>
+                        <div class="prop-explore">
+                            <div class="prop-posted">
+                                <span>Posted On: 15/08/2024</span>
+                            </div>
+                            <div class="exp">
+                                <span class="material-symbols-rounded">travel_explore</span>
+                                <span>Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="singleproperty">
+                    <div class="imageview">
+                        <img src="../assets/Aparna1.png" alt="">
+                    </div>
+                    <div class="property-desc">
+                        <div class="prop-icons">
+                            <div class="available">
+                                <span>Available</span>
+                            </div>
+                            <div class="main-share">
+                                <div class="bookmark"onclick="hideProperty(this)">
+                                    <span class="material-symbols-rounded like-btn">favorite</span>
+                                </div>
+                                <div class="share" data-modal="modalContent3">
+                                    <span class="material-symbols-rounded">ios_share</span>
+                                    <span>Share</span>
+                                </div>
+                                <div class="share-modal-content" id="share-modalContent1">
+                                    <div class="share-social-group">
+                                        <span class="share-social" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                        <span class="share-social" id="share-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                        <span class="share-social" id="share-twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                        <span class="share-social" id="share-insta"><i class="fa-brands fa-instagram"></i></span>
+                                        <div class="share-copy-content">
+                                            <input type="text" id="share-inputField3" value="https://google.com" />
+                                            <button class="share-copyButton">Copy</button>
+                                        </div>
+                                        <span class="share-close">&times;</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="prop-head">
+                            <span>Vijay Residential</span>
+                            <span id="line"></span>
+                            <span>2BHK</span>
+                        </div>
+                        <div class="prop-addr">
+                            <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                        </div>
+                        <div class="prop-price-sqrt">
+                            <div class="single-prop-det price">
+                                <span class="heading">Price: </span>
+                                <span class="material-symbols-rounded">currency_rupee</span>
+                                <span>50 L</span>
+                            </div>
+                            <div class="single-prop-det area">
+                                <span class="heading">Area: </span>
+                                <span>200 Sqft</span>
+                            </div>
+                            <div class="single-prop-det feature">
+                                <span class="heading">Features: </span>
+                                <span>Gym, Internet</span>
+                            </div>
+                        </div>
+                        <div class="prop-explore">
+                            <div class="prop-posted">
+                                <span>Posted On: 15/08/2024</span>
+                            </div>
+                            <div class="exp">
+                                <span class="material-symbols-rounded">travel_explore</span>
+                                <span>Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="singleproperty">
+                    <div class="imageview">
+                        <img src="../assets/green2.png" alt="">
+                    </div>
+                    <div class="property-desc">
+                        <div class="prop-icons">
+                            <div class="available">
+                                <span>Available</span>
+                            </div>
+                            <div class="main-share">
+                                <div class="bookmark"onclick="hideProperty(this)">
+                                    <span class="material-symbols-rounded like-btn">favorite</span>
+                                </div>
+                                <div class="share" data-modal="modalContent2">
+                                    <span class="material-symbols-rounded">ios_share</span>
+                                    <span>Share</span>
+                                </div>
+                                <div class="share-modal-content" id="share-modalContent1">
+                                    <div class="share-social-group">
+                                        <span class="share-social" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                        <span class="share-social" id="share-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                        <span class="share-social" id="share-twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                        <span class="share-social" id="share-insta"><i class="fa-brands fa-instagram"></i></span>
+                                        <div class="share-copy-content">
+                                            <input type="text" id="share-inputField4" value="https://google.com" />
+                                            <button class="share-copyButton">Copy</button>
+                                        </div>
+                                        <span class="share-close">&times;</span>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="prop-head">
+                            <span>Vijay Residential</span>
+                            <span id="line"></span>
+                            <span>2BHK</span>
+                        </div>
+                        <div class="prop-addr">
+                            <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                        </div>
+                        <div class="prop-price-sqrt">
+                            <div class="single-prop-det price">
+                                <span class="heading">Price: </span>
+                                <span class="material-symbols-rounded">currency_rupee</span>
+                                <span>50 L</span>
+                            </div>
+                            <div class="single-prop-det area">
+                                <span class="heading">Area: </span>
+                                <span>200 Sqft</span>
+                            </div>
+                            <div class="single-prop-det feature">
+                                <span class="heading">Features: </span>
+                                <span>Gym, Internet</span>
+                            </div>
+                        </div>
+                        <div class="prop-explore">
+                            <div class="prop-posted">
+                                <span>Posted On: 15/08/2024</span>
+                            </div>
+                            <div class="exp">
+                                <span class="material-symbols-rounded">travel_explore</span>
+                                <span>Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="singleproperty">
+                    <div class="imageview">
+                        <img src="../assets/AparnaSarovar3.png" alt="">
+                    </div>
+                    <div class="property-desc">
+                        <div class="prop-icons">
+                            <div class="available">
+                                <span>Available</span>
+                            </div>
+                            <div class="main-share">
+                                <div class="bookmark" onclick="hideProperty(this)">
+                                    <span class="material-symbols-rounded like-btn">favorite</span>
+                                </div>
+                                <div class="share" data-modal="modalContent2">
+                                    <span class="material-symbols-rounded">ios_share</span>
+                                    <span>Share</span>
+                                </div>
+                                <div class="share-modal-content" id="share-modalContent1">
+                                    <div class="share-social-group">
+                                        <span class="share-social" id="share-whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                                        <span class="share-social" id="share-facebook"><i class="fa-brands fa-facebook-f"></i></span>
+                                        <span class="share-social" id="share-twitter"><i class="fa-brands fa-x-twitter"></i></span>
+                                        <span class="share-social" id="share-insta"><i class="fa-brands fa-instagram"></i></span>
+                                        <div class="share-copy-content">
+                                            <input type="text" id="share-inputField5" value="https://google.com" />
+                                            <button class="share-copyButton">Copy</button>
+                                        </div>
+                                        <span class="share-close">&times;</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="prop-head">
+                            <span>Vijay Residential</span>
+                            <span id="line"></span>
+                            <span>2BHK</span>
+                        </div>
+                        <div class="prop-addr">
+                            <span>Ashok nagar 3rd Cross 1st main, Ranebennur</span>
+                        </div>
+                        <div class="prop-price-sqrt">
+                            <div class="single-prop-det price">
+                                <span class="heading">Price: </span>
+                                <span class="material-symbols-rounded">currency_rupee</span>
+                                <span>50 L</span>
+                            </div>
+                            <div class="single-prop-det area">
+                                <span class="heading">Area: </span>
+                                <span>200 Sqft</span>
+                            </div>
+                            <div class="single-prop-det feature">
+                                <span class="heading">Features: </span>
+                                <span>Gym, Internet</span>
+                            </div>
+                        </div>
+                        <div class="prop-explore">
+                            <div class="prop-posted">
+                                <span>Posted On: 15/08/2024</span>
+                            </div>
+                            <div class="exp">
+                                <span class="material-symbols-rounded">travel_explore</span>
+                                <span>Explore</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+    
+            <!-- Date Section -->
+            <h2>Shortlisted Rental House</h2>
+            <div class="no-recent">No Shortlisted Houses</div>
+            <!-- Add a unique notification container in your HTML -->
+              <div id="customNotification" class="customNotification" style="display:none;">
+                <div id="notificationMessage"></div>
+                <hr>
+                <button id="okButton" class="okButton">OK</button>
+            </div>
+        </div>
+        </div>
     </div>
      <!-- footer -->
      <div class="main-footer-box">
@@ -728,6 +740,8 @@
      </div>
      <!-- footer --> 
       <script src="../javascript/navbarfooterinner.js"></script>
+      <script src="../javascript/myactivityshortlisted.js"></script>
+      <script src="../javascript/logoutoptions.js"></script>
 </body>
-<script src="../javascript/myactivityshortlisted.js"></script>
+
 </html>

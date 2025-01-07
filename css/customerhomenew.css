@@ -217,6 +217,9 @@
     text-shadow: none;
     text-align: center;
   }
+  .searching-tabs{
+    width: 90%;
+  }
   .search-section .image-section>img{
     filter: grayscale(0%);
   }
@@ -226,6 +229,7 @@
     bottom: 10px;
     backdrop-filter: blur(0px);
     background-color: white;
+    border-radius: 0px 0px 5px 5px;
   }
   .searchbar{
     align-items: flex-start;
