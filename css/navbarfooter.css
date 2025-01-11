@@ -99,21 +99,21 @@
 }
 
 .navigation-bar .nav-contractor{
-  background-color: #A5362B;
+  background-color: #7A2350;
   padding: 8px 10px;
   border-radius: 5px;
   color: white;
   font-size: 14px;
 }
 .navigation-bar .nav-builder{
-  background-color: #D96F2C;
+  background-color: #F7C201;
   padding: 8px 10px;
   border-radius: 5px;
   color: white;
   font-size: 14px;
 }
 .navigation-bar .nav-postproperty{
-  background-color: #0B3A62;
+  background-color: #10578B;
   padding: 8px 10px;
   border-radius: 5px;
   color: white;
@@ -626,13 +626,13 @@
   cursor: pointer;
 }
 .main-menu-contents .menu-other-services>div:first-child{
-  background-color: #A5362B;
+  background-color: #7A2350;
 }
 .main-menu-contents .menu-other-services>div:nth-child(2){
-  background-color: #D96F2C;
+  background-color: #F7C201;
 }
 .main-menu-contents .menu-other-services>div:nth-child(3){
-  background-color: #0B3A62;
+  background-color: #10578B;
 }
 .main-menu-contents .text-our-services{
   margin: 0px 20px;
