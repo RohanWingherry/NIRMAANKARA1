@@ -490,17 +490,34 @@
                                         <option value="serviced apartment">Service Apartment</option>
                                     </select>
                                 </div>
-                                <div class="form-group-radio">
-                                    <span style="font-size: 16px; font-weight: 500;">Include:</span>
-                                    <div class="radio-btn">
-                                        <input type="radio" id="swim" name="include">
+                                <div class="form-group-checkbox">
+                                    <span class="form-title">Include:</span>
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="swim" name="include[]" value="swimming">
                                         <label for="swim">Swimming</label>
                                     </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" id="garden" name="include">
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="garden" name="include[]" value="garden">
                                         <label for="garden">Garden</label>
                                     </div>
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="gym" name="include[]" value="gym">
+                                        <label for="gym">Gym</label>
+                                    </div>
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="playground" name="include[]" value="playground">
+                                        <label for="playground">Playground</label>
+                                    </div>
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="clubhouse" name="include[]" value="clubhouse">
+                                        <label for="clubhouse">Clubhouse</label>
+                                    </div>
+                                    <div class="checkbox-btn">
+                                        <input type="checkbox" id="others" name="include[]" value="others">
+                                        <label for="others">Others</label>
+                                    </div>
                                 </div>
+                                
                             </form>
                             <div class="main-uploading">
                                 <div class="uploading-area">

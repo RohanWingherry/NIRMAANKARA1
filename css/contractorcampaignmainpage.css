@@ -160,25 +160,32 @@
     border: 1px solid gray;
     width: 240px;
 }
-.form-group-radio{
+.form-group-checkbox {
+    margin: 20px 0;
     display: flex;
-    align-items:center ;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-.form-group-radio .radio-btn{
+
+.form-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.checkbox-btn {
+    margin-bottom: 10px;
     display: flex;
-    gap: 4px;
+    align-items: center;
 }
-.radio-btn input{
-    cursor: pointer;
+
+.checkbox-btn input[type="checkbox"] {
+    margin-right: 4px;
 }
-.radio-btn label{
-    cursor: pointer;
-    font-size: 14px;
-}
-.form-group input:hover{
-    border: 1px solid rgb(17, 17, 17);
-}
+
 
 
 /* image and video upload */
