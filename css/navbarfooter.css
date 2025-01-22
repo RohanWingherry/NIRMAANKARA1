@@ -451,7 +451,7 @@
 .modal {
   display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1; /* Sit on top */
+  z-index: 99; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%;
@@ -496,7 +496,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  margin-bottom: 10px;
+  gap: 1px;
 }
 .radio-buttons label {
   display: block;
@@ -504,38 +505,88 @@
 }
 
 #changeUserTypeButton {
-  padding: 10px 15px;
-  background-color: #007bff;
+  padding: 5px 15px;
+  background-color: #008994;
   color: white;
-  border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #changeUserTypeButton:hover {
+  background-color: #05737a;
+}
+
+#send-otp{
+  background-color: #007bff;
+  width: max-content;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+#send-otp:hover{
   background-color: #0056b3;
 }
-
-#otpSection {
-  margin-top: 20px;
+#otpSection p{
+  font-size: 16px;
+  font-weight: bold;
 }
-
 #editMobileBtn {
   margin-top: 10px;
   padding: 5px 10px;
-  background-color: #f0ad4e;
+  background-color: #7A2350;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
 }
-
+#otpverifiedmsg{
+  margin-top: 10px;
+  color: green;
+  font-size: 13px;
+  font-weight: 500;
+  align-items: center;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 #otpInput {
   padding: 10px;
   width: 100%;
-  margin-top: 10px;
+  border: 1px solid grey;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 #verifyOtpBtn {
-  padding: 10px 15px;
-  background-color: #28a745;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #029846;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+#verifyOtpBtn:hover{
+  background-color: #03813c;
+}
+#resendOtpBtn{
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+.changeotpshow {
+  display: none;
 }
 
 .nav-logout-hover .myactivity-logout{

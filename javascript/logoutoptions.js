@@ -19,44 +19,96 @@ document.getElementById('changeUserTypeBtn').addEventListener('click', function(
   // Close the modal when the close button (X) is clicked
   document.getElementById('closeModalBtn').addEventListener('click', function() {
     document.getElementById('userTypeModal').style.display = 'none';
+    document.querySelector(".changeotpshow").style.display='none';
+    document.getElementById("send-otp").style.display="block";
+    document.getElementById("otpverifiedmsg").style.display = "none";
+
   });
   
   // Handle the "Change User Type" button click
-
-  const changeUserButtons=document.querySelectorAll(".change-usertype-popup");
-  changeUserButtons.forEach(changeUser => {
-    changeUser.addEventListener("click",()=>{
- // Get the selected user type
- const selectedUserType = document.querySelector('input[name="userType"]:checked');
-    
- if (!selectedUserType) {
-   showNotification('Please select a user type.');
-   return;
- }
-
- // Show OTP verification section
- document.getElementById('otpSection').style.display = 'block';
- showNotification('OTP has been sent to registered mobile number please verify');
- // You can perform the actual user type change here (e.g., make an API call to update the user type in the database)
-    })
+  const sendOtpBtn1 = document.getElementById("send-otp");
+  const verifyOtpBtn1 = document.getElementById("verifyOtpBtn");
+  const resendOtpBtn1 = document.getElementById("resendOtpBtn");
+  const emailTimer1 = document.getElementById("email-timer");
+  const otpInput1 = document.getElementById("otpInput");
+  const changeOtpShow1 = document.querySelector(".changeotpshow");
+  const changeUserTypeBtn1 = document.getElementById("changeUserTypeButton");
+  const otpVerifiedMsg = document.getElementById("otpverifiedmsg");
+  
+  document.getElementById("editMobileBtn").addEventListener("click",()=>{
+    window.location.href="../html/myprofile.html";
+  })
+  let timer = 60;
+  let countdownInterval;
+  let isOtpVerified = false; // Track OTP verification status
+  
+  // Show OTP input section and start timer on "Send OTP"
+  sendOtpBtn1.addEventListener("click", () => {
+    showNotification("Sent OTP to registered Mobile Number")
+    changeOtpShow1.style.display = "block"; 
+    startTimer(); 
   });
   
-  // Edit mobile number
-  document.getElementById('editMobileBtn').addEventListener('click', function() {
-    window.location.href="../html/myprofile.html"
-  });
+  // Start the resend OTP timer
+  function startTimer() {
+    timer = 60;
+    resendOtpBtn1.disabled = true; // Disable the button initially
+    emailTimer1.style.display = "inline";
+    emailTimer1.textContent = `(${timer}s)`;
+    clearInterval(countdownInterval);
   
-  // Verify OTP (This is a simple mock-up, you'd need to integrate it with your backend OTP verification)
-  document.getElementById('verifyOtpBtn').addEventListener('click', function() {
-    const otpInput = document.getElementById('otpInput').value;
-    const selectedUserType = document.querySelector('input[name="userType"]:checked');
-    if (otpInput === '123456') {
-      showNotification('Changed the User Type to: ' + selectedUserType.value);
-      document.getElementById('userTypeModal').style.display = 'none';
-    } else {
-      showNotification('Invalid OTP. Please try again.');
+    countdownInterval = setInterval(() => {
+      timer--;
+      emailTimer1.textContent = `(${timer}s)`;
+  
+      if (timer === 0) {
+        clearInterval(countdownInterval);
+        resendOtpBtn1.disabled = false; // Enable the button when the timer ends
+        emailTimer1.style.display = "none"; // Hide the timer display
+      }
+    }, 1000);
+  }
+  
+  // Resend OTP functionality
+  resendOtpBtn1.addEventListener("click", () => {
+    if(timer==0){
+      showNotification("Resent the OTP to registred Mobile Number");
+      startTimer();
     }
   });
+  
+  // Verify OTP and handle Change User Type button
+  verifyOtpBtn1.addEventListener("click", () => {
+    const enteredOtp = otpInput1.value;
+    if (enteredOtp === "123456") {
+      showNotification("Successsfully Verified OTP");
+      isOtpVerified = true; // Set OTP verification status
+      changeOtpShow1.style.display = "none"; // Hide OTP section
+      sendOtpBtn1.style.display = "none";
+      otpVerifiedMsg.style.display = "flex";
+      document.getElementById("editMobileBtn").style.display = "none";
+  
+      otpInput1.value = ""; 
+    } else {
+      showNotification("Please enter Valid OTP");
+    }
+  });
+  
+  // Handle Change User Type button
+  changeUserTypeBtn1.addEventListener("click", () => {
+    if (isOtpVerified) {
+      showNotification("Successfully Changed the User Type");
+      document.querySelector(".changeotpshow").style.display='none';
+      document.getElementById('userTypeModal').style.display = 'none';
+      document.getElementById("send-otp").style.display="block";
+      otpVerifiedMsg.style.display = "none";
+
+    } else {
+      showNotification("Please verify OTP before changing User Type");
+    }
+  });
+  
+
 
   document.getElementById("myactivity-logout-side").addEventListener("click",()=>{
     menuContents.classList.remove('open');
