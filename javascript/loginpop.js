@@ -428,8 +428,8 @@ if (password !== confirmPassword) {
   let redirectUrl = '';
   switch (role.value) {
     case 'contractor':
-      showNotification('Registration successful! Redirecting to your homepage...');
-      redirectUrl = '../html/contractorshomepage.html';
+      showNotification('Registration successful!...');
+      redirectUrl = '../html/contractorprofilecreation.html';
       break;
     case 'builder':
       showNotification('Registration successful! Redirecting to your homepage...');
