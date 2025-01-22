@@ -158,392 +158,387 @@ closeForgotPopup.addEventListener('click', () => {
   forgotPasswordPopup.style.display = 'none';
 });
 
-// Forgot Password - Send OTP
-sendOtpBtn.addEventListener('click', () => {
-  const emailInput = document.querySelector('#forgot-email');
-  const emailError = document.querySelector('#email-error');
-  const email = emailInput.value.trim();
+// Get elements
+const forgotEmailInput = document.getElementById("forgot-email");
 
-  if (!/^[\w.%+-]+@gmail\.com$/.test(email)) {
-    emailError.style.display = 'block';
-    return;
-  }
+const newPasswordInput = document.getElementById("new-password");
+const confirmNewPasswordInput = document.getElementById("confirm-new-password");
+const emailError = document.getElementById("email-error");
+const otpError = document.getElementById("otp-error");
+const otpSuccess = document.getElementById("otp-success");
+const passwordError = document.getElementById("password-error");
+const confirmPasswordError = document.getElementById("confirm-password-error");
 
-  emailError.style.display = 'none';
-  otpSection.style.display = 'block';
-  showNotification('OTP sent to your email!');
+const emailSection = document.getElementById("email-section");
+
+// Function to reset the forgot password form
+function resetForgotPasswordForm() {
+  forgotEmailInput.value = "";
+  otpInput.value = "";
+  newPasswordInput.value = "";
+  confirmNewPasswordInput.value = "";
+  emailError.style.display = "none";
+  otpError.style.display = "none";
+  otpSuccess.style.display = "none";
+  passwordError.style.display = "none";
+  confirmPasswordError.style.display = "none";
+
+  // Show only the email section
+  emailSection.style.display = "block";  // Show email input section
+  otpSection.style.display = "none";    // Hide OTP section
+  resetPasswordSection.style.display = "none";  // Hide reset password section
+}
+
+
+// Email validation
+function validateEmail(email) {
+  const emailPattern = /^[a-zA-Z0-9.]+@gmail\.com$/;
+  return emailPattern.test(email);
+}
+
+// Password validation
+function validatePassword(password) {
+  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
+  return passwordPattern.test(password);
+}
+
+// Open forgot password popup
+document.getElementById("forgot-password-link").addEventListener("click", () => {
+  // Reset the form to email section when popup is opened
+  resetForgotPasswordForm();
+  forgotPasswordPopup.style.display = "block"; // Show the popup
 });
 
-// Verify OTP
-verifyOtpBtn.addEventListener('click', () => {
-  const otpSuccessMessage = document.querySelector('#otp-success');
-  const otpErrorMessage = document.querySelector('#otp-error');
+// Email validation when sending OTP
+sendOtpBtn.addEventListener("click", () => {
+  const email = forgotEmailInput.value;
   
-  if (otpInput.value.trim() === '123456') {
-    // Display success message
-    otpSuccessMessage.textContent = 'OTP successfully verified!';
-    otpSuccessMessage.style.display = 'block';
-    otpSuccessMessage.style.color = 'green';
-    
-    otpErrorMessage.style.display = 'none';
-    resetPasswordSection.style.display = 'block';
-    
-    // Hide OTP-related sections after successful verification
-    sendOtpBtn.style.display = 'none';
-    otpSection.style.display = 'none';
-    verifyOtpBtn.style.display = 'none';
-    otpInput.style.display = 'none';
-    resendOtpBtn.style.display = 'none';
-  } else {
-    otpErrorMessage.textContent = 'Invalid OTP. Please try again.';
-    otpErrorMessage.style.display = 'block';
-    otpErrorMessage.style.color = 'red';
-    
-    otpSuccessMessage.style.display = 'none';
+  // Check if email is empty
+  if (!email) {
+    showNotification("Email is required.");
+    return;
   }
-});
-
-// Resend OTP
-resendOtpBtn.addEventListener('click', () => {
-  showNotification('OTP has been resent!');
-});
-
-// Reset Password
-resetPasswordBtn.addEventListener('click', () => {
-  const newPassword = document.querySelector('#new-password').value.trim();
-  const confirmNewPassword = document.querySelector('#confirm-new-password').value.trim();
-  const passwordError = document.querySelector('#password-error');
-  const confirmPasswordError = document.querySelector('#confirm-password-error');
-
-  const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/;
-
-  if (!passwordRegex.test(newPassword)) {
-    passwordError.style.display = 'block';
+  
+  // Validate email format
+  if (!validateEmail(email)) {
+    emailError.style.display = "block";
+    showNotification("Please enter a valid Gmail address!");
     return;
   } else {
-    passwordError.style.display = 'none';
-  }
-
-  if (newPassword !== confirmNewPassword) {
-    confirmPasswordError.style.display = 'block';
-  } else {
-    confirmPasswordError.style.display = 'none';
-    showNotification('Password has been reset successfully!');
-    togglePopup(forgotPasswordPopup);
+    emailError.style.display = "none";
+    
+    // Simulate sending OTP (You can replace this with real OTP sending logic)
+    showNotification("OTP sent to your email!", "success");
+    otpSection.style.display = "block"; // Show OTP section
+    emailSection.style.display = "none"; // Hide email section
+    resetPasswordSection.style.display = "none"; // Keep Reset Password section hidden until OTP is verified
   }
 });
+
+// OTP verification
+verifyOtpBtn.addEventListener("click", () => {
+  const otp = otpInput.value;
+  
+  // Simulate OTP verification (Replace with real OTP verification logic)
+  if (otp !== "123456") {  // Example OTP for testing
+    otpError.style.display = "block";
+    otpSuccess.style.display = "none";
+    showNotification("Incorrect OTP. Please try again.");
+  } else {
+    otpError.style.display = "none";
+    otpSuccess.style.display = "block";
+    showNotification("OTP verified successfully!", "success");
+    resetPasswordSection.style.display = "block"; // Show reset password section only after OTP is verified
+    otpSection.style.display = "none"; // Hide OTP section
+  }
+});
+
+// Reset password validation
+resetPasswordBtn.addEventListener("click", () => {
+  const newPassword = newPasswordInput.value;
+  const confirmPassword = confirmNewPasswordInput.value;
+
+  // Validate password
+  if (!newPassword || !validatePassword(newPassword)) {
+    passwordError.style.display = "block";
+    showNotification("Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).");
+    return;
+  } else {
+    passwordError.style.display = "none";
+  }
+
+  // Confirm password match
+  if (newPassword !== confirmPassword) {
+    confirmPasswordError.style.display = "block";
+    showNotification("Passwords do not match!");
+    return;
+  } else {
+    confirmPasswordError.style.display = "none";
+  }
+
+  // If all validations pass
+  showNotification("Password reset successfully!", "success");
+  
+  // Close the popup and reset form
+  closeForgotPasswordPopup(); // Close and reset form
+});
+
+// Close forgot password popup
+document.getElementById("close-forgot-popup").addEventListener("click", closeForgotPasswordPopup);
+
+function closeForgotPasswordPopup() {
+  forgotPasswordPopup.style.display = "none"; // Close the popup immediately
+  resetForgotPasswordForm(); // Reset the form after closing
+}
+
 
 // DOM Elements
 
-const sendEmailOtpBtn = document.querySelector('#send-email-otp');
-const sendMobileOtpBtn = document.querySelector('#send-mobile-otp');
-const verifyEmailOtpBtn = document.querySelector('#verify-email-otp');
-const verifyMobileOtpBtn = document.querySelector('#verify-mobile-otp');
-const emailOtpInput = document.querySelector('#email-otp');
-const mobileOtpInput = document.querySelector('#mobile-otp');
-const emailOtpSection = document.querySelector('#email-otp-section');
-const mobileOtpSection = document.querySelector('#mobile-otp-section');
-// const signUpForm = document.querySelector('#sign-up-form');
-const emailInput = document.querySelector('#sign-up-email');
-const mobileInput = document.querySelector('#mobile-number');
+// Utility function to show notifications
+// function showNotification(message, type = "error") {
+//   const notification = document.createElement("div");
+//   notification.className = `notification ${type}`;
+//   notification.textContent = message;
+//   document.body.appendChild(notification);
 
-// Utility to show notifications
-// const showNotification = (message) => {
-//   alert(message); // Replace with a more user-friendly notification
-// };
-// Resend OTP Timer
-// Function to handle the resend timer
-const startResendTimer = (timerId, buttonId) => {
-  let countdown = 10; // Timer duration in seconds
-  const timerElement = document.querySelector(timerId);
-  const resendButton = document.querySelector(buttonId);
+//   setTimeout(() => {
+//     notification.remove();
+//   }, 3000);
+// }
 
-  // Check if elements are correctly selected
-  if (!timerElement || !resendButton) {
-    console.error('Timer element or resend button not found.');
+// Form validation
+const form = document.getElementById("sign-up-form");
+const emailOtpInput = document.getElementById("email-otp");
+const mobileOtpInput = document.getElementById("mobile-otp");
+const sendEmailOtpBtn = document.getElementById("send-email-otp");
+const verifyEmailOtpBtn = document.getElementById("verify-email-otp");
+const resendEmailOtpBtn = document.getElementById("resend-email-otp");
+const sendMobileOtpBtn = document.getElementById("send-mobile-otp");
+const verifyMobileOtpBtn = document.getElementById("verify-mobile-otp");
+const resendMobileOtpBtn = document.getElementById("resend-mobile-otp");
+const termsCheckbox = document.getElementById("terms-checkbox");
+
+let emailOtpVerified = false;
+let mobileOtpVerified = false;
+// Show Email OTP button when a valid email is entered
+const emailInput = document.getElementById("sign-up-email");
+emailInput.addEventListener("input", () => {
+  if (/^[a-zA-Z0-9.]+@gmail\.com$/.test(emailInput.value)) {
+    sendEmailOtpBtn.style.display = "block";
+  } else {
+    sendEmailOtpBtn.style.display = "none";
+  }
+});
+
+// Show Mobile OTP button when a valid mobile number is entered
+const mobileInput = document.getElementById("mobile-number");
+mobileInput.addEventListener("input", () => {
+  if (/^\d{10}$/.test(mobileInput.value)) {
+    sendMobileOtpBtn.style.display = "block";
+  } else {
+    sendMobileOtpBtn.style.display = "none";
+  }
+});
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const fullName = document.getElementById("full-name").value.trim();
+  const email = document.getElementById("sign-up-email").value.trim();
+  const mobileNumber = document.getElementById("mobile-number").value.trim();
+  const password = document.getElementById("password-input").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  const role = document.querySelector("input[name='role']:checked");
+
+  // Input validation
+  if (!fullName) {
+    showNotification("Full Name is required.");
     return;
   }
 
-  // Disable the resend button and ensure the timer is visible
-  resendButton.disabled = true;
-  timerElement.style.display = 'inline'; // Ensure the timer is visible
-
-  const interval = setInterval(() => {
-    if (countdown <= 0) {
-      clearInterval(interval); // Stop the timer
-      timerElement.textContent = ''; // Clear the timer text
-      timerElement.style.display = 'none'; // Hide the timer element
-      resendButton.disabled = false; // Enable the resend button
-      resendButton.textContent = 'Resend OTP'; // Reset button text
-    } else {
-      timerElement.textContent = `Retry in ${countdown}s`; // Update timer text
-      resendButton.textContent = `Resend (${countdown}s)`; // Update button text
-      countdown--;
-    }
-  }, 1000);
-};
-// Email Input Listener - Show OTP section when valid email is entered
-emailInput.addEventListener('input', () => {
-  const email = emailInput.value.trim();
-  
-  if (/^[\w.%+-]+@gmail\.com$/.test(email)) {
-    sendEmailOtpBtn.style.display = 'inline-block'; // Show the send OTP button
-  } else {
-    sendEmailOtpBtn.style.display = 'none'; // Hide the send OTP button if email is not valid
-    emailOtpSection.style.display = 'none'; // Hide OTP section if email is invalid
-  }
-});
-
-// Mobile Input Listener - Show OTP section when valid mobile number is entered
-mobileInput.addEventListener('input', () => {
-  const mobile = mobileInput.value.trim();
-  
-  if (/^\d{10}$/.test(mobile)) {
-    sendMobileOtpBtn.style.display = 'inline-block'; // Show the send OTP button
-  } else {
-    sendMobileOtpBtn.style.display = 'none'; // Hide the send OTP button if mobile number is not valid
-    mobileOtpSection.style.display = 'none'; // Hide OTP section if mobile number is invalid
-  }
-});
-
-// Email OTP Functionality
-let emailOtp = '';
-sendEmailOtpBtn.addEventListener('click', () => {
-  const email = emailInput.value.trim();
-  
-  if (!/^[\w.%+-]+@gmail\.com$/.test(email)) {
-    showNotification('Please enter a valid Gmail address.');
+  if (!/^[a-zA-Z ]+$/.test(fullName)) {
+    showNotification("Full Name must contain only letters and spaces.");
     return;
   }
-  
-  // Generate a mock OTP (replace with actual OTP logic)
-  emailOtp = '123456'; // You should generate a random OTP here
-  showNotification('OTP sent to your email.');
-  
-  emailOtpInput.style.display = 'block';
-  verifyEmailOtpBtn.style.display = 'inline-block';
-  sendEmailOtpBtn.style.display = 'none';
-  emailOtpSection.style.display = 'block'; // Show OTP section when OTP is sent
 
-  // Start resend timer
-  const resendEmailOtpBtn = document.querySelector('#resend-email-otp');
-  resendEmailOtpBtn.style.display = 'inline-block';
-  resendEmailOtpBtn.disabled = true; // Disable initially
-  startResendTimer('#email-timer', '#resend-email-otp');
-});
-// Resend Email OTP
-document.querySelector('#resend-email-otp').addEventListener('click', () => {
-  emailOtp = '123456'; // Replace with actual OTP generation logic
-  showNotification('A new OTP has been sent to your email.');
-
-  // Restart timer
-  startResendTimer('#email-timer', '#resend-email-otp');
-});
-// Email OTP Verification
-verifyEmailOtpBtn.addEventListener('click', () => {
-  const enteredOtp = emailOtpInput.value.trim();
-  
-  if (enteredOtp === emailOtp) {
-    showNotification('Email OTP successfully verified!');
-    emailOtpInput.disabled = true;
-    emailOtpSection.style.display = 'none'; // Hide OTP section after verification
-    mobileOtpSection.style.display = 'block'; // Show mobile OTP section after email OTP is verified
-  } else {
-    showNotification('Invalid OTP. Please try again.');
-  }
-});
-
-// Mobile OTP Functionality
-let mobileOtp = '';
-sendMobileOtpBtn.addEventListener('click', () => {
-  const mobile = mobileInput.value.trim();
-  
-  if (!/^\d{10}$/.test(mobile)) {
-    showNotification('Please enter a valid 10-digit mobile number.');
+  if (!email) {
+    showNotification("Email is required.");
     return;
   }
-  
-  // Generate a mock OTP (replace with actual OTP logic)
-  mobileOtp = '654321'; // You should generate a random OTP here
-  showNotification('OTP sent to your mobile.');
-  
-  mobileOtpInput.style.display = 'block';
-  verifyMobileOtpBtn.style.display = 'inline-block';
-  sendMobileOtpBtn.style.display = 'none';
-  mobileOtpSection.style.display = 'block'; // Show OTP section when OTP is sent
 
-  // Start resend timer
-  const resendMobileOtpBtn = document.querySelector('#resend-mobile-otp');
-  resendMobileOtpBtn.style.display = 'inline-block';
-  resendMobileOtpBtn.disabled = true; // Disable initially
-  startResendTimer('#mobile-timer', '#resend-mobile-otp');
-});
-// Resend Mobile OTP
-document.querySelector('#resend-mobile-otp').addEventListener('click', () => {
-  mobileOtp = '654321'; // Replace with actual OTP generation logic
-  showNotification('A new OTP has been sent to your mobile.');
-
-  // Restart timer
-  startResendTimer('#mobile-timer', '#resend-mobile-otp');
-});
-// Mobile OTP Verification
-verifyMobileOtpBtn.addEventListener('click', () => {
-  const enteredOtp = mobileOtpInput.value.trim();
-  
-  if (enteredOtp === mobileOtp) {
-    showNotification('Mobile OTP successfully verified!');
-    mobileOtpInput.disabled = true;
-    mobileOtpSection.style.display = 'none'; // Hide OTP section after verification
-  } else {
-    showNotification('Invalid OTP. Please try again.');
+  if (!/^[a-zA-Z0-9.]+@gmail\.com$/.test(email)) {
+    showNotification("Invalid email format.");
+    return;
   }
-});
-// // Initialize timer on page load
-// window.addEventListener('DOMContentLoaded', () => {
-//   startResendTimer('#email-timer', '#resend-email-otp'); // For email
-//   startResendTimer('#mobile-timer', '#resend-mobile-otp'); // For mobile
-// });
-// Final Registration Form Validation
 
+  if (!emailOtpVerified) {
+    showNotification("Email OTP verification is required.");
+    return;
+  }
 
+  if (!mobileNumber) {
+    showNotification("Mobile Number is required.");
+    return;
+  }
 
-const signUpForm = document.querySelector('#sign-up-form');
-signUpForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (!/^\d{10}$/.test(mobileNumber)) {
+    showNotification("Invalid Mobile Number. It must be 10 digits.");
+    return;
+  }
 
-    const fullName = document.querySelector('#full-name').value.trim();
-    const email = document.querySelector('#sign-up-email').value.trim();
-    const mobileNumber = document.querySelector('#mobile-number').value.trim();
-    const password = document.querySelector('.password-input').value.trim();
-    const confirmPassword = document.querySelector('#confirm-password').value.trim(); // Fixed here
-    const role = document.querySelector('input[name="role"]:checked'); // Ensure role is selected
-    
-    const emailOtp = document.querySelector('#email-otp').value.trim();
-    const mobileOtp = document.querySelector('#mobile-otp').value.trim();
-    // Validate Terms and Conditions
-    const termsCheckbox = document.querySelector('#terms-checkbox');
-    
-    // Validate Full Name
-    if (!fullName) {
-        showNotification('Please enter your full name.');
-        return;
-    }
-  
-    // Validate Email
-    if (!email) {
-        showNotification('Please enter your email.');
-        return;
-    }
+  if (!mobileOtpVerified) {
+    showNotification("Mobile OTP verification is required.");
+    return;
+  }
 
-    // Email validation pattern
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
-        showNotification('Please enter a valid email address.');
-        return;
-    }
+  // Check if password is provided
+if (!password) {
+  showNotification("Password is required.");
+  return;
+}
 
-    // Email OTP Verification
-    if (!emailOtp) {
-        showNotification('Please enter the OTP sent to your email.');
-        return;
-    }
+// Check if password is at least 6 characters long
+// if (password.length < 6) {
+//   showNotification("Password must be at least 6 characters long.");
+//   return;
+// }
 
-    // Validate Mobile Number
-    if (!mobileNumber) {
-        showNotification('Please enter your mobile number.');
-        return;
-    }
+// Check if password contains at least one uppercase letter, one number, and one special character
+const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
+if (!passwordPattern.test(password)) {
+  showNotification("Password must contain at least one uppercase letter, one number, and one special character andat least 6 character long.");
+  return;
+}
 
-    const mobilePattern = /^\d{10}$/;
-    if (!mobilePattern.test(mobileNumber)) {
-        showNotification('Please enter a valid 10-digit mobile number.');
-        return;
-    }
+// Check if passwords match
+if (password !== confirmPassword) {
+  showNotification("Passwords do not match.");
+  return;
+}
 
-    // Mobile OTP Verification
-    if (!mobileOtp) {
-        showNotification('Please enter the OTP sent to your mobile number.');
-        return;
-    }
+  if (!role) {
+    showNotification("Please select a role.");
+    return;
+  }
 
-    // Validate Password
-    if (!password) {
-        showNotification('Please enter your password.');
-        return;
-    }
+  if (!termsCheckbox.checked) {
+    showNotification("You must accept the Terms and Conditions.");
+    return;
+  }
 
-    // Validate Password Strength
-    const passwordStrengthPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/;
-    if (!passwordStrengthPattern.test(password)) {
-        showNotification('Password must be at least 6 characters long, include 1 uppercase letter, 1 number, and 1 special character.');
-        return;
-    }
-
-    // Validate Confirm Password
-    if (!confirmPassword) {
-        showNotification('Please confirm your password.');
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        showNotification('Passwords do not match.');
-        return;
-    }
-
-    // Validate Role
-    if (!role) {
-        showNotification('Please select your role.');
-        return;
-    }
-
-    // Role-Based Navigation
-    let redirectUrl = '';
-    switch (role.value) {
-        case 'contractor':
-            showNotification('Registration successful! Redirecting to your homepage...');
-            redirectUrl = '../html/contractorshomepage.html';  // Adjust path
-            break;
-        case 'customer':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '../html/customerhomepage.html';  // Adjust path
-            break;
-        case 'buyer':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '../html/buyerhome.html';  // Adjust path
-            break;
-        case 'seller':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '/dashboard/seller';  // Adjust path
-            break;
-        case 'renter':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '/dashboard/rentor';  // Adjust path
-            break;
-        case 'tenant':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '/dashboard/rentor';  // Adjust path
-            break;
-        case 'agent':
-            showNotification('Registration successful! Redirecting to your dashboard...');
-            redirectUrl = '/dashboard/rentor';  // Adjust path
-            break;
-        default:
-            showNotification('Something went wrong. Please try again.');
-            return;
-    }
-    
-    if (!termsCheckbox.checked) {
-      showNotification('You must accept the Terms and Conditions to register.');
+  let redirectUrl = '';
+  switch (role.value) {
+    case 'contractor':
+      showNotification('Registration successful! Redirecting to your homepage...');
+      redirectUrl = '../html/contractorshomepage.html';
+      break;
+    case 'customer':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '../html/customerhomepage.html';
+      break;
+    case 'buyer':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '../html/buyerhome.html';
+      break;
+    case 'seller':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '/dashboard/seller';
+      break;
+    case 'renter':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '/dashboard/rentor';
+      break;
+    case 'tenant':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '/dashboard/rentor';
+      break;
+    case 'agent':
+      showNotification('Registration successful! Redirecting to your dashboard...');
+      redirectUrl = '/dashboard/rentor';
+      break;
+    default:
+      showNotification('Something went wrong. Please try again.');
       return;
   }
-    // Show the success notification for 2 seconds before redirecting
-    setTimeout(() => {
-        window.location.href = redirectUrl;
-    }, 2000); // Delay of 2 seconds (2000 milliseconds)
 
-    // If all validations pass, proceed with registration (e.g., show success or submit form)
-    showNotification('Registration successful!');
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, 2000);
+
+  form.reset();
+  emailOtpVerified = false;
+  mobileOtpVerified = false;
 });
+
+// Email OTP functionality
+sendEmailOtpBtn.addEventListener("click", () => {
+  sendEmailOtpBtn.style.display = "none";
+  emailOtpInput.style.display = "block";
+  verifyEmailOtpBtn.style.display = "block";
+  resendEmailOtpBtn.style.display = "block";
+  startOtpTimer("email-timer", resendEmailOtpBtn);
+  showNotification("Email OTP sent!", "success");
+});
+
+verifyEmailOtpBtn.addEventListener("click", () => {
+  if (emailOtpInput.value === "123456") {
+    emailOtpVerified = true;
+    showNotification("Email OTP verified!", "success");
+    
+    // Hide OTP system after verification
+    sendEmailOtpBtn.style.display = "none";
+    emailOtpInput.style.display = "none";
+    verifyEmailOtpBtn.style.display = "none";
+    resendEmailOtpBtn.style.display = "none";
+  } else {
+    showNotification("Invalid Email OTP.");
+  }
+});
+
+// Mobile OTP functionality
+sendMobileOtpBtn.addEventListener("click", () => {
+  sendMobileOtpBtn.style.display = "none";
+  mobileOtpInput.style.display = "block";
+  verifyMobileOtpBtn.style.display = "block";
+  resendMobileOtpBtn.style.display = "block";
+  startOtpTimer("mobile-timer", resendMobileOtpBtn);
+  showNotification("Mobile OTP sent!", "success");
+});
+
+verifyMobileOtpBtn.addEventListener("click", () => {
+  if (mobileOtpInput.value === "654321") {
+    mobileOtpVerified = true;
+    showNotification("Mobile OTP verified!", "success");
+
+    // Hide OTP system after verification
+    sendMobileOtpBtn.style.display = "none";
+    mobileOtpInput.style.display = "none";
+    verifyMobileOtpBtn.style.display = "none";
+    resendMobileOtpBtn.style.display = "none";
+  } else {
+    showNotification("Invalid Mobile OTP.");
+  }
+});
+
+
+// OTP timer function
+function startOtpTimer(timerId, resendBtn) {
+  let timeLeft = 60;
+  const timer = document.getElementById(timerId);
+  const interval = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      timer.textContent = timeLeft;
+    } else {
+      clearInterval(interval);
+      resendBtn.disabled = false;
+      timer.textContent = "20";
+    }
+  }, 1000);
+}
+
+
+
+
 
 
 
@@ -553,7 +548,7 @@ signInForm.addEventListener('submit', (e) => {
     e.preventDefault();
   
     const emailOrMobile = document.querySelector('#sign-in-email').value.trim();
-    const password = document.querySelector('#sign-in-password').value.trim();
+    const pwsd = document.querySelector('#sign-in-password').value.trim();
   
     // Validate email or mobile number
     if (!emailOrMobile) {
@@ -562,7 +557,7 @@ signInForm.addEventListener('submit', (e) => {
     }
   
     // Check if the input is a valid email or mobile number
-    const isEmail = /^[\w.%+-]+@gmail\.com$/.test(emailOrMobile);  // Assuming Gmail is required for email
+    const isEmail = /^[a-zA-Z0-9.]+@gmail\.com$/.test(emailOrMobile);  // Assuming Gmail is required for email
     const isMobile = /^\d{10}$/.test(emailOrMobile);  // Mobile number should be 10 digits
   
     if (!isEmail && !isMobile) {
@@ -571,14 +566,14 @@ signInForm.addEventListener('submit', (e) => {
     }
   
     // Validate password
-    if (!password) {
+    if (!pwsd) {
       showNotification('Please enter your password.');
       return;
     }
   
     // Optional password strength validation (minimum length, uppercase, special characters, etc.)
-    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/.test(password)) {
-      showNotification('Password must be at least 6 characters long, include 1 uppercase letter, 1 number, and 1 special character.');
+    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/.test(pwsd)) {
+      showNotification('Email or Password is not matching.');
       return;
     }
   

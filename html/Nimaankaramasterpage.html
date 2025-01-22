@@ -365,10 +365,14 @@
                       <!-- Email OTP Verification -->
                       <div class="otp-section" id="email-otp-section">
                         <div class="otp-input-group">
-                          <input type="text" id="email-otp" placeholder="Enter Email OTP" maxlength="6" class="otp-input" style="display: none;" />
-                          <button type="button" id="send-email-otp" class="otp-btn" style="display: none;">Send Email OTP</button>
-                          <button type="button" id="verify-email-otp" class="otp-btn" style="display: none;">Verify</button>
-                          <button type="button" id="resend-email-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="email-timer">60</span>s)</button>
+                          <div class="otpshowbutton">
+                            <button type="button" id="send-email-otp" class="otp-btn" style="display: none;">Send Email OTP</button>
+                          </div>
+                          <div class="otpshowcontent">
+                            <input type="text" id="email-otp" placeholder="Enter Email OTP" maxlength="6" class="otp-input" style="display: none;" />
+                            <button type="button" id="verify-email-otp" class="otp-btn" style="display: none;">Verify</button>
+                            <button type="button" id="resend-email-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="email-timer">60</span>s)</button>
+                          </div>
                         </div>
                       </div>
                       
@@ -380,10 +384,14 @@
                       <!-- Mobile OTP Verification -->
                       <div class=" otp-section" id="mobile-otp-section">
                         <div class="otp-input-group">
-                          <input type="text" id="mobile-otp" placeholder="Enter Mobile OTP" maxlength="6" class="otp-input" style="display: none;" />
-                          <button type="button" id="send-mobile-otp" class="otp-btn" style="display: none;">Send Mobile OTP</button>
-                          <button type="button" id="verify-mobile-otp" class="otp-btn" style="display: none;">Verify</button>
-                          <button type="button" id="resend-mobile-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="mobile-timer">60</span>s)</button>
+                          <div class="otpshowbutton">
+                            <button type="button" id="send-mobile-otp" class="otp-btn" style="display: none;">Send Mobile OTP</button>
+                          </div>
+                          <div class="otpshowcontent">
+                            <input type="text" id="mobile-otp" placeholder="Enter Mobile OTP" maxlength="6" class="otp-input" style="display: none;" />
+                            <button type="button" id="verify-mobile-otp" class="otp-btn" style="display: none;">Verify</button>
+                            <button type="button" id="resend-mobile-otp" class="otp-btn" style="display: none;" disabled>Resend(<span id="mobile-timer">60</span>s)</button>
+                          </div>
                         </div>
                       </div>
                       
@@ -512,7 +520,7 @@
                 </div>
             </div>
             <p id="otp-error" class="error" style="display: none;">Incorrect OTP. Please try again.</p>
-            <p id="otp-success" class="success" style="display: none;">OTP verified successfully!</p>
+            <p id="otp-success" class="success" style="display: none;">OTP verify</p>
         </div>
 
         <div id="reset-password-section" style="display: none;">

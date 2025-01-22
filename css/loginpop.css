@@ -311,9 +311,22 @@
   .otp-input-group {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between input and buttons */
+    gap: 2px; /* No space between input and buttons */
     max-width: 400px;
     width: 100%;
+    flex-direction: column;
+  }
+  
+  .otpshowcontent {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    width: 100%;
+    gap: 10px; 
+    /* padding-top: 4px; */
+    /* padding-bottom: 8px; */
+    padding-left: 0; 
+    padding-right: 0; 
   }
   
   .otp-input {
@@ -324,6 +337,7 @@
     max-width: 180px;
     width: 100%;
   }
+  
   
   .otp-btn {
     height: 36px;
@@ -339,9 +353,9 @@
     background-color: #0056b3;
   }
   
-  #email-timer{
+  /* #email-timer{
     font-size: 8px;
-  }
+  } */
   #resend-email-otp, #resend-mobile-otp{
     width:130px ;
   }
