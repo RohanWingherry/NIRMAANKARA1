@@ -163,13 +163,14 @@ const forgotEmailInput = document.getElementById("forgot-email");
 
 const newPasswordInput = document.getElementById("new-password");
 const confirmNewPasswordInput = document.getElementById("confirm-new-password");
+
 const emailError = document.getElementById("email-error");
 const otpError = document.getElementById("otp-error");
 const otpSuccess = document.getElementById("otp-success");
 const passwordError = document.getElementById("password-error");
 const confirmPasswordError = document.getElementById("confirm-password-error");
 
-const emailSection = document.getElementById("email-section");
+
 
 // Function to reset the forgot password form
 function resetForgotPasswordForm() {
@@ -183,94 +184,91 @@ function resetForgotPasswordForm() {
   passwordError.style.display = "none";
   confirmPasswordError.style.display = "none";
 
-  // Show only the email section
-  emailSection.style.display = "block";  // Show email input section
-  otpSection.style.display = "none";    // Hide OTP section
-  resetPasswordSection.style.display = "none";  // Hide reset password section
-}
-
-
-// Email validation
-function validateEmail(email) {
-  const emailPattern = /^[a-zA-Z0-9.]+@gmail\.com$/;
-  return emailPattern.test(email);
-}
-
-// Password validation
-function validatePassword(password) {
-  const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
-  return passwordPattern.test(password);
+  // Reset sections
+  sendOtpBtn.style.display = "block"; // Show the Send OTP button
+  otpSection.style.display = "none"; // Hide OTP section
+  resetPasswordSection.style.display = "none"; // Hide Reset Password section
 }
 
 // Open forgot password popup
 document.getElementById("forgot-password-link").addEventListener("click", () => {
-  // Reset the form to email section when popup is opened
   resetForgotPasswordForm();
   forgotPasswordPopup.style.display = "block"; // Show the popup
 });
 
-// Email validation when sending OTP
+// Monitor email input changes
+forgotEmailInput.addEventListener("input", () => {
+  sendOtpBtn.style.display = "block"; // Show the Send OTP button if email is edited
+  otpSection.style.display = "none"; // Hide OTP section when email changes
+  resetPasswordSection.style.display = "none"; // Ensure Reset Password is hidden
+  otpSuccess.style.display = "none"; // Hide OTP success message
+});
+
+// Email validation and sending OTP
 sendOtpBtn.addEventListener("click", () => {
   const email = forgotEmailInput.value;
-  
-  // Check if email is empty
+
   if (!email) {
-    showNotification("Email is required.");
+    showNotification("Email is required.", "error");
     return;
   }
-  
-  // Validate email format
+
   if (!validateEmail(email)) {
     emailError.style.display = "block";
-    showNotification("Please enter a valid Gmail address!");
+    showNotification("Please enter a valid Gmail address!", "error");
     return;
   } else {
     emailError.style.display = "none";
-    
-    // Simulate sending OTP (You can replace this with real OTP sending logic)
+
+    // Simulate sending OTP
     showNotification("OTP sent to your email!", "success");
-    otpSection.style.display = "block"; // Show OTP section
-    emailSection.style.display = "none"; // Hide email section
-    resetPasswordSection.style.display = "none"; // Keep Reset Password section hidden until OTP is verified
+
+    // Show OTP section
+    otpSection.style.display = "block";
+    sendOtpBtn.style.display = "block"; // Hide the Send OTP button
   }
 });
 
-// OTP verification
+// Verify OTP
 verifyOtpBtn.addEventListener("click", () => {
   const otp = otpInput.value;
-  
-  // Simulate OTP verification (Replace with real OTP verification logic)
-  if (otp !== "123456") {  // Example OTP for testing
-    otpError.style.display = "block";
-    otpSuccess.style.display = "none";
-    showNotification("Incorrect OTP. Please try again.");
-  } else {
+
+  if (otp === "123456") { // Simulated OTP for testing
     otpError.style.display = "none";
     otpSuccess.style.display = "block";
     showNotification("OTP verified successfully!", "success");
-    resetPasswordSection.style.display = "block"; // Show reset password section only after OTP is verified
-    otpSection.style.display = "none"; // Hide OTP section
+
+    // Hide OTP section
+    otpSection.style.display = "none";
+    sendOtpBtn.style.display = "none"; // Hide the Send OTP button
+
+    // Show Reset Password section
+    resetPasswordSection.style.display = "block";
+  } else {
+    otpError.style.display = "block";
+    showNotification("Incorrect OTP. Please try again.", "error");
   }
 });
 
-// Reset password validation
+// Reset password
 resetPasswordBtn.addEventListener("click", () => {
   const newPassword = newPasswordInput.value;
   const confirmPassword = confirmNewPasswordInput.value;
 
-  // Validate password
   if (!newPassword || !validatePassword(newPassword)) {
     passwordError.style.display = "block";
-    showNotification("Password must be at least 6 characters, include one uppercase letter, one number, and one special character.");
+    showNotification(
+      "Password must be at least 6 characters, include one uppercase letter, one number, and one special character.",
+      "error"
+    );
     return;
   } else {
     passwordError.style.display = "none";
   }
 
-  // Confirm password match
   if (newPassword !== confirmPassword) {
     confirmPasswordError.style.display = "block";
-    showNotification("Passwords do not match!");
+    showNotification("Passwords do not match!", "error");
     return;
   } else {
     confirmPasswordError.style.display = "none";
@@ -278,18 +276,38 @@ resetPasswordBtn.addEventListener("click", () => {
 
   // If all validations pass
   showNotification("Password reset successfully!", "success");
-  
-  // Close the popup and reset form
-  closeForgotPasswordPopup(); // Close and reset form
+
+  // Close the popup and reset the form
+  closeForgotPasswordPopup();
 });
 
 // Close forgot password popup
 document.getElementById("close-forgot-popup").addEventListener("click", closeForgotPasswordPopup);
 
 function closeForgotPasswordPopup() {
-  forgotPasswordPopup.style.display = "none"; // Close the popup immediately
-  resetForgotPasswordForm(); // Reset the form after closing
+  forgotPasswordPopup.style.display = "none";
+  resetForgotPasswordForm();
 }
+
+// Helper functions
+function validateEmail(email) {
+  const regex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+  return regex.test(email);
+}
+
+function validatePassword(password) {
+  const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+  return regex.test(password);
+}
+
+
+
+
+
+
+
+
+
 
 
 // DOM Elements

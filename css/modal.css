@@ -55,6 +55,43 @@ form.sign-in-form {
   z-index: 2;
   overflow: hidden;
 }
+/* Custom scrollbar styles */
+.forms-container::-webkit-scrollbar,
+.signin-signup::-webkit-scrollbar {
+  width: 2px; /* Width of the scrollbar */
+}
+
+.forms-container::-webkit-scrollbar-track,
+.signin-signup::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 10px; /* Rounded corners for track */
+}
+
+.forms-container::-webkit-scrollbar-thumb,
+.signin-signup::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners for thumb */
+  border: 2px solid #fff; /* Optional border for thumb */
+}
+
+.forms-container::-webkit-scrollbar-thumb:hover,
+.signin-signup::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color on hover */
+}
+
+/* Optional styling for scrollbar on Firefox */
+.forms-container,
+.signin-signup {
+  scrollbar-width:thin; /* Makes the scrollbar thinner */
+  scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+}
+
+/* Add general styling for overflow areas */
+.forms-container,
+.signin-signup {
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  padding-right: 8px; /* Prevent content overlap with the scrollbar */
+}
 
 .title {
   font-size: 1.4rem;
