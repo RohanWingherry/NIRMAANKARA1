@@ -261,7 +261,7 @@ resetPasswordBtn.addEventListener("click", () => {
   // Validate password
   if (!newPassword || !validatePassword(newPassword)) {
     passwordError.style.display = "block";
-    showNotification("Password must be at least 6 characters, include one uppercase letter, one number, and one special character (@).");
+    showNotification("Password must be at least 6 characters, include one uppercase letter, one number, and one special character.");
     return;
   } else {
     passwordError.style.display = "none";
@@ -431,6 +431,10 @@ if (password !== confirmPassword) {
       showNotification('Registration successful! Redirecting to your homepage...');
       redirectUrl = '../html/contractorshomepage.html';
       break;
+    case 'builder':
+      showNotification('Registration successful! Redirecting to your homepage...');
+      redirectUrl = '../html/builderhomepage.html';
+      break;
     case 'customer':
       showNotification('Registration successful! Redirecting to your dashboard...');
       redirectUrl = '../html/customerhomepage.html';
@@ -441,19 +445,19 @@ if (password !== confirmPassword) {
       break;
     case 'seller':
       showNotification('Registration successful! Redirecting to your dashboard...');
-      redirectUrl = '/dashboard/seller';
+      redirectUrl = '/html/sellerhome.html';
       break;
     case 'renter':
       showNotification('Registration successful! Redirecting to your dashboard...');
-      redirectUrl = '/dashboard/rentor';
+      redirectUrl = '/html/rentorhome.html';
       break;
     case 'tenant':
       showNotification('Registration successful! Redirecting to your dashboard...');
-      redirectUrl = '/dashboard/rentor';
+      redirectUrl = '/dashboard/tenanthome.html';
       break;
     case 'agent':
       showNotification('Registration successful! Redirecting to your dashboard...');
-      redirectUrl = '/dashboard/rentor';
+      redirectUrl = '/html/agenthoe.html';
       break;
     default:
       showNotification('Something went wrong. Please try again.');
@@ -462,7 +466,7 @@ if (password !== confirmPassword) {
 
   setTimeout(() => {
     window.location.href = redirectUrl;
-  }, 2000);
+  }, 2500);
 
   form.reset();
   emailOtpVerified = false;
@@ -572,7 +576,7 @@ signInForm.addEventListener('submit', (e) => {
     }
   
     // Optional password strength validation (minimum length, uppercase, special characters, etc.)
-    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$/.test(pwsd)) {
+    if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/.test(pwsd)) {
       showNotification('Email or Password is not matching.');
       return;
     }
