@@ -26,7 +26,7 @@
         <div class="nav-sections">
             <section class="single-section">
                 <div class="nav-contractor contractornavigation">List Your Business</div>
-            </section>  
+            </section>
             <section class="single-section">
                 <div class="nav-builder buildernavigation">For Builder</div>
             </section>
@@ -205,49 +205,56 @@
             </div>
         </div>
          <!-- Modal for User Type Change -->
-        <div id="userTypeModal" class="modal">
-          <div class="modal-content">
-          <span class="close-btn" id="closeModalBtn">&times;</span>
-          <h3>Change User Type</h3>
-          <form id="userTypeForm">
-              <div class="radio-buttons">
-              <label>
-                  <input type="radio" name="userType" value="Buyer" checked /> Buyer
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Seller" /> Seller
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Agent" /> Agent
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Contractor" /> Contractor
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Find-contractor" /> Find Contractor
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Tenant" /> Tenant
-              </label>
-              <label>
-                  <input type="radio" name="userType" value="Renter" /> Renter
-              </label>
-              </div>
-              <button type="button" id="changeUserTypeButton" class="change-usertype-popup">Change User Type</button>
-          </form>
-      
-          <!-- OTP Verification Section (Hidden initially) -->
-          <div id="otpSection" style="display: none;">
-              <p>OTP verification</p>
-              <span>Mobile Number: </span>
-              <span id="mobileNumber">8123205422</span>
-              <button id="editMobileBtn">Edit</button>
-              <br />
-              <input type="text" id="otpInput" placeholder="Enter OTP" />
-              <button id="verifyOtpBtn">Verify OTP</button>
+         <div id="userTypeModal" class="modal">
+            <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h3>Change User Type</h3>
+            <form id="userTypeForm">
+                <div class="radio-buttons">
+                <label>
+                    <input type="radio" name="userType" value="Buyer" checked /> Buyer
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Seller" /> Seller
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Agent" /> Agent
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Contractor" /> Contractor
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Find-contractor" /> Find Contractor
+                </label>
+                <label>
+                  <input type="radio" name="userType" value="Find-builder" /> Builder
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Tenant" /> Tenant
+                </label>
+                <label>
+                    <input type="radio" name="userType" value="Renter" /> Renter
+                </label>
+                </div>
+            </form>
+        
+            <!-- OTP Verification Section (Hidden initially) -->
+            <div id="otpSection">
+                <p>OTP Verification :</p>
+                <span>Mobile Number: </span>
+                <span id="mobileNumber">8123205422</span>
+                <span id="editMobileBtn">Edit</span>
+                <div id="otpverifiedmsg">Otp Verified Successfully <span class="material-symbols-rounded">check</span></div>
+                <div id="send-otp">Send OTP</div>
+                <div class="changeotpshow">
+                  <input type="text" id="otpInput" placeholder="Enter OTP" />
+                  <span id="verifyOtpBtn" >Verify</span>
+                  <span id="resendOtpBtn" disabled>Resend OTP <span id="email-timer">60</span></span>
+                </div>
+                <div id="changeUserTypeButton" class="change-usertype-popup">Change User Type</div>
+            </div>
+            </div>
           </div>
-          </div>
-        </div>
         <div class="main-menus">
             <span class="material-symbols-rounded" id="menu">grid_view</span>
             <div class="main-menu-contents">
