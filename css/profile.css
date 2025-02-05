@@ -213,27 +213,33 @@
 .password-wrapper {
     position: relative;
 }
-#get-otp-mob,#get-otp-email{
-    background-color: #D96F2C;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
 
-}
-#verify-mob,#verify-email{
-    background-color: #0B3A62;
+#send-email-otp,#send-mob-otp{
+    background-color: #055de1;
     color: white;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
 }
-#resend-email,#resend-mob{
-    background-color: #A5362B;
+#verify-mob-otp,#verify-email-otp{
+    background-color: #0b621c;
     color: white;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+#resend-email-otp,#resend-mob-otp{
+    background-color: #055de1;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 5px;
 }
 .eye-icon {
     position: absolute;
