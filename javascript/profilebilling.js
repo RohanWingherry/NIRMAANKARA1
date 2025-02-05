@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 let emailOtpTimer, mobileOtpTimer;
-let originalEmail = document.getElementById('email').value;
+let originalEmail = document.getElementById('email1').value;
 let originalMobile = document.getElementById('mob').value;
 
 function toggleEdit() {
@@ -329,7 +329,7 @@ function toggleEdit() {
 }
 function saveChanges() {
     // Save email and mobile changes
-    originalEmail = document.getElementById('email').value;
+    originalEmail = document.getElementById('email1').value;
     originalMobile = document.getElementById('mob').value;
 
     // Display success showNotification after saving changes
@@ -338,7 +338,7 @@ function saveChanges() {
 }
 
 function handleEmailChange() {
-    const email = document.getElementById('email').value;
+    const email = document.getElementById('email1').value;
     const emailContainer = document.getElementById('email-otp-container');
     if (email !== originalEmail && validateEmail(email)) {
         emailContainer.style.display = 'block';
@@ -414,7 +414,7 @@ function startOtpTimer(type) {
 }
 
 function saveEmailChange() {
-    originalEmail = document.getElementById('email').value;
+    originalEmail = document.getElementById('email1').value;
     showNotification('Email updated successfully!');
 }
 
