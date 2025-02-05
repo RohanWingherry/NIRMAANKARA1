@@ -97,11 +97,15 @@ document.getElementById('applyFilterBtn').addEventListener('click', function() {
 
 // drop down
 // in form qoute dropdown
-const form = document.getElementById("constructionForm");
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("constructionForm");
     const nameTypeSelect = document.getElementById("nameType");
     const otherNameTypeInput = document.getElementById("otherNameType");
+    const popup = document.getElementById("popup-enq");
+    const closeBtn = document.querySelector(".popup-enq .close");
 
-    nameTypeSelect.addEventListener("change", function() {
+    // Show/hide 'other' input field based on selection
+    nameTypeSelect.addEventListener("change", function () {
         if (this.value === "other") {
             otherNameTypeInput.style.display = "block";
             otherNameTypeInput.setAttribute("required", "true");
@@ -111,26 +115,76 @@ const form = document.getElementById("constructionForm");
         }
     });
 
-    form.addEventListener("submit", function(event) {
+    // Close popup when close button is clicked
+    closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form submission for validation
 
+        // Input values
         const fullName = document.getElementById("fullName").value.trim();
         const phoneNumber = document.getElementById("phoneNumber").value.trim();
         const nameType = document.getElementById("nameType").value;
         const landSize = document.getElementById("landSize").value.trim();
         const landAddress = document.getElementById("landAddress").value.trim();
+        const otherNameType = otherNameTypeInput.value.trim();
 
-        if (!fullName || !phoneNumber || nameType === "select" || !landSize || !landAddress || 
-            (nameType === "other" && !otherNameTypeInput.value.trim())) {
-            showNotifications("Please fill in all required fields.");
-        } else {
-            showNotifications("Form submitted successfully!");
-            // Reset form or close modal logic here
-            form.reset(); // Reset form fields
-            // Close the modal (assuming you have a modal with id "myModal")
-            document.getElementById("popup").style.display = "none";
+        // Regex patterns for validation
+        const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces
+        const phoneRegex = /^\d{10}$/; // Exactly 10 digits
+
+        // Validation checks
+        if (!fullName || !nameRegex.test(fullName)) {
+            showNotifications("Please enter a valid full name (letters only).");
+            return;
         }
+
+        if (!phoneNumber || !phoneRegex.test(phoneNumber)) {
+            showNotifications("Please enter a valid 10-digit phone number.");
+            return;
+        }
+
+        if (nameType === "select") {
+            showNotifications("Please select a valid construction type.");
+            return;
+        }
+
+        if (nameType === "other" && !otherNameType) {
+            showNotifications("Please enter the other construction type.");
+            return;
+        }
+
+        if (!landSize) {
+            showNotifications("Please enter the land size.");
+            return;
+        }
+
+        if (!landAddress) {
+            showNotifications("Please enter the land address.");
+            return;
+        }
+
+        // If all validations pass
+        showNotifications("Form submitted successfully!");
+
+        // Reset form fields
+        form.reset(); 
+
+        // Hide 'other' input field if previously shown
+        otherNameTypeInput.style.display = "none";
+
+        // Close the popup
+        popup.style.display = "none"; 
     });
+
+    // Function to show notifications
+    
+});
+
+
+
 
 
 
