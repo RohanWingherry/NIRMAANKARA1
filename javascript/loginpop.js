@@ -325,7 +325,7 @@ function validatePassword(password) {
 // }
 
 // Form validation
-const form = document.getElementById("sign-up-form");
+const form1 = document.getElementById("sign-up-form");
 const emailOtpInput = document.getElementById("email-otp");
 const mobileOtpInput = document.getElementById("mobile-otp");
 const sendEmailOtpBtn = document.getElementById("send-email-otp");
@@ -357,7 +357,7 @@ mobileInput.addEventListener("input", () => {
     sendMobileOtpBtn.style.display = "none";
   }
 });
-form.addEventListener("submit", (e) => {
+form1.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const fullName = document.getElementById("full-name").value.trim();
@@ -486,7 +486,7 @@ if (password !== confirmPassword) {
     window.location.href = redirectUrl;
   }, 2500);
 
-  form.reset();
+  form1.reset();
   emailOtpVerified = false;
   mobileOtpVerified = false;
 });
