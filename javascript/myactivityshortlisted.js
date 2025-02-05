@@ -5,38 +5,74 @@ function shownotifications(message, type = 'success') {
 
     notificationMessage.textContent = message;
 
-    // Add error class if the type is 'error'
+    // Toggle error class
     if (type === 'error') {
         notification.classList.add('error');
     } else {
         notification.classList.remove('error');
     }
 
-    // Show the notification with a fade-in effect
+    // Show notification with fade-in effect
     notification.style.display = 'block';
     setTimeout(() => {
-        notification.style.opacity = '1';  // Fade-in effect
+        notification.style.opacity = '1';
     }, 10);
 
-    // When "OK" button is clicked, hide the notification with a fade-out effect
-    okButton.addEventListener('click', function () {
-        notification.style.opacity = '0';  // Fade-out effect
+    // Ensure the "OK" button only has one event listener
+    okButton.onclick = function () {
+        notification.style.opacity = '0'; // Fade-out effect
         setTimeout(() => {
-            notification.style.display = 'none';  // Ensure it's hidden after fading out
-        }, 500);  // Wait for the transition duration before hiding completely
-    });
+            notification.style.display = 'none';
+        }, 500); // Wait for transition to complete
+    };
 }
-function hideProperty(bookmark) {
-    var property = bookmark.closest('.singleproperty');
-    
-    if (property) {
-        let remove=confirm("Are you sure want to remoove this property from your shortlist")
-        if(remove)
-        {
-            property.style.display = 'none';
-        }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bookmarks = document.querySelectorAll(".bookmark");
+    const deletePopup = document.getElementById("deletePopup");
+    const cancelDelete = document.getElementById("cancelDelete");
+    const confirmDelete = document.getElementById("confirmDelete");
+    let selectedProperty = null;
+
+    // Function to show popup
+    function showPopup() {
+        deletePopup.classList.add("show");
     }
-}
+
+    // Function to hide popup
+    function hidePopup() {
+        deletePopup.classList.remove("show");
+    }
+
+    // Handle bookmark click
+    bookmarks.forEach(bookmark => {
+        bookmark.addEventListener("click", function () {
+            selectedProperty = this.closest(".singleproperty");
+            showPopup();
+        });
+    });
+
+    // Handle cancel delete
+    cancelDelete.addEventListener("click", function () {
+        hidePopup();
+    });
+
+    // Handle confirm delete
+    confirmDelete.addEventListener("click", function () {
+        if (selectedProperty) {
+            selectedProperty.style.display = "none";
+        }
+        hidePopup();
+    });
+
+    // Close popup on clicking outside
+    deletePopup.addEventListener("click", function (event) {
+        if (event.target === deletePopup) {
+            hidePopup();
+        }
+    });
+});
+
 
 const shareButtons = document.querySelectorAll('.share'); 
 const shareModals = document.querySelectorAll('.share-modal-content'); 

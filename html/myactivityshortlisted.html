@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recent Searches</title>
+    <link rel="icon" href="../assets/nirmankara-logo.png">
     <link rel="stylesheet" href="../css/myactivityshortlisted.css">
     <link rel="stylesheet" href="../css/navbarfooter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -674,12 +675,19 @@
             <!-- Date Section -->
             <h2>Shortlisted Rental House</h2>
             <div class="no-recent">No Shortlisted Houses</div>
-            <!-- Add a unique notification container in your HTML -->
-              <div id="customNotification" class="customNotification" style="display:none;">
-                <div id="notificationMessage"></div>
-                <hr>
-                <button id="okButton" class="okButton">OK</button>
+            <!-- Delete Confirmation Popup -->
+            <div id="deletePopup" class="popup-overlay">
+                <div class="popup-content">
+                    <h3>Remove Property</h3>
+                    <p>Are you sure you want to remove this property from your shortlist?</p>
+                    <div class="popup-actions">
+                        <button id="cancelDelete" class="btn btn-secondary">Cancel</button>
+                        <button id="confirmDelete" class="btn btn-danger">Remove</button>
+                    </div>
+                </div>
             </div>
+
+
         </div>
         </div>
     </div>
