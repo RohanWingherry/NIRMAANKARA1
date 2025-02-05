@@ -108,10 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
     nameTypeSelect.addEventListener("change", function () {
         if (this.value === "other") {
             otherNameTypeInput.style.display = "block";
-            otherNameTypeInput.setAttribute("required", "true");
         } else {
             otherNameTypeInput.style.display = "none";
-            otherNameTypeInput.removeAttribute("required");
+            otherNameTypeInput.value = ""; // Clear input when hidden
         }
     });
 
@@ -151,9 +150,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (nameType === "other" && !otherNameType) {
-            showNotifications("Please enter the other construction type.");
-            return;
+        // If "Other" is selected, check if the custom input is filled with valid text
+        if (nameType === "other") {
+            if (!otherNameType || !nameRegex.test(otherNameType)) {
+                showNotifications("Please enter a valid construction type (letters and spaces only).");
+                return;
+            }
         }
 
         if (!landSize) {
@@ -179,8 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
         popup.style.display = "none"; 
     });
 
-    // Function to show notifications
-    
+
 });
 
 

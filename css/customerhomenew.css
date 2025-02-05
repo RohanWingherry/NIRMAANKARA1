@@ -668,18 +668,29 @@ transition: color 0.3s;
   border-radius: 5px;
 }
 #constructionForm  .input-box input {
+  max-width: 300px;
+  width: 100%;
   border: none;
 }
 #constructionForm  .input-box select{
   padding-right: 0px;
+  max-width: 250px;
+  width: 100%;
 }
+
 #constructionForm  .form-group .sel-dif{
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-left:  32px;
-
 }
+#constructionForm  .form-group .sel-dif #otherConstructionTypeWrapper{
+  width: 100%;
+  border-radius: 0 10px 10px 0;
+  /* border: 1px solid black; */
+  overflow: hidden;
+}
+
 #constructionForm  .input-box select{
   text-align: left;
   outline: none;
@@ -705,7 +716,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 #constructionForm  .input-box {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adjust gap between elements */
+  /* gap: 10px; Adjust gap between elements */
 }
 
 #constructionForm  input, #constructionForm  select {

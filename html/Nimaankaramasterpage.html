@@ -1203,17 +1203,17 @@
           <form id="constructionForm" onsubmit="return validateForm(event)">
             <div class="form-group">
               <div class="input-box">
-                <input type="text" id="fullName" placeholder="Full Name *" required>
+                <input type="text" id="fullName" placeholder="Full Name *" >
                 <span class="material-symbols-outlined">account_circle</span>
               </div>
               <div class="input-box">
-                <input type="text" id="phoneNumber" placeholder="Phone Number *" required>
+                <input type="text" id="phoneNumber" placeholder="Phone Number *" >
                 <span class="material-symbols-outlined">call</span>
               </div>
             </div>
             <div class="form-group">
               <div class="input-box sel-dif">
-                <select id="nameType" class="name-type-select" required>
+                <select id="nameType" class="name-type-select" >
                   <option value="select">Construction type *</option>
                   <option value="building-remodulation">Building Remodulation</option>
                   <option value="independent-house-villa">Independent House/Villa</option>
@@ -1223,19 +1223,21 @@
                   <option value="commercial">Commercial</option>
                   <option value="farm-house">Farm House</option>
                   <option value="venture-development">Venture Development</option>
-                  <option value="other">Other</option>
+                  <option value="others">Others</option>
                 </select>
-                <input type="text" id="otherNameType" placeholder="Enter custom" style="display: none;">
+                <div id="otherConstructionTypeWrapper" style="display: none;">
+                  <input type="text" id="otherConstructionType" placeholder="Specify">
+                </div>
                 <span class="material-symbols-outlined">check_circle</span>
               </div>
               <div class="input-box">
-                <input type="number" id="landSize" placeholder="Size of land in SFT *" required>
+                <input type="number" id="landSize" placeholder="Size of land in SFT *" >
                 <span class="material-symbols-outlined">aspect_ratio</span>
               </div>
             </div>
             <div class="form-group">
               <div class="input-box">
-                <input type="text" id="landAddress" placeholder="Address of land *" required>
+                <input type="text" id="landAddress" placeholder="Address of land *" >
                 <span class="material-symbols-outlined">location_on</span>
               </div>
               <!-- <div class="input-box">

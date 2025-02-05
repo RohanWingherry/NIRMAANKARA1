@@ -46,9 +46,8 @@ function validateForm(event) {
     const nameRegex = /^[a-zA-Z](?!\s)([a-zA-Z\s]*)$/;
     if (!nameRegex.test(fullName.value.trim())) {
         isValid = false;
-        fullName.nextElementSibling.textContent = "Full Name can only contain letters and spaces, and cannot start with a space.";
-    } else {
-        fullName.nextElementSibling.textContent = "";
+        showNotification("Full Name can only contain letters and spaces, and cannot start with a space.");
+        return false;
     }
 
     // Phone Number: Only 10 digits allowed
@@ -76,10 +75,23 @@ function validateForm(event) {
 
     // Ensure Construction Type is selected
     const nameType = document.getElementById("nameType").value;
-    if (nameType === "select") {
-        showNotification("Please select a Construction Type.");
-        return false;
+    const otherInput = document.getElementById("otherConstructionType");
+
+    // If "Others" is selected, the additional input must be filled and contain at least one letter
+    const otherRegex = /[a-zA-Z]/; // Ensures there’s at least one letter
+
+    if (nameType === "others") {
+        if (otherInput.value.trim() === "") {
+            showNotification("Please specify the Construction Type.");
+            return false;
+        }
+        if (!otherRegex.test(otherInput.value.trim())) {
+            showNotification("Construction Type must contain at least one letter.");
+            return false;
+        }
     }
+
+
 
     // If all validations passed
     if (isValid) {
@@ -94,3 +106,18 @@ function validateForm(event) {
 
     return true;
 }
+
+// Show or hide custom input field based on Construction Type selection
+document.getElementById("nameType").addEventListener("change", function () {
+    const otherInputWrapper = document.getElementById("otherConstructionTypeWrapper"); // The wrapper div for better control
+    const otherInput = document.getElementById("otherConstructionType");
+
+    if (this.value === "others") {
+        otherInputWrapper.style.display = "block"; // Show the input field
+    } else {
+        otherInputWrapper.style.display = "none"; // Hide the input field
+        otherInput.value = ""; // Clear input when hidden
+    }
+});
+
+

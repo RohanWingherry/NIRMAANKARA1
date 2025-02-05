@@ -442,6 +442,12 @@
   padding-left:  32px;
 
 }
+#constructionForm .form-group .sel-dif #otherNameType{
+  width: 100%;
+  border-radius: 0 10px 10px 0;
+  /* border: 1px solid black; */
+  overflow: hidden;
+}
 #constructionForm .input-box select{
   text-align: left;
   outline: none;
