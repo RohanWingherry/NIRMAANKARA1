@@ -228,7 +228,7 @@ document.getElementById('sidebar-login').addEventListener('click', function() {
 const contactModal = document.getElementById('contactModal');
 const contactusLink = document.getElementById('contactus-link');
 const closeBtn = document.getElementsByClassName('close-contactus')[0];
-const sendButton = document.getElementById('sendButton');
+const sendButton = document.getElementById('sendButton_contact');
 const errorMessages = document.getElementById('errorMessages');
 
 // Open the modal when clicking on the "Contact Us" link
@@ -252,10 +252,10 @@ window.addEventListener('click', function(event) {
 // Form validation before submission
 sendButton.addEventListener('click', function() {
   menuContents.classList.remove('open');
-  const fullname = document.getElementById('fullname').value;
-  const mobile = document.getElementById('mobile').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+  const fullname = document.getElementById('fullname_contact').value;
+  const mobile = document.getElementById('mobile_contact').value;
+  const email = document.getElementById('email_contact').value;
+  const message = document.getElementById('message_contact').value;
   
   let errors = [];
   
@@ -278,7 +278,7 @@ sendButton.addEventListener('click', function() {
     contactModal.style.display = "none";
   }
 });
-document.getElementById('fullname').addEventListener('input', function(event) {
+document.getElementById('fullname_contact').addEventListener('input', function(event) {
   let value = event.target.value;
   value = value.replace(/[^a-zA-Z\s]/g, '');
 
@@ -288,7 +288,7 @@ document.getElementById('fullname').addEventListener('input', function(event) {
 
   event.target.value = value;
 });
-document.getElementById('mobile').addEventListener('input', function(event) {
+document.getElementById('mobile_contact').addEventListener('input', function(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });
 
