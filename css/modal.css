@@ -239,6 +239,41 @@ form.sign-in-form {
 .sign-btn:hover {
   background-color: #4d84e2;
 }
+.or-line-main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.or-line-main .or-line{
+  border: 1px solid rgb(43, 43, 43);
+  width: 40px;
+  position: relative;
+  top: 2px;
+}
+.google-login{
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.google-login:hover{
+  background-color: #e2e2e2;
+}
+.google-login>img{
+  height: 30px;
+}
+.google-login>span{
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(54, 54, 54);
+}
+
 .panels-container {
   position: absolute;
   height: 100%;
