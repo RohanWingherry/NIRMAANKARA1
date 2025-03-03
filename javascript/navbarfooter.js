@@ -291,6 +291,34 @@ document.getElementById('fullname_contact').addEventListener('input', function(e
 document.getElementById('mobile_contact').addEventListener('input', function(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });
+// Post property modal
+const postmodal = document.getElementById("post-property-modal");
+const postPropertyButton = document.getElementById("post-property-button");
+const postcloseModal = document.getElementById("post-close-modal");
+const postsellButton = document.getElementById("continue-post-prop-modal-sell");
+const postrentButton = document.getElementById("continue-post-prop-modal-rent");
+
+postPropertyButton.addEventListener("click",()=>{
+  postmodal.style.display = "block";
+})
+
+postcloseModal.addEventListener("click",()=>{
+  postmodal.style.display = "none";
+
+})
+
+window.onclick = function(event) {
+  if (event.target === postmodal) {
+      postmodal.style.display = "none";
+  }
+}
+postsellButton.addEventListener("click",()=>{
+  window.location.href = "../html/sellerhomepage.html";  
+})
+postrentButton.addEventListener("click",()=>{
+  window.location.href = "../html/renterhomepage.html";  
+})
+
 
 
 
