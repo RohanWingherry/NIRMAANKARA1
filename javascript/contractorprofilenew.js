@@ -126,18 +126,20 @@ personalSubmitBtn.addEventListener("click", () => {
 // Handle Next click on organisation details
 orgSubmitBtn.addEventListener("click", () => {
   if (isOrganisationDetailsComplete()) {
-    const gstNo = document.getElementById('gst-no').value;
-    
-    if (gstNo.length === 15) {
+    const gstNo = document.getElementById('gst-no').value.toUpperCase();
+
+    // GST validation pattern: 2 digits + 5 uppercase letters + 4 digits + 1 uppercase letter + 1 digit (1-9) + 'Z' + 1 alphanumeric
+    const gstPattern = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}Z[A-Z0-9]{1}$/;
+
+    if (gstPattern.test(gstNo)) {
       organisationTxt.classList.add("profile-txt-finished");
       document.querySelectorAll(
         ".personal-all-details, .organisation-all-details, .project-all-details, .payment-all-details"
-      ).forEach(
-        (div) => (div.style.display = "none")
-      );
+      ).forEach((div) => (div.style.display = "none"));
+      
       document.querySelector(".project-all-details").style.display = "flex";
     } else {
-      showNotification("Please enter a valid 15-character GST number, starting with 2 digits followed by alphanumeric characters.");
+      showNotification("Please enter a valid GST number in the correct format.");
       organisationTxt.classList.remove("profile-txt-finished");
     }
   } else {
@@ -469,67 +471,15 @@ document.getElementById('org-name').addEventListener('input', function(event) {
           event.target.value = value;
 });
 document.getElementById('gst-no').addEventListener('input', function(event) {
-  let value = event.target.value;
+  let value = event.target.value.toUpperCase(); // Convert input to uppercase
 
+  // Allow only numbers and uppercase letters
   value = value.replace(/[^0-9A-Z]/g, '');
 
-  if (value.length > 0 && !['0', '1', '2', '3', '9'].includes(value[0])) {
-    value = '';
-  }
-
-  if (value.length > 1 && !/^\d$/.test(value[1])) {
-    value = value.substring(0, 1);
-  }
-
-  if (value.length > 2 && !/^[A-Z]{1}$/.test(value[2])) {
-    value = value.substring(0, 2);
-  }
-  if (value.length > 3 && !/^[A-Z]{1}$/.test(value[3])) {
-    value = value.substring(0, 3);
-  }
-  if (value.length > 4 && !/^[A-Z]{1}$/.test(value[4])) {
-    value = value.substring(0, 4);
-  }
-  if (value.length > 5 && !/^[A-Z]{1}$/.test(value[5])) {
-    value = value.substring(0, 5);
-  }
-  if (value.length > 6 && !/^[A-Z]{1}$/.test(value[6])) {
-    value = value.substring(0, 6);
-  }
-
-  if (value.length > 7 && !/^\d$/.test(value[7])) {
-    value = value.substring(0, 7);
-  }
-  if (value.length > 8 && !/^\d$/.test(value[8])) {
-    value = value.substring(0, 8);
-  }
-  if (value.length > 9 && !/^\d$/.test(value[9])) {
-    value = value.substring(0, 9);
-  }
-  if (value.length > 10 && !/^\d$/.test(value[10])) {
-    value = value.substring(0, 10);
-  }
-
-  if (value.length > 11 && !/^[A-Z]{1}$/.test(value[11])) {
-    value = value.substring(0, 11);
-  }
-
-  if (value.length > 12 && !/^\d$/.test(value[12])) {
-    value = value.substring(0, 12);
-  }
-
-  if (value.length > 13 && !/^[Z]{1}$/.test(value[13])) {
-    value = value.substring(0, 13);
-  }
-
-  if (value.length > 14 && !/^\d$/.test(value[14])) {
-    value = value.substring(0, 14);
-  }
-  if (value.length > 15) {
-    value = value.substring(0, 15);
-  }
-  event.target.value = value;
+  event.target.value = value; // Update input field with valid characters only
 });
+
+
 
 // Remove service when X is clicked
 document.addEventListener("DOMContentLoaded", function() {
