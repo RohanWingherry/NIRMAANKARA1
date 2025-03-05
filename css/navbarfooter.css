@@ -1086,6 +1086,13 @@ footer{
     border-radius: 2px;
     border: none;
   }
+  footer .subscribe>div>form{
+    /* border: 1px solid black; */
+    display: flex;
+    gap: 5px;
+    justify-content:flex-start;
+    align-items: flex-start;
+  }
   footer .subscribe>div>form>.fotbtn{
     background-color: white;
     border: none;
@@ -1095,6 +1102,8 @@ footer{
     padding: 5px;
     cursor: pointer;
     color: black;
+    font-size: 14px;
+    font-weight: bolder;
   }
   
   .copyright{
