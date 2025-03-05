@@ -168,13 +168,20 @@ window.onscroll = function() {
     })
   });
   // navigation for contractor
-  const contractorlinks=document.querySelectorAll('.contractornavigation');
-  contractorlinks.forEach(contractorlink => {
-    contractorlink.addEventListener('click',()=>{
-        window.location.href = "../html/contractorshomepage.html";
-    
-    })
+  const contractorLinks = document.querySelectorAll('.contractornavigation');
+  
+  contractorLinks.forEach(contractorLink => {
+      contractorLink.addEventListener('click', () => {
+        const profileText = document.querySelector('.nav-profile').textContent.trim();
+          if (profileText === 'Login') {
+              popupContainer.classList.add('open', 'active');
+              resetForms();
+          } else {
+            window.location.href = "../html/contractorshomepage.html";
+          }
+      });
   });
+  
   // navigation for buyer
   const buyerlinks=document.querySelectorAll('.buyernavigation');
   buyerlinks.forEach(buyerlink => {
