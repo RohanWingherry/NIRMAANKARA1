@@ -1,27 +1,30 @@
-window.onscroll = function() {
-    changeNavbarBackground();
-    changeImageOnScroll();
-  };
-  
-  function changeNavbarBackground() {
-    var navbar = document.querySelector(".navigation-bar");
-  
-    if (window.scrollY > 50) { 
-        navbar.classList.add("navbar-scrolled");
-    } else {
-        navbar.classList.remove("navbar-scrolled");
-    }
+window.onscroll = function () {
+  changeNavbarBackground();
+  changeImageOnScroll();
+};
+
+function changeNavbarBackground() {
+  var navbar = document.querySelector(".navigation-bar");
+
+  if (window.scrollY > 50) {
+      navbar.classList.add("navbar-scrolled");
+      navbar.style.boxShadow = "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px";
+  } else {
+      navbar.classList.remove("navbar-scrolled");
+      navbar.style.boxShadow = "none";
   }
-  
-  function changeImageOnScroll() {
-    var nameImg = document.querySelector(".name-img");
-    
-    if (window.scrollY > 50) { 
-        nameImg.src = "../assets/name.png"; 
-    } else {
-        nameImg.src = "../assets/whitename.png"; 
-    }
+}
+
+function changeImageOnScroll() {
+  var nameImg = document.querySelector(".name-img");
+
+  if (window.scrollY > 50) {
+      nameImg.src = "../assets/name.png";
+  } else {
+      nameImg.src = "../assets/whitename.png";
   }
+}
+
   
   // Get the elements(Buyer)
   document.getElementById('buyer-hover-heading').addEventListener('mouseenter', function() {
