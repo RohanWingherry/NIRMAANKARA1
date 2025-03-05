@@ -18,6 +18,8 @@
     position: fixed;
     width: 100%;
     transition: all 1s ease;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    /* border: 1px solid #CFCFCF */
 }
 /* main logo */
 .navigation-bar .main-logo{
@@ -332,6 +334,8 @@
 
 .all-hover {
   background-color: #f1f1f1;
+  /* border: 1px solid #CFCFCF; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   position: fixed;
   top: 65px;
   left: 60px;
@@ -446,6 +450,8 @@
   position: absolute;
   top: 65px;
   background-color: #f1f1f1;
+  /* border: 1px solid #CFCFCF; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 15px 20px;
   border-radius: 10px;
 }
@@ -511,6 +517,7 @@
   top: 65px;
   background-color: #f1f1f1;
   padding: 15px 20px;
+  
   border-radius: 10px;
 }
 .nav-logout-hover .myactivity-heading{

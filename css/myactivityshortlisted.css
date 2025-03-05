@@ -32,8 +32,15 @@
     font-weight: bold;
     border-bottom: 2px solid #007BFF;
 }
+@media (max-width: 768px) {
+  .tab {
+      text-align: center;
+      padding: 8px;
+  }
+}
 .recent-searches{
-    width: 90%;
+  width: 95%;
+
 }
 /* Section Heading */
 h2 {
