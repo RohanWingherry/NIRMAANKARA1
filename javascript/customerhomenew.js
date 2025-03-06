@@ -120,4 +120,69 @@ document.getElementById("nameType").addEventListener("change", function () {
     }
 });
 
+// location
+document.addEventListener('DOMContentLoaded', () => {
+    const inputContainer = document.getElementById('input-container');
+
+    // Function to create a new input
+    function createNewInput() {
+        const inputs = document.querySelectorAll('.location-input');
+
+        // Check if there are already 3 inputs
+        if (inputs.length < 3) {
+            const newInputWrapper = document.createElement('div');
+            newInputWrapper.className = 'input-wrapper2';
+
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.placeholder = 'Enter Location';
+            newInput.className = 'location-input';
+
+            const removeButton = document.createElement('button');
+            removeButton.className = 'remove-input';
+            removeButton.innerHTML = '&times;';
+            removeButton.setAttribute('aria-label', 'Remove input');
+
+            // Append the input and button to the wrapper
+            newInputWrapper.appendChild(newInput);
+            newInputWrapper.appendChild(removeButton);
+            inputContainer.appendChild(newInputWrapper);
+
+            // Add event listeners
+            newInput.addEventListener('focus', () => {
+                newInput.addEventListener('input', handleInput);
+            });
+
+            removeButton.addEventListener('click', () => {
+                inputContainer.removeChild(newInputWrapper);
+            });
+        }
+    }
+
+    // Handle input event
+    function handleInput(event) {
+        if (event.target.value) {
+            createNewInput();
+            event.target.removeEventListener('input', handleInput); // Prevent multiple inputs
+        }
+    }
+
+    // Initial event listener for the first input
+    const firstInput = document.querySelector('.location-input');
+    firstInput.addEventListener('focus', () => {
+        firstInput.addEventListener('input', handleInput);
+    });
+});
+
+// get Experts
+document.querySelector('.getexperts').addEventListener('click', function() {
+    var selectedPropertyType = document.getElementById('select').value;
+    var locationInput = document.getElementById('location-input-new').value;
+    if (!selectedPropertyType && !locationInput) {
+      showNotification("Please select a property type or enter a location.");
+    } else {
+      window.location.href='../html/customercontractorlist.html';
+    }
+  });
+
 
