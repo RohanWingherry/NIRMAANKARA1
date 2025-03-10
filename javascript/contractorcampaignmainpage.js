@@ -149,10 +149,6 @@ document.getElementById('proj-name').addEventListener('input', function(event) {
     event.target.value = value;
 });
 
-document.getElementById('proj-loc').addEventListener('input', function(event) {
-    event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
-});
-
 document.getElementById('project-cost').addEventListener('input', function(event) {
     event.target.value = event.target.value.replace(/[^0-9]/g, '');
 });
