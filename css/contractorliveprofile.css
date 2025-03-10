@@ -624,11 +624,17 @@
     justify-content: center;
     gap: 10px;
     border-radius: 20px;
-    background-color: rgb(216, 216, 216);
+    /* background-color: rgb(216, 216, 216); */
 }
 .construction-related-services-list .single-service>span:first-child,
 .other-related-services-list .single-service>span:first-child{
     font-size: 14px;
+}
+.construction-related-services-list div:nth-child(odd){
+    background-color: rgb(216, 216, 216);
+}
+.construction-related-services-list div:nth-child(even){
+    background-color: rgb(255, 255, 255);
 }
 .construction-related-services-list .single-service .remove-service,
 .other-related-services-list .single-service .remove-service{
@@ -645,7 +651,12 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
+.other-related-services-list div:nth-child(odd){
+    background-color: rgb(216, 216, 216);
+}
+.other-related-services-list div:nth-child(even){
+    background-color: rgb(255, 255, 255);
+}
 .main-construction-services .input-container,
 .main-other-services .input-container{
     display: flex;
