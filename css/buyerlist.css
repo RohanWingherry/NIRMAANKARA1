@@ -22,7 +22,6 @@
   align-items: center;
   justify-content: flex-start;
   margin-top: 65px;
-  /* overflow: hidden; */
 }
 /* Buyer list */
 .main-buyerlist{
@@ -374,6 +373,15 @@ cursor: pointer;
 .close:focus {
   color: black;
   text-decoration: none;
+}
+@media (max-width:630px) {
+  .buyerlist .singleproperty{
+    flex-direction: column;
+  }
+  .singleproperty .imageview{
+    max-width: 400px;
+    width: 100%;
+  }
 }
 
 
