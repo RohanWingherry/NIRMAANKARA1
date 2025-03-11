@@ -108,6 +108,20 @@ allExplore.forEach(explore => {
 });
 
 
+// filter code
+function openFilter() {
+    document.querySelector(".filt-by-overlay").style.display = "block";
+    document.querySelector(".filt-by-sidebar").style.right = "0";
+}
+function closeFilter() {
+    document.querySelector(".filt-by-overlay").style.display = "none";
+    document.querySelector(".filt-by-sidebar").style.right = "-350px";
+}
+function toggleSubOptions(id) {
+    let subOptions = document.getElementById(id);
+    let mainCheckbox = document.getElementById(id.replace("-options", ""));
+    subOptions.style.display = mainCheckbox.checked ? "block" : "none";
+}
 
 
 

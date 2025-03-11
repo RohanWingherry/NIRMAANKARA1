@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filter Sidebar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=filter_alt" />
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
+        } */
         .filt-by-overlay {
             position: fixed;
             top: 0;
@@ -20,89 +21,338 @@
             display: none;
             z-index: 1000;
         }
-        .filt-by-sidebar {
-            position: fixed;
-            top: 0;
-            right: -350px;
-            width: 350px;
-            height: 100%;
-            background: #fff;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-            transition: right 0.3s;
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-        }
-        .filt-by-header {
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .filt-by-content {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 15px;
-        }
-        .filt-by-footer {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #ddd;
-        }
-        .filt-by-btn {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-        .filt-by-apply {
-            background: teal;
-            color: white;
-        }
-        .filt-by-cancel {
-            background: #ccc;
-        }
-        label {
-            display: block;
-            margin: 10px 0;
-        }
-        .filt-by-sub-options {
-            margin-left: 20px;
-            display: none;
-            padding: 10px;
-            background: #e0f7fa;
-            border-radius: 5px;
-        }
+        /* body {
+    font-family: Arial, sans-serif;
+} */
+
+.filt-by-sidebar {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+.filter-btn-buyer{
+    border: none;
+    background-color: white;
+}
+.filt-by-header {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 5px;
+    align-items: left;
+    flex-direction: column;
+}
+.filt-by-header .main-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.filt-by-header .sub-name{
+    font-size: 16px;
+    color: gray;
+    font-weight: 400;
+}
+.filt-by-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filt-by-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+.filt-by-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.filt-by-apply {
+    background: teal;
+    color: white;
+    border-radius: 5px;
+}
+
+.filt-by-cancel {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.filt-by-content label {
+    display: block;
+    margin: 10px 0;
+}
+
+.filt-by-title {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.filt-by-option {
+    margin-bottom: 10px;
+}
+
+.filt-by-sub-options {
+    margin-left: 20px;
+    display: none;
+    padding: 10px;
+    background: #e0f7fa;
+    border-radius: 5px;
+}
+.type-of-prop-box{
+    margin-bottom: 15px;
+}
+.type-of-prop-box-head{
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+/* Budget Section */
+.type-of-prop-budget {
+    /* padding: 15px; */
+    background: #fff;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 15px;
+}
+
+.type-of-prop-bud-head {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.type-of-prop-bud-desc {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+/* Dropdown Styling */
+.type-of-prop-bud-desc select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.type-of-prop-bud-desc select:focus {
+    border-color: teal;
+    outline: none;
+    background: #e0f2f1;
+}
+
+.open-filter-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
     </style>
 </head>
 <body>
-    <button onclick="openFilter()">Open Filter</button>
+    <button onclick="openFilter()" class="filter-btn-buyer"><span class="material-symbols-outlined">filter_alt</span></button>
     <div class="filt-by-overlay" onclick="closeFilter()"></div>
     <div class="filt-by-sidebar">
         <div class="filt-by-header">
-            <span>Apply Filters</span>
-            <button onclick="closeFilter()">X</button>
+            <span class="main-name">Apply Filters</span>
+            <span class="sub-name">Select and click on apply</span>
+            <!-- <button onclick="closeFilter()">X</button> -->
         </div>
         <div class="filt-by-content">
-            <label><input type="checkbox" id="filt-by-residential" onchange="toggleSubOptions('filt-by-residential-options')"> Residential</label>
-            <div id="filt-by-residential-options" class="filt-by-sub-options">
-                <label><input type="checkbox"> Office Space</label>
-                <label><input type="checkbox"> Standalone Store</label>
+
+            <!-- Property Type -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Property Type</span>
+                </div>
+
+                <label><input type="checkbox" id="filt-by-residential" onchange="toggleSubOptions('filt-by-residential-options')"> Residential</label>
+                <div id="filt-by-residential-options" class="filt-by-sub-options">
+                    <label><input type="checkbox"> 1BHK</label>
+                    <label><input type="checkbox"> 2BHK</label>
+                    <label><input type="checkbox"> 3BHK</label>
+                    <label><input type="checkbox"> Single Family Home</label>
+                    <label><input type="checkbox"> Multi Family Home</label>
+                    <label><input type="checkbox"> Town House</label>
+                    <label><input type="checkbox"> Duplex</label>
+                    <label><input type="checkbox"> Bungalow</label>
+                </div>
+            
+                <label><input type="checkbox" id="filt-by-apartment" onchange="toggleSubOptions('filt-by-apartment-options')"> Apartment</label>
+                <div id="filt-by-apartment-options" class="filt-by-sub-options">
+                    <label><input type="checkbox"> 1BHK</label>
+                    <label><input type="checkbox"> 2BHK</label>
+                    <label><input type="checkbox"> 3BHK</label>
+                    <label><input type="checkbox"> Furnished Apartment</label>
+                    <label><input type="checkbox"> Unfurnished Apartment</label>
+                    <label><input type="checkbox"> Studio Apartment</label>
+                </div>
+            
+                <label><input type="checkbox" id="filt-by-villa" onchange="toggleSubOptions('filt-by-villa-options')"> Villa</label>
+                <div id="filt-by-villa-options" class="filt-by-sub-options">
+                    <label><input type="checkbox"> Luxury Villa</label>
+                    <label><input type="checkbox"> Beach Villa</label>
+                    <label><input type="checkbox"> Modern Villa</label>
+                    <label><input type="checkbox"> Traditional Villa</label>
+                    <label><input type="checkbox"> Private Villa</label>
+                    <label><input type="checkbox"> Eco-friendly Villa</label>
+                    <label><input type="checkbox"> Garden Villa</label>
+                    <label><input type="checkbox"> Pool Villa</label>
+                </div>
+            
+                <label><input type="checkbox" id="filt-by-commercial" onchange="toggleSubOptions('filt-by-commercial-options')"> Commercial</label>
+                <div id="filt-by-commercial-options" class="filt-by-sub-options">
+                    <label><input type="checkbox"> Office Space</label>
+                    <label><input type="checkbox"> Standalone Stores</label>
+                    <label><input type="checkbox"> Shopping Complex</label>
+                    <label><input type="checkbox"> Industrial Property</label>
+                    <label><input type="checkbox"> Hotels and Restaurants</label>
+                    <label><input type="checkbox"> Lodging</label>
+                    <label><input type="checkbox"> Healthcare Facilities</label>
+                    <label><input type="checkbox"> Infrastructure</label>
+                </div>
+            
+                <label><input type="checkbox" id="filt-by-land" onchange="toggleSubOptions('filt-by-land-options')"> Land</label>
+                <div id="filt-by-land-options" class="filt-by-sub-options">
+                    <label><input type="checkbox"> Residential Land</label>
+                    <label><input type="checkbox"> Commercial Land</label>
+                    <label><input type="checkbox"> Shopping Complex</label>
+                    <label><input type="checkbox"> Mixed Use Land</label>
+                    <label><input type="checkbox"> Agriculture/Farm Land</label>
+                    <label><input type="checkbox"> Industrial Land</label>
+                </div>
             </div>
-            <label><input type="checkbox" id="filt-by-commercial" onchange="toggleSubOptions('filt-by-commercial-options')"> Commercial</label>
-            <div id="filt-by-commercial-options" class="filt-by-sub-options">
-                <label><input type="checkbox"> Industrial Property</label>
-                <label><input type="checkbox"> Lodging</label>
+            <!-- furnished -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Furnishing Status</span>
+                </div>
+                <div class="type-of-prop-dir-desc">
+                    <label><input type="checkbox"> Furnished</label>
+                    <label><input type="checkbox"> Semi-Furnished</label>
+                    <label><input type="checkbox"> Un-Furnished</label>
+                </div>                             
             </div>
-            <label><input type="checkbox"> Apartment</label>
-            <label><input type="checkbox"> Villa</label>
+            <!-- Budget Section -->
+            <div class="type-of-prop-budget">
+                <div class="type-of-prop-bud-head">
+                    <span>Budget</span>
+                </div>
+                <div class="type-of-prop-bud-desc">
+                    <select name="min-price" id="min-price">
+                        <option value="" hidden>Min-price</option>
+                        <option value="0">&#8377;0</option>
+                        <option value="50">&#8377;50 Lac</option>
+                        <option value="100">&#8377;1 Cr</option>
+                        <option value="150">&#8377;1.5 Cr</option>
+                        <option value="200">&#8377;2 Cr</option>
+                        <option value="250">&#8377;2.5 Cr</option>
+                    </select>
+                    <select name="max-price" id="max-price">
+                        <option value="" hidden>Max-price</option>
+                        <option value="50">&#8377;50 Lac</option>
+                        <option value="100">&#8377;1 Cr</option>
+                        <option value="150">&#8377;1.5 Cr</option>
+                        <option value="200">&#8377;2 Cr</option>
+                        <option value="250">&#8377;2.5 Cr</option>
+                        <option value="300">&#8377;3+ Cr</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Property Direction -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Property Direction</span>
+                </div>
+                <div class="type-of-prop-dir-desc">
+                    <label><input type="checkbox"> East</label>
+                    <label><input type="checkbox"> West</label>
+                    <label><input type="checkbox"> North</label>
+                    <label><input type="checkbox"> South</label>
+                </div>
+            </div>
+        
+            <!-- Posted On -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Posted On</span>
+                </div>
+                <div class="type-of-prop-post-desc">
+                    <label><input type="radio" id="10days" name="posted"> 10 days ago</label>
+                    <label><input type="radio" id="15days" name="posted"> 15 days ago</label>
+                    <label><input type="radio" id="30days" name="posted"> 30+ days ago</label>
+                </div>
+            </div>
+        
+            <!-- Size of Property -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Size of Property</span>
+                </div>
+                <div class="type-of-prop-size-desc">
+                    <label><input type="radio" id="sqft1" name="size"> 200-300 sqft</label>
+                    <label><input type="radio" id="sqft2" name="size"> 300-400 sqft</label>
+                    <label><input type="radio" id="sqft3" name="size"> 400-500 sqft</label>
+                    <label><input type="radio" id="sqft4" name="size"> 500-600 sqft</label>
+                    <label><input type="radio" id="sqft5" name="size"> 600-800 sqft</label>
+                    <label><input type="radio" id="sqft6" name="size"> 800+ sqft</label>
+                </div>
+            </div>
+        
+            <!-- Available From -->
+            <div class="type-of-prop-box">
+                <div class="type-of-prop-box-head">
+                    <span>Available From</span>
+                </div>
+                <div class="type-of-prop-aval-desc">
+                    <label><input type="radio" id="imm" name="avail"> Immediately</label>
+                    <label><input type="radio" id="const" name="avail"> Under Construction</label>
+                    <label><input type="radio" id="with1" name="avail"> Within 2 Months</label>
+                    <label><input type="radio" id="with2" name="avail"> Within 3 Months</label>
+                </div>
+            </div>
+        
         </div>
+        
+        
         <div class="filt-by-footer">
             <button class="filt-by-btn filt-by-cancel" onclick="closeFilter()">Cancel</button>
-            <button class="filt-by-btn filt-by-apply">Apply</button>
+            <button class="filt-by-btn filt-by-apply" onclick="closeFilter()">Apply</button>
         </div>
     </div>
 
@@ -120,6 +370,8 @@
             let mainCheckbox = document.getElementById(id.replace("-options", ""));
             subOptions.style.display = mainCheckbox.checked ? "block" : "none";
         }
+
+
     </script>
 </body>
 </html>
