@@ -4,12 +4,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
 }
 
 /* Sidenav bar */
 
 .sidebar {
+    font-family: "Poppins";
     z-index: 30;
     overflow-y: auto;
     height: 100%;
@@ -65,19 +65,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow-y: auto;
+    overflow-x: hidden;
+
 }
 
 .sidebar ul li {
     position: relative;
     list-style-type: none;
-    max-height: 35px;
-    height: 100%;
     width: 90%;
     margin: 0.2rem auto;
-    line-height: 4.5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    
 }
 .sidebar ul #present-active-page a{
     color: black;
@@ -94,6 +95,7 @@
     border: 2px solid transparent;
     border: 1px solid transparent;
     transition: all 0.1s ease-in-out 0.03s;
+    padding: 3px 0px;
 }
 
 .sidebar ul li a:hover {
@@ -238,4 +240,38 @@
 
 .okButton:hover {
     background-color: #f1f1f1;
+}
+/* Ensure submenus are hidden by default */
+.sidebar ul .submenu {
+    display: none;
+    list-style-type: none;
+    padding-left: 0px;
+    margin-left: 20px;
+    overflow-x: hidden;
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+}
+.sidebar ul .submenu>li>a{
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.sidebar ul li a.has-submenu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sidebar ul li a.has-submenu>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar ul li a.has-submenu>div>span:first-child{
+    padding: 0px 12px;
+}
+.sidebar ul li a.has-submenu.activesub + .submenu {
+    display: block;
+}
+.has-submenu{
+    border: 2px solid red;
 }

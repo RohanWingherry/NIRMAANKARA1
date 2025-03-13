@@ -26,4 +26,20 @@ function toggleSidebar() {
         mobileBtn.classList.add('fa-bars');
     }
 }
+let menuItems = document.querySelectorAll(".has-submenu");
+
+menuItems.forEach(item => {
+    item.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        item.classList.toggle("activesub");
+
+        menuItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove("activesub");
+            }
+        });
+    });
+});
+
 
