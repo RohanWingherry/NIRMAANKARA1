@@ -1,45 +1,53 @@
 let btn = document.querySelector("#btn");
 let sidebar = document.querySelector(".sidebar");
 let mobileBtn = document.querySelector("#mobile-btn");
+let menuItems = document.querySelectorAll(".has-submenu");
 
-btn.onclick = function() {
+btn.onclick = function () {
     toggleSidebar();
 };
 
-mobileBtn.onclick = function() {
+mobileBtn.onclick = function () {
     toggleSidebar();
 };
 
 function toggleSidebar() {
-    sidebar.classList.toggle('active');
+    sidebar.classList.toggle("active");
+
+    // Close all open submenus when collapsing sidebar
+    if (!sidebar.classList.contains("active")) {
+        menuItems.forEach(item => {
+            item.classList.remove("activesub");
+        });
+    }
 
     // Toggle between hamburger and cross icons
-    if (sidebar.classList.contains('active')) {
-        btn.classList.remove('fa-bars');
-        btn.classList.add('fa-times');
-        mobileBtn.classList.remove('fa-bars');
-        mobileBtn.classList.add('fa-times');
+    if (sidebar.classList.contains("active")) {
+        btn.classList.remove("fa-angles-right");
+        btn.classList.add("fa-angles-left");
+        mobileBtn.classList.remove("fa-angles-right");
+        mobileBtn.classList.add("fa-times");
     } else {
-        btn.classList.remove('fa-times');
-        btn.classList.add('fa-bars');
-        mobileBtn.classList.remove('fa-times');
-        mobileBtn.classList.add('fa-bars');
+        btn.classList.remove("fa-angles-left");
+        btn.classList.add("fa-angles-right");
+        mobileBtn.classList.remove("fa-angles-left");
+        mobileBtn.classList.add("fa-angles-right");
     }
 }
-let menuItems = document.querySelectorAll(".has-submenu");
 
+// Handle submenu toggle
 menuItems.forEach(item => {
-    item.addEventListener("click", function(e) {
+    item.addEventListener("click", function (e) {
         e.preventDefault();
-
         item.classList.toggle("activesub");
-
+        item.classList.add('subactive');
+        sidebar.classList.add('active');
+        // Close all other submenus
         menuItems.forEach(otherItem => {
             if (otherItem !== item) {
                 otherItem.classList.remove("activesub");
+                item.classList.add('subactive');
             }
         });
     });
 });
-
-
