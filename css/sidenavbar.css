@@ -187,7 +187,7 @@
     transition: transform 0.5s ease;
     border: 1px solid rgb(202,202,202);
     border-radius: 50%;
-    padding: 6px;
+    padding: 5px 6px;
     box-shadow: rgba(0, 0, 0, 0.15) 1px 2.4px 3.2px;
     background-color: white;
 }
