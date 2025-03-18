@@ -46,11 +46,12 @@
     border: 1px solid rgb(202,202,202);
     border-radius: 50%;
     padding: 6px;
-    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2.4px 3.2px;
 }
 
 .sidebar.active #btn {
-    left: 85%;
+    left: 80%;
+    transition: all 0.5s linear;
     transform: rotate(0deg);
 }
 
@@ -142,7 +143,7 @@
         height: 100%;
         width: 240px;
         left: -240px;
-        top: 90px;
+        top: 110px;
         z-index: 999;
         overflow-y: hidden;
         padding: 0px;
@@ -174,11 +175,20 @@
 /* Mobile-hamberger */
 .mob-hamberger{
     position: fixed;
-    top: 65px;
-    left: 10px;
+    top: 55px;
     width: 100%;
     z-index: 999;
     display: none;
+    padding: 10px;
+}
+.mob-hamberger .mobile-btn-main{
+    width: 30px;
+    transition: transform 0.5s ease;
+    border: 1px solid rgb(202,202,202);
+    border-radius: 50%;
+    padding: 6px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2.4px 3.2px;
+    background-color: white;
 }
 @media (max-width:768px) {
     .mob-hamberger{
@@ -207,7 +217,7 @@
 }
 @media (max-width:768px) {
     .main-content{
-        top: 70px;
+        top: 90px;
         left: 0px;
         width: calc(100% - 0px);
     }
@@ -290,9 +300,16 @@
 .sidebar ul li a.has-submenu>div>span:first-child{
     padding: 0px 12px;
 }
+.sidebar ul li a.has-submenu.activesub{
+    transition: transform 2s linear;
+
+}
 .sidebar ul li a.has-submenu.activesub + .submenu {
     display: block;
     /* max-height: 300px; */
+}
+.sidebar ul li a.has-submenu.activesub>.material-symbols-outlined{
+    transform: rotate(180deg);
 }
 .has-submenu{
     border: 2px solid red;

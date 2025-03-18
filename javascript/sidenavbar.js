@@ -26,7 +26,7 @@ function toggleSidebar() {
         btn.classList.remove("fa-angles-right");
         btn.classList.add("fa-angles-left");
         mobileBtn.classList.remove("fa-angles-right");
-        mobileBtn.classList.add("fa-times");
+        mobileBtn.classList.add("fa-angles-left");
     } else {
         btn.classList.remove("fa-angles-left");
         btn.classList.add("fa-angles-right");
@@ -46,7 +46,7 @@ menuItems.forEach(item => {
         menuItems.forEach(otherItem => {
             if (otherItem !== item) {
                 otherItem.classList.remove("activesub");
-                item.classList.add('subactive');
+                item.classList.remove('subactive');
             }
         });
     });
