@@ -329,12 +329,12 @@
     <!-- Top nav bar -->
     <div class="mob-hamberger">
         <div class="mobile-btn-main">
-            <i class="fa-solid fa-bars" id="mobile-btn"></i>
+            <i class="fa-solid fa-angles-right" id="mobile-btn"></i>
         </div>
     </div>
     <div class="sidebar">
         <div class="top">
-            <i class="fa-solid fa-bars" id="btn"></i>
+            <i class="fa-solid fa-angles-right" id="btn"></i>
         </div>
         <ul>
             <li>
@@ -350,58 +350,109 @@
                 </a>
             </li>
             <li>
-                <a href="../html/contractorcampaignmainpage.html">
-                    <span class="material-symbols-outlined">campaign</span>
-                    <span class="nav-item">Campaign</span>
+                <a href="javascript:void(0);" class="has-submenu" id="campaign">
+                    <div>
+                        <span class="material-symbols-outlined">campaign</span>
+                        <span class="nav-item">Campaign</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorcampaignmainpage.html">Create Campaign</a></li>
+                    <li><a href="../html/contractorcampaignhistory.html">Recent Campaigns</a></li>
+                    <li><a href="../html/contractorcampaignpackage.html">Campaign Plan</a></li>
+                </ul>
             </li>
             <li>
-                <a href="../html/contractorfollowupmainpage.html">
-                    <span class="material-symbols-outlined">timer</span>
-                    <span class="nav-item">Follow Up</span>
+                <a href="javascript:void(0);" class="has-submenu" id="followup">
+                    <div>
+                        <span class="material-symbols-outlined">timer</span>
+                        <span class="nav-item">Follow Up</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
-            </li>
-            <li >
-                <a href="../html/contractorquotation.html">
-                    <span class="material-symbols-outlined">price_change</span>
-                    <span class="nav-item">Quotation</span>
-                </a>
-            </li>
-            <li>
-                <a href="../html/contractoragreementcontractor.html">
-                    <span class="material-symbols-outlined">handshake</span>
-                    <span class="nav-item">Agreement</span>
-                </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorfollowupmainpage.html">Create Follow Up</a></li>
+                    <li><a href="../html/contractorfollowuphistory.html">Recent Follow Ups</a></li>
+                </ul>
             </li>
             <li>
-                <a href="../html/contractorprocurement.html">
-                    <span class="material-symbols-outlined">shopping_cart_checkout</span>
-                    <span class="nav-item">Procurement</span>
+                <a href="javascript:void(0);" class="has-submenu" id="quotation">
+                    <div>
+                        <span class="material-symbols-outlined">price_change</span>
+                        <span class="nav-item">Quotation</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorquotation.html">Create Quotation</a></li>
+                    <li><a href="../html/contractorquotationhistory.html">Recent Quotations</a></li>
+                </ul>
             </li>
             <li>
-                <a href="../html/contractorpurchaseorderhistory.html">
-                    <span class="material-symbols-outlined">shopping_bag</span>
-                    <span class="nav-item">Purchasing</span>
+                <a href="javascript:void(0);" class="has-submenu" id="agreement">
+                    <div>
+                        <span class="material-symbols-outlined">handshake</span>
+                        <span class="nav-item">Agreement</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractoragreementcontractor.html">Create Agreement</a></li>
+                    <li><a href="../html/contractoragreementhistory.html"  >Recent Agreements</a></li>
+                </ul>
             </li>
             <li>
-                <a href="../html/contractorworkstatus.html">
-                    <span class="material-symbols-outlined">work_history</span>
-                    <span class="nav-item">Work Status</span>
+                <a href="javascript:void(0);" class="has-submenu" id="procurement">
+                    <div>
+                        <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                        <span class="nav-item">Procurement</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
-            </li>
-            <li id="present-active-page">
-                <a href="../html/contractorinvoice.html">
-                    <span class="material-symbols-outlined">description</span>
-                    <span class="nav-item">Invoice</span>
-                </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorprocurement.html">Create Procurement</a></li>
+                    <li><a href="../html/contractorpurchaseorderhistory.html">Purchase Orders</a></li>
+                </ul>
             </li>
             <li>
-                <a href="../html/contractorreceipt.html">
-                    <span class="material-symbols-outlined">receipt_long</span>
-                    <span class="nav-item">Receipt</span>
+                <a href="javascript:void(0);" class="has-submenu" id="workstatus">
+                    <div>
+                        <span class="material-symbols-outlined">work_history</span>
+                        <span class="nav-item">Work Status</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
                 </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorworkstatus.html">Create Work Status</a></li>
+                    <li><a href="../html/contractorworkstatushistory.html">Recent Work Status</a></li>
+                </ul>
+            </li>
+            <li  id="present-active-page">
+                <a href="javascript:void(0);" class="has-submenu" id="invoice">
+                    <div>
+                        <span class="material-symbols-outlined">description</span>
+                        <span class="nav-item">Invoice</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorinvoice.html">Create Invoice</a></li>
+                    <li><a href="../html/contractorinvoicehistory.html"  class="not-selected-page">Recent Invoices</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="has-submenu" id="receipt">
+                    <div>
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        <span class="nav-item">Receipt</span>
+                    </div>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </a>
+                <ul class="submenu">
+                    <li><a href="../html/contractorreceipt.html">Create Receipt</a></li>
+                    <li><a href="../html/contractorreceipthistory.html">Recent Receipts</a></li>
+                </ul>
             </li>
             <li>
                 <a href="../html/contractorrefer.html">
@@ -421,8 +472,9 @@
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
-        </ul>
+        </ul> 
     </div>
+
     <div class="main-content">
         <div class="contentofpage">
             <div class="inheading">
