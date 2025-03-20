@@ -49,7 +49,10 @@ const isPersonalDetailsComplete = () =>
     "work-exp",
     "aadhaar-number",
     "contractor-address",
+    "contractor-city",
+    "contractor-pincode",
     "contractor-state",
+    "contractor-country",
     "response-time",
   ].every((id) => document.getElementById(id).value.trim());
 
@@ -428,7 +431,9 @@ document.getElementById('mobile-no').addEventListener('input', function(event) {
     event.target.value = event.target.value.substring(0, 10);
   }
 });
-
+document.getElementById('email-id').addEventListener('input', function(event) {
+  event.target.value = event.target.value.replace(/[^a-zA-Z0-9.@]/g, '');
+});
 document.getElementById('work-exp').addEventListener('input', function(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
 
@@ -436,20 +441,19 @@ document.getElementById('work-exp').addEventListener('input', function(event) {
     event.target.value = event.target.value.substring(0, 2);
   }
 });
-document.getElementById('email-id').addEventListener('input', function(event) {
-  event.target.value = event.target.value.replace(/[^a-zA-Z0-9.@]/g, '');
-});
+
 document.getElementById('aadhaar-number').addEventListener('input', function(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
-  
+
   if (event.target.value.length > 0 && ['0', '1'].includes(event.target.value[0])) {
     event.target.value = '';
   }
-  
+
   if (event.target.value.length > 12) {
     event.target.value = event.target.value.substring(0, 12);
   }
 });
+
 document.getElementById('contractor-address').addEventListener('input', function(event) {
   let value = event.target.value;
           value = value.replace(/[^a-zA-Z0-9#,\s]/g, '');
@@ -460,6 +464,17 @@ document.getElementById('contractor-address').addEventListener('input', function
 
           event.target.value = value;
 });
+document.getElementById('contractor-city').addEventListener('input', function(event) {
+  event.target.value = event.target.value.replace(/[^a-zA-Z]/g, '');
+});
+document.getElementById('contractor-pincode').addEventListener('input', function(event) {
+  event.target.value = event.target.value.replace(/[^0-9]/g, '');
+
+  if (event.target.value.length > 6) {
+    event.target.value = event.target.value.substring(0, 6);
+  }
+});
+
 document.getElementById('org-name').addEventListener('input', function(event) {
   let value = event.target.value;
           value = value.replace(/[^a-zA-Z\s]/g, '');
