@@ -237,14 +237,26 @@ document.getElementById("personal-txt").addEventListener("click", () => {
 });
 
 const openModalBtn = document.querySelector(".openModalBtn");
-const modal = document.getElementById("modal-add-project");
+const modal = document.getElementById("conpro-modal-add-project");
 const closeModalBtn = modal.querySelector(".close");
 const saveProjectBtn = modal.querySelector(".save-project");
-const mainUpload = document.getElementById("main-upload");
-const formSubmitBtn = document.getElementById("form-submit");
+const mainUpload = document.getElementById("conpro-main-upload");
+const formSubmitBtn = document.getElementById("conpro-form-submit");
 
 let projectCount = 0;
 const maxProjects = 5;
+
+function validateName(name) {
+  return /^[A-Za-z ]+$/.test(name);
+}
+
+function validateLocation(location) {
+  return /^[A-Za-z0-9 ,.-]+$/.test(location);
+}
+
+function validateArea(area) {
+  return /^[0-9]+$/.test(area);
+}
 
 // Open modal
 openModalBtn.addEventListener("click", () => {
@@ -252,15 +264,15 @@ openModalBtn.addEventListener("click", () => {
     showNotification("Upload limit exceeded. You cannot add more than 5 projects.");
   } else {
     // Clear fields/reset previews
-    document.getElementById("project-name").value = "";
-    document.getElementById("project-location").value = "";
-    document.getElementById("project-area").value = "";
-    document.getElementById("project-image").value = "";
-    document.getElementById("img-preview").style.display = "none";
-    document.getElementById("remove-image").style.display = "none";
-    document.getElementById("project-video").value = "";
-    document.getElementById("video-preview").style.display = "none";
-    document.getElementById("remove-video").style.display = "none";
+    document.getElementById("conpro-project-name").value = "";
+    document.getElementById("conpro-project-location").value = "";
+    document.getElementById("conpro-project-area").value = "";
+    document.getElementById("conpro-project-image").value = "";
+    document.getElementById("conpro-img-preview").style.display = "none";
+    document.getElementById("conpro-remove-image").style.display = "none";
+    document.getElementById("conpro-project-video").value = "";
+    document.getElementById("conpro-video-preview").style.display = "none";
+    document.getElementById("conpro-remove-video").style.display = "none";
 
     modal.style.display = "block";
   }
@@ -272,9 +284,9 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 // Image change preview
-document.getElementById("project-image").addEventListener("change", function () {
-  const imgPreview = document.getElementById("img-preview");
-  const removeImage = document.getElementById("remove-image");
+document.getElementById("conpro-project-image").addEventListener("change", function () {
+  const imgPreview = document.getElementById("conpro-img-preview");
+  const removeImage = document.getElementById("conpro-remove-image");
   const file = this.files[0];
 
   if (file && file.type.startsWith("image/")) {
@@ -288,16 +300,16 @@ document.getElementById("project-image").addEventListener("change", function () 
 });
 
 // Remove image
-document.getElementById("remove-image").addEventListener("click", function () {
-  document.getElementById("project-image").value = "";
-  document.getElementById("img-preview").style.display = "none";
+document.getElementById("conpro-remove-image").addEventListener("click", function () {
+  document.getElementById("conpro-project-image").value = "";
+  document.getElementById("conpro-img-preview").style.display = "none";
   this.style.display = "none";
 });
 
 // Video change preview
-document.getElementById("project-video").addEventListener("change", function () {
-  const vidPreview = document.getElementById("video-preview");
-  const removeVideo = document.getElementById("remove-video");
+document.getElementById("conpro-project-video").addEventListener("change", function () {
+  const vidPreview = document.getElementById("conpro-video-preview");
+  const removeVideo = document.getElementById("conpro-remove-video");
   const file = this.files[0];
 
   if (file && file.type.startsWith("video/")) {
@@ -311,125 +323,133 @@ document.getElementById("project-video").addEventListener("change", function () 
 });
 
 // Remove video
-document.getElementById("remove-video").addEventListener("click", function () {
-  document.getElementById("project-video").value = "";
-  document.getElementById("video-preview").style.display = "none";
+document.getElementById("conpro-remove-video").addEventListener("click", function () {
+  document.getElementById("conpro-project-video").value = "";
+  document.getElementById("conpro-video-preview").style.display = "none";
   this.style.display = "none";
 });
 
-// Save Project logic
+// Reset form function
+function resetForm() {
+  document.getElementById("conpro-project-name").value = "";
+  document.getElementById("conpro-project-location").value = "";
+  document.getElementById("conpro-project-area").value = "";
+  document.getElementById("conpro-project-image").value = "";
+  document.getElementById("conpro-img-preview").style.display = "none";
+  document.getElementById("conpro-remove-image").style.display = "none";
+  document.getElementById("conpro-project-video").value = "";
+  document.getElementById("conpro-video-preview").style.display = "none";
+  document.getElementById("conpro-remove-video").style.display = "none";
+}
+
 // Save Project logic
 let isEditing = false;
 let currentEditingCard = null;
 
-// Save Project logic
 saveProjectBtn.addEventListener("click", () => {
-  const projName = document.getElementById("project-name").value;
-  const projLoc = document.getElementById("project-location").value;
-  const projArea = document.getElementById("project-area").value;
-  const projImage = document.getElementById("project-image").files[0];
-  const projVideo = document.getElementById("project-video").files[0];
+  const projName = document.getElementById("conpro-project-name").value.trim();
+  const projLoc = document.getElementById("conpro-project-location").value.trim();
+  const projArea = document.getElementById("conpro-project-area").value.trim();
+  const projImage = document.getElementById("conpro-project-image").files[0];
+  const projVideo = document.getElementById("conpro-project-video").files[0];
 
-  if (projName && projLoc && projArea && (projImage || isEditing) && (projVideo || isEditing)) {
-    if (isEditing && currentEditingCard) {
-      // Update the existing project card
-      const nameElem = currentEditingCard.querySelector(".project-name");
-      const locElem = currentEditingCard.querySelector(".project-location");
-      const areaElem = currentEditingCard.querySelector(".project-area");
-      const imgElem = currentEditingCard.querySelector(".project-image");
-      const vidElem = currentEditingCard.querySelector(".project-video");
+  if (!projName || !projLoc || !projArea) {
+    showNotification("Please fill in all required fields.");
+    return;
+  }
+  if (!validateName(projName)) {
+    showNotification("Project name should only contain letters and spaces.");
+    return;
+  }
+  if (!validateLocation(projLoc)) {
+    showNotification("Project location should contain only letters, numbers, spaces, commas, dots, and hyphens.");
+    return;
+  }
+  if (!validateArea(projArea)) {
+    showNotification("Project area should only contain numbers.");
+    return;
+  }
 
-      nameElem.textContent = `Name: ${projName}`;
-      locElem.textContent = `Location: ${projLoc}`;
-      areaElem.textContent = `Area: ${projArea}`;
+  if (!projImage && !isEditing) {
+    showNotification("Please upload an image.");
+    return;
+  }
+  if (!projVideo && !isEditing) {
+    showNotification("Please upload a video.");
+    return;
+  }
 
-      if (projImage) {
-        imgElem.src = URL.createObjectURL(projImage);
-      }
-      if (projVideo) {
-        vidElem.src = URL.createObjectURL(projVideo);
-      }
+  if (isEditing && currentEditingCard) {
+    const nameElem = currentEditingCard.querySelector(".project-name");
+    const locElem = currentEditingCard.querySelector(".project-location");
+    const areaElem = currentEditingCard.querySelector(".project-area");
+    const imgElem = currentEditingCard.querySelector(".project-image");
+    const vidElem = currentEditingCard.querySelector(".project-video");
 
-      // Reset editing state
-      isEditing = false;
-      currentEditingCard = null;
-    } else {
-      // Create a new project card
-      const projectCard = document.createElement("div");
-      projectCard.className = "project-card";
+    nameElem.textContent = `Name: ${projName}`;
+    locElem.textContent = `Location: ${projLoc}`;
+    areaElem.textContent = `Area: ${projArea}`;
 
-      const nameElem = document.createElement("p");
-      nameElem.className = "project-name";
-      nameElem.textContent = `Name: ${projName}`;
-
-      const locElem = document.createElement("p");
-      locElem.className = "project-location";
-      locElem.textContent = `Location: ${projLoc}`;
-
-      const areaElem = document.createElement("p");
-      areaElem.className = "project-area";
-      areaElem.textContent = `Area: ${projArea}`;
-
-      const imgElem = document.createElement("img");
-      imgElem.className = "project-image";
+    if (projImage) {
       imgElem.src = URL.createObjectURL(projImage);
-
-      const vidElem = document.createElement("video");
-      vidElem.className = "project-video";
+    }
+    if (projVideo) {
       vidElem.src = URL.createObjectURL(projVideo);
-      vidElem.controls = true;
-
-      const editBtn = document.createElement("button");
-      editBtn.textContent = "Edit Project";
-
-      // Edit project functionality
-      editBtn.addEventListener("click", () => {
-        isEditing = true;
-        currentEditingCard = projectCard;
-
-        // Pre-fill the form with current project details
-        document.getElementById("project-name").value = projName;
-        document.getElementById("project-location").value = projLoc;
-        document.getElementById("project-area").value = projArea;
-
-        const imgPreview = document.getElementById("img-preview");
-        imgPreview.src = imgElem.src;
-        imgPreview.style.display = "block";
-
-        const vidPreview = document.getElementById("video-preview");
-        vidPreview.src = vidElem.src;
-        vidPreview.style.display = "block";
-
-        modal.style.display = "block";
-      });
-
-      projectCard.appendChild(nameElem);
-      projectCard.appendChild(locElem);
-      projectCard.appendChild(areaElem);
-      projectCard.appendChild(imgElem);
-      projectCard.appendChild(vidElem);
-      projectCard.appendChild(editBtn);
-
-      mainUpload.appendChild(projectCard);
-
-      projectCount++;
     }
 
-    modal.style.display = "none";
-
-    // Reset form fields and previews
-    document.getElementById("project-name").value = "";
-    document.getElementById("project-location").value = "";
-    document.getElementById("project-area").value = "";
-    document.getElementById("project-image").value = "";
-    document.getElementById("img-preview").style.display = "none";
-    document.getElementById("remove-image").style.display = "none";
-    document.getElementById("project-video").value = "";
-    document.getElementById("video-preview").style.display = "none";
-    document.getElementById("remove-video").style.display = "none";
+    isEditing = false;
+    currentEditingCard = null;
   } else {
-    showNotification("Please fill in all details.");
+    const projectCard = document.createElement("div");
+    projectCard.className = "project-card";
+
+    const nameElem = document.createElement("p");
+    nameElem.className = "project-name";
+    nameElem.textContent = `Name: ${projName}`;
+
+    const locElem = document.createElement("p");
+    locElem.className = "project-location";
+    locElem.textContent = `Location: ${projLoc}`;
+
+    const areaElem = document.createElement("p");
+    areaElem.className = "project-area";
+    areaElem.textContent = `Area: ${projArea}`;
+
+    const imgElem = document.createElement("img");
+    imgElem.className = "project-image";
+    imgElem.src = URL.createObjectURL(projImage);
+
+    const vidElem = document.createElement("video");
+    vidElem.className = "project-video";
+    vidElem.src = URL.createObjectURL(projVideo);
+    vidElem.controls = true;
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit Project";
+    editBtn.addEventListener("click", () => {
+      isEditing = true;
+      currentEditingCard = projectCard;
+      document.getElementById("conpro-project-name").value = projName;
+      document.getElementById("conpro-project-location").value = projLoc;
+      document.getElementById("conpro-project-area").value = projArea;
+      document.getElementById("conpro-img-preview").src = imgElem.src;
+      document.getElementById("conpro-video-preview").src = vidElem.src;
+      modal.style.display = "block";
+    });
+
+    projectCard.appendChild(nameElem);
+    projectCard.appendChild(locElem);
+    projectCard.appendChild(areaElem);
+    projectCard.appendChild(imgElem);
+    projectCard.appendChild(vidElem);
+    projectCard.appendChild(editBtn);
+
+    mainUpload.appendChild(projectCard);
+    projectCount++;
   }
+
+  resetForm();
+  modal.style.display = "none";
 });
 
 
