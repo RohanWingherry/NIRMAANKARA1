@@ -126,6 +126,82 @@ personalSubmitBtn.addEventListener("click", () => {
   }
 });
 
+// States and Cities Data (for all the states mentioned in your list)
+const countryData = {
+  "India": {
+      "Andhra Pradesh": ["Hyderabad", "Vijayawada", "Visakhapatnam", "Rajahmundry", "Kakinada"],
+      "Arunachal Pradesh": ["Itanagar", "Tawang", "Ziro", "Bomdila", "Aalo"],
+      "Assam": ["Guwahati", "Jorhat", "Dibrugarh", "Silchar", "Tezpur"],
+      "Bihar": ["Patna", "Gaya", "Bhagalpur", "Muzaffarpur", "Munger"],
+      "Chhattisgarh": ["Raipur", "Bilaspur", "Durg", "Korba", "Jagdalpur"],
+      "Goa": ["Panaji", "Vasco da Gama", "Margao", "Mapusa", "Ponda"],
+      "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar"],
+      "Haryana": ["Chandigarh", "Gurugram", "Faridabad", "Ambala", "Hisar"],
+      "Himachal Pradesh": ["Shimla", "Manali", "Kullu", "Dharamshala", "Solan"],
+      "Jharkhand": ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh"],
+      "Karnataka": ["Bangalore", "Mysore", "Hubli", "Mangalore", "Belgaum"],
+      "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode", "Kottayam", "Malappuram"],
+      "Madhya Pradesh": ["Bhopal", "Indore", "Gwalior", "Jabalpur", "Ujjain"],
+      "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
+      "Manipur": ["Imphal", "Thoubal", "Churachandpur", "Bishnupur", "Kakching"],
+      "Meghalaya": ["Shillong", "Tura", "Nongstoin", "Jowai", "Baghmara"],
+      "Mizoram": ["Aizawl", "Lunglei", "Siaha", "Champhai", "Kolasib"],
+      "Nagaland": ["Kohima", "Dimapur", "Mokokchung", "Mon", "Wokha"],
+      "Odisha": ["Bhubaneswar", "Cuttack", "Berhampur", "Rourkela", "Sambalpur"],
+      "Punjab": ["Chandigarh", "Amritsar", "Ludhiana", "Jalandhar", "Patiala"],
+      "Rajasthan": ["Jaipur", "Udaipur", "Jodhpur", "Kota", "Ajmer"],
+      "Sikkim": ["Gangtok", "Namchi", "Mangan", "Rangpo", "Pakyong"],
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Salem", "Trichy"],
+      "Telangana": ["Hyderabad", "Warangal", "Khammam", "Nizamabad", "Karimnagar"],
+      "Tripura": ["Agartala", "Udaipur", "Dharmanagar", "Ambassa", "Kailashahar"],
+      "Uttar Pradesh": ["Lucknow", "Kanpur", "Agra", "Varanasi", "Ghaziabad"],
+      "Uttarakhand": ["Dehradun", "Haridwar", "Nainital", "Rishikesh", "Roorkee"],
+      "West Bengal": ["Kolkata", "Howrah", "Siliguri", "Durgapur", "Asansol"]
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  const countrySelect = document.getElementById("contractor-country");
+  const stateSelect = document.getElementById("contractor-state");
+  const cityInput = document.getElementById("contractor-city");
+  const cityList = document.getElementById("city-list");
+
+  // Function to populate the states dropdown based on country selection
+  countrySelect.addEventListener("change", function() {
+      const selectedCountry = countrySelect.value;
+      stateSelect.innerHTML = '<option value="" hidden>Select your State</option>'; // Reset states dropdown
+      cityInput.value = ''; // Clear city input
+
+      if (selectedCountry && countryData[selectedCountry]) {
+          // Populate states dropdown
+          const states = Object.keys(countryData[selectedCountry]);
+          states.forEach(state => {
+              const option = document.createElement("option");
+              option.value = state;
+              option.textContent = state;
+              stateSelect.appendChild(option);
+          });
+      }
+  });
+
+  // Function to provide city suggestions based on state selection
+  stateSelect.addEventListener("change", function() {
+      const selectedState = stateSelect.value;
+      cityList.innerHTML = ''; // Clear previous cities
+      cityInput.value = ''; // Clear city input
+
+      if (selectedState && countryData["India"][selectedState]) {
+          const cities = countryData["India"][selectedState];
+          cities.forEach(city => {
+              const option = document.createElement("option");
+              option.value = city;
+              cityList.appendChild(option);
+          });
+      }
+  });
+});
+
+
 // Handle Next click on organisation details
 orgSubmitBtn.addEventListener("click", () => {
   if (isOrganisationDetailsComplete()) {
