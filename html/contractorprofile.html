@@ -466,59 +466,79 @@
 
   <div class="main-content">
     <div class="organisation-info-container">
-      <div class="form">
-        <div class="header">
-          <h2>Organisation info</h2>
-          <span class="material-symbols-rounded" id="edit-icon1">edit_square</span>
-        </div>
-        <div class="form-group1">
-          <label for="org-name">Organisation name</label>
-          <input type="text" id="org-name" disabled placeholder="Gabriela Richardson">
-        </div>
-        <div class="form-group1">
-          <label for="org-gst">GST Number</label>
-          <input type="text" id="org-gst" disabled placeholder="22AAAAA0000A1Z5">
-        </div>
-        <div class="form-group1">
-          <label for="working-from">Working Hours <span class="required-fields">*</span></label>
-            <div class="working">
-              <input type="time" disabled id="working-from" name="working-from" value="09:00">
-              <input type="time" disabled id="working-to" name="working-to" value="17:00">
+        <div class="form">
+            <div class="header">
+                <h2>Organisation Info</h2>
+                <span class="material-symbols-rounded" id="edit-icon" onclick="toggleEdit1()">edit_square</span>
             </div>
-        </div>
-        <div class="form-group1">
-          <label for="org-address">Address</label>
-          <textarea name="" id="org-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
-        </div>
-        <div class="form-group1">
-          <label for="org-desc">Description</label>
-          <textarea name="" id="org-desc" disabled cols="20"> involved in the planning, design, construction, and maintenance of buildings, infrastructure, and other projects, typically ensuring quality, safety, and timely completion.</textarea>
-        </div>
-      </div>
-      <div class="main-profil-card">
-        <div class="profile-card">
-            <h5>Organisation Logo</h5>
-            <div class="image-container">
-                <img src="../assets/logo.png" alt="Profile Picture" id="profile-image">
-                <label class="add-btn" for="file-input"><span class="material-symbols-rounded">edit</span></label>
-                <input type="file" id="file-input" accept="image/*" onchange="updateImage(event)">
+            
+            <div class="form-group1">
+                <label for="org-name">Organisation Name</label>
+                <input type="text" id="org-name" disabled placeholder="Gabriela Richardson">
             </div>
-            <h3 id="profile-name" contenteditable="true" oninput="handleTextChange()">Yuktha Constructions</h3>
-            <!-- Add a container for the update button -->
+            
+            <div class="form-group1">
+                <label for="org-gst">GST Number</label>
+                <input type="text" id="org-gst" disabled placeholder="22AAAAA0000A1Z5">
+            </div>
+            
+            <div class="form-group1">
+                <label for="working-from">Working Hours</label>
+                <div class="working">
+                    <input type="time" id="working-from" disabled name="working-from" value="09:00">
+                    <input type="time" id="working-to" disabled name="working-to" value="17:00">
+                </div>
+            </div>
+            
+            <div class="form-group1">
+                <label for="org-address">Address</label>
+                <textarea id="org-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
+            </div>
+            
+            <div class="form-group1">
+                <label for="org-desc">Description</label>
+                <textarea id="org-desc" disabled cols="20">Involved in the planning, design, construction, and maintenance of buildings, infrastructure, and other projects, typically ensuring quality, safety, and timely completion.</textarea>
+            </div>
+            
             <div id="update-btn-container" style="display: none;">
-                <button id="update-btn" onclick="handleUpdateClick()">Update</button>
+                <button id="update-btn" onclick="handleUpdateClick1()">Update</button>
             </div>
         </div>
+        
+        <div class="main-profile-card">
+            <div class="profile-card">
+                <h5>Organisation Logo</h5>
+                <div class="image-container">
+                    <img src="../assets/logo.png" alt="Profile Picture" id="profile-image">
+                    <label class="add-btn" for="file-input"><span class="material-symbols-rounded">edit</span></label>
+                    <input type="file" id="file-input" accept="image/*" onchange="updateImage1(event)">
+                </div>
+                <h3 id="profile-name" contenteditable="true" oninput="handleTextChange1()">Yuktha Constructions</h3>
+                
+                <div id="update-btn-container-logo" style="display: none;">
+                    <button id="update-btn-logo" onclick="handleUpdateLogo1()">Update</button>
+                </div>
+            </div>
         </div>
-    
-    
-    
     </div>
     <div class="main-service-prsonal">
             <div class="personal-info-container">
                 <div class="header">
                     <h2>Personal info</h2>
                     <span class="material-symbols-rounded">edit_square</span>
+                </div>
+                <div class="main-profile-card">
+                    <div class="profile-card">
+                        <h5>Profile Picture</h5>
+                        <div class="image-container">
+                            <img src="../assets/profile.jpg" alt="Profile Picture" id="profile-pic">
+                            <label class="add-btn" for="profile-pic-input"><span class="material-symbols-rounded">edit</span></label>
+                            <input type="file" id="profile-pic-input" accept="image/*" onchange="updateProfilePic(event)">
+                        </div>
+                        <div id="update-pic-btn-container" style="display: none;">
+                            <button id="update-pic-btn" onclick="handlePicUpdateClick()">Update</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="form">
                     <div class="form-group">
@@ -534,8 +554,8 @@
                         <input type="text" id="phone-number" disabled placeholder="8123205422">
                     </div>
                     <div class="form-group">
-                        <label for="work-exp">Work Experience</label>
-                        <input type="text" id="work-exp" disabled value="2 Years">
+                        <label for="work-exp">Work Experience in Years</label>
+                        <input type="text" id="work-exp" disabled value="2">
                     </div>
                     <div class="form-group">
                         <label for="aadhaar-number">Aadhaar Number</label>
@@ -571,310 +591,317 @@
                 </div>
             </div>
         
-        
-      <div class="service-info-container">
-        <div class="header">
-          <h2>Services</h2>
-        </div>
-        <div class="Services-form">
-            <div class="main-construction-services">
-                <div class="services-heading">Building & Renovation Services:</div>
-                <div class="construction-related-services-list" id="construction-services-list">
-                    <div class="single-service">
-                        <span>Building Re-Modulation</span>
-                        <span class="remove-service">&times;</span>
+            <div class="service-info-container">
+                <div class="header">
+                    <h2>Services</h2>
+                </div>
+                <div class="Services-form">
+                    <div class="main-construction-services">
+                        <div class="services-heading">Building & Renovation Services:</div>
+                        <div class="construction-related-services-list" id="construction-services-list">
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Building Re-Modulation</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Independent House/ Villa</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Residential Apartment</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Serviced Apartment</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Industries</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Complex</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Commercial</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Farm House</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Venture Development</span>
+                            </div>
+                        </div>
+                        <div id="add-construction-service">Add More</div>
+                        <div id="construction-input-container" class="input-container" style="display:none;">
+                            <input type="text" id="construction-input" placeholder="Enter new service">
+                            <span id="add-construction-button">Add</span>
+                        </div>
                     </div>
-                    <div class="single-service">
-                        <span>Independent House/ Villa</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Residential Apartment</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Serviced Apartment</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Industries</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Complex</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Commercial</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Farm House</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Venture Development</span>
-                        <span class="remove-service">&times;</span>
+            
+                    <div class="main-other-services">
+                        <div class="services-heading">Finishing & Maintenance Services:</div>
+                        <div class="other-related-services-list" id="other-services-list">
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Electrical</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Plumbing</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Roofing</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Interiors</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Carpentry</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Painting</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Roofing</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Demolition</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Excavation</span>
+                            </div>
+                            <div class="single-service">
+                                <input type="checkbox" class="service-checkbox" checked>
+                                <span>Roof top gardening</span>
+                            </div>
+                        </div>
+                        <div id="add-other-service">Add More</div>
+                        <div id="other-input-container" class="input-container" style="display:none;">
+                            <input type="text" id="other-input" placeholder="Enter new service">
+                            <span id="add-other-button">Add</span>
+                        </div>
                     </div>
                 </div>
-                <div id="add-construction-service">Add More</div>
-                <div id="construction-input-container" class="input-container" style="display:none;">
-                    <input type="text" id="construction-input" placeholder="Enter new service">
-                    <span id="add-construction-button">Add</span>
+                <div class="update-buttons" id="update-button" style="display:none; margin-top: 20px;">
+                    <button>Update</button>
                 </div>
             </div>
             
-            <div class="main-other-services">
-                <div class="services-heading">Finishing & Maintenance Services:</div>
-                <div class="other-related-services-list" id="other-services-list">
-                    <div class="single-service">
-                        <span>Electrical</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Plumbing</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Roofing</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Interiors</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Carpentry</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Painting</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Roofing</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Demolition</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Excavation</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                    <div class="single-service">
-                        <span>Roof top gardening</span>
-                        <span class="remove-service">&times;</span>
-                    </div>
-                </div>
-                <div id="add-other-service">Add More</div>
-                <div id="other-input-container" class="input-container" style="display:none;">
-                    <input type="text" id="other-input" placeholder="Enter new service">
-                    <span id="add-other-button">Add</span>
-                </div>
-            </div>
-        </div>
-        <div class="update-buttons" id="update-button" style="display:none; margin-top: 20px;">
-            <button>Update</button>
-        </div>
-      </div>
     </div>
     <div class="projects-info-container">
       <div class="project-container-heading">
         <span>Projects:</span>
      </div>
       <div class="project-container" >
+        <!-- Project Box 1 -->
         <div class="project-box">
-          <!-- slider for image and video -->
-          <div class="slider-container">
+              <div class="slider-container">
+                <button class="prev" onclick="prevSlide(this)">❮</button>
+                <div class="content-slider">
+                  <div class="slide">
+                    <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                  </div>
+                  <div class="slide">
+                    <video src="../assets/car.mp4" controls></video>
+                  </div>
+                </div>
+                <button class="next" onclick="nextSlide(this)">❯</button>
+              </div>
+              <div class="pro-box-descrp">
+                <div class="project-name slide" data-likes="10">
+                  <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+                </div>
+                <div class="project-price">
+                  <div class="price">5000 SQFT</div>
+                </div>
+                <div class="project-address">
+                  <div class="pro-address">Puppalaguda, Hyderabad</div>
+                </div>
+                <div class="contractor-name">
+                  <h4 class="con-name">Contractor: Vijay Sampangi</h4>
+                </div>
+                <!-- Edit button -->
+                <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+              </div>
+        </div>
+  
+        <div class="project-box">
+            <div class="slider-container">
               <button class="prev" onclick="prevSlide(this)">❮</button>
               <div class="content-slider">
-                  <div class="slide">
-                      <img src="../assets/AparnaSarovar1.png" alt="Image 1">
-                  </div>
-                  <div class="slide">
-                      <video src="../assets/car.mp4" controls></video>
-                  </div>
+                <div class="slide">
+                  <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                </div>
+                <div class="slide">
+                  <video src="../assets/car.mp4" controls></video>
+                </div>
               </div>
               <button class="next" onclick="nextSlide(this)">❯</button>
-          </div>
-          <!-- end -->
-          <div class="pro-box-descrp">
+            </div>
+            <div class="pro-box-descrp">
               <div class="project-name slide" data-likes="10">
-                  <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+                <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
               </div>
               <div class="project-price">
-                  <div class="price">5000 SQFT</div>
+                <div class="price">5000 SQFT</div>
               </div>
               <div class="project-address">
-                  <div class="pro-address">Puppalaguda, Hyderabad</div>
+                <div class="pro-address">Puppalaguda, Hyderabad</div>
               </div>
-          </div>
+              <div class="contractor-name">
+                <h4 class="con-name">Contractor: Vijay Sampangi</h4>
+              </div>
+              <!-- Edit button -->
+              <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
+            </div>
         </div>
   
         <div class="project-box">
-          <!-- slider for image and video -->
-          <div class="slider-container">
-            <button class="prev" onclick="prevSlide(this)">❮</button>
-            <div class="content-slider">
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
                 <div class="slide">
-                    <img src="../assets/AparnaSarovar1.png" alt="Image 1">
+                  <img src="../assets/AparnaSarovar1.png" alt="Image 1">
                 </div>
                 <div class="slide">
-                    <video src="../assets/car.mp4" controls></video>
+                  <video src="../assets/car.mp4" controls></video>
                 </div>
-                <!-- <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
-                </div>
-                <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
-                </div> -->
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
             </div>
-            <button class="next" onclick="nextSlide(this)">❯</button>
-        </div>
-           <!-- end -->
-          <div class="pro-box-descrp">
-            <div class="project-name slide" data-likes="10">
-              <h4 class="pro-name">
-                APARNA SAROVAR TOWERS</h4>
-                <!-- <button class="like-button" onclick="likeSlide(event)">
-                  <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
-                </button> -->
+            <div class="pro-box-descrp">
+              <div class="project-name slide" data-likes="10">
+                <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">5000 SQFT</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Puppalaguda, Hyderabad</div>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name">Contractor: Vijay Sampangi</h4>
+              </div>
+              <!-- Edit button -->
+              <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
             </div>
-            <!-- <div class="contractor-name">
-              <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
-              <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
-            </div> -->
-            <div class="project-price">
-              <div class="price">5000 SQFT</div>
-            </div>
-            <div class="project-address">
-              <div class="pro-address">Puppalaguda, Hyderabad</div>
-            </div>
-            <!-- Delete button -->
-          </div>
         </div>
   
         <div class="project-box">
-          <!-- slider for image and video -->
-          <div class="slider-container">
-            <button class="prev" onclick="prevSlide(this)">❮</button>
-            <div class="content-slider">
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
                 <div class="slide">
-                    <img src="../assets/green1.png" alt="Image 1">
-                </div>
-                
-                <!-- <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
+                  <img src="../assets/AparnaSarovar1.png" alt="Image 1">
                 </div>
                 <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
-                </div>-->
-                <div class="slide">
-                    <video src="../assets/car.mp4" controls></video>
-                </div> 
+                  <video src="../assets/car.mp4" controls></video>
+                </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
             </div>
-            <button class="next" onclick="nextSlide(this)">❯</button>
-        </div>
-           <!-- end -->
-          <div class="pro-box-descrp">
-            <div class="project-name slide" data-likes="10">
-              <h4 class="pro-name">APARNA GREENSCAPES</h4>
-              <!-- <button class="like-button" onclick="likeSlide(event)">
-                <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
-              </button> -->
+            <div class="pro-box-descrp">
+              <div class="project-name slide" data-likes="10">
+                <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">5000 SQFT</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Puppalaguda, Hyderabad</div>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name">Contractor: Vijay Sampangi</h4>
+              </div>
+              <!-- Edit button -->
+              <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
             </div>
-            <!-- <div class="contractor-name">
-              <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : </h4>
-              <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
-            </div> -->
-            <div class="project-price">
-              <div class="price">5100 SQFT</div>
-            </div>
-            <div class="project-address">
-              <div class="pro-address">Kompally, Hyderabad</div>
-            </div>
-          </div>
         </div>
   
         <div class="project-box">
-          <!-- slider for image and video -->
-          <div class="slider-container">
-            <button class="prev" onclick="prevSlide(this)">❮</button>
-            <div class="content-slider">
+            <div class="slider-container">
+              <button class="prev" onclick="prevSlide(this)">❮</button>
+              <div class="content-slider">
                 <div class="slide">
-                    <img src="../assets/asbl.jpg" alt="Image 1">
+                  <img src="../assets/AparnaSarovar1.png" alt="Image 1">
                 </div>
                 <div class="slide">
-                    <video src="../assets/car.mp4" controls></video>
+                  <video src="../assets/car.mp4" controls></video>
                 </div>
+              </div>
+              <button class="next" onclick="nextSlide(this)">❯</button>
             </div>
-            <button class="next" onclick="nextSlide(this)">❯</button>
-        </div>
-           <!-- end -->
-          <div class="pro-box-descrp">
-            <div class="project-name slide" data-likes="5">
-              <h4 class="pro-name">ASBL Springs</h4>
-              <!-- <button class="like-button" onclick="likeSlide(event)">
-                <i class="fa-solid fa-heart"></i> <span class="like-count">5</span>
-              </button> -->
+            <div class="pro-box-descrp">
+              <div class="project-name slide" data-likes="10">
+                <h4 class="pro-name">APARNA SAROVAR TOWERS</h4>
+              </div>
+              <div class="project-price">
+                <div class="price">5000 SQFT</div>
+              </div>
+              <div class="project-address">
+                <div class="pro-address">Puppalaguda, Hyderabad</div>
+              </div>
+              <div class="contractor-name">
+                <h4 class="con-name">Contractor: Vijay Sampangi</h4>
+              </div>
+              <!-- Edit button -->
+              <button class="edit-btn" onclick="openEditModal(this)">Edit</button>
             </div>
-            <!-- <div class="contractor-name">
-              <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor :</h4>
-              <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
-            </div> -->
-            <div class="project-price">
-              <div class="price">1500 SQFT</div>
-            </div>
-            <div class="project-address">
-              <div class="pro-address">Pocharam, Hyderabad</div>
-            </div>
-          </div>
-        </div>
-  
-        <div class="project-box">
-          <!-- slider for image and video -->
-          <div class="slider-container">
-            <button class="prev" onclick="prevSlide(this)">❮</button>
-            <div class="content-slider">
-                <div class="slide">
-                    <img src="../assets/Sattva1.jpg" alt="Image 1">
-                </div>
-                <div class="slide">
-                    <video src="../assets/Sattvavideo.mp4" controls></video>
-                </div>
-                <!-- <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
-                </div>
-                <div class="slide">
-                    <video src="../assets/.mp4" controls></video>
-                </div> -->
-            </div>
-            <button class="next" onclick="nextSlide(this)">❯</button>
-        </div>
-           <!-- end -->
-          <div class="pro-box-descrp">
-            <div class="project-name slide" data-likes="10">
-              <h4 class="pro-name">SATTVA PARK CUBIX</h4>
-              <!-- <button class="like-button" onclick="likeSlide(event)">
-                <i class="fa-solid fa-heart"></i> <span class="like-count">10</span>
-              </button> -->
-            </div>
-            <!-- <div class="contractor-name">
-              <h4 class="con-name" onclick="window.location.href='../html/contractorliveprofile.html'">Contractor : Vijay Sampangi</h4>
-              <h4 class="quote" onclick="openPopup()">GET QUOTE</h4>
-            </div> -->
-            <div class="project-price">
-              <div class="price">1200 SQFT</div>
-            </div>
-            <div class="project-address">
-              <div class="pro-address">Devanahalli, Bangalore North</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
+    <!-- Modal for editing -->
+    <div id="projects1EditModal" class="projects1Modal">
+        <div class="projects1Modal-content">
+          <span class="projects1Close" onclick="closeModal()">&times;</span>
+          <h3 style="text-align: center;">Edit Project</h3>
+          <form id="projects1EditForm">
+            <div>
+                <label for="projects1ProjectName">Project Name:</label>
+                <input type="text" id="projects1ProjectName" name="projects1ProjectName" required>
+            </div>
+    
+            <div>
+                <label for="projects1ProjectPrice">Price (SQFT):</label>
+                <input type="text" id="projects1ProjectPrice" name="projects1ProjectPrice" required>
+            </div>
+    
+            <div>
+                <label for="projects1ProjectAddress">Address:</label>
+                <input type="text" id="projects1ProjectAddress" name="projects1ProjectAddress" required>
+            </div>
+    
+            <div>
+                <label for="projects1ContractorName">Contractor Name:</label>
+                <input type="text" id="projects1ContractorName" name="projects1ContractorName" required>
+            </div>
+    
+            <div>
+                <label for="projects1ImageUpload">Image:</label>
+                <input type="file" id="projects1ImageUpload" name="projects1ImageUpload">
+            </div>
+    
+            <div>
+                <label for="projects1VideoUpload">Video:</label>
+                <input type="file" id="projects1VideoUpload" name="projects1VideoUpload" accept="video/*">
+            </div>
+    
+            <button type="submit">Update</button>
+          </form>
+        </div>
+      </div>
     <!-- Add a unique notification container in your HTML -->
     <div id="customNotification" class="customNotification" style="display:none;">
         <div id="notificationMessage"></div>

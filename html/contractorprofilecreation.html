@@ -356,7 +356,7 @@
                 </div>
             </div>
             <div class="personal-single">
-                <label for="contractor-name">Contractor Name: <span class="mandatory-red">*</span></label>
+                <label for="contractor-name">Full Name: <span class="mandatory-red">*</span></label>
                 <input type="text" id="contractor-name" value="Vijay">
             </div>
             <div class="personal-single">
@@ -421,7 +421,7 @@
         </div>
         <div class="organisation-all-details" id="organisation-all-details">
             <div class="main-profile">
-                <h5>Organisation Logo</h5>
+                <h5>Organisation Logo <span class="mandatory-red">*</span></h5>
                 <div class="image">
                     <img src="../assets/build.png" id="organisation-profile-img">
                     <label for="organisation-file-path">
@@ -432,26 +432,26 @@
                 </div>
             </div>
             <div class="organisation-single">
-                <label for="org-name">Organisation Name:</label>
+                <label for="org-name">Organisation Name: <span class="mandatory-red">*</span></label>
                 <input type="text" id="org-name" placeholder="Enter Organisation Name">
             </div>
             <div class="organisation-single">
-                <label for="gst-no">GST Number:</label>
+                <label for="gst-no">GST Number: <span class="mandatory-red">*</span></label>
                 <input type="text" id="gst-no" placeholder="Enter GST Number">
             </div>
             <div class="organisation-single">
-                <label for="working-from">Working Hours <span class="required-fields">*</span></label>
+                <label for="working-from">Working Hours <span class="mandatory-red">*</span></label>
                 <div class="working">
                     <input type="time" id="working-from" name="working-from" required>
                     <input type="time" id="working-to" name="working-to"  required>
                 </div>
             </div>
             <div class="organisation-single">
-                <label for="org-address">Organisation Address:</label>
+                <label for="org-address">Organisation Address: <span class="mandatory-red">*</span></label>
                 <input type="text" id="org-address" placeholder="Enter Organisation Address">
             </div>
             <div class="organisation-single">
-                <label for="org-state">State:</label>
+                <label for="org-state">State: <span class="mandatory-red">*</span></label>
                 <select id="org-state" name="org-state">
                     <option value="" hidden>Select your State</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -485,7 +485,7 @@
                 </select>
             </div>
             <div class="organisation-single">
-                <label for="org-desc">Organisation Description:</label>
+                <label for="org-desc">Organisation Description: <span class="mandatory-red">*</span></label>
                 <input type="text" id="org-desc" placeholder="Enter Organisation Description">
             </div>
             <div class="organisation-submit">
@@ -496,104 +496,104 @@
             <div class="main-services">
                 <div class="main-service-heading1">Services</div>
                 <div class="main-construction-services">
-                    <div class="services-heading">Building & Renovation Services:</div>
-                    <div class="construction-related-services-list" id="construction-services-list">
-                        <div class="single-service">
-                            <span>Building Re-Modulation</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Independent House/ Villa</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Residential Apartment</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Serviced Apartment</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Industries</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Complex</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Commercial</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Farm House</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Venture Development</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
+                  <div class="services-heading">Building & Renovation Services:</div>
+                  <div class="construction-related-services-list" id="construction-services-list">
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Building Re-Modulation</span>
                     </div>
-                    <div id="add-construction-service">Add More</div>
-                    <div id="construction-input-container" class="input-container" style="display:none;">
-                        <input type="text" id="construction-input" placeholder="Enter new service">
-                        <span id="add-construction-button">Add</span>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Independent House/ Villa</span>
                     </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Residential Apartment</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Serviced Apartment</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Industries</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Complex</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Commercial</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Farm House</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Venture Development</span>
+                    </div>
+                  </div>
+                  <div id="add-construction-service">Add More</div>
+                  <div id="construction-input-container" class="input-container" style="display:none;">
+                    <input type="text" id="construction-input" placeholder="Enter new service">
+                    <span id="add-construction-button">Add</span>
+                  </div>
                 </div>
                 
                 <div class="main-other-services">
-                    <div class="services-heading">Finishing & Maintenance Services:</div>
-                    <div class="other-related-services-list" id="other-services-list">
-                        <div class="single-service">
-                            <span>Electrical</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Plumbing</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Roofing</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Interiors</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Carpentry</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Painting</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Roofing</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Demolition</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Excavation</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
-                        <div class="single-service">
-                            <span>Roof top gardening</span>
-                            <span class="remove-service">&times;</span>
-                        </div>
+                  <div class="services-heading">Finishing & Maintenance Services:</div>
+                  <div class="other-related-services-list" id="other-services-list">
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Electrical</span>
                     </div>
-                    <div id="add-other-service">Add More</div>
-                    <div id="other-input-container" class="input-container" style="display:none;">
-                        <input type="text" id="other-input" placeholder="Enter new service">
-                        <span id="add-other-button">Add</span>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Plumbing</span>
                     </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Roofing</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Interiors</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Carpentry</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Painting</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Roofing</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Demolition</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Excavation</span>
+                    </div>
+                    <div class="single-service">
+                      <input type="checkbox" class="service-checkbox">
+                      <span>Roof top gardening</span>
+                    </div>
+                  </div>
+                  <div id="add-other-service">Add More</div>
+                  <div id="other-input-container" class="input-container" style="display:none;">
+                    <input type="text" id="other-input" placeholder="Enter new service">
+                    <span id="add-other-button">Add</span>
+                  </div>
                 </div>
-                
-            </div>
+              </div>
+              
             <div class="main-project">
                 <div class="add-project">
                     <button class="openModalBtn" data-modal="modal-add-project">Add Project</button>
@@ -641,11 +641,21 @@
         
                 <!-- submit block -->
                 <div class="next-block">
-                    <span id="conpro-form-submit">Submit</span>
+                    <button id="conpro-form-submit" class="btn btn-primary">Submit</button>
                 </div>
+                
             </div>
         </div>
     </div>
+    <div id="confirmPopup" class="confirm-popup" style="display: none;">
+        <div class="confirm-popup-content">
+          <p>Are you sure you want to Proceed ?</p>
+          <hr>
+          <button id="confirmYesBtn">Yes</button>
+          <button id="confirmNoBtn">No</button>
+        </div>
+      </div>
+      
     <!-- Add a unique notification container in your HTML -->
     <div id="customNotification" class="customNotification" style="display:none;">
         <div id="notificationMessage"></div>

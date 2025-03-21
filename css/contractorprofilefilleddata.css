@@ -234,6 +234,13 @@
  .form .header>span{
   color: gray;
 }
+/* Personal */
+.main-profile-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
 .form-group1 {
     display: flex;
     flex-direction: column;
@@ -256,6 +263,26 @@
     background-color: #F9FAFB;
     color: rgb(92, 92, 92);
     resize: none;
+}
+.form-group1 textarea{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s ease;
+    background-color: #F9FAFB;
+    color: rgb(92, 92, 92);
+    resize: none;
+}
+#update-btn-unique{
+    background-color: #008994;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
 }
 @media (max-width:768px) {
   .organisation-info-container{
@@ -294,6 +321,7 @@
     gap: 10px;
     border-radius: 20px;
     background-color: rgb(216, 216, 216);
+    font-size: 14px;
 }
 .construction-related-services-list .single-service>span:first-child,
 .other-related-services-list .single-service>span:first-child{
@@ -642,6 +670,132 @@ transition: color 0.3s;
   border-radius: 6px;
   cursor: pointer;
 }
+/* Modal Styles */
+.projects1Modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.projects1Modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.projects1Close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.projects1Close:hover,
+.projects1Close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Button Styles */
+.projects1Modal button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.projects1Modal button:hover {
+  background-color: #45a049;
+}
+
+.projects1Modal form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+.projects1Modal form>div{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+}
+
+form input {
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+  background-color: #F9FAFB;
+  color: rgb(92, 92, 92);
+}
+
+.projects1Modal form label {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* Project Box Styles */
+.projects-info-container {
+  padding: 20px;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-box {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.project-name h4,
+.project-price .price,
+.project-address .pro-address,
+.contractor-name .con-name {
+  margin: 5px 0;
+}
+
+.project-box .edit-btn {
+  margin-top: 10px;
+  background-color: #008992;
+  color: white;
+  border: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-box .edit-btn:hover {
+  background-color: #056e75;
+}
+
+
 
 
   

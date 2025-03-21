@@ -56,17 +56,6 @@ const isPersonalDetailsComplete = () =>
     "response-time",
   ].every((id) => document.getElementById(id).value.trim());
 
-// Function to check if all organisation details are filled
-const isOrganisationDetailsComplete = () =>
-  [
-    "org-name",
-    "gst-no",
-    "working-from",
-    "working-to",
-    "org-address",
-    "org-state",
-    "org-desc",
-  ].every((id) => document.getElementById(id).value.trim());
 
 // Generalized navigation handler
 const handleNavigation = (targetDiv) => {
@@ -110,19 +99,55 @@ menuItems.projects.addEventListener("click", () => {
 
 // Handle Next click on personal details
 personalSubmitBtn.addEventListener("click", () => {
-  if (isPersonalDetailsComplete()) {
+  const allFields = [
+    { id: 'contractor-name', required: true },
+    { id: 'mobile-no', required: true, validate: (value) => value.length === 10 },
+    { id: 'email-id', required: true },
+    { id: 'work-exp', required: true },
+    { id: 'aadhaar-number', required: true, validate: (value) => value.length === 12 },
+    { id: 'contractor-address', required: true },
+    { id: 'contractor-city', required: true },
+    { id: 'contractor-pincode', required: true },
+    { id: 'contractor-state', required: true },
+    { id: 'contractor-country', required: true },
+    { id: 'response-time', required: true }
+  ];
+
+  let allValid = true;
+
+  allFields.forEach(({ id, required, validate }) => {
+    const inputElement = document.getElementById(id);
+    const inputValue = inputElement.value.trim();
+
+    // Reset border color to default
+    inputElement.style.border = '';
+
+    // Check for empty required fields
+    if (required && !inputValue) {
+      inputElement.style.border = '1px solid red';
+      allValid = false;
+    }
+
+    // Additional validation for mobile and Aadhaar
+    if (validate && !validate(inputValue)) {
+      inputElement.style.border = '1px solid red';
+      allValid = false;
+    }
+  });
+
+  if (allValid) {
     const mobileNo = document.getElementById('mobile-no').value;
-    const aadhaar=document.getElementById('aadhaar-number').value;
-    
-    // Check if the mobile number is exactly 10 digits
-    if (mobileNo.length === 10 && aadhaar.length==12 ) {
+    const aadhaar = document.getElementById('aadhaar-number').value;
+
+    // Check if mobile number and Aadhaar are correct length
+    if (mobileNo.length === 10 && aadhaar.length === 12) {
       handleNavigation(menuItems.org);
       document.getElementById("personal-txt").style.color = "green";
     } else {
       showNotification("Please enter correct inputs before proceeding.");
     }
   } else {
-    showNotification("Please fill in all required fields before proceeding.");
+    showNotification("Please fill in all required fields with correct data before proceeding.");
   }
 });
 
@@ -201,31 +226,86 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
-// Handle Next click on organisation details
-orgSubmitBtn.addEventListener("click", () => {
-  if (isOrganisationDetailsComplete()) {
-    const gstNo = document.getElementById('gst-no').value.toUpperCase();
-
-    // GST validation pattern: 2 digits + 5 uppercase letters + 4 digits + 1 uppercase letter + 1 digit (1-9) + 'Z' + 1 alphanumeric
-    const gstPattern = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}Z[A-Z0-9]{1}$/;
-
-    if (gstPattern.test(gstNo)) {
+const isOrganisationDetailsComplete = () => 
+  [
+    "org-name",
+    "gst-no",
+    "working-from",
+    "working-to",
+    "org-address",
+    "org-state",
+    "org-desc",
+    "organisation-file-path", // Adding the logo input ID here
+  ].every((id) => document.getElementById(id).value.trim() || (id === "organisation-file-path" && document.getElementById(id).files.length > 0));
+  
+  const resetInputBorders = () => {
+    const inputs = document.querySelectorAll('input, select');
+    inputs.forEach(input => {
+      input.style.border = ''; // Reset any red border
+    });
+  
+    // Reset image border
+    const logoImage = document.getElementById('organisation-profile-img');
+    if (logoImage) {
+      logoImage.style.border = ''; // Reset red border on the logo image
+    }
+  };
+  
+  
+  orgSubmitBtn.addEventListener("click", () => {
+    resetInputBorders(); // Reset borders before checking
+  
+    if (isOrganisationDetailsComplete()) {
+      const gstNo = document.getElementById('gst-no').value.toUpperCase();
+  
+      // GST validation pattern: 2 digits + 5 uppercase letters + 4 digits + 1 uppercase letter + 1 digit (1-9) + 'Z' + 1 alphanumeric
+      const gstPattern = /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}Z[A-Z0-9]{1}$/;
+  
+      // Validate GST number format
+      if (!gstPattern.test(gstNo)) {
+        showNotification("Please enter a valid GST number in the correct format.");
+        document.getElementById('gst-no').style.border = '1px solid red'; // Turn GST field red
+        return;
+      }
+  
+      // All fields are filled correctly, proceed
       organisationTxt.classList.add("profile-txt-finished");
+  
+      // Hide the current details sections and show the next section
       document.querySelectorAll(
         ".personal-all-details, .organisation-all-details, .project-all-details, .payment-all-details"
       ).forEach((div) => (div.style.display = "none"));
-      
+  
       document.querySelector(".project-all-details").style.display = "flex";
     } else {
-      showNotification("Please enter a valid GST number in the correct format.");
+      showNotification("Please complete all fields in the organisation details to proceed.");
+  
+      // Turn the borders of empty fields red and add red border to the logo if not uploaded
+      [
+        "org-name",
+        "gst-no",
+        "working-from",
+        "working-to",
+        "org-address",
+        "org-state",
+        "org-desc",
+        "organisation-file-path", // Check for logo
+      ].forEach((id) => {
+        const field = document.getElementById(id);
+        if (id === "organisation-file-path" && field.files.length === 0) {
+          field.style.border = '1px solid red'; // Add red border to file input
+          const logoImage = document.getElementById('organisation-profile-img');
+          if (logoImage) {
+            logoImage.style.border = '1px solid red'; // Add red border to the image
+          }
+        } else if (!field.value.trim()) {
+          field.style.border = '1px solid red'; // Add red border to empty fields
+        }
+      });
+  
       organisationTxt.classList.remove("profile-txt-finished");
     }
-  } else {
-    showNotification("Please complete all fields in the organisation details to proceed.");
-    organisationTxt.classList.remove("profile-txt-finished");
-  }
-});
+  });
 
 // Handle personal text click within organisation-all-details
 document.getElementById("personal-txt").addEventListener("click", () => {
@@ -454,14 +534,38 @@ saveProjectBtn.addEventListener("click", () => {
 
 
 
-// Handle form submission
+const confirmPopup = document.getElementById("confirmPopup");
+const confirmYesBtn = document.getElementById("confirmYesBtn");
+const confirmNoBtn = document.getElementById("confirmNoBtn");
+const serviceCheckboxes = document.querySelectorAll(".service-checkbox");
+
 formSubmitBtn.addEventListener("click", () => {
+  // Check if at least one checkbox is selected
+  const isAnyCheckboxChecked = Array.from(serviceCheckboxes).some(checkbox => checkbox.checked);
+
   if (projectCount > 0) {
-    window.location.href = "../html/contractorleadpackageplans.html";
+    if (isAnyCheckboxChecked) {
+      // Show the custom confirm popup if a project is uploaded and at least one checkbox is checked
+      confirmPopup.style.display = "flex";
+    } else {
+      showNotification("Please select at least one service before proceeding.");
+    }
   } else {
     showNotification("Please upload at least one project before proceeding.");
   }
 });
+
+confirmYesBtn.addEventListener("click", () => {
+  window.location.href = "../html/contractorleadpackageplans.html"; // Redirect to the next page
+  confirmPopup.style.display = "none"; // Hide the popup
+});
+
+confirmNoBtn.addEventListener("click", () => {
+  confirmPopup.style.display = "none"; // Close the popup without action
+});
+
+
+
 
 // Close modal when clicking outside
 window.addEventListener("click", (event) => {
@@ -536,7 +640,12 @@ document.getElementById('work-exp').addEventListener('input', function(event) {
   if (event.target.value.length > 2) {
     event.target.value = event.target.value.substring(0, 2);
   }
+
+  if (parseInt(event.target.value) > 45) {
+    event.target.value = '45';
+  }
 });
+
 
 document.getElementById('aadhaar-number').addEventListener('input', function(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
@@ -589,79 +698,85 @@ document.getElementById('gst-no').addEventListener('input', function(event) {
 
   event.target.value = value; // Update input field with valid characters only
 });
+document.getElementById('construction-input').addEventListener('input', function(event) {
+  let value = event.target.value;
+          value = value.replace(/[^a-zA-Z\s]/g, '');
+          if (value.startsWith(' ')) {
+              value = value.slice(1);
+          }
+          event.target.value = value;
+});
+document.getElementById('other-input').addEventListener('input', function(event) {
+  let value = event.target.value;
+          value = value.replace(/[^a-zA-Z\s]/g, '');
+          if (value.startsWith(' ')) {
+              value = value.slice(1);
+          }
+          event.target.value = value;
+});
 
 
-
-// Remove service when X is clicked
+// Services
 document.addEventListener("DOMContentLoaded", function() {
-  // Function to remove a service
-  function removeService(event) {
-      const serviceElement = event.target.closest('.single-service');
-      if (serviceElement) {
-          serviceElement.remove();
-      }
-  }
 
-  // Add remove functionality to each existing service (Building & Renovation Services)
-  const constructionServices = document.querySelectorAll('.remove-service');
-  constructionServices.forEach(service => {
-      service.addEventListener('click', removeService);
-  });
-
-  // Add remove functionality to each existing service (Finishing & Maintenance Services)
-  const otherServices = document.querySelectorAll('.remove-service');
-  otherServices.forEach(service => {
-      service.addEventListener('click', removeService);
-  });
-
-  // Handle Add More for Building & Renovation Services
+  // Function to add new service to the list (Building & Renovation Services)
   const addConstructionButton = document.getElementById("add-construction-service");
   const constructionInputContainer = document.getElementById("construction-input-container");
   const addConstructionServiceBtn = document.getElementById("add-construction-button");
-
+  
   addConstructionButton.addEventListener("click", function() {
-      constructionInputContainer.style.display = "block"; // Show input
+    constructionInputContainer.style.display = "block"; // Show input
   });
-
+  
   addConstructionServiceBtn.addEventListener("click", function() {
-      const inputValue = document.getElementById("construction-input").value;
-      if (inputValue.trim() !== "") {
-          const newService = document.createElement("div");
-          newService.classList.add("single-service");
-          newService.innerHTML = `<span>${inputValue}</span><span class="remove-service">X</span>`;
-          document.getElementById("construction-services-list").appendChild(newService);
+    const inputValue = document.getElementById("construction-input").value;
+    if (inputValue.trim() === "") {
+      showNotification("Please enter a service name.");
+    } else {
+      const newService = document.createElement("div");
+      newService.classList.add("single-service");
+      newService.innerHTML = `
+        <input type="checkbox" class="service-checkbox" checked>
+        <span>${inputValue}</span>`;
+      document.getElementById("construction-services-list").appendChild(newService);
 
-          // Add event listener to the new cross mark
-          newService.querySelector('.remove-service').addEventListener('click', removeService);
-          document.getElementById("construction-input").value = ""; // Clear input
-          constructionInputContainer.style.display = "none"; // Hide input
-      }
+  
+      // Reset input field and hide it after adding the service
+      document.getElementById("construction-input").value = "";
+      constructionInputContainer.style.display = "none"; // Hide input
+    }
   });
-
-  // Handle Add More for Finishing & Maintenance Services
+  
+  // Function to add new service to the list (Finishing & Maintenance Services)
   const addOtherButton = document.getElementById("add-other-service");
   const otherInputContainer = document.getElementById("other-input-container");
   const addOtherServiceBtn = document.getElementById("add-other-button");
-
+  
   addOtherButton.addEventListener("click", function() {
-      otherInputContainer.style.display = "block"; // Show input
+    otherInputContainer.style.display = "block"; // Show input
   });
-
+  
   addOtherServiceBtn.addEventListener("click", function() {
-      const inputValue = document.getElementById("other-input").value;
-      if (inputValue.trim() !== "") {
-          const newService = document.createElement("div");
-          newService.classList.add("single-service");
-          newService.innerHTML = `<span>${inputValue}</span><span class="remove-service">X</span>`;
-          document.getElementById("other-services-list").appendChild(newService);
-
-          // Add event listener to the new cross mark
-          newService.querySelector('.remove-service').addEventListener('click', removeService);
-          document.getElementById("other-input").value = ""; // Clear input
-          otherInputContainer.style.display = "none"; // Hide input
-      }
+    const inputValue = document.getElementById("other-input").value;
+    if (inputValue.trim() === "") {
+      showNotification("Please enter a service name.");
+    } else {
+      const newService = document.createElement("div");
+      newService.classList.add("single-service");
+      newService.innerHTML = `
+        <input type="checkbox" class="service-checkbox" checked>
+        <span>${inputValue}</span>`;
+      document.getElementById("other-services-list").appendChild(newService);
+  
+      // Reset input field and hide it after adding the service
+      document.getElementById("other-input").value = "";
+      otherInputContainer.style.display = "none"; // Hide input
+    }
   });
 });
+
+
+
 
 
 
