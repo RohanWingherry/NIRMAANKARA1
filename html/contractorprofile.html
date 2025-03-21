@@ -497,98 +497,186 @@
       </div>
       <div class="main-profil-card">
         <div class="profile-card">
-          <h5>Organisation Logo</h5>
-          <div class="image-container">
-            <img src="../assets/logo.png" alt="Profile Picture" id="profile-image">
-            <label class="add-btn" for="file-input"><span class="material-symbols-rounded">edit</span></label>
-            <input type="file" id="file-input" accept="image/*" onchange="updateImage(event)">
-          </div>
-          <h3>Yuktha Constructions</h3>
+            <h5>Organisation Logo</h5>
+            <div class="image-container">
+                <img src="../assets/logo.png" alt="Profile Picture" id="profile-image">
+                <label class="add-btn" for="file-input"><span class="material-symbols-rounded">edit</span></label>
+                <input type="file" id="file-input" accept="image/*" onchange="updateImage(event)">
+            </div>
+            <h3 id="profile-name" contenteditable="true" oninput="handleTextChange()">Yuktha Constructions</h3>
+            <!-- Add a container for the update button -->
+            <div id="update-btn-container" style="display: none;">
+                <button id="update-btn" onclick="handleUpdateClick()">Update</button>
+            </div>
         </div>
-      </div>
+        </div>
+    
+    
+    
     </div>
     <div class="main-service-prsonal">
-      <div class="personal-info-container">
-        <div class="header">
-          <h2>Personal info</h2>
-          <span class="material-symbols-rounded">edit_square</span>
-    
-        </div>
-        <div class="form">
-          <div class="form-group">
-            <label for="full-name">Full name</label>
-            <input type="text" id="full-name" disabled placeholder="Gabriela Richardson">
-          </div>
-          <div class="form-group">
-            <label for="contr-email">Email</label>
-            <input type="email" id="contr-email" disabled placeholder="gabriela24@gmail.com">
-          </div>
-          <div class="form-group">
-            <label for="phone-number">Contact number</label>
-            <input type="text" id="phone-number" disabled placeholder="8123205422">
-          </div>
-          <div class="form-group">
-            <label for="work-exp">Work Experience</label>
-            <input type="text" id="work-exp" disabled value="2 Years">
-          </div>
-          <div class="form-group">
-            <label for="aadhaar-number">Aadhaar Number</label>
-            <input type="text" id="aadhaar-number" disabled value="308581475825">
-          </div>
-          <div class="form-group">
-            <label for="contractor-address">Address</label>
-            <textarea name="" id="contractor-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
-          </div>
-        </div>
-      </div>
+            <div class="personal-info-container">
+                <div class="header">
+                    <h2>Personal info</h2>
+                    <span class="material-symbols-rounded">edit_square</span>
+                </div>
+                <div class="form">
+                    <div class="form-group">
+                        <label for="full-name">Full name</label>
+                        <input type="text" id="full-name" disabled placeholder="Gabriela Richardson">
+                    </div>
+                    <div class="form-group">
+                        <label for="contr-email">Email</label>
+                        <input type="email" id="contr-email" disabled placeholder="gabriela24@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Mobile Number</label>
+                        <input type="text" id="phone-number" disabled placeholder="8123205422">
+                    </div>
+                    <div class="form-group">
+                        <label for="work-exp">Work Experience</label>
+                        <input type="text" id="work-exp" disabled value="2 Years">
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhaar-number">Aadhaar Number</label>
+                        <input type="text" id="aadhaar-number" disabled value="308581475825">
+                    </div>
+                    <div class="form-group">
+                        <label for="cont-country-1">Country</label>
+                        <select id="cont-country-1" disabled>
+                            <option value="India" selected>India</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cont-state-1">State</label>
+                        <select id="cont-state-1" disabled>
+                            <option value="" disabled>Select your State</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cont-city-1">City</label>
+                        <input type="text" id="cont-city-1" disabled value="Bangalore">
+                    </div>
+                    <div class="form-group">
+                        <label for="cont-pincode-1">Pincode</label>
+                        <input type="number" id="cont-pincode-1" disabled value="581115">
+                    </div>
+                    <div class="form-group">
+                        <label for="contractor-address">Address</label>
+                        <textarea name="" id="contractor-address" disabled cols="20">Ashok Nagar 3rd Cross 1st main, Ranebennur</textarea>
+                    </div>
+                </div>
+                <div class="update-buttons">
+                    <button id="personal-details-update" style="display: none;">Update</button>
+                </div>
+            </div>
+        
+        
       <div class="service-info-container">
         <div class="header">
           <h2>Services</h2>
-          <div id="add-construction-service">+ Add More</div>
-          <div id="construction-input-container" class="input-container" style="display:none;">
-            <input type="text" id="construction-input" placeholder="Enter new service">
-            <span id="add-construction-button">Add</span>
-        </div>
         </div>
         <div class="Services-form">
-          <div class="construction-related-services-list" id="construction-services-list">
-            <div class="single-service">
-                <span>Building Re-Modulation</span>
-                <span class="remove-service">&times;</span>
+            <div class="main-construction-services">
+                <div class="services-heading">Building & Renovation Services:</div>
+                <div class="construction-related-services-list" id="construction-services-list">
+                    <div class="single-service">
+                        <span>Building Re-Modulation</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Independent House/ Villa</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Residential Apartment</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Serviced Apartment</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Industries</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Complex</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Commercial</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Farm House</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Venture Development</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                </div>
+                <div id="add-construction-service">Add More</div>
+                <div id="construction-input-container" class="input-container" style="display:none;">
+                    <input type="text" id="construction-input" placeholder="Enter new service">
+                    <span id="add-construction-button">Add</span>
+                </div>
             </div>
-            <div class="single-service">
-                <span>Independent House/ Villa</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Residential Apartment</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Serviced Apartment</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Industries</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Complex</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Commercial</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Farm House</span>
-                <span class="remove-service">&times;</span>
-            </div>
-            <div class="single-service">
-                <span>Venture Development</span>
-                <span class="remove-service">&times;</span>
+            
+            <div class="main-other-services">
+                <div class="services-heading">Finishing & Maintenance Services:</div>
+                <div class="other-related-services-list" id="other-services-list">
+                    <div class="single-service">
+                        <span>Electrical</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Plumbing</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Roofing</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Interiors</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Carpentry</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Painting</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Roofing</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Demolition</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Excavation</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                    <div class="single-service">
+                        <span>Roof top gardening</span>
+                        <span class="remove-service">&times;</span>
+                    </div>
+                </div>
+                <div id="add-other-service">Add More</div>
+                <div id="other-input-container" class="input-container" style="display:none;">
+                    <input type="text" id="other-input" placeholder="Enter new service">
+                    <span id="add-other-button">Add</span>
+                </div>
             </div>
         </div>
+        <div class="update-buttons" id="update-button" style="display:none; margin-top: 20px;">
+            <button>Update</button>
         </div>
       </div>
     </div>
@@ -787,6 +875,12 @@
         </div>
       </div>
     </div>
+    <!-- Add a unique notification container in your HTML -->
+    <div id="customNotification" class="customNotification" style="display:none;">
+        <div id="notificationMessage"></div>
+        <hr>
+        <button id="okButton" class="okButton">OK</button>
+    </div>
   </div>
   <!-- footer -->
 <div class="main-footer-box">
@@ -854,7 +948,7 @@
 <script src="../javascript/sidenavbar.js"></script>
 <script src="../javascript/navbarfooterinner.js"></script>
 <script src="../javascript/contractorprofilefilleddata.js"></script>
-<script src="../javascript/logoutoptions.js"></script>
+<!-- <script src="../javascript/logoutoptions.js"></script> -->
 
 </body>
 </html>

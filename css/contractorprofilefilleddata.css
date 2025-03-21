@@ -8,6 +8,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
 }
 .personal-info-container {
     background-color: #fff;
@@ -74,7 +75,7 @@
     font-weight: 500;
 }
   
-.form-group input, #contractor-address,#org-address,#org-desc{
+.form-group input, #contractor-address,#org-address,#org-desc,.form-group select{
     padding: 8px 10px;
     border: none;
     border-radius: 6px;
@@ -135,6 +136,7 @@
   background-color: #F9FAFB;
   padding: 10px;
   border-radius: 15px;
+  
 }
 .profile-card {
   width: 250px;
@@ -178,7 +180,11 @@
   cursor: pointer;
   font-size: 20px;
 }
-
+#update-button-org-logo{
+  border: 2px solid red;
+  color: black;
+  z-index: 999;
+}
 .profile-card h3 {
   margin: 15px 0;
   font-size: 18px;
@@ -215,6 +221,15 @@
 }
 .profile-card input[type="file"] {
   display: none;
+}
+#update-btn{
+  background-color: #008994;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
  .form .header>span{
   color: gray;
@@ -254,15 +269,23 @@
   }
 }
 /* Srvics */
-.construction-related-services-list{
+ .main-construction-services .services-heading,
+.main-other-services .services-heading{
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(54, 54, 54);
+    margin-bottom: 10px;
+}
+.main-construction-services .construction-related-services-list,
+.main-other-services .other-related-services-list{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
-    width: 100%;  
 }
-.construction-related-services-list .single-service{
+.main-construction-services .construction-related-services-list .single-service,
+.main-other-services .other-related-services-list .single-service{
     border: 1px solid grey;
     padding: 5px 10px;
     display: flex;
@@ -272,55 +295,69 @@
     border-radius: 20px;
     background-color: rgb(216, 216, 216);
 }
-.single-service>span:first-child{
+.construction-related-services-list .single-service>span:first-child,
+.other-related-services-list .single-service>span:first-child{
     font-size: 14px;
 }
-.construction-related-services-list .single-service .remove-service{
+.construction-related-services-list .single-service .remove-service,
+.other-related-services-list .single-service .remove-service{
     color: red;
     font-weight: bold;
     cursor: pointer;
 }
-.main-construction-services #add-construction-service{
+.main-construction-services #add-construction-service,
+.main-other-services  #add-other-service{
     background-color: #D96F2C;
     color: white;
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-}
-#add-construction-service{
-  font-size: 14px;
-  background-color: #D96F2C;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
 }
 
-.input-container{
+.main-construction-services .input-container,
+.main-other-services .input-container{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    margin-bottom: 10px;
 }
- .input-container>input{
+.main-construction-services .input-container>input,
+.main-other-services .input-container>input{
     padding: 5px;
     font-size: 14px;
     border: 1px solid grey;
     border-radius: 5px;
 }
- .input-container>span{
-    background-color: #0B3A62;
+.main-construction-services .input-container>span,
+.main-other-services .input-container>span{
+    background-color: #008994;
     color: white;
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
+.update-buttons>button{
+  background-color: #008994;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 /* Projcts */
-.project-container-heading{
-  padding: 0px 0px 0px 50px;
-  margin-bottom: 20px;
+.projects-info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  padding: 20px;
 }
 .project-container-heading>span{
   font-size: 20px;
@@ -330,7 +367,7 @@
 .project-container{
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   padding-bottom: 20px;
