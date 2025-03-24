@@ -397,8 +397,8 @@ function toggleUpdateButton() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" checked>
-        <span>${inputValue}</span>`;
+        <input type="checkbox" class="service-checkbox" id="new-construction-service" checked>
+        <label for="new-construction-service">${inputValue}</label>`;
       document.getElementById("construction-services-list").appendChild(newService);
   
       // Add event listener to the new checkbox
@@ -427,8 +427,8 @@ function toggleUpdateButton() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" checked>
-        <span>${inputValue}</span>`;
+        <input type="checkbox" class="service-checkbox" id="new-other-service" checked>
+        <label for="new-other-service">${inputValue}</label>`;
       document.getElementById("other-services-list").appendChild(newService);
   
       // Add event listener to the new checkbox
