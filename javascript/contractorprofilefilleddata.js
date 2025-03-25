@@ -32,40 +32,42 @@ function showNotification(message, type = 'success') {
 
 
 // Organisation Logo and Organisation Text
-    function updateImage(event) {
-        const profileImage = document.getElementById("profile-image");
-        const updateBtnContainer = document.getElementById("update-btn-container");
-        const file = event.target.files[0];
-    
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                profileImage.src = e.target.result;
-                // Display the update button once an image is loaded
-                updateBtnContainer.style.display = "block";
-            };
-            reader.readAsDataURL(file);
-        }
+const fileInput = document.getElementById('file-input');
+const profileImage = document.getElementById('profile-image');
+const updateButton1 = document.getElementById('update-btn-container-logo');
+const profileName = document.getElementById('profile-name');
+
+fileInput.addEventListener('change', function() {
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader(); 
+        reader.onload = function(event) {
+            profileImage.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+        updateButton1.style.display = 'inline-block';
     }
-    
-    function handleUpdateClick() {
-        // Show the alert when the Update button is clicked
-        showNotification("Changes saved!");
-    
-        // Hide the update button after the alert
-        const updateBtnContainer = document.getElementById("update-btn-container");
-        updateBtnContainer.style.display = "none";
-    }
-    
-    // Handle changes in the h3 text
-    function handleTextChange() {
-        const updateBtnContainer = document.getElementById("update-btn-container");
-        updateBtnContainer.style.display = "block";  // Show the update button when the text is edited
-    }
+});
+
+profileName.addEventListener('click', function() {
+    profileName.contentEditable = 'true';
+    updateButton1.style.display = 'none';
+});
+
+profileName.addEventListener('input', function() {
+    updateButton1.style.display = 'inline-block';
+});
+
+// Event listener for update button click (updating text)
+updateButton1.addEventListener('click', function() {
+    showNotification('Updated Successfully!');
+    updateButton1.style.display = 'none';
+    profileName.contentEditable = 'false';
+});
 
 
 //Organisation Edit Button
-const editIcon = document.getElementById('edit-icon');  // Updated ID
+const editIcon = document.getElementById('edit-icon'); 
 const inputs = document.querySelectorAll('.form-group1 input, .form-group1 textarea');
 const updateBtnContainer = document.getElementById('update-btn-container');
 const updateBtn = document.getElementById('update-btn');
@@ -94,7 +96,7 @@ inputs.forEach(input => {
     });
 });
 
-function handleUpdateClick1() {
+function handleUpdateLogo1() {
     showNotification('Updated successfully');
     inputs.forEach(input => {
         input.disabled = true;  // Disable all input fields after update

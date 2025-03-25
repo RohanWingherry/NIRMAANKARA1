@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-content {
+    font-family: "Poppins", sans-serif;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.workhead {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.workhead span {
+    font-size: 28px;
+    font-weight: 600;
+    color: #4682B4;
+}
+.work-status-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+
+}
+.work-status-details>.left-side-details{
+    max-width: 600px;
+    width: 100%;
+}
+.work-status-details>.left-side-details>div {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+}
+.work-status-details>.right-side-details>div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+}
+.work-status-details span {
+    font-size: 16px;
+}
+.work-status-details span:first-child{
+    font-weight: 500;
+}
+
+.work-status-details #work-date,
+.work-status-details #work-name,
+.work-status-details #work-project,
+.work-status-details #work-site,
+.work-status-details #work-nopte {
+    font-weight: 500;
+    color: #555;
+}
+
+.image-section, .video-section {
+    margin-top: 40px;
+}
+
+.image-head, .video-head {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4682B4;
+    margin-bottom: 15px;
+}
+
+.video-main,.image-main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: 10px;
+}
+.images, .videos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.images img, .videos video {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.images img:hover, .videos video:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .work-status-details div {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .images, .videos {
+        display: block;
+        margin-bottom: 15px;
+    }
+}
