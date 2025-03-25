@@ -154,7 +154,6 @@ function handleUpdateLogo1() {
 
 // Personal Info 
 document.addEventListener("DOMContentLoaded", function () {
-    
     const editIcon2 = document.querySelector('.personal-info-container .header .material-symbols-rounded');
     const inputs2 = document.querySelectorAll('.personal-info-container .form-group input, .personal-info-container .form-group textarea, .personal-info-container .form-group select');
     const updateButton = document.getElementById("personal-details-update");
@@ -320,6 +319,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return isValid;
     };
 
+    // Check for changes in name, mobile number, or email and navigate
+    const redirectToProfileIfModified = () => {
+        const fullName = document.getElementById("full-name");
+        const mobileNumber = document.getElementById("phone-number");
+        const email = document.getElementById("contr-email");
+
+        // Check if any of these fields are modified
+        if (fullName.value !== initialValues["full-name"] || 
+            mobileNumber.value !== initialValues["phone-number"] || 
+            email.value !== initialValues["contr-email"]) {
+            
+            window.location.href = "myprofile.html"; // Redirect to the profile page
+        }
+    };
+
+    // Listen for changes in the name, mobile number, or email fields
+    document.getElementById("full-name").addEventListener('input', redirectToProfileIfModified);
+    document.getElementById("phone-number").addEventListener('input', redirectToProfileIfModified);
+    document.getElementById("contr-email").addEventListener('input', redirectToProfileIfModified);
+
     updateButton.addEventListener("click", () => {
         if (validateFields()) {
             showNotification("Updated successfully");
@@ -340,6 +359,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 
 // Service
