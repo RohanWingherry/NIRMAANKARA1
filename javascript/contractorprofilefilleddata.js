@@ -363,6 +363,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Service
+document.querySelectorAll('.remove-service').forEach(function(removeButton) {
+    removeButton.addEventListener('click', function(event) {
+        // Find the parent <div> of the clicked "×" and remove it
+        var serviceElement = event.target.parentElement;
+        serviceElement.remove();
+    });
+});
 // Function to toggle the update button visibility
 function toggleUpdateButton() {
     const updateButton = document.getElementById("update-button");
@@ -419,8 +426,8 @@ function toggleUpdateButton() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" id="new-construction-service" checked>
-        <label for="new-construction-service">${inputValue}</label>`;
+        <span class="service-name">${inputValue}</span>
+        <span class="service-checkbox remove-service" id="new-construction-service">&times;</span>`;
       document.getElementById("construction-services-list").appendChild(newService);
   
       // Add event listener to the new checkbox
@@ -449,8 +456,8 @@ function toggleUpdateButton() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" id="new-other-service" checked>
-        <label for="new-other-service">${inputValue}</label>`;
+        <span class="service-name">${inputValue}</span>
+        <span class="service-checkbox remove-service" id="new-other-service">&times;</span>`;
       document.getElementById("other-services-list").appendChild(newService);
   
       // Add event listener to the new checkbox

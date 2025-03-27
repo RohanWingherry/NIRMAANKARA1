@@ -719,6 +719,14 @@ document.getElementById('other-input').addEventListener('input', function(event)
 // Services
 document.addEventListener("DOMContentLoaded", function() {
 
+  document.querySelectorAll('.remove-service').forEach(function(removeButton) {
+    removeButton.addEventListener('click', function(event) {
+        // Find the parent <div> of the clicked "×" and remove it
+        var serviceElement = event.target.parentElement;
+        serviceElement.remove();
+    });
+});
+
   // Function to add new service to the list (Building & Renovation Services)
   const addConstructionButton = document.getElementById("add-construction-service");
   const constructionInputContainer = document.getElementById("construction-input-container");
@@ -736,8 +744,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" checked>
-        <span>${inputValue}</span>`;
+        <span>${inputValue}</span>
+        <span class="service-checkbox remove-service">&times;</span>
+        `;
       document.getElementById("construction-services-list").appendChild(newService);
 
   
@@ -764,8 +773,8 @@ document.addEventListener("DOMContentLoaded", function() {
       const newService = document.createElement("div");
       newService.classList.add("single-service");
       newService.innerHTML = `
-        <input type="checkbox" class="service-checkbox" checked>
-        <span>${inputValue}</span>`;
+        <span>${inputValue}</span>
+        <span class="service-checkbox remove-service">&times;</span>`;
       document.getElementById("other-services-list").appendChild(newService);
   
       // Reset input field and hide it after adding the service

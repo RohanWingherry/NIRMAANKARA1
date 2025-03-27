@@ -320,12 +320,17 @@
     justify-content: center;
     gap: 10px;
     border-radius: 20px;
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(209, 209, 209);
     font-size: 14px;
+}
+.main-construction-services .construction-related-services-list .single-service:nth-child(odd),
+.main-other-services .other-related-services-list .single-service:nth-child(odd){
+  background-color: rgb(236, 236, 236);
 }
 .construction-related-services-list .single-service>span:first-child,
 .other-related-services-list .single-service>span:first-child{
     font-size: 14px;
+    font-weight: 400;
 }
 .construction-related-services-list .single-service .remove-service,
 .other-related-services-list .single-service .remove-service{
